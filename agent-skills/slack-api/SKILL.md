@@ -4,48 +4,67 @@ description: Use authorized Slack APIs for bounded workspace operations with sco
 metadata:
   source: skills/07-tool-use/slack-api.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-slack-api.json)
 
 # Slack API
 
-## Description
-Use authorized Slack APIs for bounded workspace operations with scoped tokens, privacy controls, and verified side effects.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill when the workflow explicitly requires slack api and the target account, document, channel, or provider is authorized.
+### Description
 
-## Inputs / outputs / failure modes
+Use authorized Slack APIs for bounded workspace operations with scoped tokens, privacy controls, and verified side effects. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Use least-privilege credentials managed outside source code. |
-| Scope | Bound the operation to the intended resource and task. |
-| Inputs | Validate identifiers, content, filters, and required fields. |
-| Outputs | Preserve structured provider results needed by downstream steps. |
-| Verification | Re-check important reads or mutations when correctness matters. |
-| Privacy | Minimize exposure and retention of sensitive content. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | operation | enum | Post message, read history, or react, bounded to authorized channels |
+| Input | target | object | Explicit channel/user IDs from a verified lookup |
+| Output | response | object | Provider timestamp/thread identifiers preserved for follow-ups |
+| Output | verification | object | Re-read or permalink check confirming the side effect |
+
+### Procedure
+1. Confirm the operation and its scope against current Slack API documentation.
+2. Use a token scoped to the minimum channels and capabilities; never post the token.
+3. Address channels and users by explicit IDs from a verified lookup, not by name guesses.
+4. Post with thread_ts when the message belongs to a thread; keep payloads bounded.
+5. Verify the side effect via the returned timestamp or a permalink re-read.
+6. Respect privacy: do not pull history beyond the declared task need.
+
+### Example
 
 ```python
-import os
-request = {"tool": "slack-api", "authorized": bool(os.getenv("TOOL_AUTH"))}
-assert request["authorized"]
-print("validated tool invocation")
+post = {'channel_id': 'C012345ABC', 'text': 'Deploy finished', 'thread_ts': None}
+assert post['channel_id'].startswith('C')
+assert post['thread_ts'] is None
+print('bounded post to an explicit channel id')
 ```
 
-## Failure modes
-- Hard-coding credentials or exposing them in logs.
-- Assuming provider fields or identifiers are portable across accounts.
-- Performing side effects without validating authorization and current state.
-- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
-- Using unbounded pagination or retries.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate mutating or external-effect operations
+
+## Failure Modes
+
+- Posting to channels outside the token scope or task need.
+- Guessing channel or user identifiers.
+- Treating an ok:true response as proof the message renders correctly.
+- Exposing the token in logs or message text.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

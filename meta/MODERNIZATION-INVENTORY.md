@@ -17,23 +17,23 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2382
-- **Structural upgrade required (enriched tier):** 106
+- **Dependency evidence required:** 2402
+- **Structural upgrade required (enriched tier):** 86
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2382, enriched=106, test_fixture=1.
+Per-quality baseline: battle_tested=2402, enriched=86, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 184 |
-| v1 | 2134 |
-| v2 | 137 |
+| (none) | 165 |
+| v1 | 2133 |
+| v2 | 157 |
 | v3 | 33 |
 | v4 | 1 |
 
@@ -83,30 +83,10 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (106)
+## P1 - Structural upgrade required (enriched tier) (86)
 
 - [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
-- [skills/07-tool-use/a2a-tool.md](skills/07-tool-use/a2a-tool.md)
-- [skills/07-tool-use/browser-tool.md](skills/07-tool-use/browser-tool.md)
-- [skills/07-tool-use/calculator.md](skills/07-tool-use/calculator.md)
-- [skills/07-tool-use/code-exec-tool.md](skills/07-tool-use/code-exec-tool.md)
-- [skills/07-tool-use/custom-api-wrapper.md](skills/07-tool-use/custom-api-wrapper.md)
-- [skills/07-tool-use/file-system-tool.md](skills/07-tool-use/file-system-tool.md)
-- [skills/07-tool-use/github-api.md](skills/07-tool-use/github-api.md)
-- [skills/07-tool-use/google-workspace-api.md](skills/07-tool-use/google-workspace-api.md)
-- [skills/07-tool-use/huggingface-api.md](skills/07-tool-use/huggingface-api.md)
-- [skills/07-tool-use/news-api.md](skills/07-tool-use/news-api.md)
-- [skills/07-tool-use/notion-api.md](skills/07-tool-use/notion-api.md)
-- [skills/07-tool-use/pdf-tool.md](skills/07-tool-use/pdf-tool.md)
-- [skills/07-tool-use/sendgrid-api.md](skills/07-tool-use/sendgrid-api.md)
-- [skills/07-tool-use/slack-api.md](skills/07-tool-use/slack-api.md)
-- [skills/07-tool-use/sql-tool.md](skills/07-tool-use/sql-tool.md)
-- [skills/07-tool-use/stripe-api.md](skills/07-tool-use/stripe-api.md)
-- [skills/07-tool-use/twilio-api.md](skills/07-tool-use/twilio-api.md)
-- [skills/07-tool-use/vector-db-tool.md](skills/07-tool-use/vector-db-tool.md)
-- [skills/07-tool-use/weather-api.md](skills/07-tool-use/weather-api.md)
-- [skills/07-tool-use/wikipedia-api.md](skills/07-tool-use/wikipedia-api.md)
 - [skills/09-agentic-patterns/constitutional-ai.md](skills/09-agentic-patterns/constitutional-ai.md)
 - [skills/09-agentic-patterns/critic-agent.md](skills/09-agentic-patterns/critic-agent.md)
 - [skills/09-agentic-patterns/debate-pattern.md](skills/09-agentic-patterns/debate-pattern.md)
@@ -192,7 +172,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2382)
+## P2 - Dependency evidence required (2402)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -1148,6 +1128,7 @@ _None._
 - [skills/07-tool-use/a2a-skill-declaration-mapping.md](skills/07-tool-use/a2a-skill-declaration-mapping.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/a2a-task-lifecycle-management.md](skills/07-tool-use/a2a-task-lifecycle-management.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/a2a-tenant-scoped-communication-usage.md](skills/07-tool-use/a2a-tenant-scoped-communication-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/a2a-tool.md](skills/07-tool-use/a2a-tool.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/ag-ui-event-emission-usage.md](skills/07-tool-use/ag-ui-event-emission-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/agent-client-protocol-usage.md](skills/07-tool-use/agent-client-protocol-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/agent-launch-tracker-monitoring-tooling.md](skills/07-tool-use/agent-launch-tracker-monitoring-tooling.md) - badge color lightgrey (unscanned)
@@ -1166,17 +1147,22 @@ _None._
 - [skills/07-tool-use/api-pagination.md](skills/07-tool-use/api-pagination.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/api-version-pinning.md](skills/07-tool-use/api-version-pinning.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/azure-mcp-server-3-tool-integration.md](skills/07-tool-use/azure-mcp-server-3-tool-integration.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/browser-tool.md](skills/07-tool-use/browser-tool.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/byok-provider-key-configuration.md](skills/07-tool-use/byok-provider-key-configuration.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/calculator.md](skills/07-tool-use/calculator.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/cdp-session-log-export-usage.md](skills/07-tool-use/cdp-session-log-export-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/code-exec-tool.md](skills/07-tool-use/code-exec-tool.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/codex-cli-config-authoring.md](skills/07-tool-use/codex-cli-config-authoring.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/composite-tool-composition.md](skills/07-tool-use/composite-tool-composition.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/connect-once-connector-governance.md](skills/07-tool-use/connect-once-connector-governance.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/connector-connect-once-authorization.md](skills/07-tool-use/connector-connect-once-authorization.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/cron-expression-authoring.md](skills/07-tool-use/cron-expression-authoring.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/custom-api-wrapper.md](skills/07-tool-use/custom-api-wrapper.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/decisions-api-finite-choice-tool-usage.md](skills/07-tool-use/decisions-api-finite-choice-tool-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/edge-small-model-deployment-tool-usage.md](skills/07-tool-use/edge-small-model-deployment-tool-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/emulator-free-ui-inspection-tool-usage.md](skills/07-tool-use/emulator-free-ui-inspection-tool-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/enterprise-suite-embedded-agent-tool-usage.md](skills/07-tool-use/enterprise-suite-embedded-agent-tool-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/file-system-tool.md](skills/07-tool-use/file-system-tool.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/free-busy-availability-querying.md](skills/07-tool-use/free-busy-availability-querying.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/function-calling.md](skills/07-tool-use/function-calling.md) - badge color 22c55e (✔ verified)
 - [skills/07-tool-use/gateway-cli-selective-tool-result-inspection-usage.md](skills/07-tool-use/gateway-cli-selective-tool-result-inspection-usage.md) - badge color lightgrey (unscanned)
@@ -1185,8 +1171,11 @@ _None._
 - [skills/07-tool-use/gemini-cli-custom-command-authoring.md](skills/07-tool-use/gemini-cli-custom-command-authoring.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/gemini-universal-agent-tool-integration.md](skills/07-tool-use/gemini-universal-agent-tool-integration.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/genie-4-world-model-api-usage.md](skills/07-tool-use/genie-4-world-model-api-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/github-api.md](skills/07-tool-use/github-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/google-cloud-developer-plugin-usage.md](skills/07-tool-use/google-cloud-developer-plugin-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/google-workspace-api.md](skills/07-tool-use/google-workspace-api.md) - badge color 22c55e (✔ verified)
 - [skills/07-tool-use/harness-plugin-tool-usage.md](skills/07-tool-use/harness-plugin-tool-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/huggingface-api.md](skills/07-tool-use/huggingface-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/image-gen-tool.md](skills/07-tool-use/image-gen-tool.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/jira-api.md](skills/07-tool-use/jira-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/kubernetes-api-interaction.md](skills/07-tool-use/kubernetes-api-interaction.md) - badge color lightgrey (unscanned)
@@ -1231,7 +1220,9 @@ _None._
 - [skills/07-tool-use/mcp-well-known-capability-discovery.md](skills/07-tool-use/mcp-well-known-capability-discovery.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/mobile-proxy-sms-spend-control.md](skills/07-tool-use/mobile-proxy-sms-spend-control.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/multi-provider-redundancy.md](skills/07-tool-use/multi-provider-redundancy.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/news-api.md](skills/07-tool-use/news-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/notification-access-tool-scoping.md](skills/07-tool-use/notification-access-tool-scoping.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/notion-api.md](skills/07-tool-use/notion-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/nova-multimodal-embedding-usage.md](skills/07-tool-use/nova-multimodal-embedding-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/offline-tool-fallback.md](skills/07-tool-use/offline-tool-fallback.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/omni-mcp-incremental-tool-discovery-usage.md](skills/07-tool-use/omni-mcp-incremental-tool-discovery-usage.md) - badge color lightgrey (unscanned)
@@ -1242,20 +1233,25 @@ _None._
 - [skills/07-tool-use/openrouter-api-usage.md](skills/07-tool-use/openrouter-api-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/orchestration-platform-comparison-tooling.md](skills/07-tool-use/orchestration-platform-comparison-tooling.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/pap-personal-agent-protocol-usage.md](skills/07-tool-use/pap-personal-agent-protocol-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/pdf-tool.md](skills/07-tool-use/pdf-tool.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/persistent-workplace-agent-usage.md](skills/07-tool-use/persistent-workplace-agent-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/protocol-native-agent-gateway-usage.md](skills/07-tool-use/protocol-native-agent-gateway-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/real-time-token-usage-instrumentation.md](skills/07-tool-use/real-time-token-usage-instrumentation.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/remote-mcp-oauth-configuration.md](skills/07-tool-use/remote-mcp-oauth-configuration.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/scheduled-trigger-authoring.md](skills/07-tool-use/scheduled-trigger-authoring.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/search-federation-tooling.md](skills/07-tool-use/search-federation-tooling.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/sendgrid-api.md](skills/07-tool-use/sendgrid-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/shell-command-dry-run-analysis.md](skills/07-tool-use/shell-command-dry-run-analysis.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/shopify-api.md](skills/07-tool-use/shopify-api.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/slack-api.md](skills/07-tool-use/slack-api.md) - badge color 22c55e (✔ verified)
 - [skills/07-tool-use/small-model-tool-routing.md](skills/07-tool-use/small-model-tool-routing.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/sparse-activation-model-tool-usage.md](skills/07-tool-use/sparse-activation-model-tool-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/speech-model-fine-tuning-tool-usage.md](skills/07-tool-use/speech-model-fine-tuning-tool-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/sql-tool.md](skills/07-tool-use/sql-tool.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/stateless-session-tool-routing.md](skills/07-tool-use/stateless-session-tool-routing.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/stateless-tool-request-idempotency.md](skills/07-tool-use/stateless-tool-request-idempotency.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/streaming-tool-output.md](skills/07-tool-use/streaming-tool-output.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/stripe-api.md](skills/07-tool-use/stripe-api.md) - badge color 22c55e (✔ verified)
 - [skills/07-tool-use/teammate-role-tool-grant-scoping.md](skills/07-tool-use/teammate-role-tool-grant-scoping.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/tool-approval-allowlist-policy-testing.md](skills/07-tool-use/tool-approval-allowlist-policy-testing.md) - badge color unreadable (badge file unreadable)
 - [skills/07-tool-use/tool-argument-construction.md](skills/07-tool-use/tool-argument-construction.md) - badge color lightgrey (unscanned)
@@ -1274,13 +1270,17 @@ _None._
 - [skills/07-tool-use/tool-schema-design.md](skills/07-tool-use/tool-schema-design.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/tool-source-vetting.md](skills/07-tool-use/tool-source-vetting.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/tool-token-budget-management.md](skills/07-tool-use/tool-token-budget-management.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/twilio-api.md](skills/07-tool-use/twilio-api.md) - badge color 22c55e (✔ verified)
 - [skills/07-tool-use/ucp-universal-capability-protocol-usage.md](skills/07-tool-use/ucp-universal-capability-protocol-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/vector-db-tool.md](skills/07-tool-use/vector-db-tool.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/verified-plugin-tier-catalog-curation.md](skills/07-tool-use/verified-plugin-tier-catalog-curation.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/virtual-breakpoint-read-only-debugging.md](skills/07-tool-use/virtual-breakpoint-read-only-debugging.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/visa-tap-protocol-usage.md](skills/07-tool-use/visa-tap-protocol-usage.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/weather-api.md](skills/07-tool-use/weather-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/web-search.md](skills/07-tool-use/web-search.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/webmcp-page-tool-exposure.md](skills/07-tool-use/webmcp-page-tool-exposure.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/websocket-communication.md](skills/07-tool-use/websocket-communication.md) - badge color lightgrey (unscanned)
+- [skills/07-tool-use/wikipedia-api.md](skills/07-tool-use/wikipedia-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/wolfram-api.md](skills/07-tool-use/wolfram-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/07-tool-use/x402-crypto-payment-tool-usage.md](skills/07-tool-use/x402-crypto-payment-tool-usage.md) - badge color lightgrey (unscanned)
 - [skills/07-tool-use/x402-multi-scheme-acceptance-tooling.md](skills/07-tool-use/x402-multi-scheme-acceptance-tooling.md) - badge color lightgrey (unscanned)

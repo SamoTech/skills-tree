@@ -4,54 +4,68 @@ description: Use Google Workspace APIs for authorized Drive, Sheets, Docs, and r
 metadata:
   source: skills/07-tool-use/google-workspace-api.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-google-workspace-api.json)
 
 # Google Workspace API
 
-## Description
-Use Google Workspace APIs for authorized Drive, Sheets, Docs, and related operations with scoped credentials and explicit resource IDs.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires google workspace api, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Use Google Workspace APIs for authorized Drive, Sheets, Docs, and related operations with scoped credentials and explicit resource IDs. The invocation is contract-first: validate the tool interface and inputs before calling, and verify the observable outcome afterwards rather than trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | operation | object | API method and explicit resource IDs, bounded to the authorized scope |
+| Input | credential | reference | Scoped OAuth credential reference with the minimum declared scopes |
+| Output | response | object | Parsed response with provider identifiers preserved for downstream steps |
+| Output | verification | object | Re-read or metadata check confirming the intended effect |
+
+### Procedure
+1. Confirm the API method and required scopes against current Workspace documentation.
+2. Use the narrowest OAuth scopes that cover the declared operation.
+3. Address resources by explicit IDs provided by the caller or a prior verified lookup.
+4. Bound list operations with page tokens; never assume a single page is complete.
+5. Preserve provider identifiers (fileId, spreadsheetId) for downstream steps.
+6. Verify mutations by re-reading metadata or content; record evidence.
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "google-workspace-api",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+resource = {'file_id': '1AbC_dEf-123', 'mime': 'application/vnd.google-apps.document'}
+assert resource['file_id'] and '-' in resource['file_id']
+assert resource['mime'].startswith('application/vnd.google-apps.')
+print('explicit resource ids preserved for downstream steps')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries
+- [API Pagination](api-pagination.md) - page-token completeness
+- [Tool Output Validation](tool-output-validation.md) - validate responses
+
+## Failure Modes
+
+- Requesting broader OAuth scopes than the task needs.
+- Guessing resource IDs instead of using verified lookups.
+- Truncating paginated results silently.
+- Treating an API acknowledgement as proof of the change.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/AI_CONSTITUTION.md pointers where present).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://developers.google.com/workspace
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://developers.google.com/workspace
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

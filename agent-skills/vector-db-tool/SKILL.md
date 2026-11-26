@@ -4,54 +4,68 @@ description: Use a vector database as an agent tool for bounded upsert, filter, 
 metadata:
   source: skills/07-tool-use/vector-db-tool.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-vector-db-tool.json)
 
 # Vector DB Tool
 
-## Description
-Use a vector database as an agent tool for bounded upsert, filter, and similarity-search operations with namespace and metadata controls.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires vector db tool, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Use a vector database as an agent tool for bounded upsert, filter, and similarity-search operations with namespace and metadata controls. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | vectors | object | Bounded upsert batch with fixed dimensionality and namespace |
+| Input | search | object | Query vector, top-k bound, and metadata filter |
+| Output | matches | list | Results with ids, scores, and metadata from the declared namespace |
+| Output | verification | object | Fetch-by-id or count check confirming upsert effects |
+
+### Procedure
+1. Pin the namespace and index; never mix embeddings of different dimensions or models.
+2. Bound upsert batches and search top-k explicitly.
+3. Attach and preserve metadata needed for filtering and provenance.
+4. Validate score ranges and result shapes before downstream use.
+5. Verify upserts with a fetch-by-id or count check, not the request acknowledgement.
+6. Record the index, namespace, and model version with the operation evidence.
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "vector-db-tool",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+upsert = {'namespace': 'docs', 'dimension': 1536, 'batch_size': 100, 'top_k': 5}
+assert upsert['dimension'] == 1536
+assert upsert['top_k'] <= 10
+print('bounded namespace-scoped vector operation')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Tool Result Caching](tool-result-caching.md) - reuse verified query results
+
+## Failure Modes
+
+- Mixing embedding models or dimensions in one index.
+- Unbounded top-k or batch sizes.
+- Treating an upsert acknowledgement as durable without a fetch check.
+- Losing namespace scoping and leaking data across contexts.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://docs.pinecone.io/guides/get-started/overview
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://docs.pinecone.io/guides/get-started/overview
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

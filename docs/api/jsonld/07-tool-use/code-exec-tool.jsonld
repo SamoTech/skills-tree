@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/code-exec-tool.md",
-  "name": "code-exec-tool",
-  "headline": "code-exec-tool",
+  "name": "Code Exec Tool",
+  "headline": "Code Exec Tool",
   "description": "Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/code-exec-tool.md",
   "isPartOf": {
@@ -52,22 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:49:23Z",
+  "dateModified": "2026-11-26T18:19:18Z",
   "skillId": "code-exec-tool",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../05-code/code-execution-sandbox.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -77,7 +75,7 @@
   "keywords": "AI agent, LLM skill, code, exec, skills tree, tool, use",
   "about": {
     "@type": "Thing",
-    "name": "code-exec-tool",
-    "description": "An AI agent skill for code-exec-tool."
+    "name": "Code Exec Tool",
+    "description": "An AI agent skill for code exec tool."
   }
 }

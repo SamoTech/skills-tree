@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/file-system-tool.md",
-  "name": "file-system-tool",
-  "headline": "file-system-tool",
+  "name": "File System Tool",
+  "headline": "File System Tool",
   "description": "Operate on files through explicit paths, scope checks, content validation, and reversible changes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/file-system-tool.md",
   "isPartOf": {
@@ -52,22 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:49:23Z",
+  "dateModified": "2026-11-26T18:19:18Z",
   "skillId": "file-system-tool",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/input-sanitization.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -77,7 +75,7 @@
   "keywords": "AI agent, LLM skill, file, skills tree, system, tool, use",
   "about": {
     "@type": "Thing",
-    "name": "file-system-tool",
-    "description": "An AI agent skill for file-system-tool."
+    "name": "File System Tool",
+    "description": "An AI agent skill for file system tool."
   }
 }

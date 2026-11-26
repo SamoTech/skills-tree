@@ -4,39 +4,68 @@ description: Use agent-to-agent tool interfaces with explicit contracts, authori
 metadata:
   source: skills/07-tool-use/a2a-tool.md
   category: 07-tool-use
-  version: "v1"
+  version: "v2"
 ---
 
-## Description
-Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes. Inspect the target protocol and repository conventions before making calls.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-a2a-tool.json)
 
-## When to Use
-Use when one agent invokes another agent or agent-facing service through a defined tool interface.
+# A2a Tool
 
-## Inputs / outputs / failure modes
+**Category:** `tool-use`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Tool contract, request payload, authorization context, and expected result. |
-| Outputs | Validated response and evidence of the resulting state. |
-| Failure modes | Invalid payloads, unauthorized actions, protocol mismatch, or unverified outcomes. |
+### Description
 
-## Runnable Example
+Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes. The invocation is contract-first: validate the tool interface and inputs before calling, and verify the observable outcome afterwards rather than trusting acknowledgements.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | a2a_contract | object | The target agent card or declared interface: skills, endpoints, auth requirements |
+| Input | request | object | Action, parameters, and idempotency key bounded to the declared contract |
+| Output | response | object | Validated, correlated response (request id matched, payload schema checked) |
+| Output | state_evidence | object | Independent evidence of the resulting state, not just an acknowledgement |
+
+### Procedure
+1. Inspect the target protocol surface (agent card, declared skills, auth scheme) before the first call.
+2. Validate the request against the declared contract; reject unknown actions and out-of-contract parameters.
+3. Send the call inside the authorization boundary; never widen scopes to make a call succeed.
+4. Correlate the response to the request (ids, task lifecycle state) and validate its schema.
+5. Verify the observable outcome independently; an acknowledgement is not completion.
+6. Record the interaction trace for auditing and retry decisions.
+
+### Example
 
 ```python
-request = {"action": "inspect", "target": "repository"}
-assert "action" in request
-print("validate tool contracts before invocation")
+request = {'action': 'inspect', 'target': 'repository', 'request_id': 'r-1'}
+contract_actions = {'inspect', 'query', 'subscribe'}
+assert request['action'] in contract_actions
+assert request['request_id'] != ''
+print('a2a request validated against the declared contract')
 ```
 
-## Failure Modes
-- Calling an undocumented interface.
-- Sending incomplete or excessive data.
-- Treating an acknowledgement as proof of completion.
-- Ignoring authorization boundaries.
+### Related Skills
 
-## Related
-- tool-guardrails.md
+- [Tool Guardrails](tool-guardrails.md) - boundary policy applied before the call
+- [Tool Output Validation](tool-output-validation.md) - validate the response payload
+- [Tool Call Trace Capture](tool-call-trace-capture.md) - record the interaction for audit
+
+## Failure Modes
+
+- Calling an undocumented interface or undeclared action.
+- Sending incomplete or excessive data outside the contract.
+- Treating an acknowledgement as proof of completion.
+- Ignoring authorization boundaries or widening scopes to fit the call.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/AI_CONSTITUTION.md pointers where present).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

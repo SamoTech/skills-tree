@@ -4,54 +4,68 @@ description: Use Twilio APIs for authorized messaging and communications with va
 metadata:
   source: skills/07-tool-use/twilio-api.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-twilio-api.json)
 
 # Twilio API
 
-## Description
-Use Twilio APIs for authorized messaging and communications with validated destinations, rate controls, secret-safe credentials, and delivery-state handling.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires twilio api, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Use Twilio APIs for authorized messaging and communications with validated destinations, rate controls, secret-safe credentials, and delivery-state handling. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | destination | object | E.164-validated recipient number or verified sender identity |
+| Input | message | object | Bounded body content and the authorized sending route |
+| Output | response | object | Provider message sid and queued status |
+| Output | delivery | object | Delivery-state follow-up for important messages |
+
+### Procedure
+1. Validate destination numbers in E.164 format before sending.
+2. Authenticate with scoped credentials from the authorized channel; never embed them in code.
+3. Respect the authorized sending route, sender identity, and regional rules.
+4. Bound send rates; batch respectfully and honor provider limits.
+5. Track delivery states (queued, sent, delivered, failed) for important messages and act on failed.
+6. Keep message content and recipient data out of logs.
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "twilio-api",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+sms = {'to': '+15551234567', 'from_': '+15550001111', 'body': 'Your code expires in 10 minutes'}
+assert sms['to'].startswith('+') and len(sms['to']) >= 12
+assert len(sms['body']) <= 160
+print('E.164 destination validated; body within segment bound')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate mutating or external-effect operations
+
+## Failure Modes
+
+- Sending to unvalidated or mistyped destinations.
+- Exceeding rate limits or regional sending rules.
+- Hard-coding credentials or logging message content.
+- Treating queued as delivered.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://www.twilio.com/docs/usage/api
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://www.twilio.com/docs/usage/api
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.
