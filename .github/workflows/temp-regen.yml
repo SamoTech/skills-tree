@@ -71,6 +71,11 @@ jobs:
           python3 tools/validate_agent_skills.py > meta/AUDIT-VALIDATE.txt
           python3 tools/reconcile_agent_skills.py --check > meta/AUDIT-DRIFT.md
         continue-on-error: true
+      - name: Corpus audit and modernization inventory
+        run: |
+          python3 tools/audit_skill_corpus.py
+          python3 tools/modernization_inventory.py
+        continue-on-error: true
       - name: Link report
         uses: lycheeverse/lychee-action@v2
         with:
