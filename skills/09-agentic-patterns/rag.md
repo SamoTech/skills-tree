@@ -1,5 +1,5 @@
 ---
-title: RAG — Retrieval-Augmented Generation
+title: "RAG (Agentic Grounding Pattern)"
 category: 09-agentic-patterns
 level: intermediate
 stability: stable
@@ -11,7 +11,7 @@ tags: [rag, retrieval, embeddings, knowledge-base, grounding]
 related: [memory-injection, web-search, knowledge-graph-reading, vector-store-retrieval]
 ---
 
-# RAG — Retrieval-Augmented Generation
+# RAG (Agentic Grounding Pattern)
 
 ## Description
 
@@ -138,3 +138,4 @@ Evidence status: references support the architecture and evaluation concepts. No
 | v2 | 2025-06 | Added retrieval variants |
 | v3 | 2026-04 | Added runnable example |
 | v4 | 2026-10 | Removed pseudo-random embeddings and separated retrieval/generation contracts |
+| v4 | 2026-11 | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |
