@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -322,3 +322,6 @@ Closure note (2026-11-26): `temp-regen.yml` completed the post-title-fix determi
 
 
 Reopen note (2026-11-26, P0 title disambiguation, second cycle): `temp-regen.yml` is re-added on the `counsel/p0-title-disambiguation-2026-11-26-v2` branch only, because the PR's `audit` CI check failed at the first head: the regen script inherited from #702 called `project()` without the reconcile `name_override` desired-names resolution, so packages for collision-stem retitled skills (`web-search`, `github-api`, `screenshot-capture`, `scroll`) were skipped and stayed stale against their retitled canonical files. The #701-proven regen version (desired-names resolution via `reconcile.desired_names`, skipping ineligible projections) replaces it and re-derives all affected packages byte-exactly. Same net-zero terms: publishes nothing to `main`, alters no existing workflow, deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
+
+
+Final closure note (2026-11-26, P0 title disambiguation, second cycle): the re-added `temp-regen.yml` (the #701-proven version with the reconcile `desired_names`/`name_override` resolution) completed the deterministic regen at the repaired head (bot commit `c0aed1da`): all packages affected by the title disambiguation, including the four collision-stem skills, were re-derived byte-exactly through the repository's own `project()`/`write_projection()`, and the projections (graph, search index, Skills API/JSON-LD, quality report, README counts, badges, modernization inventory) were regenerated with the two graph projections aligned to one build. The workflow and all temporary reports (`meta/REGEN-LOG.txt`, `meta/REGEN-AUDIT.txt`, `meta/REGEN-VALIDATE.txt`, `meta/REGEN-RECONCILE.txt`) are deleted before merge (net zero on `main`); the live workflow count returns to **Live workflow files:** 46. No CI, quality, security, or governance gate is weakened.
