@@ -1,0 +1,90 @@
+name: temp-regen
+# temporary branch-local regen for the P0 title-disambiguation batch (issue #699 part 2)
+# 2026-11-26 repair: the first version's unbounded full-repo advisory lychee scan stalled the
+# regen job for 2+ hours; this version adds a cancel-in-progress concurrency group and drops
+# the advisory link scan (advisory only; the authoritative check-links gate runs independently).
+on:
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+  push:
+    branches: [counsel/p0-title-disambiguation-2026-11-26-v2]
+concurrency:
+  group: temp-regen-counsel-p0-title-disambiguation-2026-11-26
+  cancel-in-progress: true
+jobs:
+  regen:
+    if: github.head_ref == 'counsel/p0-title-disambiguation-2026-11-26-v2' || github.ref == 'refs/heads/counsel/p0-title-disambiguation-2026-11-26-v2'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deps
+        run: pip install pyyaml jsonschema markdown networkx
+      - name: Rewrite drifted agent-skills packages deterministically
+        run: |
+          python - <<'PY'
+          import sys
+          from pathlib import Path
+          sys.path.insert(0, "tools")
+          from generate_agent_skills import audit, project, write_projection
+          root = Path(".").resolve()
+          report = audit(root)
+          colliding = set(report["name_collisions"].keys())
+          fixed = 0
+          for path in sorted((root / "skills").rglob("*.md")):
+              if path.name.lower() == "readme.md":
+                  continue
+              item = project(path, root)
+              if not item.eligible or item.name in colliding:
+                  continue
+              dest = root / "agent-skills" / item.name / "SKILL.md"
+              expected = item.content.rstrip() + "\n"
+              if not dest.exists() or dest.read_text(encoding="utf-8") != expected:
+                  write_projection(root, item)
+                  fixed += 1
+          print(f"Rewrote {fixed} packages")
+          PY
+      - name: Build graph
+        run: |
+          python tools/build_graph.py
+          mkdir -p docs/api
+          cp data/SKILLS_GRAPH.json docs/api/graph.json
+      - name: Build search index
+        run: |
+          python tools/build_search_index.py --skills-root skills/ --output docs/search-index.json --package-output data/search-index.json
+      - name: Export skills API
+        run: |
+          python3 tools/export_skills.py
+          python3 tools/verify_jsonld_export.py
+      - name: Quality report
+        run: python3 tools/check_skill_quality.py
+      - name: README counts
+        run: python3 tools/update_readme_counts.py
+      - name: Sync badges
+        run: python3 tools/sync_badges.py
+      - name: Corpus audit capture
+        run: |
+          python3 tools/audit_skill_corpus.py --no-write > meta/AUDIT-CORPUS.txt
+          python3 tools/generate_agent_skills.py --audit > meta/AUDIT-REPORT.md
+          python3 tools/validate_agent_skills.py > meta/AUDIT-VALIDATE.txt
+          python3 tools/reconcile_agent_skills.py --check > meta/AUDIT-DRIFT.md
+        continue-on-error: true
+      - name: Corpus audit and modernization inventory
+        run: |
+          python3 tools/audit_skill_corpus.py
+          python3 tools/modernization_inventory.py
+        continue-on-error: true
+      - name: Commit regenerated projections
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || (git commit -m "chore(regen): deterministic projection refresh after title disambiguation" && git push)
