@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2344
-- 🟡 **Enriched** (real description + runnable code): 144
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2354
+- 🟡 **Enriched** (real description + runnable code): 134
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -16,8 +16,8 @@
 | Category | Total | 🟢 Battle-tested | 🟡 Enriched | ⚪ Stub | ❌ Invalid | 🔧 Fixture |
 |---|---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 0 | 0 | 1 |
-| `01-perception` | 164 | 160 | 4 | 0 | 0 | 0 |
-| `02-reasoning` | 177 | 169 | 8 | 0 | 0 | 0 |
+| `01-perception` | 164 | 164 | 0 | 0 | 0 | 0 |
+| `02-reasoning` | 177 | 175 | 2 | 0 | 0 | 0 |
 | `03-memory` | 149 | 149 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 157 | 149 | 8 | 0 | 0 | 0 |
 | `05-code` | 160 | 140 | 20 | 0 | 0 | 0 |
@@ -104,6 +104,7 @@
 - [`skills/01-perception/ide-project-context-perception.md`](skills/01-perception/ide-project-context-perception.md) — Ide Project Context Perception
 - [`skills/01-perception/ide-symbol-resolution-parsing.md`](skills/01-perception/ide-symbol-resolution-parsing.md) — Ide Symbol Resolution Parsing
 - [`skills/01-perception/image-metadata-parsing.md`](skills/01-perception/image-metadata-parsing.md) — Image Metadata Parsing
+- [`skills/01-perception/image-understanding.md`](skills/01-perception/image-understanding.md) — Image Understanding
 - [`skills/01-perception/incremental-json-parsing.md`](skills/01-perception/incremental-json-parsing.md) — Incremental JSON Parsing
 - [`skills/01-perception/intent-classification.md`](skills/01-perception/intent-classification.md) — Intent Classification
 - [`skills/01-perception/internet-exposed-agent-endpoint-scan-parsing.md`](skills/01-perception/internet-exposed-agent-endpoint-scan-parsing.md) — Internet Exposed Agent Endpoint Scan Parsing
@@ -137,8 +138,10 @@
 - [`skills/01-perception/model-proxy-routing-trace-parsing.md`](skills/01-perception/model-proxy-routing-trace-parsing.md) — Model Proxy Routing Trace Parsing
 - [`skills/01-perception/model-release-table-parsing.md`](skills/01-perception/model-release-table-parsing.md) — Model Release Table Parsing
 - [`skills/01-perception/moe-architecture-throughput-estimation.md`](skills/01-perception/moe-architecture-throughput-estimation.md) — Moe Architecture Throughput Estimation
+- [`skills/01-perception/multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — Multimodal Document Reading
 - [`skills/01-perception/multispectral-image-reading.md`](skills/01-perception/multispectral-image-reading.md) — Multispectral Image Reading
 - [`skills/01-perception/named-entity-recognition.md`](skills/01-perception/named-entity-recognition.md) — Named Entity Recognition
+- [`skills/01-perception/network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — Network Traffic Reading
 - [`skills/01-perception/notification-parsing.md`](skills/01-perception/notification-parsing.md) — Notification Parsing
 - [`skills/01-perception/notification-stream-consent-metadata-parsing.md`](skills/01-perception/notification-stream-consent-metadata-parsing.md) — Notification Stream Consent Metadata Parsing
 - [`skills/01-perception/ocr.md`](skills/01-perception/ocr.md) — OCR (Optical Character Recognition)
@@ -180,6 +183,7 @@
 - [`skills/01-perception/telemetry-semantic-convention-parsing.md`](skills/01-perception/telemetry-semantic-convention-parsing.md) — Telemetry Semantic Convention Parsing
 - [`skills/01-perception/terminal-bench-score-report-parsing.md`](skills/01-perception/terminal-bench-score-report-parsing.md) — Terminal Bench Score Report Parsing
 - [`skills/01-perception/text-reading.md`](skills/01-perception/text-reading.md) — Text Reading
+- [`skills/01-perception/time-series-reading.md`](skills/01-perception/time-series-reading.md) — Time Series Reading
 - [`skills/01-perception/training-pause-disclosure-parsing.md`](skills/01-perception/training-pause-disclosure-parsing.md) — Training Pause Disclosure Parsing
 - [`skills/01-perception/unbounded-document-ocr-output-validation.md`](skills/01-perception/unbounded-document-ocr-output-validation.md) — Unbounded Document Ocr Output Validation
 - [`skills/01-perception/unicode-homoglyph-detection.md`](skills/01-perception/unicode-homoglyph-detection.md) — Unicode Homoglyph Detection
@@ -218,6 +222,7 @@
 - [`skills/02-reasoning/ai-auditor-recall-false-positive-tradeoff-reasoning.md`](skills/02-reasoning/ai-auditor-recall-false-positive-tradeoff-reasoning.md) — Ai Auditor Recall False Positive Tradeoff Reasoning
 - [`skills/02-reasoning/ai-suggested-opinion-provenance-tracking.md`](skills/02-reasoning/ai-suggested-opinion-provenance-tracking.md) — Ai Suggested Opinion Provenance Tracking
 - [`skills/02-reasoning/analogical.md`](skills/02-reasoning/analogical.md) — Analogical Reasoning
+- [`skills/02-reasoning/analogy-generation.md`](skills/02-reasoning/analogy-generation.md) — Analogy Generation
 - [`skills/02-reasoning/argument-fallacy-detection.md`](skills/02-reasoning/argument-fallacy-detection.md) — Argument Fallacy Detection
 - [`skills/02-reasoning/argument-structure-analysis.md`](skills/02-reasoning/argument-structure-analysis.md) — Argument Structure Analysis
 - [`skills/02-reasoning/assumption-explicitness-reasoning.md`](skills/02-reasoning/assumption-explicitness-reasoning.md) — Assumption Explicitness Reasoning
@@ -237,6 +242,7 @@
 - [`skills/02-reasoning/case-based-reasoning.md`](skills/02-reasoning/case-based-reasoning.md) — Case-Based Reasoning
 - [`skills/02-reasoning/causal-graph-construction.md`](skills/02-reasoning/causal-graph-construction.md) — Causal Graph Construction
 - [`skills/02-reasoning/causal.md`](skills/02-reasoning/causal.md) — Causal Reasoning
+- [`skills/02-reasoning/chain-of-thought.md`](skills/02-reasoning/chain-of-thought.md) — Chain of Thought
 - [`skills/02-reasoning/chain-of-verification.md`](skills/02-reasoning/chain-of-verification.md) — Chain of Verification
 - [`skills/02-reasoning/claim-evidence-alignment-reasoning.md`](skills/02-reasoning/claim-evidence-alignment-reasoning.md) — Claim Evidence Alignment Reasoning
 - [`skills/02-reasoning/commonsense.md`](skills/02-reasoning/commonsense.md) — Commonsense Reasoning
@@ -253,12 +259,14 @@
 - [`skills/02-reasoning/dataset-aggregate-risk-inference.md`](skills/02-reasoning/dataset-aggregate-risk-inference.md) — Dataset Aggregate Risk Inference
 - [`skills/02-reasoning/deadline-constraint-reasoning.md`](skills/02-reasoning/deadline-constraint-reasoning.md) — Deadline Constraint Reasoning
 - [`skills/02-reasoning/deadline-probability-estimation.md`](skills/02-reasoning/deadline-probability-estimation.md) — Deadline Probability Estimation
+- [`skills/02-reasoning/decision-making.md`](skills/02-reasoning/decision-making.md) — Decision Making
 - [`skills/02-reasoning/deductive-reasoning.md`](skills/02-reasoning/deductive-reasoning.md) — Deductive Reasoning
 - [`skills/02-reasoning/delegation-chain-trust-reasoning.md`](skills/02-reasoning/delegation-chain-trust-reasoning.md) — Delegation Chain Trust Reasoning
 - [`skills/02-reasoning/dense-versus-moe-capability-per-parameter-reasoning.md`](skills/02-reasoning/dense-versus-moe-capability-per-parameter-reasoning.md) — Dense Versus MoE Capability Per Parameter Reasoning
 - [`skills/02-reasoning/dependency-cycle-resolution-reasoning.md`](skills/02-reasoning/dependency-cycle-resolution-reasoning.md) — Dependency Cycle Resolution Reasoning
 - [`skills/02-reasoning/dynamic-replanning.md`](skills/02-reasoning/dynamic-replanning.md) — Dynamic Replanning
 - [`skills/02-reasoning/election-claim-source-hierarchy-verification-reasoning.md`](skills/02-reasoning/election-claim-source-hierarchy-verification-reasoning.md) — Election Claim Source Hierarchy Verification Reasoning
+- [`skills/02-reasoning/ethical-reasoning.md`](skills/02-reasoning/ethical-reasoning.md) — Ethical Reasoning
 - [`skills/02-reasoning/eval-awareness-behavior-calibration-reasoning.md`](skills/02-reasoning/eval-awareness-behavior-calibration-reasoning.md) — Eval Awareness Behavior Calibration Reasoning
 - [`skills/02-reasoning/evidence-admissibility-reasoning.md`](skills/02-reasoning/evidence-admissibility-reasoning.md) — Evidence Admissibility Reasoning
 - [`skills/02-reasoning/expected-utility-analysis.md`](skills/02-reasoning/expected-utility-analysis.md) — Expected Utility Analysis
@@ -279,6 +287,7 @@
 - [`skills/02-reasoning/identity-case-decision-reasoning.md`](skills/02-reasoning/identity-case-decision-reasoning.md) — Identity Case Decision Reasoning
 - [`skills/02-reasoning/incident-pattern-control-mapping-reasoning.md`](skills/02-reasoning/incident-pattern-control-mapping-reasoning.md) — Incident Pattern Control Mapping Reasoning
 - [`skills/02-reasoning/independent-conclusion-audit-reasoning.md`](skills/02-reasoning/independent-conclusion-audit-reasoning.md) — Independent Conclusion Audit Reasoning
+- [`skills/02-reasoning/inductive-reasoning.md`](skills/02-reasoning/inductive-reasoning.md) — Inductive Reasoning
 - [`skills/02-reasoning/injection-to-rce-reachability-reasoning.md`](skills/02-reasoning/injection-to-rce-reachability-reasoning.md) — Injection To Rce Reachability Reasoning
 - [`skills/02-reasoning/internal-misalignment-disclosure-interpretation-reasoning.md`](skills/02-reasoning/internal-misalignment-disclosure-interpretation-reasoning.md) — Internal Misalignment Disclosure Interpretation Reasoning
 - [`skills/02-reasoning/intervention-timing-reasoning.md`](skills/02-reasoning/intervention-timing-reasoning.md) — Intervention Timing Reasoning
@@ -288,6 +297,7 @@
 - [`skills/02-reasoning/least-to-most.md`](skills/02-reasoning/least-to-most.md) — Least-to-Most Prompting
 - [`skills/02-reasoning/linear-programming-optimization-reasoning.md`](skills/02-reasoning/linear-programming-optimization-reasoning.md) — Linear Programming Optimization Reasoning
 - [`skills/02-reasoning/long-horizon-planning.md`](skills/02-reasoning/long-horizon-planning.md) — Long-Horizon Planning
+- [`skills/02-reasoning/mathematical-reasoning.md`](skills/02-reasoning/mathematical-reasoning.md) — Mathematical Reasoning
 - [`skills/02-reasoning/mcp-roadmap-change-impact-reasoning.md`](skills/02-reasoning/mcp-roadmap-change-impact-reasoning.md) — Mcp Roadmap Change Impact Reasoning
 - [`skills/02-reasoning/mcp-stateless-migration-risk-reasoning.md`](skills/02-reasoning/mcp-stateless-migration-risk-reasoning.md) — MCP Stateless Migration Risk Reasoning
 - [`skills/02-reasoning/meta-cognition.md`](skills/02-reasoning/meta-cognition.md) — Meta-Cognition
@@ -2383,17 +2393,7 @@
 
 ## 🟡 Enriched skills
 
-- [`skills/01-perception/image-understanding.md`](skills/01-perception/image-understanding.md) — no inputs/outputs/failure-modes table
-- [`skills/01-perception/multimodal-document-reading.md`](skills/01-perception/multimodal-document-reading.md) — missing table or <60 lines
-- [`skills/01-perception/network-traffic-reading.md`](skills/01-perception/network-traffic-reading.md) — missing table or <60 lines
-- [`skills/01-perception/time-series-reading.md`](skills/01-perception/time-series-reading.md) — missing table or <60 lines
-- [`skills/02-reasoning/analogy-generation.md`](skills/02-reasoning/analogy-generation.md) — no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/chain-of-thought.md`](skills/02-reasoning/chain-of-thought.md) — no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/decision-making.md`](skills/02-reasoning/decision-making.md) — no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/ethical-reasoning.md`](skills/02-reasoning/ethical-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/inductive-reasoning.md`](skills/02-reasoning/inductive-reasoning.md) — no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/mathematical-reasoning.md`](skills/02-reasoning/mathematical-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
 - [`skills/04-action-execution/drag-drop.md`](skills/04-action-execution/drag-drop.md) — missing table or <60 lines
 - [`skills/04-action-execution/form-submission.md`](skills/04-action-execution/form-submission.md) — missing table or <60 lines

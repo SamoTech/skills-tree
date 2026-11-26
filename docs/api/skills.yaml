@@ -1,4 +1,4 @@
-generated: '2026-11-26T15:42:23Z'
+generated: '2026-11-26T16:47:24Z'
 count: 2488
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -1745,13 +1745,15 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../10-computer-use/visual-element-detection.md
   category_dir: 01-perception
 - id: incremental-json-parsing
   path: skills/01-perception/incremental-json-parsing.md
@@ -2618,15 +2620,16 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Inputs
-  - Outputs
+  - When to Use
+  - Inputs / Outputs
   - Example
   - Frameworks
+  - Procedure
   - Failure Modes
   - Related
   - Changelog
@@ -2689,15 +2692,16 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Inputs
-  - Outputs
+  - When to Use
+  - Inputs / Outputs
   - Example
   - Frameworks
+  - Procedure
   - Failure Modes
   - Related
   - Changelog
@@ -3758,15 +3762,16 @@ skills:
   category: perception
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Description
-  - Inputs
-  - Outputs
+  - When to Use
+  - Inputs / Outputs
   - Example
   - Frameworks
+  - Procedure
   - Failure Modes
   - Related
   - Changelog
@@ -4765,12 +4770,15 @@ skills:
   category: reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Description
+  - When to Use
+  - Inputs / Outputs
   - Example
+  - Procedure
   - Failure Modes
   - Related
   - Changelog
@@ -5268,13 +5276,12 @@ skills:
   category: reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Failure Modes
-  - Evidence
-  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 02-reasoning
@@ -5692,13 +5699,12 @@ skills:
   category: reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Failure Modes
-  - Evidence
-  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 02-reasoning
@@ -5859,18 +5865,18 @@ skills:
   category: reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Description
+  - When to Use
+  - Inputs / Outputs
   - Example
+  - Procedure
   - Failure Modes
   - Related
   - Changelog
-  - Failure Modes
-  - Evidence
-  - Failure Modes
   - Evidence
   related: []
   category_dir: 02-reasoning
@@ -6413,11 +6419,11 @@ skills:
   category: reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
-  - Failure Modes
+  - Changelog
   - Evidence
   related:
   - ../12-data/statistical-analysis.md
@@ -6665,11 +6671,12 @@ skills:
   category: reasoning
   level: intermediate
   stability: stable
-  version: v2
+  version: v3
   added: 2025-03
   last_updated: null
   sections:
   - Failure Modes
+  - Changelog
   - Evidence
   related:
   - ../07-tool-use/calculator.md

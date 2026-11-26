@@ -52,16 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:17:35Z",
+  "dateModified": "2026-11-26T16:47:24Z",
   "skillId": "decision-making",
-  "skillVersion": "v2",
+  "skillVersion": "v3",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "02-reasoning",
   "sections": [
     "Failure Modes",
-    "Evidence",
-    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],

@@ -4,7 +4,7 @@ description: Use structured intermediate reasoning techniques for multi-step tas
 metadata:
   source: skills/02-reasoning/chain-of-thought.md
   category: 02-reasoning
-  version: "v2"
+  version: "v3"
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-02-reasoning-chain-of-thought.json)
@@ -18,7 +18,26 @@ metadata:
 
 ### Description
 
-Prompt a model to reason step-by-step before producing a final answer, improving accuracy on multi-step and arithmetic tasks.
+Prompt a model to reason step-by-step before producing a final answer, improving accuracy on multi-step and arithmetic tasks, and return concise conclusions, assumptions, and verification steps.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | `question` | string | The multi-step task or question to reason about |
+| Input | `constraints` | optional list of string | Stated constraints the reasoning must respect |
+| Input | `budget` | optional integer | Maximum reasoning steps or tokens before stopping |
+| Output | `answer` | string | The final conclusion, stated concisely |
+| Output | `assumptions` | list of string | Assumptions the reasoning relied on |
+| Output | `verification` | list of string | Checks that were run against the conclusion |
+
+### Procedure
+1. State the question, its constraints, and the stop condition before reasoning begins.
+2. Decompose the task into ordered steps small enough to verify individually.
+3. Reason step by step, keeping intermediate results explicit and checkable.
+4. Verify material steps by recomputation, tool call, or a second reasoning pass.
+5. Compress the reasoning into the answer plus assumptions and verification evidence.
+6. Stop when the requested result is established or the budget is exhausted, and say which happened.
 
 ### Example
 
@@ -48,26 +67,22 @@ print(chain_of_thought("If a train travels 60 mph for 2.5 hours, how far does it
 - **Least-to-most prompting**: decompose into sub-problems, solve sequentially
 
 ### Related Skills
-- `tree-of-thought`, `react`, `self-reflection`, `planning`
-
-## Failure Modes
-
-- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
-- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
-- Resource or search explosion: bound candidate counts, iterations, recursion, and external tool calls.
-
-## Evidence
-
-- https://agentskills.io/specification
-- https://github.com/openai/openai-python
-
-Evidence status: references support implementation guidance; no performance benchmark is claimed without reproducible benchmark evidence.
+- [Tree of Thought](tree-of-thought.md)
+- [ReAct](react.md)
+- [Self Reflection](self-reflection.md)
+- [Planning](planning.md)
 
 ## Failure Modes
 
 - Private reasoning exposure: return concise conclusions and verification evidence rather than hidden chain-of-thought.
-- Unsupported intermediate claims: identify assumptions and verify material steps.
-- Excessive reasoning budget: bound iterations and stop when the requested result is established.
+- Unsupported assumptions: state assumptions explicitly and separate them from observed inputs.
+- Ambiguous or incomplete premises: return uncertainty or request the missing constraint rather than fabricating one.
+- Resource or reasoning-budget explosion: bound candidate counts, iterations, and external tool calls.
+- Confident wrong answers: verify material steps before presenting the conclusion as established.
+
+## Changelog
+- v3 (2026-11): Structural modernization; merged the duplicated failure-mode and evidence sections into one authoritative set, added the input/output contract table and procedure.
+- v1 (2025-03): Initial entry.
 
 ## Evidence
 
