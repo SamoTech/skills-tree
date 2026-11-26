@@ -3,12 +3,11 @@ title: "Image Understanding"
 category: 01-perception
 level: intermediate
 stability: stable
-version: v2
+version: v3
 added: "2025-03"
 description: "Transcribe, interpret, and ground visual content while preserving source coordinates, uncertainty, and provenance. Use for VQA, object localization, scene understanding, and structured visual extraction."
 related: []
 ---
-
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-01-perception-image-understanding.json)
 
@@ -22,6 +21,25 @@ Extracts semantic meaning, spatial relationships, objects, text, and contextual 
 - Detecting and localizing objects for downstream computer-use or robotics tasks
 - Extracting embedded text (signs, labels, captions) combined with layout context
 - Visual grounding: mapping noun phrases to bounding box coordinates
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | `image` | URL, file path, or base64 bytes | Image to analyze; JPEG/PNG/WebP within the runtime size limit |
+| Input | `question` | string | Natural-language question or extraction instruction |
+| Input | `detail` | `"low"` or `"high"` | Vision-detail hint; `high` preserves small text and fine coordinates |
+| Output | `answer` | string | Direct answer or structured extraction result |
+| Output | `grounding` | list of `{label, box, score}` | Optional bounding boxes in source-image coordinates |
+| Output | `uncertainty` | string | Stated model uncertainty and unresolved regions; never dropped silently |
+
+### Procedure
+1. Confirm the requester is authorized to analyze the image and record its provenance.
+2. Validate that the image decodes and note its dimensions; reject or bound oversized inputs.
+3. Choose the model path: a multimodal LLM for open questions, a grounding model when coordinates are required.
+4. Issue the request with `detail: "high"` when small text or precise localization matters.
+5. Post-process grounding boxes back into source coordinates and verify at least one box per claimed object.
+6. Return the answer with explicit uncertainty, provenance, and any regions the model could not resolve.
 
 ### Example
 ```python
@@ -46,7 +64,7 @@ def vqa(image_url: str, question: str) -> str:
     return response.choices[0].message.content
 ```
 
-### Advanced Example — Grounding DINO
+### Advanced Example - Grounding DINO
 
 ```python type:illustrative
 # pip install groundingdino-py
@@ -66,13 +84,23 @@ def ground_objects(image_path: str, caption: str) -> list[dict]:
 - **Structured extraction**: force JSON output via function-calling to extract structured attributes (color, count, position)
 
 ### Related Skills
-- `ocr`, `video-understanding`, `screen-reading`, `visual-element-detection`, `image-captioning`
+- [OCR](ocr.md)
+- [Video Understanding](video-understanding.md)
+- [Screen Reading](screen-reading.md)
+- [Visual Element Detection](../10-computer-use/visual-element-detection.md)
+- [Chart Reading](chart-reading.md)
 
 ## Failure Modes
 
-- Untrusted or malformed input: validate format, bound resource usage, and preserve parser or model uncertainty.
-- Ambiguous visual or telemetry evidence: distinguish observed values from inferred interpretation and retain source references.
+- Untrusted or malformed input: validate that the image decodes, bound resource usage, and preserve parser or model uncertainty.
+- Ambiguous visual evidence: distinguish observed pixels from inferred interpretation and retain source references for every claim.
+- Hallucinated grounding: verify each returned box with a second pass or a deterministic detector before acting on its coordinates.
 - Sensitive or unauthorized source: require authorization, minimize retained data, and do not expose unrelated content.
+- Model or provider outage: fall back to a smaller vision model or defer the task rather than returning fabricated results.
+
+## Changelog
+- v3 (2026-11): Structural modernization; added the input/output contract table, procedure, and skill-specific failure modes, and normalized related links to in-corpus targets.
+- v1 (2025-03): Initial entry.
 
 ## Evidence
 
