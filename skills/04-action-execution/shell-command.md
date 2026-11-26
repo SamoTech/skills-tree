@@ -52,16 +52,8 @@ def run_command(argv: list[str], cwd: str, timeout: float = 30,
     if not os.path.isdir(cwd):
         raise ValueError(f"cwd does not exist: {cwd}")
     env = {k: os.environ[k] for k in env_allowlist if k in os.environ}
-    return {"returncode": None, "stdout": "", "stderr": ""} | {
-        k: v for k, v in subprocess.run(
-            argv, cwd=cwd, env=env, capture_output=True, text=True,
-            timeout=timeout, shell=False,
-        ).__dict__.items() if k in {"returncode", "stdout", "stderr"}
-    } if False else _run(argv, cwd, env, timeout)
-
-def _run(argv, cwd, env, timeout):
-    p = subprocess.run(argv, cwd=cwd, env=env, capture_output=True, text=True,
-                       timeout=timeout, shell=False)
+    p = subprocess.run(argv, cwd=cwd, env=env, capture_output=True,
+                       text=True, timeout=timeout, shell=False)
     return {"returncode": p.returncode, "stdout": p.stdout, "stderr": p.stderr}
 
 result = run_command(["git", "status", "--porcelain"], cwd="/tmp/example-repo")
