@@ -1,28 +1,45 @@
 ---
-title: Db Schema Design
+title: "DB Schema Design"
 category: 05-code
 level: advanced
 stability: stable
-description: Design database schemas from explicit data requirements, relationships, constraints, and access patterns.
+version: v2
+description: "Design database schemas from explicit data requirements, relationships, constraints, and access patterns."
 added: "2026-09"
-related: [05-code]
+related: [database-migration-writing, sql-query-generation]
 ---
 
-## Description
-Design database schemas from explicit data requirements, relationships, constraints, and access patterns. Inspect existing models, migrations, indexes, and application queries before changing a schema. Preserve compatibility and verify migrations.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-db-schema-design.json)
 
-## When to Use
-Use when a task requires a new schema, a schema change, normalization decision, constraint, index, or migration plan.
+# DB Schema Design
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Requirements, existing schema, access patterns, migrations, and constraints. |
-| Outputs | A justified schema or migration with verification evidence. |
-| Failure modes | Data loss, incompatible migrations, missing constraints, or unsupported assumptions. |
+### Description
 
-## Runnable Example
+Design database schemas from explicit data requirements, relationships, constraints, and access patterns. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | requirements | object | Entities, relationships, cardinalities, constraints, and access patterns |
+| Input | existing_schema | object | Current tables, migrations, indexes, and application queries |
+| Output | schema | object | Tables, keys, constraints, and indexes derived from the requirements |
+| Output | rationale | list of string | Normalization and index decisions with their justifications |
+
+### Procedure
+1. Inventory entities, relationships, and cardinalities from the explicit requirements.
+2. Inspect the current schema, migrations, and the queries that will run against it.
+3. Choose keys, constraints, and normalization; record every denormalization with its justification.
+4. Design indexes from the stated access patterns, not from guesses.
+5. Provide a forward migration path that preserves existing data.
+6. Validate the design with the repository migration tooling before hand-off.
+
+### Example
 
 ```python
 from dataclasses import dataclass
@@ -32,19 +49,29 @@ class Field:
     name: str
     nullable: bool = False
 
-fields = [Field("id"), Field("created_at")]
+fields = [Field('id'), Field('created_at'), Field('email', nullable=False)]
+assert all(not f.nullable for f in fields if f.name == 'id')
 print([f.name for f in fields])
 ```
 
+### Related Skills
+
+- [Database Migration Writing](database-migration-writing.md) - the versioned change path for the schema
+- [SQL Query Generation](sql-query-generation.md) - the queries the schema must serve
+
 ## Failure Modes
-- Designing without inspecting the current schema.
+
+- Designing without inspecting the current schema and live queries.
 - Introducing destructive changes without a recovery path.
-- Ignoring query patterns and constraints.
+- Adding indexes unrelated to any stated access pattern.
 - Claiming migration safety without executing validation.
 
-## Related
-- [Database Migration Writing](database-migration-writing.md)
-- [SQL Query Generation](sql-query-generation.md)
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (removed the non-corpus AGENT_OPERATING_MODEL.md-style pointers).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in the repository governance and validation model; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

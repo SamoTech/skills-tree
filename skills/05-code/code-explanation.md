@@ -3,57 +3,72 @@ title: "Code Explanation"
 category: 05-code
 level: basic
 stability: stable
+version: v2
 description: "Explain code by tracing inputs, control flow, state changes, dependencies, and observable outputs without inventing behavior."
 added: "2026-09"
-related: [code-reading, documentation-generation]
+related: [code-search, debugging, documentation-generation]
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-explanation.json)
 
 # Code Explanation
 
-## Description
+**Category:** `code`
+**Skill Level:** `basic`
+**Stability:** `stable`
+**Added:** 2026-09
 
-Explain code by tracing inputs, control flow, state changes, dependencies, and observable outputs without inventing behavior.
+### Description
 
-## When to Use
+Explain code by tracing inputs, control flow, state changes, dependencies, and observable outputs without inventing behavior. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
 
-- Use when the code task has explicit acceptance criteria.
-- Preserve repository conventions and existing security gates.
-- Verify behavior before reporting completion.
+### Inputs / Outputs
 
-## Inputs / outputs / failure modes
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | code | string | The source under explanation, with its direct dependencies identified |
+| Input | focus | list of string | Aspects to explain: control flow, state, dependencies, outputs |
+| Output | explanation | object | Step-by-step trace from a representative input to observable output |
+| Output | uncertainty | list of string | Behavior that could not be verified statically, labeled as inference |
 
-| Input | Output | Failure mode |
-|---|---|---|
-| Requirements | Code or analysis | Ambiguous requirement |
-| Repository context | Compatible change | Convention mismatch |
-| Tests/evidence | Verification result | Regression |
-| Security constraints | Safe implementation | Gate bypass |
+### Procedure
+1. Read the code and its direct dependencies; do not infer behavior from names alone.
+2. Trace a representative input through the control flow step by step.
+3. Record state changes and observable outputs at each step.
+4. Separate verified behavior from inference and label every inference as such.
+5. Cross-check the explanation against tests or a quick execution where available.
 
-## Runnable Example
+### Example
 
 ```python
-source = 'x = 2\ny = x + 3'
-steps = ['assign x', 'compute y']
-assert steps == ['assign x', 'compute y']
-print('explanation trace prepared')
+source = {'x': None, 'y': None}
+trace = []
+trace.append('assign x = 2'); source['x'] = 2
+trace.append('compute y = x + 3'); source['y'] = source['x'] + 3
+assert trace == ['assign x = 2', 'compute y = x + 3']
+assert source['y'] == 5
+print(trace, source['y'])
 ```
 
-## Failure modes
+### Related Skills
 
-- Implementing behavior not supported by the requirements.
-- Changing unrelated code.
-- Skipping regression or security verification.
-- Claiming correctness without evidence.
+- [Code Search](code-search.md) - locate the code and its callers first
+- [Debugging](debugging.md) - a verified explanation feeds diagnosis
+- [Documentation Generation](documentation-generation.md) - verified explanations become documentation
 
-## Related
+## Failure Modes
 
-- `code-reading.md`
-- `documentation-generation.md`
+- Inventing behavior not present in the source.
+- Explaining from identifiers instead of execution paths.
+- Presenting inference as verified fact.
+- Ignoring side effects in called dependencies.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic trace example, an execution procedure, and corpus-verified related links (replaced the non-corpus code-reading.md link).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
 
-- AI_CONSTITUTION.md
-- AGENTS.md
-- Repository validation and security workflows
+- https://agentskills.io/specification
 
-Evidence status: repository-backed implementation guidance; no benchmark claim.
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

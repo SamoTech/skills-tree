@@ -1,47 +1,72 @@
 ---
-title: Dependency Management
+title: "Dependency Management"
 category: 05-code
 level: advanced
 stability: stable
-description: Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes.
+version: v2
+description: "Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes."
 added: "2026-09"
-related: [05-code]
+related: [dependency-auditor, git-operations, debugging]
 ---
 
-## Description
-Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes. Preserve lockfile integrity and verify application behavior after updates.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-dependency-management.json)
 
-## When to Use
-Use for dependency additions, removals, upgrades, downgrades, lockfile refreshes, and compatibility remediation.
+# Dependency Management
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Manifest, lockfile, runtime constraints, compatibility requirements, and tests. |
-| Outputs | Reproducible dependency state with verification evidence. |
-| Failure modes | Unbounded upgrades, lockfile drift, incompatible transitive changes, or missing rollback. |
+### Description
 
-## Runnable Example
+Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | change | object | The dependency intent: add, remove, upgrade, downgrade, or pin |
+| Input | constraints | object | Runtime versions, platform support, and license policy |
+| Output | dependency_state | object | Manifest and lockfile updated together and consistent |
+| Output | rollback | object | The previous pinned state, recorded before the change |
+
+### Procedure
+1. Record the current pinned state so the change is reversible.
+2. Change the manifest and lockfile together; never commit one without the other.
+3. Respect runtime and platform constraints; prefer bounded ranges plus a lockfile over floating versions.
+4. Install in a clean environment and run the affected test suites.
+5. Document transitive consequences and any required code adjustments.
+6. If verification fails, roll back to the recorded state rather than layering workarounds.
+
+### Example
 
 ```python
-from pathlib import Path
-
-for name in ('package.json', 'pyproject.toml', 'requirements.txt'):
-    p = Path(name)
-    print(name, 'present=' + str(p.exists()))
+pinned = {'pydantic': '2.9.0', 'httpx': '0.27.0'}
+lockfile = {'pydantic': '2.9.0', 'httpx': '0.27.0'}
+assert pinned == lockfile, 'manifest and lockfile must agree'
+print('dependency state consistent and recorded for rollback')
 ```
 
-## Failure modes
+### Related Skills
+
+- [Dependency Auditor](dependency-auditor.md) - audit before and after changes
+- [Git Operations](git-operations.md) - commit manifest and lockfile together
+- [Debugging](debugging.md) - diagnose update-induced regressions
+
+## Failure Modes
+
 - Updating without respecting runtime constraints.
 - Committing inconsistent manifests and lockfiles.
 - Skipping compatibility and regression tests.
 - Making irreversible changes without recovery evidence.
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic consistency example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
