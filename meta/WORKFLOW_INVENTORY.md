@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -319,3 +319,6 @@ Final closure note (2026-11-26, P0 integrity link repairs, second cycle): the re
 `temp-regen.yml` is temporary steward tooling on the `counsel/p0-title-disambiguation-2026-11-26-v2` branch only (PR #705; identical content superseded conflict-affected PR #702 after the base moved): it re-derives drifted agent-skills packages through the repository's own `project()`/`write_projection()`, runs the repository's own generators at the branch head, and captures the corpus-audit diagnostic. It carries a cancel-in-progress concurrency group and omits the advisory full-repo lychee step so the regen job cannot stall on external link checks. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
 
 Closure note (2026-11-26): `temp-regen.yml` completed the post-title-fix deterministic projection regen on the branch (bot commit `07d67730`: regenerated graph, search index, Skills API/JSON-LD, quality report, README counts, badges; agent-skills packages re-derived through `project()`/`write_projection()`). The workflow, `meta/AUDIT-CORPUS.txt`, and the reopen section are removed before merge (net zero on `main`); the live workflow count returns to **Live workflow files:** 46. No CI, quality, security, or governance gate is weakened.
+
+
+Reopen note (2026-11-26, P0 title disambiguation, second cycle): `temp-regen.yml` is re-added on the `counsel/p0-title-disambiguation-2026-11-26-v2` branch only, because the PR's `audit` CI check failed at the first head: the regen script inherited from #702 called `project()` without the reconcile `name_override` desired-names resolution, so packages for collision-stem retitled skills (`web-search`, `github-api`, `screenshot-capture`, `scroll`) were skipped and stayed stale against their retitled canonical files. The #701-proven regen version (desired-names resolution via `reconcile.desired_names`, skipping ineligible projections) replaces it and re-derives all affected packages byte-exactly. Same net-zero terms: publishes nothing to `main`, alters no existing workflow, deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.

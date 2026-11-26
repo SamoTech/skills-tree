@@ -1,0 +1,85 @@
+name: Temp regen - P0 integrity link repairs (branch-local steward tooling)
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+    branches: [main]
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-regen-p0-link-repairs
+  cancel-in-progress: false
+
+jobs:
+  regen:
+    if: github.event.pull_request.head.ref == 'counsel/p0-title-disambiguation-2026-11-26-v2'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout PR head
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install tool dependencies
+        run: python -m pip install --quiet pyyaml pytest jsonschema
+      - name: Re-derive drifted agent-skills packages deterministically
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import sys
+          sys.path.insert(0, '.')
+          from tools.generate_agent_skills import project, write_projection
+          from tools.reconcile_agent_skills import canonical_records, desired_names
+          root = Path('.').resolve()
+          desired, _ = desired_names(canonical_records(root))
+          written = 0
+          for rel, name in desired.items():
+              item = project(root / rel, root, name_override=name)
+              if not item.eligible:
+                  continue
+              dest = root / 'agent-skills' / item.name / 'SKILL.md'
+              expected = item.content.rstrip() + '\n'
+              if dest.exists() and dest.read_text(encoding='utf-8') != expected:
+                  write_projection(root, item)
+                  written += 1
+              elif not dest.exists():
+                  write_projection(root, item)
+                  written += 1
+          print(f'packages written: {written}')
+          PY
+      - name: Run repository generators
+        run: |
+          set -o pipefail
+          python tools/build_graph.py 2>&1 | tee meta/REGEN-LOG.txt
+          python tools/build_search_index.py 2>&1 | tee -a meta/REGEN-LOG.txt
+          python tools/export_skills.py 2>&1 | tee -a meta/REGEN-LOG.txt
+          python tools/check_skill_quality.py 2>&1 | tee -a meta/REGEN-LOG.txt
+          python tools/update_readme_counts.py 2>&1 | tee -a meta/REGEN-LOG.txt
+          python tools/modernization_inventory.py 2>&1 | tee -a meta/REGEN-LOG.txt
+      - name: Align graph projections (same-build byte identity)
+        run: cp data/SKILLS_GRAPH.json docs/api/graph.json
+      - name: Distribution audit and reconciliation capture
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+        run: |
+          python tools/generate_agent_skills.py --audit > meta/REGEN-AUDIT.txt || true
+          python tools/validate_agent_skills.py > meta/REGEN-VALIDATE.txt || true
+          python tools/reconcile_agent_skills.py --check > meta/REGEN-RECONCILE.txt || true
+          tail -2 meta/REGEN-RECONCILE.txt
+      - name: Commit regenerated artifacts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(regen): deterministic projection regen for P0 link repairs"
+            git push origin HEAD:counsel/p0-title-disambiguation-2026-11-26-v2
+          else
+            echo "nothing to commit"
+          fi
