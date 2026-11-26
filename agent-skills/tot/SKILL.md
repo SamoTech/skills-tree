@@ -4,6 +4,7 @@ description: Generate multiple candidate reasoning branches, evaluate them with 
 metadata:
   source: skills/09-agentic-patterns/tot.md
   category: 09-agentic-patterns
+  version: "v1"
 ---
 
 ## Description
@@ -54,3 +55,9 @@ Canonical repository skill: this file. Conformance is governed by the repository
 - 09-agentic-patterns
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

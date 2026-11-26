@@ -1,4 +1,4 @@
-generated: '2026-11-26T12:26:59Z'
+generated: '2026-11-26T15:42:23Z'
 count: 2488
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -11472,7 +11472,7 @@ skills:
   category: memory
   level: intermediate
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -11485,6 +11485,7 @@ skills:
   - Safety Boundary
   - Evidence
   - Related
+  - Changelog
   related: []
   category_dir: 03-memory
 - id: progressive-skill-loading
@@ -15781,13 +15782,13 @@ skills:
   category_dir: 04-action-execution
 - id: screenshot-capture
   path: skills/04-action-execution/screenshot-capture.md
-  name: Screenshot Capture
+  name: Screenshot Capture (App Region)
   description: Capture a verified application or screen region while minimizing sensitive
     content exposure.
   category: action-execution
   level: basic
   stability: stable
-  version: null
+  version: v1
   added: 2026-09
   last_updated: null
   sections:
@@ -15795,20 +15796,21 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
+  - Changelog
   related: []
   category_dir: 04-action-execution
 - id: scroll
   path: skills/04-action-execution/scroll.md
-  name: Scroll
+  name: Scroll (Interface Container)
   description: Scroll a verified interface container by a bounded amount and verify
     the resulting viewport state.
   category: action-execution
   level: basic
   stability: stable
-  version: null
+  version: v1
   added: 2026-09
   last_updated: null
   sections:
@@ -15816,9 +15818,10 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
+  - Changelog
   related: []
   category_dir: 04-action-execution
 - id: shell-command
@@ -18119,7 +18122,7 @@ skills:
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2026-09
   last_updated: null
   sections:
@@ -18127,9 +18130,10 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
+  - Changelog
   related: []
   category_dir: 05-code
 - id: dependency-diff-impact-review
@@ -18620,7 +18624,7 @@ skills:
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2026-09
   last_updated: null
   sections:
@@ -18628,9 +18632,10 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Related
   - Evidence
+  - Changelog
   related: []
   category_dir: 05-code
 - id: harness-adapter-frozen-agent-evaluation
@@ -27963,13 +27968,13 @@ skills:
   category_dir: 07-tool-use
 - id: web-search
   path: skills/07-tool-use/web-search.md
-  name: Web Search
+  name: Web Search (Tool Contract)
   description: Use a web-search service as a bounded retrieval tool with explicit
     queries, freshness constraints, source tracking, and result verification.
   category: tool-use
   level: intermediate
   stability: stable
-  version: null
+  version: v1
   added: 2026-09
   last_updated: null
   sections:
@@ -27977,9 +27982,10 @@ skills:
   - When to Use
   - Inputs / outputs / failure modes
   - Runnable Example
-  - Failure modes
+  - Failure Modes
   - Evidence
   - Related
+  - Changelog
   related: []
   category_dir: 07-tool-use
 - id: webmcp-page-tool-exposure
@@ -28880,7 +28886,7 @@ skills:
   category: multimodal
   level: intermediate
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -28893,6 +28899,7 @@ skills:
   - Safety Boundary
   - Evidence
   - Related
+  - Changelog
   related: []
   category_dir: 08-multimodal
 - id: audio-watermark-embedding
@@ -34718,7 +34725,7 @@ skills:
   category_dir: 09-agentic-patterns
 - id: rag
   path: skills/09-agentic-patterns/rag.md
-  name: RAG — Retrieval-Augmented Generation
+  name: RAG (Agentic Grounding Pattern)
   description: Ground generation with retrieved external context by separating ingestion,
     retrieval, context assembly, generation, and source attribution, with explicit
     handling for weak or conflicting retrieval.
@@ -35389,7 +35396,7 @@ skills:
   category: agentic-patterns
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -35401,6 +35408,7 @@ skills:
   - Failure Modes
   - Evidence
   - Related
+  - Changelog
   related: []
   category_dir: 09-agentic-patterns
 - id: trajectory-analysis
@@ -58432,7 +58440,7 @@ skills:
   category: Domain-Specific
   level: advanced
   stability: stable
-  version: null
+  version: v1
   added: 2025-03
   last_updated: null
   sections:
@@ -58445,6 +58453,7 @@ skills:
   - Domain Boundary
   - Evidence
   - Related
+  - Changelog
   related: []
   category_dir: 16-domain-specific
 - id: iac-generation

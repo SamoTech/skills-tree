@@ -4,6 +4,7 @@ description: Store and retrieve reusable step-by-step procedures with versioning
 metadata:
   source: skills/03-memory/procedural.md
   category: 03-memory
+  version: "v1"
 ---
 
 ## Description
@@ -61,3 +62,9 @@ Canonical repository skill: this file. Structural conformance is governed by the
 - 03-memory
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |
