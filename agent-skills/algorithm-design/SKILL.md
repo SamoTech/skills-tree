@@ -47,8 +47,8 @@ print('algorithm contract verified')
 
 ## Related
 
-- `defining-requirements.md`
-- `testing.md`
+- `agent-requirements-document-authoring.md`
+- `property-based-testing.md`
 
 ## Evidence
 

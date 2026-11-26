@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-08T02:05:30Z",
+  "generated": "2026-11-26T12:18:49Z",
   "count": 2488,
   "skills": [
     {
@@ -19222,10 +19222,7 @@
         "Related",
         "Evidence"
       ],
-      "related": [
-        "../../AI_CONSTITUTION.md",
-        "../../meta/AGENT_OPERATING_MODEL.md"
-      ],
+      "related": [],
       "category_dir": "05-code"
     },
     {
@@ -19608,10 +19605,7 @@
         "Related",
         "Evidence"
       ],
-      "related": [
-        "../../AI_CONSTITUTION.md",
-        "../../meta/AGENT_OPERATING_MODEL.md"
-      ],
+      "related": [],
       "category_dir": "05-code"
     },
     {

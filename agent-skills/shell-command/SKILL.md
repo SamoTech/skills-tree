@@ -43,7 +43,7 @@ Untrusted command strings; shell injection; unnecessary secrets; no timeout or o
 ## Related
 
 - `process-management.md`
-- `environment-variables.md`
+- `env-vars.md`
 - `approval-before-destructive-tools.md`
 
 ## Evidence
