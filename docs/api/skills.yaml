@@ -1,4 +1,4 @@
-generated: '2026-11-26T17:24:02Z'
+generated: '2026-11-26T17:56:15Z'
 count: 2488
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -17464,18 +17464,17 @@ skills:
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../04-action-execution/shell-command.md
+  - ../04-action-execution/process-management.md
+  - ../14-security/input-sanitization.md
   category_dir: 05-code
 - id: code-explanation
   path: skills/05-code/code-explanation.md
@@ -17485,16 +17484,12 @@ skills:
   category: code
   level: basic
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -17640,37 +17635,30 @@ skills:
   category: code
   level: basic
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../01-perception/git-diff-reading.md
   category_dir: 05-code
 - id: code-translation
   path: skills/05-code/code-translation.md
-  name: code-translation
+  name: Code Translation
   description: Translate source code between programming languages while preserving
     behavior, interfaces, and documented constraints.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
   - Failure Modes
-  - Related
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -18008,22 +17996,18 @@ skills:
   category_dir: 05-code
 - id: db-schema-design
   path: skills/05-code/db-schema-design.md
-  name: db-schema-design
+  name: DB Schema Design
   description: Design database schemas from explicit data requirements, relationships,
     constraints, and access patterns.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
   - Failure Modes
-  - Related
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -18052,22 +18036,18 @@ skills:
   category_dir: 05-code
 - id: debugging
   path: skills/05-code/debugging.md
-  name: debugging
+  name: Debugging
   description: Diagnose software defects by isolating symptoms, reproducing failures,
     identifying root causes, and validating fixes.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -18096,24 +18076,19 @@ skills:
   category_dir: 05-code
 - id: dependency-auditor
   path: skills/05-code/dependency-auditor.md
-  name: dependency-auditor
+  name: Dependency Auditor (Project Manifests)
   description: Audit project dependencies for declared usage, version constraints,
     known risk signals, and unnecessary or inconsistent packages.
   category: code
   level: advanced
   stability: stable
-  version: v1
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
   - Failure Modes
-  - Related
-  - Evidence
   - Changelog
+  - Evidence
   related: []
   category_dir: 05-code
 - id: dependency-diff-impact-review
@@ -18145,22 +18120,18 @@ skills:
   category_dir: 05-code
 - id: dependency-management
   path: skills/05-code/dependency-management.md
-  name: dependency-management
+  name: Dependency Management
   description: Manage software dependencies through explicit version constraints,
     reproducible updates, compatibility checks, and rollback-safe changes.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -18216,22 +18187,18 @@ skills:
   category_dir: 05-code
 - id: dockerfile-generation
   path: skills/05-code/dockerfile-generation.md
-  name: dockerfile-generation
+  name: Dockerfile Generation
   description: Generate maintainable Dockerfiles from application runtime requirements,
     build inputs, security constraints, and deployment targets.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -18265,22 +18232,18 @@ skills:
   category_dir: 05-code
 - id: documentation-generation
   path: skills/05-code/documentation-generation.md
-  name: documentation-generation
+  name: Documentation Generation
   description: Generate technical documentation from verified repository behavior,
     interfaces, configuration, and implementation evidence.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -18577,46 +18540,39 @@ skills:
   category_dir: 05-code
 - id: git-operations
   path: skills/05-code/git-operations.md
-  name: git-operations
+  name: Git Operations
   description: Perform Git operations with explicit branch, commit, merge, and recovery
     intent while preserving repository history and state.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../01-perception/git-diff-reading.md
   category_dir: 05-code
 - id: github-api
   path: skills/05-code/github-api.md
-  name: github-api
+  name: GitHub API (Code Integration)
   description: Work with GitHub APIs using documented endpoints, authentication boundaries,
     pagination, error handling, and least-privilege access.
   category: code
   level: advanced
   stability: stable
-  version: v1
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
   - Failure Modes
-  - Related
-  - Evidence
   - Changelog
-  related: []
+  - Evidence
+  related:
+  - ../14-security/approval-before-destructive-tools.md
   category_dir: 05-code
 - id: harness-adapter-frozen-agent-evaluation
   path: skills/05-code/harness-adapter-frozen-agent-evaluation.md
@@ -18774,22 +18730,18 @@ skills:
   category_dir: 05-code
 - id: integration-test-writing
   path: skills/05-code/integration-test-writing.md
-  name: integration-test-writing
+  name: Integration Test Writing
   description: Create integration tests that verify interactions between real application
     components, external boundaries, persistence, or services.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -18921,22 +18873,18 @@ skills:
   category_dir: 05-code
 - id: linting-formatting
   path: skills/05-code/linting-formatting.md
-  name: linting-formatting
+  name: Linting Formatting
   description: Apply repository-defined linting and formatting rules consistently
     while preserving behavior and minimizing unrelated churn.
   category: code
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -19438,22 +19386,18 @@ skills:
   category_dir: 05-code
 - id: performance-profiling
   path: skills/05-code/performance-profiling.md
-  name: performance-profiling
+  name: Performance Profiling
   description: Measure software performance with representative workloads, identify
     bottlenecks, and validate changes against explicit performance requirements.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -19617,43 +19561,35 @@ skills:
   category_dir: 05-code
 - id: refactoring
   path: skills/05-code/refactoring.md
-  name: refactoring
+  name: Refactoring
   description: Restructure code to improve maintainability or design while preserving
     documented behavior and interfaces.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
 - id: regex-generation
   path: skills/05-code/regex-generation.md
-  name: regex-generation
+  name: Regex Generation
   description: Generate regular expressions from explicit matching and rejection requirements
     and validate them against representative cases.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -19714,22 +19650,18 @@ skills:
   category_dir: 05-code
 - id: repl-interaction
   path: skills/05-code/repl-interaction.md
-  name: repl-interaction
+  name: Repl Interaction
   description: Use an interactive language environment to inspect behavior, test hypotheses,
     and validate small code changes without replacing reproducible project tests.
   category: code
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code
@@ -19959,24 +19891,21 @@ skills:
   category_dir: 05-code
 - id: sql-query-generation
   path: skills/05-code/sql-query-generation.md
-  name: sql-query-generation
+  name: SQL Query Generation
   description: Generate SQL from explicit data requirements, schema constraints, and
     supported database dialects while preserving correctness and safe parameter handling.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../14-security/input-sanitization.md
   category_dir: 05-code
 - id: stack-trace-analysis
   path: skills/05-code/stack-trace-analysis.md
@@ -20379,22 +20308,18 @@ skills:
   category_dir: 05-code
 - id: unit-test-generation
   path: skills/05-code/unit-test-generation.md
-  name: unit-test-generation
+  name: Unit Test Generation
   description: Generate focused unit tests that verify isolated behavior, edge cases,
     and failure handling from explicit contracts.
   category: code
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 05-code

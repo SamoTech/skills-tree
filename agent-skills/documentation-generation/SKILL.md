@@ -4,42 +4,65 @@ description: Generate technical documentation from verified repository behavior,
 metadata:
   source: skills/05-code/documentation-generation.md
   category: 05-code
+  version: "v2"
 ---
 
-## Description
-Generate technical documentation from verified repository behavior, interfaces, configuration, and implementation evidence. Documentation must describe what the repository actually supports and must not invent APIs or capabilities.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-documentation-generation.json)
 
-## When to Use
-Use when README, API, architecture, configuration, runbook, or developer documentation must be created or refreshed.
+# Documentation Generation
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Source, configuration, interfaces, tests, and existing documentation. |
-| Outputs | Accurate documentation with traceable repository evidence. |
-| Failure modes | Stale claims, invented interfaces, missing prerequisites, or documentation drift. |
+### Description
 
-## Runnable Example
+Generate technical documentation from verified repository behavior, interfaces, configuration, and implementation evidence. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | sources | object | Code, interfaces, configuration, and tests that define actual behavior |
+| Input | scope | string | README, API reference, architecture, runbook, or developer guide |
+| Output | documentation | object | Sections accurate to verified behavior, with prerequisites and limits |
+| Output | evidence | list of string | File references backing every documented claim |
+
+### Procedure
+1. Read the implementation, configuration, and tests that define actual behavior.
+2. Document only what is verified; mark inferred or planned behavior explicitly.
+3. Include prerequisites, setup steps, and known limits; docs that omit prerequisites fail users.
+4. Keep runnable examples synchronized with the code they demonstrate.
+5. Cross-check every claim against the repository before publishing.
+
+### Example
 
 ```python
-from pathlib import Path
-
-readme = Path('README.md')
-print('README exists:', readme.exists())
-print('documentation must follow verified repository behavior')
+claims = {'install': 'pip install skills-tree', 'requires_python': '3.10+'}
+assert all(isinstance(v, str) for v in claims.values())
+print('each documented claim must carry a repository file reference')
 ```
 
-## Failure modes
-- Documenting assumptions as facts.
-- Omitting prerequisites or operational constraints.
-- Updating implementation without updating required documentation.
-- Claiming verification that was not performed.
+### Related Skills
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+- [Code Explanation](code-explanation.md) - verified behavior traces feed the docs
+- [Code Review](code-review.md) - review documentation claims like code changes
+- [Code Search](code-search.md) - locate the interfaces being documented
+
+## Failure Modes
+
+- Documenting assumptions as facts.
+- Inventing interfaces or capabilities the repository does not have.
+- Omitting prerequisites or operational constraints.
+- Letting documentation drift after behavior changes.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

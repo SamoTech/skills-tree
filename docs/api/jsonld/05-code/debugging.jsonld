@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/debugging.md",
-  "name": "debugging",
-  "headline": "debugging",
+  "name": "Debugging",
+  "headline": "Debugging",
   "description": "Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/debugging.md",
   "isPartOf": {
@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:35:28Z",
+  "dateModified": "2026-11-26T17:55:40Z",
   "skillId": "debugging",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],
@@ -77,7 +73,7 @@
   "keywords": "AI agent, LLM skill, code, debugging, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "debugging",
+    "name": "Debugging",
     "description": "An AI agent skill for debugging."
   }
 }

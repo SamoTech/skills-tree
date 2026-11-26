@@ -4,42 +4,66 @@ description: Apply repository-defined linting and formatting rules consistently 
 metadata:
   source: skills/05-code/linting-formatting.md
   category: 05-code
+  version: "v2"
 ---
 
-## Description
-Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn. Inspect the configured tools and version before changing source style.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-linting-formatting.json)
 
-## When to Use
-Use when code quality checks require linting, formatting, or normalization.
+# Linting Formatting
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Source files, repository configuration, formatter and linter versions. |
-| Outputs | Consistently formatted and lint-clean code with verification evidence. |
-| Failure modes | Unrelated churn, version mismatch, behavior changes, or ignored configuration. |
+### Description
 
-## Runnable Example
+Apply repository-defined linting and formatting rules consistently while preserving behavior and minimizing unrelated churn. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | scope | list of string | The files or directories the style change covers |
+| Input | config | object | Repository lint/format configuration and the tool versions it expects |
+| Output | formatted_code | object | Lint-clean code with behavior preserved and churn bounded to scope |
+| Output | verification | object | Clean lint run plus test-suite output |
+
+### Procedure
+1. Read the repository lint/format configuration and pin the tool versions it expects.
+2. Run the formatter and linter on the declared scope only.
+3. Review the diff: formatting must not change behavior; investigate any semantic-looking change.
+4. Keep style changes in commits separate from functional changes.
+5. Re-run the linter and the test suite to confirm cleanliness without regressions.
+
+### Example
 
 ```python
 from pathlib import Path
 
-files = list(Path('.').rglob('*.py'))
-print('python files:', len(files))
-print('use repository-configured lint and format commands')
+py_files = sorted(p.name for p in Path('.').glob('*.py'))
+print('files in formatting scope:', py_files)
+print('use the repository-configured lint and format commands and versions')
 ```
 
-## Failure modes
-- Formatting with an incompatible tool version.
-- Mixing style changes with functional changes.
-- Ignoring repository configuration.
-- Treating lint success as proof of functional correctness.
+### Related Skills
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+- [Code Review](code-review.md) - style findings separated from correctness findings
+- [Refactoring](refactoring.md) - structural changes stay separate from style changes
+
+## Failure Modes
+
+- Formatting with an incompatible tool version, causing churn.
+- Mixing style changes with functional changes.
+- Ignoring repository configuration in favor of personal defaults.
+- Treating lint-clean output as proof of functional correctness.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic scope example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

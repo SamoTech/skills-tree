@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 2488,
-  "dateModified": "2026-11-26T17:24:02Z",
+  "dateModified": "2026-11-26T17:56:15Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -4193,7 +4193,7 @@
       "@type": "ListItem",
       "position": 697,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/code-translation.md",
-      "name": "code-translation"
+      "name": "Code Translation"
     },
     {
       "@type": "ListItem",
@@ -4277,7 +4277,7 @@
       "@type": "ListItem",
       "position": 711,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/db-schema-design.md",
-      "name": "db-schema-design"
+      "name": "DB Schema Design"
     },
     {
       "@type": "ListItem",
@@ -4289,7 +4289,7 @@
       "@type": "ListItem",
       "position": 713,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/debugging.md",
-      "name": "debugging"
+      "name": "Debugging"
     },
     {
       "@type": "ListItem",
@@ -4301,7 +4301,7 @@
       "@type": "ListItem",
       "position": 715,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-auditor.md",
-      "name": "dependency-auditor"
+      "name": "Dependency Auditor (Project Manifests)"
     },
     {
       "@type": "ListItem",
@@ -4313,7 +4313,7 @@
       "@type": "ListItem",
       "position": 717,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-management.md",
-      "name": "dependency-management"
+      "name": "Dependency Management"
     },
     {
       "@type": "ListItem",
@@ -4331,7 +4331,7 @@
       "@type": "ListItem",
       "position": 720,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dockerfile-generation.md",
-      "name": "dockerfile-generation"
+      "name": "Dockerfile Generation"
     },
     {
       "@type": "ListItem",
@@ -4343,7 +4343,7 @@
       "@type": "ListItem",
       "position": 722,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/documentation-generation.md",
-      "name": "documentation-generation"
+      "name": "Documentation Generation"
     },
     {
       "@type": "ListItem",
@@ -4415,13 +4415,13 @@
       "@type": "ListItem",
       "position": 734,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/git-operations.md",
-      "name": "git-operations"
+      "name": "Git Operations"
     },
     {
       "@type": "ListItem",
       "position": 735,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/github-api.md",
-      "name": "github-api"
+      "name": "GitHub API (Code Integration)"
     },
     {
       "@type": "ListItem",
@@ -4463,7 +4463,7 @@
       "@type": "ListItem",
       "position": 742,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/integration-test-writing.md",
-      "name": "integration-test-writing"
+      "name": "Integration Test Writing"
     },
     {
       "@type": "ListItem",
@@ -4499,7 +4499,7 @@
       "@type": "ListItem",
       "position": 748,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/linting-formatting.md",
-      "name": "linting-formatting"
+      "name": "Linting Formatting"
     },
     {
       "@type": "ListItem",
@@ -4619,7 +4619,7 @@
       "@type": "ListItem",
       "position": 768,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/performance-profiling.md",
-      "name": "performance-profiling"
+      "name": "Performance Profiling"
     },
     {
       "@type": "ListItem",
@@ -4661,13 +4661,13 @@
       "@type": "ListItem",
       "position": 775,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/refactoring.md",
-      "name": "refactoring"
+      "name": "Refactoring"
     },
     {
       "@type": "ListItem",
       "position": 776,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/regex-generation.md",
-      "name": "regex-generation"
+      "name": "Regex Generation"
     },
     {
       "@type": "ListItem",
@@ -4685,7 +4685,7 @@
       "@type": "ListItem",
       "position": 779,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/repl-interaction.md",
-      "name": "repl-interaction"
+      "name": "Repl Interaction"
     },
     {
       "@type": "ListItem",
@@ -4745,7 +4745,7 @@
       "@type": "ListItem",
       "position": 789,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/sql-query-generation.md",
-      "name": "sql-query-generation"
+      "name": "SQL Query Generation"
     },
     {
       "@type": "ListItem",
@@ -4847,7 +4847,7 @@
       "@type": "ListItem",
       "position": 806,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/unit-test-generation.md",
-      "name": "unit-test-generation"
+      "name": "Unit Test Generation"
     },
     {
       "@type": "ListItem",

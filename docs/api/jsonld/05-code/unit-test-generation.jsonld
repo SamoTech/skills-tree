@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/unit-test-generation.md",
-  "name": "unit-test-generation",
-  "headline": "unit-test-generation",
+  "name": "Unit Test Generation",
+  "headline": "Unit Test Generation",
   "description": "Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/unit-test-generation.md",
   "isPartOf": {
@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:41:59Z",
+  "dateModified": "2026-11-26T17:56:15Z",
   "skillId": "unit-test-generation",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],
@@ -77,7 +73,7 @@
   "keywords": "AI agent, LLM skill, code, generation, skills tree, test, unit",
   "about": {
     "@type": "Thing",
-    "name": "unit-test-generation",
-    "description": "An AI agent skill for unit-test-generation."
+    "name": "Unit Test Generation",
+    "description": "An AI agent skill for unit test generation."
   }
 }

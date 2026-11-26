@@ -1,48 +1,72 @@
 ---
-title: Code Translation
+title: "Code Translation"
 category: 05-code
 level: advanced
 stability: stable
-description: Translate source code between programming languages while preserving behavior, interfaces, and documented constraints.
+version: v2
+description: "Translate source code between programming languages while preserving behavior, interfaces, and documented constraints."
 added: "2026-09"
-related: [05-code]
+related: [code-generation, code-explanation, refactoring]
 ---
 
-## Description
-Translate source code between programming languages while preserving behavior, interfaces, and documented constraints. The procedure is evidence-first: inspect the repository and explicit requirements before changing code, preserve existing contracts, and verify the result with the repository's own tests and quality gates.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-code-translation.json)
 
-## When to Use
-Use this skill when the task requires translate source code between programming languages while preserving behavior, interfaces, and documented constraints. Prefer the smallest reversible change that satisfies the stated requirement.
+# Code Translation
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Repository state, explicit requirements, relevant source/configuration, and existing tests or interfaces. |
-| Outputs | A verified implementation or analysis, plus concise evidence of what was checked. |
-| Failure modes | Missing requirements, incompatible assumptions, hidden side effects, incomplete verification, or changes that weaken existing controls. |
+### Description
 
-## Runnable Example
+Translate source code between programming languages while preserving behavior, interfaces, and documented constraints. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | source_code | string | Code in the source language, with its tests and interfaces identified |
+| Input | target_language | string | Destination language and version |
+| Input | constraints | list of string | Interfaces, runtime limits, and semantics that must be preserved |
+| Output | translated_code | string | Target-language code preserving the stated interfaces |
+| Output | parity_notes | list of string | Behavior preserved, deviations, and anything unverified |
+
+### Procedure
+1. Capture the source behavior first: interfaces, edge cases, and the tests that pin it.
+2. Map language-specific constructs explicitly: error handling, concurrency, numeric semantics, truthiness.
+3. Translate while preserving interfaces and documented constraints; do not change semantics mid-translation.
+4. Port or re-implement the pinning tests in the target language.
+5. Run the ported tests and record parity: identical, equivalent, or intentionally different.
+6. Flag constructs with no faithful equivalent instead of silently approximating them.
+
+### Example
 
 ```python
-from pathlib import Path
-
-root = Path('.')
-files = sorted(p for p in root.rglob('*') if p.is_file())
-print(f'Repository files discovered: {len(files)}')
-print('Inspect relevant files before making changes.')
+semantic_map = {'int_div': 'Math.trunc(a / b)', 'truthiness': 'Boolean(value)', 'error_model': 'throw/catch'}
+assert semantic_map['int_div'].startswith('Math.trunc')
+print('construct mapping recorded before translation')
 ```
 
-## Failure Modes
-- Acting on an inferred requirement instead of an explicit one.
-- Modifying unrelated files or interfaces.
-- Treating a passing local example as sufficient verification.
-- Suppressing or weakening a validator to accommodate an implementation defect.
-- Reporting completion without reproducible evidence.
+### Related Skills
 
-## Related
-- [Code Generation](code-generation.md)
-- [Code Explanation](code-explanation.md)
+- [Code Generation](code-generation.md) - target-language idioms and conventions
+- [Code Explanation](code-explanation.md) - understand source behavior before translating it
+- [Refactoring](refactoring.md) - separate cleanup from translation
+
+## Failure Modes
+
+- Translating syntax but not semantics: integer division, truthiness, or error models differ.
+- Silently dropping behavior that has no target equivalent.
+- Skipping the ported tests and claiming parity unverified.
+- Improving or restructuring the code during translation instead of preserving it.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (removed the non-corpus AI_CONSTITUTION.md evidence pointer).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance. The skill is grounded in the repository's governance, validation workflows, and evidence-first operating model; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

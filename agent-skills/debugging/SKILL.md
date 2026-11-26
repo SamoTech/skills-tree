@@ -4,42 +4,70 @@ description: Diagnose software defects by isolating symptoms, reproducing failur
 metadata:
   source: skills/05-code/debugging.md
   category: 05-code
+  version: "v2"
 ---
 
-## Description
-Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes. Preserve existing behavior outside the defect and use repository evidence rather than speculation.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-debugging.json)
 
-## When to Use
-Use when a software failure, regression, unexpected result, or reproducible defect must be investigated and corrected.
+# Debugging
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Failure symptoms, reproduction steps, source, logs, configuration, and tests. |
-| Outputs | Root-cause analysis, minimal fix, and verification evidence. |
-| Failure modes | Non-reproducible symptoms, misleading evidence, unrelated changes, or incomplete regression testing. |
+### Description
 
-## Runnable Example
+Diagnose software defects by isolating symptoms, reproducing failures, identifying root causes, and validating fixes. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | symptoms | string | The observed failure, with logs, stack traces, and reproduction steps |
+| Input | context | object | Source, configuration, recent changes, and existing tests |
+| Output | root_cause | object | The established cause with supporting evidence |
+| Output | fix | object | A minimal diff plus a regression test that fails without it |
+
+### Procedure
+1. Reproduce the failure deterministically before changing anything; an unreproducible bug can only be guessed at.
+2. Bisect the space: logs, stack traces, recent changes, boundary conditions.
+3. Form one hypothesis at a time and test it with the smallest possible probe.
+4. Establish the root cause with evidence, not plausibility.
+5. Implement the minimal fix and add a regression test that fails without it.
+6. Re-run the full affected test surface; a single passing case is not fixed.
+
+### Example
 
 ```python
-from pathlib import Path
+def total(prices):
+    return sum(prices)
 
-root = Path('.')
-print('repository:', root.resolve())
-print('inspect logs, source, and tests before changing code')
+# minimal reproduction of a reported defect
+result = total([1, 2, 3])
+assert result == 6, f'unexpected total: {result}'
+print('repro established; root cause analysis may proceed')
 ```
 
-## Failure modes
+### Related Skills
+
+- [Code Search](code-search.md) - locate the failing path and its callers
+- [Unit Test Generation](unit-test-generation.md) - pin the fix with a regression test
+- [Code Review](code-review.md) - have the fix reviewed before merge
+
+## Failure Modes
+
 - Fixing symptoms without establishing a root cause.
 - Changing unrelated code while debugging.
-- Ignoring regression coverage.
-- Disabling validators to hide a defect.
+- Disabling validators or tests to hide a defect.
+- Reporting fixed without a regression test and full test-surface run.
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic reproduction example, an execution procedure, and corpus-verified related links (removed non-corpus repository-file pointers).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

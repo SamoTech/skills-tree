@@ -4,42 +4,68 @@ description: Perform Git operations with explicit branch, commit, merge, and rec
 metadata:
   source: skills/05-code/git-operations.md
   category: 05-code
+  version: "v2"
 ---
 
-## Description
-Perform Git operations with explicit branch, commit, merge, and recovery intent while preserving repository history and repository governance. Verify the target ref and working state before destructive or history-changing actions.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-git-operations.json)
 
-## When to Use
-Use when branching, committing, merging, rebasing, reverting, recovering, or inspecting Git state is required.
+# Git Operations
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Repository state, target refs, intended change, and recovery constraints. |
-| Outputs | Correct Git state with traceable history and verification evidence. |
-| Failure modes | Wrong target ref, lost changes, unexpected history rewrite, or unverified merge state. |
+### Description
 
-## Runnable Example
+Perform Git operations with explicit branch, commit, merge, and recovery intent while preserving repository history and state. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | intent | enum | branch, commit, merge, rebase, revert, recover, or inspect |
+| Input | refs | object | Exact target refs; no abbreviated or assumed refs for destructive actions |
+| Output | git_state | object | Resulting refs and working tree after the operation |
+| Output | evidence | object | Command output confirming the resulting state |
+
+### Procedure
+1. Inspect current state (status, branch, remotes) before any mutation.
+2. Confirm the exact target ref for every operation; never act on an assumed ref for destructive actions.
+3. Protect uncommitted work: stash or commit before history-changing operations.
+4. Prefer non-history-rewriting operations on shared branches.
+5. After the operation, verify the resulting state with explicit commands and report it.
+6. For recovery, identify the pre-operation state first (reflog, backup ref) so the operation stays reversible.
+
+### Example
 
 ```python
 import subprocess
 
-result = subprocess.run(['git', 'status', '--short'], text=True, capture_output=True)
-print(result.stdout)
-print('inspect state before mutating repository history')
+result = subprocess.run(['git', 'status', '--short'], capture_output=True, text=True)
+print('working tree entries:', len(result.stdout.splitlines()))
+print('inspect and record state before mutating repository history')
 ```
 
-## Failure modes
-- Running history-changing commands without confirming the target.
-- Losing uncommitted work.
-- Merging stale refs.
-- Reporting a Git operation complete without checking the resulting state.
+### Related Skills
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+- [Git Diff Reading](../01-perception/git-diff-reading.md) - scope and review the change set
+- [Code Review](code-review.md) - review commits before they merge
+- [Dependency Management](dependency-management.md) - commit manifest and lockfile together
+
+## Failure Modes
+
+- Running history-changing commands against the wrong ref.
+- Losing uncommitted work by not stashing or committing first.
+- Merging stale or unverified refs.
+- Reporting an operation complete without checking the resulting state.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic state-inspection example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-11-26T17:25:09.780148+00:00",
+    "generated_at": "2026-11-26T17:58:10.073092+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
-    "edge_count": 3697,
+    "edge_count": 3748,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -10339,7 +10339,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10354,7 +10354,7 @@
       "layer": "systems",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10444,7 +10444,7 @@
       "layer": "systems",
       "level": "basic",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10459,7 +10459,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10664,12 +10664,12 @@
     },
     {
       "id": "05-code/db-schema-design",
-      "title": "Db Schema Design",
+      "title": "DB Schema Design",
       "category": "05-code",
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10699,7 +10699,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10729,7 +10729,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10759,7 +10759,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10804,7 +10804,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -10834,7 +10834,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11014,7 +11014,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11029,7 +11029,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11134,7 +11134,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11224,7 +11224,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11524,7 +11524,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11629,7 +11629,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11644,7 +11644,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11689,7 +11689,7 @@
       "layer": "systems",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -11834,12 +11834,12 @@
     },
     {
       "id": "05-code/sql-query-generation",
-      "title": "Sql Query Generation",
+      "title": "SQL Query Generation",
       "category": "05-code",
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -12094,7 +12094,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -46049,6 +46049,54 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/code-execution-sandbox",
+      "target": "04-action-execution/shell-command",
+      "type": "RELATED_TO",
+      "evidence": "[Shell Command](../04-action-execution/shell-command.md)",
+      "source_file": "skills/05-code/code-execution-sandbox.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-execution-sandbox",
+      "target": "04-action-execution/process-management",
+      "type": "RELATED_TO",
+      "evidence": "[Process Management](../04-action-execution/process-management.md)",
+      "source_file": "skills/05-code/code-execution-sandbox.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-execution-sandbox",
+      "target": "14-security/input-sanitization",
+      "type": "RELATED_TO",
+      "evidence": "[Input Sanitization](../14-security/input-sanitization.md)",
+      "source_file": "skills/05-code/code-execution-sandbox.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-explanation",
+      "target": "05-code/code-search",
+      "type": "RELATED_TO",
+      "evidence": "[Code Search](code-search.md)",
+      "source_file": "skills/05-code/code-explanation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-explanation",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/code-explanation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-explanation",
+      "target": "05-code/documentation-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Documentation Generation](documentation-generation.md)",
+      "source_file": "skills/05-code/code-explanation.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/code-fuzzing",
       "target": "05-code/property-based-testing",
       "type": "RELATED_TO",
@@ -46110,6 +46158,54 @@
       "type": "RELATED_TO",
       "evidence": "[Code Generation](code-generation.md)",
       "source_file": "skills/05-code/code-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-search",
+      "target": "01-perception/git-diff-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Git Diff Reading](../01-perception/git-diff-reading.md)",
+      "source_file": "skills/05-code/code-search.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-search",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/code-search.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-search",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/code-search.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-translation",
+      "target": "05-code/code-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Code Generation](code-generation.md)",
+      "source_file": "skills/05-code/code-translation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-translation",
+      "target": "05-code/code-explanation",
+      "type": "RELATED_TO",
+      "evidence": "[Code Explanation](code-explanation.md)",
+      "source_file": "skills/05-code/code-translation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/code-translation",
+      "target": "05-code/refactoring",
+      "type": "RELATED_TO",
+      "evidence": "[Refactoring](refactoring.md)",
+      "source_file": "skills/05-code/code-translation.md",
       "confidence": "high"
     },
     {
@@ -46273,6 +46369,46 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/db-schema-design",
+      "target": "05-code/database-migration-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Database Migration Writing](database-migration-writing.md)",
+      "source_file": "skills/05-code/db-schema-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/db-schema-design",
+      "target": "05-code/sql-query-generation",
+      "type": "RELATED_TO",
+      "evidence": "[SQL Query Generation](sql-query-generation.md)",
+      "source_file": "skills/05-code/db-schema-design.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/debugging",
+      "target": "05-code/code-search",
+      "type": "RELATED_TO",
+      "evidence": "[Code Search](code-search.md)",
+      "source_file": "skills/05-code/debugging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/debugging",
+      "target": "05-code/unit-test-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Unit Test Generation](unit-test-generation.md)",
+      "source_file": "skills/05-code/debugging.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/debugging",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/debugging.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/dependency-diff-impact-review",
       "target": "05-code/dependency-update-automation",
       "type": "RELATED_TO",
@@ -46286,6 +46422,30 @@
       "type": "RELATED_TO",
       "evidence": "[Dependency Integrity Verification](../14-security/dependency-integrity-verification.md)",
       "source_file": "skills/05-code/dependency-diff-impact-review.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/dependency-management",
+      "target": "05-code/dependency-auditor",
+      "type": "RELATED_TO",
+      "evidence": "[Dependency Auditor](dependency-auditor.md)",
+      "source_file": "skills/05-code/dependency-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/dependency-management",
+      "target": "05-code/git-operations",
+      "type": "RELATED_TO",
+      "evidence": "[Git Operations](git-operations.md)",
+      "source_file": "skills/05-code/dependency-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/dependency-management",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/dependency-management.md",
       "confidence": "high"
     },
     {
@@ -46305,6 +46465,30 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/dockerfile-generation",
+      "target": "05-code/dependency-management",
+      "type": "RELATED_TO",
+      "evidence": "[Dependency Management](dependency-management.md)",
+      "source_file": "skills/05-code/dockerfile-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/dockerfile-generation",
+      "target": "05-code/code-execution-sandbox",
+      "type": "RELATED_TO",
+      "evidence": "[Code Execution Sandbox](code-execution-sandbox.md)",
+      "source_file": "skills/05-code/dockerfile-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/dockerfile-generation",
+      "target": "05-code/documentation-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Documentation Generation](documentation-generation.md)",
+      "source_file": "skills/05-code/dockerfile-generation.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/documentation-example-testing",
       "target": "05-code/documentation-generation",
       "type": "RELATED_TO",
@@ -46318,6 +46502,30 @@
       "type": "RELATED_TO",
       "evidence": "[unit test generation](../05-code/unit-test-generation.md)",
       "source_file": "skills/05-code/documentation-example-testing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/documentation-generation",
+      "target": "05-code/code-explanation",
+      "type": "RELATED_TO",
+      "evidence": "[Code Explanation](code-explanation.md)",
+      "source_file": "skills/05-code/documentation-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/documentation-generation",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/documentation-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/documentation-generation",
+      "target": "05-code/code-search",
+      "type": "RELATED_TO",
+      "evidence": "[Code Search](code-search.md)",
+      "source_file": "skills/05-code/documentation-generation.md",
       "confidence": "high"
     },
     {
@@ -46481,6 +46689,46 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/git-operations",
+      "target": "01-perception/git-diff-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Git Diff Reading](../01-perception/git-diff-reading.md)",
+      "source_file": "skills/05-code/git-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/git-operations",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/git-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/git-operations",
+      "target": "05-code/dependency-management",
+      "type": "RELATED_TO",
+      "evidence": "[Dependency Management](dependency-management.md)",
+      "source_file": "skills/05-code/git-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/github-api",
+      "target": "05-code/git-operations",
+      "type": "RELATED_TO",
+      "evidence": "[Git Operations](git-operations.md)",
+      "source_file": "skills/05-code/github-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/github-api",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/05-code/github-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/harness-adapter-frozen-agent-evaluation",
       "target": "05-code/agent-discovered-vulnerability-triage",
       "type": "RELATED_TO",
@@ -46561,6 +46809,22 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/integration-test-writing",
+      "target": "05-code/unit-test-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Unit Test Generation](unit-test-generation.md)",
+      "source_file": "skills/05-code/integration-test-writing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/integration-test-writing",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/integration-test-writing.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/kernel-privilege-escalation-patch-generation",
       "target": "05-code/bug-fixing",
       "type": "RELATED_TO",
@@ -46622,6 +46886,22 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Client Protocol Integration Implementation](agent-client-protocol-integration-implementation.md)",
       "source_file": "skills/05-code/lean-formalized-mathematics-navigation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/linting-formatting",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/linting-formatting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/linting-formatting",
+      "target": "05-code/refactoring",
+      "type": "RELATED_TO",
+      "evidence": "[Refactoring](refactoring.md)",
+      "source_file": "skills/05-code/linting-formatting.md",
       "confidence": "high"
     },
     {
@@ -46881,6 +47161,22 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/performance-profiling",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/performance-profiling.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/performance-profiling",
+      "target": "05-code/refactoring",
+      "type": "RELATED_TO",
+      "evidence": "[Refactoring](refactoring.md)",
+      "source_file": "skills/05-code/performance-profiling.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/polyglot-type-binding-generation",
       "target": "05-code/protocol-schema-codegen",
       "type": "RELATED_TO",
@@ -46969,6 +47265,46 @@
       "confidence": "high"
     },
     {
+      "source": "05-code/refactoring",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/refactoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/refactoring",
+      "target": "05-code/unit-test-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Unit Test Generation](unit-test-generation.md)",
+      "source_file": "skills/05-code/refactoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/refactoring",
+      "target": "05-code/linting-formatting",
+      "type": "RELATED_TO",
+      "evidence": "[Linting Formatting](linting-formatting.md)",
+      "source_file": "skills/05-code/refactoring.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/regex-generation",
+      "target": "05-code/unit-test-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Unit Test Generation](unit-test-generation.md)",
+      "source_file": "skills/05-code/regex-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/regex-generation",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/regex-generation.md",
+      "confidence": "high"
+    },
+    {
       "source": "05-code/regression-window-bisection-automation",
       "target": "05-code/ci-failure-triage",
       "type": "RELATED_TO",
@@ -46998,6 +47334,30 @@
       "type": "RELATED_TO",
       "evidence": "[Framework Migration](../05-code/framework-migration.md)",
       "source_file": "skills/05-code/release-cancellation-dependency-impact-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/repl-interaction",
+      "target": "05-code/debugging",
+      "type": "RELATED_TO",
+      "evidence": "[Debugging](debugging.md)",
+      "source_file": "skills/05-code/repl-interaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/repl-interaction",
+      "target": "05-code/unit-test-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Unit Test Generation](unit-test-generation.md)",
+      "source_file": "skills/05-code/repl-interaction.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/repl-interaction",
+      "target": "05-code/code-execution-sandbox",
+      "type": "RELATED_TO",
+      "evidence": "[Code Execution Sandbox](code-execution-sandbox.md)",
+      "source_file": "skills/05-code/repl-interaction.md",
       "confidence": "high"
     },
     {
@@ -47078,6 +47438,30 @@
       "type": "RELATED_TO",
       "evidence": "[Observability Instrumentation](../05-code/observability-instrumentation.md)",
       "source_file": "skills/05-code/speculative-tool-call-execution-implementation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/sql-query-generation",
+      "target": "05-code/db-schema-design",
+      "type": "RELATED_TO",
+      "evidence": "[DB Schema Design](db-schema-design.md)",
+      "source_file": "skills/05-code/sql-query-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/sql-query-generation",
+      "target": "05-code/database-migration-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Database Migration Writing](database-migration-writing.md)",
+      "source_file": "skills/05-code/sql-query-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/sql-query-generation",
+      "target": "14-security/input-sanitization",
+      "type": "RELATED_TO",
+      "evidence": "[Input Sanitization](../14-security/input-sanitization.md)",
+      "source_file": "skills/05-code/sql-query-generation.md",
       "confidence": "high"
     },
     {
@@ -47222,6 +47606,30 @@
       "type": "RELATED_TO",
       "evidence": "[Inference Efficiency Claim Verification](inference-efficiency-claim-verification.md)",
       "source_file": "skills/05-code/token-efficient-coding-agent-evaluation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/unit-test-generation",
+      "target": "05-code/integration-test-writing",
+      "type": "RELATED_TO",
+      "evidence": "[Integration Test Writing](integration-test-writing.md)",
+      "source_file": "skills/05-code/unit-test-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/unit-test-generation",
+      "target": "05-code/code-review",
+      "type": "RELATED_TO",
+      "evidence": "[Code Review](code-review.md)",
+      "source_file": "skills/05-code/unit-test-generation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "05-code/unit-test-generation",
+      "target": "05-code/refactoring",
+      "type": "RELATED_TO",
+      "evidence": "[Refactoring](refactoring.md)",
+      "source_file": "skills/05-code/unit-test-generation.md",
       "confidence": "high"
     },
     {
