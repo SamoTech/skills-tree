@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,6 +53,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
+| `temp-regen.yml` | Temporary steward tooling (branch-local) | Deterministic projection regen + distribution-audit capture for PR (P0 integrity link repairs, issue #699); deleted before merge (net zero), see the 2026-11-26 P0 disposition |
 
 ## Reconciliation findings
 
@@ -311,3 +312,4 @@ Closure note (2026-11-26, PR #700 modernization-inventory cycle): the temporary 
 `temp-regen.yml` is temporary steward tooling on the `counsel/p0-integrity-link-repairs-2026-11-26` branch only: it re-derives drifted agent-skills packages byte-exactly through the repository own `project()`/`write_projection()` with the reconcile `desired_names` resolution (skipping ineligible projections), runs the repository own generators (build_graph, build_search_index, export_skills, check_skill_quality, update_readme_counts, modernization_inventory) at the branch head, aligns the two committed graph projections to one build, and captures the Agent Skills distribution-audit outputs for diagnosis. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the PR independently.
 
 Closure note (2026-11-26, P0 integrity link repairs, temporary regen tooling): `temp-regen.yml` completed its purpose on the `counsel/p0-integrity-link-repairs-2026-11-26` branch (bot commit `379aab9c`: deterministic re-derivation of drifted agent-skills packages through the repository's own `project()`/`write_projection()`, full generator regen with graph 2488 nodes / 3664 edges / 0 warnings, and distribution-audit diagnostics showing reconcile zero drifted/stale/unexpected, validate 2499/2499 packages with 0 failures, and the modernization-integrity bucket dropping 24 → 20 after the four repaired skills). The workflow and all temporary reports (`meta/REGEN-LOG.txt`, `meta/REGEN-AUDIT.txt`, `meta/REGEN-VALIDATE.txt`, `meta/REGEN-RECONCILE.txt`) are deleted before merge (net zero on `main`); the live workflow count returns to 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
+Reopen note (2026-11-26, P0 integrity link repairs, second cycle): `temp-regen.yml` is re-added once more after the `Validate skill files` CI gate failed on the validate-skills.yml exact-case ratchet (`## Failure Modes` is required verbatim for files touched in a PR; the four repaired legacy skills carried the lowercase `## Failure modes` heading, which is not grandfathered once touched). The casing fix changes four searchable skill bodies, so the deterministic projection regen re-runs to keep the committed search index and packages byte-fresh. Same net-zero terms as the first cycle: publishes nothing to `main`, alters no existing workflow, deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened.
