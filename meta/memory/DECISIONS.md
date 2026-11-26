@@ -1744,3 +1744,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the Human Owner changes the badge publication model, if `docs/badges/` ceases to be the single canonical badge directory, or if a mechanical successor contract supersedes this one.
+
+## DECISION-2026-11-26-MODERNIZATION-INVENTORY-CONTRACT
+
+**Topic:** Deterministic whole-corpus modernization inventory and its freshness contract (issue #699, PR #700).
+
+**Decision:** `tools/modernization_inventory.py` is the repository's deterministic modernization classifier for the canonical corpus. It assigns every canonical skill exactly one of seven stable states (test-fixture, needs-invalid-repair, needs-stub-repair, needs-integrity-remediation, needs-structural-upgrade, needs-dependency-evidence, verified) building ONLY on existing repository boundaries: `tools.check_skill_quality.classify` (quality tier), `tools.audit_skill_corpus.audit_skill_files` (integrity findings), and the canonical `docs/badges/` dependency evidence keyed by `tools.sync_badges.skill_to_badge_key` (green-family = verified). It invents no freshness, compatibility, adoption, or quality facts. `meta/MODERNIZATION-INVENTORY.md` is its generated projection and is machine-verified fresh on every push by `tests/test_modernization_inventory.py` (determinism, byte-freshness, whole-corpus coverage; the report carries no timestamp fields so no exclusions are required). The committed report embeds a state-driven P0-P3 batch plan (repair -> structural upgrade -> dependency evidence -> evidence re-verification) whose ordering is fixed but whose batch contents are re-derived live at each execution, so the plan cannot go stale. Corpus expansion is deprioritized while issue #699 is open. Modernization batches must regenerate the inventory on their PR branches through the established temporary regen protocol (no manual projection edits, exact-head CI before merge). No new registry authority is created, no CI, quality, security, or governance gate is weakened (a byte-freshness gate is added, pattern of #581/#582/#616/#626), and there are no workflow changes.
+
+**Confidence:** HIGH - the classifier reuses existing verified boundaries and its projection has no mutable state, and the freshness-gate pattern is already proven by #581/#582/#616/#626 and the badge-coverage contract.
+
+**Evidence IDs:** issue #699 (owner-directed modernization initiative, 2026-11-25); PR #700; tools/modernization_inventory.py; tests/test_modernization_inventory.py (inline pytest 3/3 on branch regen); meta/MODERNIZATION-INVENTORY.md (2489 files; states needs-dependency-evidence=2329, needs-structural-upgrade=135, needs-integrity-remediation=24, verified=0); meta/CURRENT-STATE.md 2026-11-26 preflight section; meta/WORKFLOW_INVENTORY.md 2026-11-26 disposition/closure.
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen if the Human Owner changes the modernization-state model, if `tools/check_skill_quality.py` / `tools/audit_skill_corpus.py` classification semantics materially change, or if a mechanical successor contract supersedes this one.
