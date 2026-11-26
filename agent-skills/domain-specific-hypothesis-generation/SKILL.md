@@ -4,6 +4,7 @@ description: Generate testable hypotheses from observations, data, or documented
 metadata:
   source: skills/16-domain-specific/hypothesis-generation.md
   category: 16-domain-specific
+  version: "v1"
 ---
 
 **Category:** Domain-Specific
@@ -55,3 +56,9 @@ The canonical skill file is the authoritative repository implementation. Reposit
 - 16-domain-specific
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T09:17:33Z",
+  "dateModified": "2026-11-26T15:42:23Z",
   "skillId": "tot",
-  "skillVersion": null,
+  "skillVersion": "v1",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
@@ -66,7 +66,8 @@
     "Runnable Example",
     "Failure Modes",
     "Evidence",
-    "Related"
+    "Related",
+    "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {

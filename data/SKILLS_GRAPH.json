@@ -1,6 +1,6 @@
 {
   "meta": {
-    "generated_at": "2026-11-26T12:29:25.198158+00:00",
+    "generated_at": "2026-11-26T15:55:50.803908+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
@@ -6779,7 +6779,7 @@
     },
     {
       "id": "03-memory/procedural",
-      "title": "Procedural Memory",
+      "title": "Procedural Memory (Procedure Catalog)",
       "category": "03-memory",
       "layer": "reasoning",
       "level": "intermediate",
@@ -9329,7 +9329,7 @@
     },
     {
       "id": "04-action-execution/screenshot-capture",
-      "title": "Screenshot Capture",
+      "title": "Screenshot Capture (App Region)",
       "category": "04-action-execution",
       "layer": "systems",
       "level": "basic",
@@ -9344,7 +9344,7 @@
     },
     {
       "id": "04-action-execution/scroll",
-      "title": "Scroll",
+      "title": "Scroll (Interface Container)",
       "category": "04-action-execution",
       "layer": "systems",
       "level": "basic",
@@ -10724,7 +10724,7 @@
     },
     {
       "id": "05-code/dependency-auditor",
-      "title": "Dependency Auditor",
+      "title": "Dependency Auditor (Project Manifests)",
       "category": "05-code",
       "layer": "systems",
       "level": "advanced",
@@ -11024,7 +11024,7 @@
     },
     {
       "id": "05-code/github-api",
-      "title": "Github Api",
+      "title": "GitHub API (Code Integration)",
       "category": "05-code",
       "layer": "systems",
       "level": "advanced",
@@ -16589,7 +16589,7 @@
     },
     {
       "id": "07-tool-use/web-search",
-      "title": "Web Search",
+      "title": "Web Search (Tool Contract)",
       "category": "07-tool-use",
       "layer": "execution",
       "level": "intermediate",
@@ -17129,7 +17129,7 @@
     },
     {
       "id": "08-multimodal/audio-transcription",
-      "title": "Audio Transcription",
+      "title": "Audio Transcription (Media Events)",
       "category": "08-multimodal",
       "layer": "systems",
       "level": "intermediate",
@@ -20570,7 +20570,7 @@
     },
     {
       "id": "09-agentic-patterns/rag",
-      "title": "RAG \u2014 Retrieval-Augmented Generation",
+      "title": "RAG (Agentic Grounding Pattern)",
       "category": "09-agentic-patterns",
       "layer": "systems",
       "level": "intermediate",
@@ -20964,7 +20964,7 @@
     },
     {
       "id": "09-agentic-patterns/tot",
-      "title": "Tree of Thought",
+      "title": "Tree of Thought (Agentic Pattern)",
       "category": "09-agentic-patterns",
       "layer": "systems",
       "level": "advanced",
@@ -34554,7 +34554,7 @@
     },
     {
       "id": "16-domain-specific/hypothesis-generation",
-      "title": "Hypothesis Generation",
+      "title": "Hypothesis Generation (Domain Research)",
       "category": "16-domain-specific",
       "layer": "systems",
       "level": "advanced",

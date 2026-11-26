@@ -1,8 +1,9 @@
 ---
-title: "Tree of Thought"
+title: "Tree of Thought (Agentic Pattern)"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
+version: v1
 description: "Generate multiple candidate reasoning branches, evaluate them with an explicit criterion, and expand promising branches under a bounded search budget."
 added: "2025-03"
 related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
@@ -56,3 +57,9 @@ Canonical repository skill: this file. Conformance is governed by the repository
 - 09-agentic-patterns
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

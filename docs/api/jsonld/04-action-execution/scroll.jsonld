@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/scroll.md",
-  "name": "Scroll",
-  "headline": "Scroll",
+  "name": "Scroll (Interface Container)",
+  "headline": "Scroll (Interface Container)",
   "description": "Scroll a verified interface container by a bounded amount and verify the resulting viewport state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/scroll.md",
   "isPartOf": {
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T15:42:23Z",
   "skillId": "scroll",
-  "skillVersion": null,
+  "skillVersion": "v1",
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
@@ -63,9 +63,10 @@
     "When to Use",
     "Inputs / outputs / failure modes",
     "Runnable Example",
-    "Failure modes",
+    "Failure Modes",
     "Related",
-    "Evidence"
+    "Evidence",
+    "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -77,7 +78,7 @@
   "keywords": "AI agent, LLM skill, action, execution, scroll, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "Scroll",
-    "description": "An AI agent skill for scroll."
+    "name": "Scroll (Interface Container)",
+    "description": "An AI agent skill for scroll (interface container)."
   }
 }

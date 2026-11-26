@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/screenshot-capture.md",
-  "name": "Screenshot Capture",
-  "headline": "Screenshot Capture",
+  "name": "Screenshot Capture (App Region)",
+  "headline": "Screenshot Capture (App Region)",
   "description": "Capture a verified application or screen region while minimizing sensitive content exposure.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/screenshot-capture.md",
   "isPartOf": {
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T15:42:23Z",
   "skillId": "screenshot-capture",
-  "skillVersion": null,
+  "skillVersion": "v1",
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
@@ -63,9 +63,10 @@
     "When to Use",
     "Inputs / outputs / failure modes",
     "Runnable Example",
-    "Failure modes",
+    "Failure Modes",
     "Related",
-    "Evidence"
+    "Evidence",
+    "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -77,7 +78,7 @@
   "keywords": "AI agent, LLM skill, action, capture, execution, screenshot, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "Screenshot Capture",
-    "description": "An AI agent skill for screenshot capture."
+    "name": "Screenshot Capture (App Region)",
+    "description": "An AI agent skill for screenshot capture (app region)."
   }
 }

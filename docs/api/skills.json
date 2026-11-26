@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T12:26:59Z",
+  "generated": "2026-11-26T15:42:23Z",
   "count": 2488,
   "skills": [
     {
@@ -12454,7 +12454,7 @@
       "category": "memory",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -12466,7 +12466,8 @@
         "Failure Modes",
         "Safety Boundary",
         "Evidence",
-        "Related"
+        "Related",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "03-memory"
@@ -17144,12 +17145,12 @@
     {
       "id": "screenshot-capture",
       "path": "skills/04-action-execution/screenshot-capture.md",
-      "name": "Screenshot Capture",
+      "name": "Screenshot Capture (App Region)",
       "description": "Capture a verified application or screen region while minimizing sensitive content exposure.",
       "category": "action-execution",
       "level": "basic",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
@@ -17157,9 +17158,10 @@
         "When to Use",
         "Inputs / outputs / failure modes",
         "Runnable Example",
-        "Failure modes",
+        "Failure Modes",
         "Related",
-        "Evidence"
+        "Evidence",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "04-action-execution"
@@ -17167,12 +17169,12 @@
     {
       "id": "scroll",
       "path": "skills/04-action-execution/scroll.md",
-      "name": "Scroll",
+      "name": "Scroll (Interface Container)",
       "description": "Scroll a verified interface container by a bounded amount and verify the resulting viewport state.",
       "category": "action-execution",
       "level": "basic",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
@@ -17180,9 +17182,10 @@
         "When to Use",
         "Inputs / outputs / failure modes",
         "Runnable Example",
-        "Failure modes",
+        "Failure Modes",
         "Related",
-        "Evidence"
+        "Evidence",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "04-action-execution"
@@ -19689,7 +19692,7 @@
       "category": "code",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
@@ -19697,9 +19700,10 @@
         "When to Use",
         "Inputs / outputs / failure modes",
         "Runnable Example",
-        "Failure modes",
+        "Failure Modes",
         "Related",
-        "Evidence"
+        "Evidence",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "05-code"
@@ -20238,7 +20242,7 @@
       "category": "code",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
@@ -20246,9 +20250,10 @@
         "When to Use",
         "Inputs / outputs / failure modes",
         "Runnable Example",
-        "Failure modes",
+        "Failure Modes",
         "Related",
-        "Evidence"
+        "Evidence",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "05-code"
@@ -30419,12 +30424,12 @@
     {
       "id": "web-search",
       "path": "skills/07-tool-use/web-search.md",
-      "name": "Web Search",
+      "name": "Web Search (Tool Contract)",
       "description": "Use a web-search service as a bounded retrieval tool with explicit queries, freshness constraints, source tracking, and result verification.",
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
@@ -30432,9 +30437,10 @@
         "When to Use",
         "Inputs / outputs / failure modes",
         "Runnable Example",
-        "Failure modes",
+        "Failure Modes",
         "Evidence",
-        "Related"
+        "Related",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -31417,7 +31423,7 @@
       "category": "multimodal",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -31429,7 +31435,8 @@
         "Failure Modes",
         "Safety Boundary",
         "Evidence",
-        "Related"
+        "Related",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "08-multimodal"
@@ -37791,7 +37798,7 @@
     {
       "id": "rag",
       "path": "skills/09-agentic-patterns/rag.md",
-      "name": "RAG — Retrieval-Augmented Generation",
+      "name": "RAG (Agentic Grounding Pattern)",
       "description": "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval.",
       "category": "agentic-patterns",
       "level": "intermediate",
@@ -38519,7 +38526,7 @@
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -38530,7 +38537,8 @@
         "Runnable Example",
         "Failure Modes",
         "Evidence",
-        "Related"
+        "Related",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "09-agentic-patterns"
@@ -63617,7 +63625,7 @@
       "category": "Domain-Specific",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v1",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
@@ -63629,7 +63637,8 @@
         "Failure Modes",
         "Domain Boundary",
         "Evidence",
-        "Related"
+        "Related",
+        "Changelog"
       ],
       "related": [],
       "category_dir": "16-domain-specific"

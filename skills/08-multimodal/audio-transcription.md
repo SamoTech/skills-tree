@@ -1,8 +1,9 @@
 ---
-title: "Audio Transcription"
+title: "Audio Transcription (Media Events)"
 category: 08-multimodal
 level: intermediate
 stability: stable
+version: v1
 description: "Transcribe speech audio into timestamped text while preserving uncertainty, speaker boundaries when available, and non-speech events."
 related: ["08-multimodal", "input-guardrails", "output-guardrails"]
 added: "2025-03"
@@ -67,3 +68,9 @@ Canonical repository skill: this file. Structural conformance is governed by the
 - 08-multimodal
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

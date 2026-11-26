@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2339
-- 🟡 **Enriched** (real description + runnable code): 149
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2344
+- 🟡 **Enriched** (real description + runnable code): 144
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -19,19 +19,19 @@
 | `01-perception` | 164 | 160 | 4 | 0 | 0 | 0 |
 | `02-reasoning` | 177 | 169 | 8 | 0 | 0 | 0 |
 | `03-memory` | 149 | 149 | 0 | 0 | 0 | 0 |
-| `04-action-execution` | 157 | 147 | 10 | 0 | 0 | 0 |
+| `04-action-execution` | 157 | 149 | 8 | 0 | 0 | 0 |
 | `05-code` | 160 | 140 | 20 | 0 | 0 | 0 |
 | `06-communication` | 141 | 141 | 0 | 0 | 0 | 0 |
-| `07-tool-use` | 165 | 144 | 21 | 0 | 0 | 0 |
+| `07-tool-use` | 165 | 145 | 20 | 0 | 0 | 0 |
 | `08-multimodal` | 135 | 135 | 0 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 155 | 145 | 10 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 155 | 146 | 9 | 0 | 0 | 0 |
 | `10-computer-use` | 137 | 119 | 18 | 0 | 0 | 0 |
 | `11-web` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `12-data` | 154 | 138 | 16 | 0 | 0 | 0 |
 | `13-creative` | 115 | 115 | 0 | 0 | 0 | 0 |
 | `14-security` | 143 | 143 | 0 | 0 | 0 | 0 |
 | `15-orchestration` | 138 | 123 | 15 | 0 | 0 | 0 |
-| `16-domain-specific` | 145 | 118 | 27 | 0 | 0 | 0 |
+| `16-domain-specific` | 145 | 119 | 26 | 0 | 0 | 0 |
 | `17-infrastructure` | 112 | 112 | 0 | 0 | 0 | 0 |
 
 ## 🟢 Battle-tested skills (start here as a user)
@@ -475,7 +475,7 @@
 - [`skills/03-memory/preference-drift-detection.md`](skills/03-memory/preference-drift-detection.md) — Preference Drift Detection
 - [`skills/03-memory/proactive-agent-user-routine-memory.md`](skills/03-memory/proactive-agent-user-routine-memory.md) — Proactive Agent User Routine Memory
 - [`skills/03-memory/procedural-memory.md`](skills/03-memory/procedural-memory.md) — Procedural Memory
-- [`skills/03-memory/procedural.md`](skills/03-memory/procedural.md) — Procedural Memory
+- [`skills/03-memory/procedural.md`](skills/03-memory/procedural.md) — Procedural Memory (Procedure Catalog)
 - [`skills/03-memory/progressive-skill-loading.md`](skills/03-memory/progressive-skill-loading.md) — Progressive Skill Loading
 - [`skills/03-memory/rag.md`](skills/03-memory/rag.md) — RAG (Retrieval-Augmented Generation)
 - [`skills/03-memory/realtime-voice-session-context-persistence.md`](skills/03-memory/realtime-voice-session-context-persistence.md) — Realtime Voice Session Context Persistence
@@ -639,6 +639,8 @@
 - [`skills/04-action-execution/sandbox-monitor-manipulation-containment.md`](skills/04-action-execution/sandbox-monitor-manipulation-containment.md) — Sandbox Monitor Manipulation Containment
 - [`skills/04-action-execution/scheduled-execution.md`](skills/04-action-execution/scheduled-execution.md) — Scheduled Execution
 - [`skills/04-action-execution/scheduled-report-distribution-actions.md`](skills/04-action-execution/scheduled-report-distribution-actions.md) — Scheduled Report Distribution Actions
+- [`skills/04-action-execution/screenshot-capture.md`](skills/04-action-execution/screenshot-capture.md) — Screenshot Capture (App Region)
+- [`skills/04-action-execution/scroll.md`](skills/04-action-execution/scroll.md) — Scroll (Interface Container)
 - [`skills/04-action-execution/shell-environment-sanitization.md`](skills/04-action-execution/shell-environment-sanitization.md) — Shell Environment Sanitization
 - [`skills/04-action-execution/shell-signal-handling.md`](skills/04-action-execution/shell-signal-handling.md) — Shell Signal Handling
 - [`skills/04-action-execution/short-lived-credential-acquisition.md`](skills/04-action-execution/short-lived-credential-acquisition.md) — Short-Lived Credential Acquisition
@@ -1080,6 +1082,7 @@
 - [`skills/07-tool-use/verified-plugin-tier-catalog-curation.md`](skills/07-tool-use/verified-plugin-tier-catalog-curation.md) — Verified Plugin Tier Catalog Curation
 - [`skills/07-tool-use/virtual-breakpoint-read-only-debugging.md`](skills/07-tool-use/virtual-breakpoint-read-only-debugging.md) — Virtual Breakpoint Read-Only Debugging
 - [`skills/07-tool-use/visa-tap-protocol-usage.md`](skills/07-tool-use/visa-tap-protocol-usage.md) — Visa Tap Protocol Usage
+- [`skills/07-tool-use/web-search.md`](skills/07-tool-use/web-search.md) — Web Search (Tool Contract)
 - [`skills/07-tool-use/webmcp-page-tool-exposure.md`](skills/07-tool-use/webmcp-page-tool-exposure.md) — WebMCP Page Tool Exposure
 - [`skills/07-tool-use/websocket-communication.md`](skills/07-tool-use/websocket-communication.md) — WebSocket Communication
 - [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — Wolfram Alpha API
@@ -1114,7 +1117,7 @@
 - [`skills/08-multimodal/audio-mixing.md`](skills/08-multimodal/audio-mixing.md) — Audio Mixing
 - [`skills/08-multimodal/audio-sound-effect-generation.md`](skills/08-multimodal/audio-sound-effect-generation.md) — Audio Sound Effect Generation
 - [`skills/08-multimodal/audio-transcript-diarization-audit.md`](skills/08-multimodal/audio-transcript-diarization-audit.md) — Audio Transcript Diarization Audit
-- [`skills/08-multimodal/audio-transcription.md`](skills/08-multimodal/audio-transcription.md) — Audio Transcription
+- [`skills/08-multimodal/audio-transcription.md`](skills/08-multimodal/audio-transcription.md) — Audio Transcription (Media Events)
 - [`skills/08-multimodal/audio-watermark-embedding.md`](skills/08-multimodal/audio-watermark-embedding.md) — Audio Watermark Embedding
 - [`skills/08-multimodal/browser-session-recording-for-debugging.md`](skills/08-multimodal/browser-session-recording-for-debugging.md) — Browser Session Recording For Debugging
 - [`skills/08-multimodal/chart-generation.md`](skills/08-multimodal/chart-generation.md) — Chart Generation
@@ -1336,7 +1339,7 @@
 - [`skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md`](skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md) — Protocol Migration Coexistence Patterns
 - [`skills/09-agentic-patterns/purchase-intent-binding-patterns.md`](skills/09-agentic-patterns/purchase-intent-binding-patterns.md) — Purchase Intent Binding Patterns
 - [`skills/09-agentic-patterns/rag-security-assessment-pattern.md`](skills/09-agentic-patterns/rag-security-assessment-pattern.md) — Rag Security Assessment Pattern
-- [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — RAG — Retrieval-Augmented Generation
+- [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — RAG (Agentic Grounding Pattern)
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
 - [`skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md`](skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md) — Refusal Aware Evaluation Harness Pattern
 - [`skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md`](skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md) — Reverse Game Theory Agent Checking Pattern
@@ -1360,6 +1363,7 @@
 - [`skills/09-agentic-patterns/tool-invention.md`](skills/09-agentic-patterns/tool-invention.md) — Tool Invention
 - [`skills/09-agentic-patterns/tool-selection-competing-interest-disclosure.md`](skills/09-agentic-patterns/tool-selection-competing-interest-disclosure.md) — Tool Selection Competing Interest Disclosure
 - [`skills/09-agentic-patterns/tool-use-loop.md`](skills/09-agentic-patterns/tool-use-loop.md) — Tool-Use Loop
+- [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — Tree of Thought (Agentic Pattern)
 - [`skills/09-agentic-patterns/trajectory-analysis.md`](skills/09-agentic-patterns/trajectory-analysis.md) — Trajectory Analysis
 - [`skills/09-agentic-patterns/vendor-agent-workflow-demo-verification.md`](skills/09-agentic-patterns/vendor-agent-workflow-demo-verification.md) — Vendor Agent Workflow Demo Verification
 - [`skills/09-agentic-patterns/vendor-lock-in-mitigation-pattern.md`](skills/09-agentic-patterns/vendor-lock-in-mitigation-pattern.md) — Vendor Lock In Mitigation Pattern
@@ -2206,6 +2210,7 @@
 - [`skills/16-domain-specific/harmonized-tariff-code-classification.md`](skills/16-domain-specific/harmonized-tariff-code-classification.md) — Harmonized Tariff Code Classification
 - [`skills/16-domain-specific/hospitality-sms-booking-agent-deployment.md`](skills/16-domain-specific/hospitality-sms-booking-agent-deployment.md) — Hospitality Sms Booking Agent Deployment
 - [`skills/16-domain-specific/hr-policy-drafting.md`](skills/16-domain-specific/hr-policy-drafting.md) — HR Policy Drafting
+- [`skills/16-domain-specific/hypothesis-generation.md`](skills/16-domain-specific/hypothesis-generation.md) — Hypothesis Generation (Domain Research)
 - [`skills/16-domain-specific/industrial-failure-analysis-agent-deployment.md`](skills/16-domain-specific/industrial-failure-analysis-agent-deployment.md) — Industrial Failure Analysis Agent Deployment
 - [`skills/16-domain-specific/institutional-ai-ethics-framework-mapping.md`](skills/16-domain-specific/institutional-ai-ethics-framework-mapping.md) — Institutional AI Ethics Framework Mapping
 - [`skills/16-domain-specific/insurance-claim-processing.md`](skills/16-domain-specific/insurance-claim-processing.md) — Insurance Claim Processing
@@ -2396,8 +2401,6 @@
 - [`skills/04-action-execution/mouse-input.md`](skills/04-action-execution/mouse-input.md) — missing table or <60 lines
 - [`skills/04-action-execution/notification-sending.md`](skills/04-action-execution/notification-sending.md) — missing table or <60 lines
 - [`skills/04-action-execution/process-management.md`](skills/04-action-execution/process-management.md) — missing table or <60 lines
-- [`skills/04-action-execution/screenshot-capture.md`](skills/04-action-execution/screenshot-capture.md) — missing table or <60 lines
-- [`skills/04-action-execution/scroll.md`](skills/04-action-execution/scroll.md) — missing table or <60 lines
 - [`skills/04-action-execution/shell-command.md`](skills/04-action-execution/shell-command.md) — missing table or <60 lines
 - [`skills/04-action-execution/wait-sleep.md`](skills/04-action-execution/wait-sleep.md) — missing table or <60 lines
 - [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — missing table or <60 lines
@@ -2439,7 +2442,6 @@
 - [`skills/07-tool-use/twilio-api.md`](skills/07-tool-use/twilio-api.md) — missing table or <60 lines
 - [`skills/07-tool-use/vector-db-tool.md`](skills/07-tool-use/vector-db-tool.md) — missing table or <60 lines
 - [`skills/07-tool-use/weather-api.md`](skills/07-tool-use/weather-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/web-search.md`](skills/07-tool-use/web-search.md) — missing table or <60 lines
 - [`skills/07-tool-use/wikipedia-api.md`](skills/07-tool-use/wikipedia-api.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — missing table or <60 lines
@@ -2450,7 +2452,6 @@
 - [`skills/09-agentic-patterns/rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/tot.md`](skills/09-agentic-patterns/tot.md) — missing table or <60 lines
 - [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — missing table or <60 lines
@@ -2510,7 +2511,6 @@
 - [`skills/16-domain-specific/essay-grading.md`](skills/16-domain-specific/essay-grading.md) — no inputs/outputs/failure-modes table
 - [`skills/16-domain-specific/financial-statement.md`](skills/16-domain-specific/financial-statement.md) — no inputs/outputs/failure-modes table
 - [`skills/16-domain-specific/flashcard-creation.md`](skills/16-domain-specific/flashcard-creation.md) — missing table or <60 lines
-- [`skills/16-domain-specific/hypothesis-generation.md`](skills/16-domain-specific/hypothesis-generation.md) — missing table or <60 lines
 - [`skills/16-domain-specific/iac-generation.md`](skills/16-domain-specific/iac-generation.md) — missing table or <60 lines
 - [`skills/16-domain-specific/incident-response.md`](skills/16-domain-specific/incident-response.md) — missing table or <60 lines
 - [`skills/16-domain-specific/invoice-processing.md`](skills/16-domain-specific/invoice-processing.md) — missing table or <60 lines

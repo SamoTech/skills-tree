@@ -1758,3 +1758,17 @@ Reopen Conditions: Reopen when the retrieval/search projection or ranking contra
 **Status:** LOCKED
 
 **Reopen Conditions:** Reopen if the Human Owner changes the modernization-state model, if `tools/check_skill_quality.py` / `tools/audit_skill_corpus.py` classification semantics materially change, or if a mechanical successor contract supersedes this one.
+
+## DECISION-2026-11-26-TITLE-UNIQUENESS
+
+**Topic:** Display-title uniqueness across the canonical skill corpus (issue #699 P0 part 2).
+
+**Decision:** Every canonical skill display title (YAML frontmatter `title`) must be unique across the entire `skills/` corpus. The 10 duplicated titles found by the reproducible modernization inventory (PR #700) are disambiguated by adding a parenthetical qualifier to the display title only; stable file identifiers, paths, and category assignments are unchanged, and capability contracts are unmodified. Display-title collisions between skills in different categories create ambiguous search, graph, and registry references, so uniqueness is a corpus invariant going forward.
+
+**Confidence:** High
+
+**Evidence IDs:** `meta/MODERNIZATION-INVENTORY.md` (PR #700 integrity scan), PR #702, PR #705 (supersedes #702 content after base moved).
+
+**Status:** LOCKED
+
+**Reopen Conditions:** Reopen only if the Human Owner decides title collisions across categories are acceptable, or if the projection schema changes such that frontmatter titles no longer drive search/registry identity.
