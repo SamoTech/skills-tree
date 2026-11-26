@@ -3,54 +3,79 @@ title: "Mouse Input"
 category: 04-action-execution
 level: intermediate
 stability: stable
-description: "Perform bounded pointer actions against verified interface targets and verify consequential results."
+version: v2
+description: "Perform bounded pointer actions against verified interface targets and verify consequential results instead of trusting coordinates."
 added: "2026-09"
 related: [keyboard-input, screenshot-capture, assertion]
 ---
 
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-04-action-execution-mouse-input.json)
+
 # Mouse Input
 
-## Description
+**Category:** `action-execution`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-Perform bounded pointer actions against verified interface targets and verify consequential results.
+### Description
 
-## When to Use
+Perform bounded pointer actions against verified interface targets and verify consequential results. Clicks target resolved elements rather than raw coordinates, destructive clicks require explicit authorization, and every consequential action is confirmed from the resulting state.
 
-- Execute an explicitly approved action.
-- Use when the target and scope can be verified.
-- Verify the resulting state when the action is consequential.
+### Inputs / Outputs
 
-## Inputs / outputs / failure modes
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | `target` | element locator or bounded coordinates | What receives the pointer action; resolved before acting |
+| Input | `action` | `click\|double_click\|right_click\|hover` | The pointer gesture to perform |
+| Input | `authorized_destructive` | boolean | Must be true for any action with destructive effect |
+| Output | `action_result` | `{performed, verified}` | Whether the gesture ran and the result was confirmed |
+| Output | `observed_state` | string | The post-action state read from the interface |
 
-| Input | Output | Failure mode |
-|---|---|---|
-| Target and action | Execution result | Invalid target |
-| Scope/authorization | Allowed action | Unauthorized action |
-| Timeout/bounds | Controlled execution | Resource exhaustion |
-| Postcondition | Verified state | Silent failure |
+### Procedure
+1. Resolve the target element and confirm it is visible and enabled; prefer locators over absolute coordinates.
+2. Classify the action: if it can delete, submit, spend, or send, require explicit authorization before performing it.
+3. Perform exactly one gesture; avoid rapid repeated clicks that can double-trigger handlers.
+4. Read the resulting state from the interface (attribute, panel, confirmation message) to verify the effect.
+5. If the state did not change as expected, stop and report; do not retry the gesture blindly.
+6. Keep hover and move actions bounded to the viewport of the resolved target.
 
-## Runnable Example
+### Example
 
 ```python
-def click_verified(target):
+def click_verified(target, expected_attr: tuple[str, str]) -> dict:
+    if not (target.is_visible() and target.is_enabled()):
+        raise RuntimeError("target not interactable")
     target.click()
-    state = target.get_attribute("data-state")
-    if state != "clicked": raise RuntimeError("not verified")
-    print("click verified")
+    attr, expected = expected_attr
+    actual = target.get_attribute(attr)
+    return {"performed": True, "verified": actual == expected,
+            "observed_state": actual or "unchanged"}
+
+result = click_verified(page.locator("[data-testid='save']"), ("data-state", "saved"))
+print(result)
 ```
 
-## Failure modes
+### Related Skills
 
-Stale coordinates; wrong target; destructive click without authorization; silent failure.
+- [Keyboard Input](keyboard-input.md)
+- [Screenshot Capture](screenshot-capture.md)
+- [Assertion](assertion.md)
 
-## Related
+## Failure Modes
 
-- `keyboard-input.md`
-- `screenshot-capture.md`
-- `assertion.md`
+- Stale coordinates after a layout change: re-resolve the target before each gesture.
+- Clicking the wrong element when locators match multiple nodes: use a locator that resolves to exactly one element.
+- Destructive clicks without an authorization check.
+- Silent failure: the gesture completes but the interface state never changed and nobody checked.
+- Double-triggering through impatient repeated clicks; verify once, then wait or investigate.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, an explicit procedure, a deterministic verification example, expanded failure modes, and version history.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
 
-- AI_CONSTITUTION.md
-- AGENTS.md
-- Repository security and validation workflows
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
