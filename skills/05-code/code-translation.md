@@ -33,7 +33,7 @@ print(f'Repository files discovered: {len(files)}')
 print('Inspect relevant files before making changes.')
 ```
 
-## Failure modes
+## Failure Modes
 - Acting on an inferred requirement instead of an explicit one.
 - Modifying unrelated files or interfaces.
 - Treating a passing local example as sufficient verification.
