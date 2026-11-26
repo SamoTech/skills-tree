@@ -1,4 +1,4 @@
-
+"""
 Owner-directed by issue #699 (2026-11-25): inventory every canonical skill in
 skills/ and classify it into a transparent modernization state, so
 modernization batches are selected from evidence instead of memory.
