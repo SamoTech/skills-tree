@@ -38,7 +38,7 @@ def run_command(argv, cwd):
     return subprocess.run(argv, cwd=cwd, capture_output=True, text=True, timeout=30)
 ```
 
-## Failure modes
+## Failure Modes
 
 Untrusted command strings; shell injection; unnecessary secrets; no timeout or output bound.
 
