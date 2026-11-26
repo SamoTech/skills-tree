@@ -34,7 +34,7 @@ fields = [Field("id"), Field("created_at")]
 print([f.name for f in fields])
 ```
 
-## Failure modes
+## Failure Modes
 - Designing without inspecting the current schema.
 - Introducing destructive changes without a recovery path.
 - Ignoring query patterns and constraints.

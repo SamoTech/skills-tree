@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-26T12:18:49Z",
+  "dateModified": "2026-11-26T12:26:59Z",
   "skillId": "db-schema-design",
   "skillVersion": null,
   "skillLevel": "advanced",
@@ -63,7 +63,7 @@
     "When to Use",
     "Inputs / outputs / failure modes",
     "Runnable Example",
-    "Failure modes",
+    "Failure Modes",
     "Related",
     "Evidence"
   ],
