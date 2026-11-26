@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/wait-sleep.md",
   "name": "Wait Sleep",
   "headline": "Wait Sleep",
-  "description": "Pause for a bounded duration or polling interval without treating elapsed time as proof of state.",
+  "description": "Pause for a bounded duration or poll a condition with bounds, without treating elapsed time as proof of state.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/wait-sleep.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,22 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T17:23:46Z",
   "skillId": "wait-sleep",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../15-orchestration/automation-review.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Beginner",

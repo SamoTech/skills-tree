@@ -17,23 +17,23 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2354
-- **Structural upgrade required (enriched tier):** 134
+- **Dependency evidence required:** 2362
+- **Structural upgrade required (enriched tier):** 126
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2354, enriched=134, test_fixture=1.
+Per-quality baseline: battle_tested=2362, enriched=126, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 210 |
+| (none) | 202 |
 | v1 | 2136 |
-| v2 | 109 |
+| v2 | 117 |
 | v3 | 33 |
 | v4 | 1 |
 
@@ -83,18 +83,10 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (134)
+## P1 - Structural upgrade required (enriched tier) (126)
 
 - [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
-- [skills/04-action-execution/drag-drop.md](skills/04-action-execution/drag-drop.md)
-- [skills/04-action-execution/form-submission.md](skills/04-action-execution/form-submission.md)
-- [skills/04-action-execution/keyboard-input.md](skills/04-action-execution/keyboard-input.md)
-- [skills/04-action-execution/mouse-input.md](skills/04-action-execution/mouse-input.md)
-- [skills/04-action-execution/notification-sending.md](skills/04-action-execution/notification-sending.md)
-- [skills/04-action-execution/process-management.md](skills/04-action-execution/process-management.md)
-- [skills/04-action-execution/shell-command.md](skills/04-action-execution/shell-command.md)
-- [skills/04-action-execution/wait-sleep.md](skills/04-action-execution/wait-sleep.md)
 - [skills/05-code/code-execution-sandbox.md](skills/05-code/code-execution-sandbox.md)
 - [skills/05-code/code-explanation.md](skills/05-code/code-explanation.md)
 - [skills/05-code/code-search.md](skills/05-code/code-search.md)
@@ -220,7 +212,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2354)
+## P2 - Dependency evidence required (2362)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -767,6 +759,7 @@ _None._
 - [skills/04-action-execution/destructive-write-diff-preview-execution.md](skills/04-action-execution/destructive-write-diff-preview-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/device-authorization-flow-execution.md](skills/04-action-execution/device-authorization-flow-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/docker-container-lifecycle-actions.md](skills/04-action-execution/docker-container-lifecycle-actions.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/drag-drop.md](skills/04-action-execution/drag-drop.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/04-action-execution/dry-run-execution.md](skills/04-action-execution/dry-run-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/durable-resume-after-provider-restart.md](skills/04-action-execution/durable-resume-after-provider-restart.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/elicitation-input-required-retry.md](skills/04-action-execution/elicitation-input-required-retry.md) - badge color lightgrey (unscanned)
@@ -783,6 +776,7 @@ _None._
 - [skills/04-action-execution/file-transfer-synchronization.md](skills/04-action-execution/file-transfer-synchronization.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/file-watch-automation.md](skills/04-action-execution/file-watch-automation.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/file-write.md](skills/04-action-execution/file-write.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/form-submission.md](skills/04-action-execution/form-submission.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/04-action-execution/foundry-scheduled-agent-setup-execution.md](skills/04-action-execution/foundry-scheduled-agent-setup-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/gateway-mediated-tool-invocation-execution.md](skills/04-action-execution/gateway-mediated-tool-invocation-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/gcloud-destructive-command-blocking-execution.md](skills/04-action-execution/gcloud-destructive-command-blocking-execution.md) - badge color lightgrey (unscanned)
@@ -797,6 +791,7 @@ _None._
 - [skills/04-action-execution/injection-safe-tool-argument-quoting.md](skills/04-action-execution/injection-safe-tool-argument-quoting.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/irreversible-transaction-confidence-gating.md](skills/04-action-execution/irreversible-transaction-confidence-gating.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/irreversible-transaction-pre-execution-verification.md](skills/04-action-execution/irreversible-transaction-pre-execution-verification.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/keyboard-input.md](skills/04-action-execution/keyboard-input.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/04-action-execution/kill-switch-relaunch-block-execution.md](skills/04-action-execution/kill-switch-relaunch-block-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/lab-procedure-action-execution.md](skills/04-action-execution/lab-procedure-action-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/laboratory-workflow-execution-gating.md](skills/04-action-execution/laboratory-workflow-execution-gating.md) - badge color lightgrey (unscanned)
@@ -815,7 +810,9 @@ _None._
 - [skills/04-action-execution/message-thread-expiry-replay-execution.md](skills/04-action-execution/message-thread-expiry-replay-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/micropayment-batching.md](skills/04-action-execution/micropayment-batching.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/mobile-remote-agent-stop-execution.md](skills/04-action-execution/mobile-remote-agent-stop-execution.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/mouse-input.md](skills/04-action-execution/mouse-input.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/04-action-execution/nfc-device-pairing-action-automation.md](skills/04-action-execution/nfc-device-pairing-action-automation.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/notification-sending.md](skills/04-action-execution/notification-sending.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/04-action-execution/offline-action-queueing.md](skills/04-action-execution/offline-action-queueing.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/offline-emergency-assistant-operation-execution.md](skills/04-action-execution/offline-emergency-assistant-operation-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/owner-only-tool-authorization-enforcement-execution.md](skills/04-action-execution/owner-only-tool-authorization-enforcement-execution.md) - badge color lightgrey (unscanned)
@@ -825,6 +822,7 @@ _None._
 - [skills/04-action-execution/payment-refund-chargeback-automation.md](skills/04-action-execution/payment-refund-chargeback-automation.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/per-task-credential-scoping-actions.md](skills/04-action-execution/per-task-credential-scoping-actions.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/permission-scope-downgrade-execution.md](skills/04-action-execution/permission-scope-downgrade-execution.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/process-management.md](skills/04-action-execution/process-management.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/protocol-native-gateway-negotiation-execution.md](skills/04-action-execution/protocol-native-gateway-negotiation-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/purchase-intent-verification-actions.md](skills/04-action-execution/purchase-intent-verification-actions.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/qr-code-login-confirmation-automation.md](skills/04-action-execution/qr-code-login-confirmation-automation.md) - badge color lightgrey (unscanned)
@@ -837,6 +835,7 @@ _None._
 - [skills/04-action-execution/scheduled-report-distribution-actions.md](skills/04-action-execution/scheduled-report-distribution-actions.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/screenshot-capture.md](skills/04-action-execution/screenshot-capture.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/04-action-execution/scroll.md](skills/04-action-execution/scroll.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/04-action-execution/shell-command.md](skills/04-action-execution/shell-command.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/shell-environment-sanitization.md](skills/04-action-execution/shell-environment-sanitization.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/shell-signal-handling.md](skills/04-action-execution/shell-signal-handling.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/short-lived-credential-acquisition.md](skills/04-action-execution/short-lived-credential-acquisition.md) - badge color lightgrey (unscanned)
@@ -855,6 +854,7 @@ _None._
 - [skills/04-action-execution/usage-based-metered-billing-actions.md](skills/04-action-execution/usage-based-metered-billing-actions.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/verifiable-intent-token-presentation-execution.md](skills/04-action-execution/verifiable-intent-token-presentation-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/voice-command-action-binding.md](skills/04-action-execution/voice-command-action-binding.md) - badge color lightgrey (unscanned)
+- [skills/04-action-execution/wait-sleep.md](skills/04-action-execution/wait-sleep.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/watcher-page-response-execution.md](skills/04-action-execution/watcher-page-response-execution.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/webhook-handling.md](skills/04-action-execution/webhook-handling.md) - badge color lightgrey (unscanned)
 - [skills/04-action-execution/x402-payment-header-negotiation-execution.md](skills/04-action-execution/x402-payment-header-negotiation-execution.md) - badge color lightgrey (unscanned)

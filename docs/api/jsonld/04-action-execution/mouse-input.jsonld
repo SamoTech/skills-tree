@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/mouse-input.md",
   "name": "Mouse Input",
   "headline": "Mouse Input",
-  "description": "Perform bounded pointer actions against verified interface targets and verify consequential results.",
+  "description": "Perform bounded pointer actions against verified interface targets and verify consequential results instead of trusting coordinates.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/mouse-input.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T17:22:55Z",
   "skillId": "mouse-input",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],

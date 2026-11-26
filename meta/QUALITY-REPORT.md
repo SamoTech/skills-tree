@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2354
-- 🟡 **Enriched** (real description + runnable code): 134
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2362
+- 🟡 **Enriched** (real description + runnable code): 126
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -19,7 +19,7 @@
 | `01-perception` | 164 | 164 | 0 | 0 | 0 | 0 |
 | `02-reasoning` | 177 | 175 | 2 | 0 | 0 | 0 |
 | `03-memory` | 149 | 149 | 0 | 0 | 0 | 0 |
-| `04-action-execution` | 157 | 149 | 8 | 0 | 0 | 0 |
+| `04-action-execution` | 157 | 157 | 0 | 0 | 0 | 0 |
 | `05-code` | 160 | 140 | 20 | 0 | 0 | 0 |
 | `06-communication` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 165 | 145 | 20 | 0 | 0 | 0 |
@@ -581,6 +581,7 @@
 - [`skills/04-action-execution/destructive-write-diff-preview-execution.md`](skills/04-action-execution/destructive-write-diff-preview-execution.md) — Destructive Write Diff Preview Execution
 - [`skills/04-action-execution/device-authorization-flow-execution.md`](skills/04-action-execution/device-authorization-flow-execution.md) — Device Authorization Flow Execution
 - [`skills/04-action-execution/docker-container-lifecycle-actions.md`](skills/04-action-execution/docker-container-lifecycle-actions.md) — Docker Container Lifecycle Actions
+- [`skills/04-action-execution/drag-drop.md`](skills/04-action-execution/drag-drop.md) — Drag and Drop
 - [`skills/04-action-execution/dry-run-execution.md`](skills/04-action-execution/dry-run-execution.md) — Dry-Run Execution
 - [`skills/04-action-execution/durable-resume-after-provider-restart.md`](skills/04-action-execution/durable-resume-after-provider-restart.md) — Durable Resume After Provider Restart
 - [`skills/04-action-execution/elicitation-input-required-retry.md`](skills/04-action-execution/elicitation-input-required-retry.md) — Elicitation Input Required Retry
@@ -597,6 +598,7 @@
 - [`skills/04-action-execution/file-transfer-synchronization.md`](skills/04-action-execution/file-transfer-synchronization.md) — File Transfer Synchronization
 - [`skills/04-action-execution/file-watch-automation.md`](skills/04-action-execution/file-watch-automation.md) — File Watch Automation
 - [`skills/04-action-execution/file-write.md`](skills/04-action-execution/file-write.md) — File Write
+- [`skills/04-action-execution/form-submission.md`](skills/04-action-execution/form-submission.md) — Form Submission
 - [`skills/04-action-execution/foundry-scheduled-agent-setup-execution.md`](skills/04-action-execution/foundry-scheduled-agent-setup-execution.md) — Foundry Scheduled Agent Setup Execution
 - [`skills/04-action-execution/gateway-mediated-tool-invocation-execution.md`](skills/04-action-execution/gateway-mediated-tool-invocation-execution.md) — Gateway Mediated Tool Invocation Execution
 - [`skills/04-action-execution/gcloud-destructive-command-blocking-execution.md`](skills/04-action-execution/gcloud-destructive-command-blocking-execution.md) — Gcloud Destructive Command Blocking Execution
@@ -611,6 +613,7 @@
 - [`skills/04-action-execution/injection-safe-tool-argument-quoting.md`](skills/04-action-execution/injection-safe-tool-argument-quoting.md) — Injection Safe Tool Argument Quoting
 - [`skills/04-action-execution/irreversible-transaction-confidence-gating.md`](skills/04-action-execution/irreversible-transaction-confidence-gating.md) — Irreversible Transaction Confidence Gating
 - [`skills/04-action-execution/irreversible-transaction-pre-execution-verification.md`](skills/04-action-execution/irreversible-transaction-pre-execution-verification.md) — Irreversible Transaction Pre Execution Verification
+- [`skills/04-action-execution/keyboard-input.md`](skills/04-action-execution/keyboard-input.md) — Keyboard Input
 - [`skills/04-action-execution/kill-switch-relaunch-block-execution.md`](skills/04-action-execution/kill-switch-relaunch-block-execution.md) — Kill Switch Relaunch Block Execution
 - [`skills/04-action-execution/lab-procedure-action-execution.md`](skills/04-action-execution/lab-procedure-action-execution.md) — Lab Procedure Action Execution
 - [`skills/04-action-execution/laboratory-workflow-execution-gating.md`](skills/04-action-execution/laboratory-workflow-execution-gating.md) — Laboratory Workflow Execution Gating
@@ -629,7 +632,9 @@
 - [`skills/04-action-execution/message-thread-expiry-replay-execution.md`](skills/04-action-execution/message-thread-expiry-replay-execution.md) — Message Thread Expiry Replay Execution
 - [`skills/04-action-execution/micropayment-batching.md`](skills/04-action-execution/micropayment-batching.md) — Micropayment Batching
 - [`skills/04-action-execution/mobile-remote-agent-stop-execution.md`](skills/04-action-execution/mobile-remote-agent-stop-execution.md) — Mobile Remote Agent Stop Execution
+- [`skills/04-action-execution/mouse-input.md`](skills/04-action-execution/mouse-input.md) — Mouse Input
 - [`skills/04-action-execution/nfc-device-pairing-action-automation.md`](skills/04-action-execution/nfc-device-pairing-action-automation.md) — NFC Device Pairing Action Automation
+- [`skills/04-action-execution/notification-sending.md`](skills/04-action-execution/notification-sending.md) — Notification Sending
 - [`skills/04-action-execution/offline-action-queueing.md`](skills/04-action-execution/offline-action-queueing.md) — Offline Action Queueing
 - [`skills/04-action-execution/offline-emergency-assistant-operation-execution.md`](skills/04-action-execution/offline-emergency-assistant-operation-execution.md) — Offline Emergency Assistant Operation Execution
 - [`skills/04-action-execution/owner-only-tool-authorization-enforcement-execution.md`](skills/04-action-execution/owner-only-tool-authorization-enforcement-execution.md) — Owner Only Tool Authorization Enforcement Execution
@@ -639,6 +644,7 @@
 - [`skills/04-action-execution/payment-refund-chargeback-automation.md`](skills/04-action-execution/payment-refund-chargeback-automation.md) — Payment Refund and Chargeback Automation
 - [`skills/04-action-execution/per-task-credential-scoping-actions.md`](skills/04-action-execution/per-task-credential-scoping-actions.md) — Per Task Credential Scoping Actions
 - [`skills/04-action-execution/permission-scope-downgrade-execution.md`](skills/04-action-execution/permission-scope-downgrade-execution.md) — Permission Scope Downgrade Execution
+- [`skills/04-action-execution/process-management.md`](skills/04-action-execution/process-management.md) — Process Management
 - [`skills/04-action-execution/protocol-native-gateway-negotiation-execution.md`](skills/04-action-execution/protocol-native-gateway-negotiation-execution.md) — Protocol Native Gateway Negotiation Execution
 - [`skills/04-action-execution/purchase-intent-verification-actions.md`](skills/04-action-execution/purchase-intent-verification-actions.md) — Purchase Intent Verification Actions
 - [`skills/04-action-execution/qr-code-login-confirmation-automation.md`](skills/04-action-execution/qr-code-login-confirmation-automation.md) — QR Code Login Confirmation Automation
@@ -651,6 +657,7 @@
 - [`skills/04-action-execution/scheduled-report-distribution-actions.md`](skills/04-action-execution/scheduled-report-distribution-actions.md) — Scheduled Report Distribution Actions
 - [`skills/04-action-execution/screenshot-capture.md`](skills/04-action-execution/screenshot-capture.md) — Screenshot Capture (App Region)
 - [`skills/04-action-execution/scroll.md`](skills/04-action-execution/scroll.md) — Scroll (Interface Container)
+- [`skills/04-action-execution/shell-command.md`](skills/04-action-execution/shell-command.md) — Shell Command
 - [`skills/04-action-execution/shell-environment-sanitization.md`](skills/04-action-execution/shell-environment-sanitization.md) — Shell Environment Sanitization
 - [`skills/04-action-execution/shell-signal-handling.md`](skills/04-action-execution/shell-signal-handling.md) — Shell Signal Handling
 - [`skills/04-action-execution/short-lived-credential-acquisition.md`](skills/04-action-execution/short-lived-credential-acquisition.md) — Short-Lived Credential Acquisition
@@ -669,6 +676,7 @@
 - [`skills/04-action-execution/usage-based-metered-billing-actions.md`](skills/04-action-execution/usage-based-metered-billing-actions.md) — Usage-Based Metered Billing Actions
 - [`skills/04-action-execution/verifiable-intent-token-presentation-execution.md`](skills/04-action-execution/verifiable-intent-token-presentation-execution.md) — Verifiable Intent Token Presentation Execution
 - [`skills/04-action-execution/voice-command-action-binding.md`](skills/04-action-execution/voice-command-action-binding.md) — Voice Command Action Binding
+- [`skills/04-action-execution/wait-sleep.md`](skills/04-action-execution/wait-sleep.md) — Wait Sleep
 - [`skills/04-action-execution/watcher-page-response-execution.md`](skills/04-action-execution/watcher-page-response-execution.md) — Watcher Page Response Execution
 - [`skills/04-action-execution/webhook-handling.md`](skills/04-action-execution/webhook-handling.md) — Webhook Handling
 - [`skills/04-action-execution/x402-payment-header-negotiation-execution.md`](skills/04-action-execution/x402-payment-header-negotiation-execution.md) — x402 Payment Header Negotiation Execution
@@ -2395,14 +2403,6 @@
 
 - [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
-- [`skills/04-action-execution/drag-drop.md`](skills/04-action-execution/drag-drop.md) — missing table or <60 lines
-- [`skills/04-action-execution/form-submission.md`](skills/04-action-execution/form-submission.md) — missing table or <60 lines
-- [`skills/04-action-execution/keyboard-input.md`](skills/04-action-execution/keyboard-input.md) — missing table or <60 lines
-- [`skills/04-action-execution/mouse-input.md`](skills/04-action-execution/mouse-input.md) — missing table or <60 lines
-- [`skills/04-action-execution/notification-sending.md`](skills/04-action-execution/notification-sending.md) — missing table or <60 lines
-- [`skills/04-action-execution/process-management.md`](skills/04-action-execution/process-management.md) — missing table or <60 lines
-- [`skills/04-action-execution/shell-command.md`](skills/04-action-execution/shell-command.md) — missing table or <60 lines
-- [`skills/04-action-execution/wait-sleep.md`](skills/04-action-execution/wait-sleep.md) — missing table or <60 lines
 - [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — missing table or <60 lines
 - [`skills/05-code/code-explanation.md`](skills/05-code/code-explanation.md) — missing table or <60 lines
 - [`skills/05-code/code-search.md`](skills/05-code/code-search.md) — missing table or <60 lines

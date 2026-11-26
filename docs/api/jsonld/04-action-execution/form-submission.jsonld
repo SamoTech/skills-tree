@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/form-submission.md",
   "name": "Form Submission",
   "headline": "Form Submission",
-  "description": "Submit validated form data to a verified target and confirm the resulting state.",
+  "description": "Submit validated form data to a verified target and confirm the resulting state, with double-submit and secret-handling controls.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/form-submission.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,22 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T17:22:55Z",
   "skillId": "form-submission",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/input-sanitization.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",

@@ -1,4 +1,4 @@
-generated: '2026-11-26T16:47:24Z'
+generated: '2026-11-26T17:24:02Z'
 count: 2488
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -13923,20 +13923,16 @@ skills:
   path: skills/04-action-execution/drag-drop.md
   name: Drag and Drop
   description: Perform a bounded desktop or browser drag-and-drop action using verified
-    source and destination targets.
+    source and destination targets, then confirm the resulting state.
   category: action-execution
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 04-action-execution
@@ -14331,22 +14327,19 @@ skills:
   path: skills/04-action-execution/form-submission.md
   name: Form Submission
   description: Submit validated form data to a verified target and confirm the resulting
-    state.
+    state, with double-submit and secret-handling controls.
   category: action-execution
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../14-security/input-sanitization.md
   category_dir: 04-action-execution
 - id: foundry-scheduled-agent-setup-execution
   path: skills/04-action-execution/foundry-scheduled-agent-setup-execution.md
@@ -14718,20 +14711,16 @@ skills:
   path: skills/04-action-execution/keyboard-input.md
   name: Keyboard Input
   description: Send bounded keyboard input to a verified target while controlling
-    focus and sensitive text.
+    focus, protecting sensitive text, and avoiding destructive shortcuts.
   category: action-execution
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 04-action-execution
@@ -15196,20 +15185,16 @@ skills:
   path: skills/04-action-execution/mouse-input.md
   name: Mouse Input
   description: Perform bounded pointer actions against verified interface targets
-    and verify consequential results.
+    and verify consequential results instead of trusting coordinates.
   category: action-execution
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
   related: []
   category_dir: 04-action-execution
@@ -15244,22 +15229,19 @@ skills:
   path: skills/04-action-execution/notification-sending.md
   name: Notification Sending
   description: Deliver an approved notification through a configured channel with
-    validated destination and content.
+    a validated destination, bounded content, and duplicate-delivery protection.
   category: action-execution
   level: intermediate
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../07-tool-use/tool-guardrails.md
   category_dir: 04-action-execution
 - id: offline-action-queueing
   path: skills/04-action-execution/offline-action-queueing.md
@@ -15501,23 +15483,20 @@ skills:
 - id: process-management
   path: skills/04-action-execution/process-management.md
   name: Process Management
-  description: Manage a local process with explicit command scope, timeout, environment,
-    output limits, and termination policy.
+  description: Manage a local process with explicit command scope, timeout, environment
+    minimization, output limits, and a termination policy.
   category: action-execution
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../14-security/approval-before-destructive-tools.md
   category_dir: 04-action-execution
 - id: protocol-native-gateway-negotiation-execution
   path: skills/04-action-execution/protocol-native-gateway-negotiation-execution.md
@@ -15835,22 +15814,19 @@ skills:
   path: skills/04-action-execution/shell-command.md
   name: Shell Command
   description: Execute a permitted local command with explicit working directory,
-    environment, timeout, and output bounds.
+    allowlisted environment, timeout, and output bounds, without shell injection.
   category: action-execution
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
   - Failure Modes
-  - Related
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../14-security/approval-before-destructive-tools.md
   category_dir: 04-action-execution
 - id: shell-environment-sanitization
   path: skills/04-action-execution/shell-environment-sanitization.md
@@ -16312,23 +16288,20 @@ skills:
 - id: wait-sleep
   path: skills/04-action-execution/wait-sleep.md
   name: Wait Sleep
-  description: Pause for a bounded duration or polling interval without treating elapsed
-    time as proof of state.
+  description: Pause for a bounded duration or poll a condition with bounds, without
+    treating elapsed time as proof of state.
   category: action-execution
   level: basic
   stability: stable
-  version: null
+  version: v2
   added: 2026-09
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / outputs / failure modes
-  - Runnable Example
-  - Failure modes
-  - Related
+  - Failure Modes
+  - Changelog
   - Evidence
-  related: []
+  related:
+  - ../15-orchestration/automation-review.md
   category_dir: 04-action-execution
 - id: watcher-page-response-execution
   path: skills/04-action-execution/watcher-page-response-execution.md

@@ -38,7 +38,7 @@
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/process-management.md",
   "name": "Process Management",
   "headline": "Process Management",
-  "description": "Manage a local process with explicit command scope, timeout, environment, output limits, and termination policy.",
+  "description": "Manage a local process with explicit command scope, timeout, environment minimization, output limits, and a termination policy.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/04-action-execution/process-management.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,22 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:15:33Z",
+  "dateModified": "2026-11-26T17:23:46Z",
   "skillId": "process-management",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "04-action-execution",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/approval-before-destructive-tools.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
