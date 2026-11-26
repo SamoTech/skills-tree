@@ -1,11 +1,17 @@
 name: temp-regen
 # temporary branch-local regen for the P0 title-disambiguation batch (issue #699 part 2)
+# 2026-11-26 repair: the first version's unbounded full-repo advisory lychee scan stalled the
+# regen job for 2+ hours; this version adds a cancel-in-progress concurrency group and drops
+# the advisory link scan (advisory only; the authoritative check-links gate runs independently).
 on:
   pull_request:
     branches: [main]
     types: [opened, synchronize]
   push:
     branches: [counsel/p0-title-disambiguation-2026-11-26]
+concurrency:
+  group: temp-regen-counsel-p0-title-disambiguation-2026-11-26
+  cancel-in-progress: true
 jobs:
   regen:
     if: github.head_ref == 'counsel/p0-title-disambiguation-2026-11-26' || github.ref == 'refs/heads/counsel/p0-title-disambiguation-2026-11-26'
@@ -75,13 +81,6 @@ jobs:
         run: |
           python3 tools/audit_skill_corpus.py
           python3 tools/modernization_inventory.py
-        continue-on-error: true
-      - name: Link report
-        uses: lycheeverse/lychee-action@v2
-        with:
-          fail: false
-          format: markdown
-          output: meta/LYCHEE-REPORT.md
         continue-on-error: true
       - name: Commit regenerated projections
         run: |
