@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 46
+**Live workflow files:** 47
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,6 +53,7 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
+| `temp-regen.yml` | Temporary branch-local steward | Branch-scoped deterministic projection regen for the P1 structural-upgrade batch 1 PR (counsel/p1-structural-upgrade-b1-2026-11-26); deleted before merge, see the reopen note below |
 
 ## Reconciliation findings
 
@@ -325,3 +326,7 @@ Reopen note (2026-11-26, P0 title disambiguation, second cycle): `temp-regen.yml
 
 
 Final closure note (2026-11-26, P0 title disambiguation, second cycle): the re-added `temp-regen.yml` (the #701-proven version with the reconcile `desired_names`/`name_override` resolution) completed the deterministic regen at the repaired head (bot commit `c0aed1da`): all packages affected by the title disambiguation, including the four collision-stem skills, were re-derived byte-exactly through the repository's own `project()`/`write_projection()`, and the projections (graph, search index, Skills API/JSON-LD, quality report, README counts, badges, modernization inventory) were regenerated with the two graph projections aligned to one build. The workflow and all temporary reports (`meta/REGEN-LOG.txt`, `meta/REGEN-AUDIT.txt`, `meta/REGEN-VALIDATE.txt`, `meta/REGEN-RECONCILE.txt`) are deleted before merge (net zero on `main`); the live workflow count returns to **Live workflow files:** 46. No CI, quality, security, or governance gate is weakened.
+
+## Reopen note — 2026-11-26 (P1 structural upgrade batch 1, issue #699)
+
+`temp-regen.yml` is temporary steward tooling on the `counsel/p1-structural-upgrade-b1-2026-11-26` branch only: it re-derives drifted agent-skills packages through the repository's own `project()`/`write_projection()` with the reconcile `desired_names` resolution, runs the repository's own generators (build_graph, build_search_index, export_skills, check_skill_quality, update_readme_counts, modernization_inventory) at the branch head, and aligns the two committed graph projections to one build. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the PR independently.
