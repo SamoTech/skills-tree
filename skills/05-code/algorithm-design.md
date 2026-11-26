@@ -5,7 +5,7 @@ level: intermediate
 stability: stable
 description: "Design an algorithm from explicit requirements, constraints, invariants, complexity targets, and testable acceptance criteria."
 added: "2026-09"
-related: [defining-requirements, testing]
+related: [agent-requirements-document-authoring, property-based-testing]
 ---
 
 # Algorithm Design
@@ -49,8 +49,8 @@ print('algorithm contract verified')
 
 ## Related
 
-- `defining-requirements.md`
-- `testing.md`
+- `agent-requirements-document-authoring.md`
+- `property-based-testing.md`
 
 ## Evidence
 
