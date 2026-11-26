@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -53,7 +53,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `version-stats.yml` | Generated-main writer | Version statistics |
 | `weekly-highlights.yml` | Generated-main writer | Weekly highlights |
 | `zero-touch-release.yml` | Authoritative release | Production release pipeline |
-| `temp-regen.yml` | Temporary steward (batch 4) | Branch-only projection regeneration for the P1 structural upgrade batch 4 PR; deleted before merge |
 
 ## Reconciliation findings
 
@@ -354,3 +353,7 @@ The temporary `temp-regen.yml` steward workflow completed the deterministic proj
 ## Reopen note — 2026-11-26 (P1 structural upgrade batch 4, issue #699)
 
 `temp-regen.yml` is temporary steward tooling on the `counsel/p1-structural-upgrade-b4-2026-11-26` branch only: it re-derives drifted agent-skills packages through the repository's own `project()`/`write_projection()` with the reconcile `desired_names` resolution, runs the repository's own generators (build_graph, build_search_index, export_skills, check_skill_quality, update_readme_counts, modernization_inventory) at the branch head, and aligns the two committed graph projections to one build. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the PR independently.
+
+## Final closure note — 2026-11-26 (P1 structural upgrade batch 4, issue #699)
+
+The temporary `temp-regen.yml` steward workflow completed the deterministic projection regen at the batch-4 head (bot commit `fa579804`: graph 2488 nodes / 3808 edges / 0 warnings, search index 2488 docs, Skills API export 2,246,199 bytes + 2489 JSON-LD files, quality report battle-tested 2402 / enriched 86 / stub 0 / invalid 0, modernization inventory needs-structural-upgrade 106→86, and the twenty batch packages re-derived through the repository's own `project()`/`write_projection()` with the reconcile `desired_names` resolution; distribution audit green — reconcile zero drifted/stale/unexpected, validate 2499/2499 packages with 0 failures). The workflow and all temporary reports (`meta/REGEN-LOG.txt`, `meta/REGEN-AUDIT.txt`, `meta/REGEN-VALIDATE.txt`, `meta/REGEN-RECONCILE.txt`) are deleted before merge (net zero on `main`); the live workflow count returns to **Live workflow files:** 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
