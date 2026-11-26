@@ -52,17 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T11:12:29Z",
+  "dateModified": "2026-11-26T16:46:55Z",
   "skillId": "image-understanding",
-  "skillVersion": "v2",
+  "skillVersion": "v3",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "01-perception",
   "sections": [
     "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../10-computer-use/visual-element-detection.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Intermediate",

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-11-26T15:55:50.803908+00:00",
+    "generated_at": "2026-11-26T16:49:08.506344+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
-    "edge_count": 3664,
+    "edge_count": 3673,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -1036,7 +1036,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -1546,7 +1546,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -1591,7 +1591,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -2221,7 +2221,7 @@
       "layer": "perception",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -2806,7 +2806,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -3106,7 +3106,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -3361,7 +3361,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -3466,7 +3466,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -3796,7 +3796,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -3946,7 +3946,7 @@
       "layer": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -38425,6 +38425,46 @@
       "confidence": "high"
     },
     {
+      "source": "01-perception/image-understanding",
+      "target": "01-perception/ocr",
+      "type": "RELATED_TO",
+      "evidence": "[OCR](ocr.md)",
+      "source_file": "skills/01-perception/image-understanding.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/image-understanding",
+      "target": "01-perception/video-understanding",
+      "type": "RELATED_TO",
+      "evidence": "[Video Understanding](video-understanding.md)",
+      "source_file": "skills/01-perception/image-understanding.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/image-understanding",
+      "target": "01-perception/screen-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Screen Reading](screen-reading.md)",
+      "source_file": "skills/01-perception/image-understanding.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/image-understanding",
+      "target": "10-computer-use/visual-element-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Visual Element Detection](../10-computer-use/visual-element-detection.md)",
+      "source_file": "skills/01-perception/image-understanding.md",
+      "confidence": "high"
+    },
+    {
+      "source": "01-perception/image-understanding",
+      "target": "01-perception/chart-reading",
+      "type": "RELATED_TO",
+      "evidence": "[Chart Reading](chart-reading.md)",
+      "source_file": "skills/01-perception/image-understanding.md",
+      "confidence": "high"
+    },
+    {
       "source": "01-perception/internet-exposed-agent-endpoint-scan-parsing",
       "target": "01-perception/sarif-results-parsing",
       "type": "RELATED_TO",
@@ -39998,6 +40038,38 @@
       "type": "RELATED_TO",
       "evidence": "[Commonsense Reasoning](commonsense.md)",
       "source_file": "skills/02-reasoning/causal.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/chain-of-thought",
+      "target": "02-reasoning/tree-of-thought",
+      "type": "RELATED_TO",
+      "evidence": "[Tree of Thought](tree-of-thought.md)",
+      "source_file": "skills/02-reasoning/chain-of-thought.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/chain-of-thought",
+      "target": "02-reasoning/react",
+      "type": "RELATED_TO",
+      "evidence": "[ReAct](react.md)",
+      "source_file": "skills/02-reasoning/chain-of-thought.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/chain-of-thought",
+      "target": "02-reasoning/self-reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Self Reflection](self-reflection.md)",
+      "source_file": "skills/02-reasoning/chain-of-thought.md",
+      "confidence": "high"
+    },
+    {
+      "source": "02-reasoning/chain-of-thought",
+      "target": "02-reasoning/planning",
+      "type": "RELATED_TO",
+      "evidence": "[Planning](planning.md)",
+      "source_file": "skills/02-reasoning/chain-of-thought.md",
       "confidence": "high"
     },
     {

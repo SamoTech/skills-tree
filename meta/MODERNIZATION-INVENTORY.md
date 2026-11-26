@@ -17,15 +17,15 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2344
-- **Structural upgrade required (enriched tier):** 144
+- **Dependency evidence required:** 2354
+- **Structural upgrade required (enriched tier):** 134
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2344, enriched=144, test_fixture=1.
+Per-quality baseline: battle_tested=2354, enriched=134, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
@@ -33,8 +33,8 @@ Dependency-evidence buckets: unreadable=26, unverified=2463.
 |---|---:|
 | (none) | 210 |
 | v1 | 2136 |
-| v2 | 119 |
-| v3 | 23 |
+| v2 | 109 |
+| v3 | 33 |
 | v4 | 1 |
 
 ## Prioritized modernization plan (owner directive, issue #699)
@@ -83,19 +83,9 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (144)
+## P1 - Structural upgrade required (enriched tier) (134)
 
-- [skills/01-perception/image-understanding.md](skills/01-perception/image-understanding.md) - no inputs/outputs/failure-modes table
-- [skills/01-perception/multimodal-document-reading.md](skills/01-perception/multimodal-document-reading.md)
-- [skills/01-perception/network-traffic-reading.md](skills/01-perception/network-traffic-reading.md)
-- [skills/01-perception/time-series-reading.md](skills/01-perception/time-series-reading.md)
-- [skills/02-reasoning/analogy-generation.md](skills/02-reasoning/analogy-generation.md) - no inputs/outputs/failure-modes table
-- [skills/02-reasoning/chain-of-thought.md](skills/02-reasoning/chain-of-thought.md) - no inputs/outputs/failure-modes table
-- [skills/02-reasoning/decision-making.md](skills/02-reasoning/decision-making.md) - no inputs/outputs/failure-modes table
-- [skills/02-reasoning/ethical-reasoning.md](skills/02-reasoning/ethical-reasoning.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
-- [skills/02-reasoning/inductive-reasoning.md](skills/02-reasoning/inductive-reasoning.md) - no inputs/outputs/failure-modes table
-- [skills/02-reasoning/mathematical-reasoning.md](skills/02-reasoning/mathematical-reasoning.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
 - [skills/04-action-execution/drag-drop.md](skills/04-action-execution/drag-drop.md)
 - [skills/04-action-execution/form-submission.md](skills/04-action-execution/form-submission.md)
@@ -230,7 +220,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2344)
+## P2 - Dependency evidence required (2354)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -300,6 +290,7 @@ _None._
 - [skills/01-perception/ide-project-context-perception.md](skills/01-perception/ide-project-context-perception.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/ide-symbol-resolution-parsing.md](skills/01-perception/ide-symbol-resolution-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/image-metadata-parsing.md](skills/01-perception/image-metadata-parsing.md) - badge color lightgrey (unscanned)
+- [skills/01-perception/image-understanding.md](skills/01-perception/image-understanding.md) - badge color 22c55e (✔ verified)
 - [skills/01-perception/incremental-json-parsing.md](skills/01-perception/incremental-json-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/intent-classification.md](skills/01-perception/intent-classification.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/internet-exposed-agent-endpoint-scan-parsing.md](skills/01-perception/internet-exposed-agent-endpoint-scan-parsing.md) - badge color lightgrey (unscanned)
@@ -333,8 +324,10 @@ _None._
 - [skills/01-perception/model-proxy-routing-trace-parsing.md](skills/01-perception/model-proxy-routing-trace-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/model-release-table-parsing.md](skills/01-perception/model-release-table-parsing.md) - badge color unreadable (badge file unreadable)
 - [skills/01-perception/moe-architecture-throughput-estimation.md](skills/01-perception/moe-architecture-throughput-estimation.md) - badge color lightgrey (unscanned)
+- [skills/01-perception/multimodal-document-reading.md](skills/01-perception/multimodal-document-reading.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/01-perception/multispectral-image-reading.md](skills/01-perception/multispectral-image-reading.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/named-entity-recognition.md](skills/01-perception/named-entity-recognition.md) - badge color lightgrey (unscanned)
+- [skills/01-perception/network-traffic-reading.md](skills/01-perception/network-traffic-reading.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/01-perception/notification-parsing.md](skills/01-perception/notification-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/notification-stream-consent-metadata-parsing.md](skills/01-perception/notification-stream-consent-metadata-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/ocr.md](skills/01-perception/ocr.md) - badge color 22c55e (✔ verified)
@@ -376,6 +369,7 @@ _None._
 - [skills/01-perception/telemetry-semantic-convention-parsing.md](skills/01-perception/telemetry-semantic-convention-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/terminal-bench-score-report-parsing.md](skills/01-perception/terminal-bench-score-report-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/text-reading.md](skills/01-perception/text-reading.md) - badge color yellow (machine-inferred · 3 pkgs)
+- [skills/01-perception/time-series-reading.md](skills/01-perception/time-series-reading.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/01-perception/training-pause-disclosure-parsing.md](skills/01-perception/training-pause-disclosure-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/unbounded-document-ocr-output-validation.md](skills/01-perception/unbounded-document-ocr-output-validation.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/unicode-homoglyph-detection.md](skills/01-perception/unicode-homoglyph-detection.md) - badge color lightgrey (unscanned)
@@ -414,6 +408,7 @@ _None._
 - [skills/02-reasoning/ai-auditor-recall-false-positive-tradeoff-reasoning.md](skills/02-reasoning/ai-auditor-recall-false-positive-tradeoff-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/ai-suggested-opinion-provenance-tracking.md](skills/02-reasoning/ai-suggested-opinion-provenance-tracking.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/analogical.md](skills/02-reasoning/analogical.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/02-reasoning/analogy-generation.md](skills/02-reasoning/analogy-generation.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/02-reasoning/argument-fallacy-detection.md](skills/02-reasoning/argument-fallacy-detection.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/argument-structure-analysis.md](skills/02-reasoning/argument-structure-analysis.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/02-reasoning/assumption-explicitness-reasoning.md](skills/02-reasoning/assumption-explicitness-reasoning.md) - badge color lightgrey (unscanned)
@@ -433,6 +428,7 @@ _None._
 - [skills/02-reasoning/case-based-reasoning.md](skills/02-reasoning/case-based-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/causal-graph-construction.md](skills/02-reasoning/causal-graph-construction.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/causal.md](skills/02-reasoning/causal.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/02-reasoning/chain-of-thought.md](skills/02-reasoning/chain-of-thought.md) - badge color 22c55e (✔ verified)
 - [skills/02-reasoning/chain-of-verification.md](skills/02-reasoning/chain-of-verification.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/claim-evidence-alignment-reasoning.md](skills/02-reasoning/claim-evidence-alignment-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/commonsense.md](skills/02-reasoning/commonsense.md) - badge color yellow (machine-inferred · 1 pkg)
@@ -449,12 +445,14 @@ _None._
 - [skills/02-reasoning/dataset-aggregate-risk-inference.md](skills/02-reasoning/dataset-aggregate-risk-inference.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/deadline-constraint-reasoning.md](skills/02-reasoning/deadline-constraint-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/deadline-probability-estimation.md](skills/02-reasoning/deadline-probability-estimation.md) - badge color lightgrey (unscanned)
+- [skills/02-reasoning/decision-making.md](skills/02-reasoning/decision-making.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/deductive-reasoning.md](skills/02-reasoning/deductive-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/delegation-chain-trust-reasoning.md](skills/02-reasoning/delegation-chain-trust-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/dense-versus-moe-capability-per-parameter-reasoning.md](skills/02-reasoning/dense-versus-moe-capability-per-parameter-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/dependency-cycle-resolution-reasoning.md](skills/02-reasoning/dependency-cycle-resolution-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/dynamic-replanning.md](skills/02-reasoning/dynamic-replanning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/election-claim-source-hierarchy-verification-reasoning.md](skills/02-reasoning/election-claim-source-hierarchy-verification-reasoning.md) - badge color lightgrey (unscanned)
+- [skills/02-reasoning/ethical-reasoning.md](skills/02-reasoning/ethical-reasoning.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/02-reasoning/eval-awareness-behavior-calibration-reasoning.md](skills/02-reasoning/eval-awareness-behavior-calibration-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/evidence-admissibility-reasoning.md](skills/02-reasoning/evidence-admissibility-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/expected-utility-analysis.md](skills/02-reasoning/expected-utility-analysis.md) - badge color lightgrey (unscanned)
@@ -475,6 +473,7 @@ _None._
 - [skills/02-reasoning/identity-case-decision-reasoning.md](skills/02-reasoning/identity-case-decision-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/incident-pattern-control-mapping-reasoning.md](skills/02-reasoning/incident-pattern-control-mapping-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/independent-conclusion-audit-reasoning.md](skills/02-reasoning/independent-conclusion-audit-reasoning.md) - badge color lightgrey (unscanned)
+- [skills/02-reasoning/inductive-reasoning.md](skills/02-reasoning/inductive-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/injection-to-rce-reachability-reasoning.md](skills/02-reasoning/injection-to-rce-reachability-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/internal-misalignment-disclosure-interpretation-reasoning.md](skills/02-reasoning/internal-misalignment-disclosure-interpretation-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/intervention-timing-reasoning.md](skills/02-reasoning/intervention-timing-reasoning.md) - badge color lightgrey (unscanned)
@@ -484,6 +483,7 @@ _None._
 - [skills/02-reasoning/least-to-most.md](skills/02-reasoning/least-to-most.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/linear-programming-optimization-reasoning.md](skills/02-reasoning/linear-programming-optimization-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/long-horizon-planning.md](skills/02-reasoning/long-horizon-planning.md) - badge color lightgrey (unscanned)
+- [skills/02-reasoning/mathematical-reasoning.md](skills/02-reasoning/mathematical-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/mcp-roadmap-change-impact-reasoning.md](skills/02-reasoning/mcp-roadmap-change-impact-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/mcp-stateless-migration-risk-reasoning.md](skills/02-reasoning/mcp-stateless-migration-risk-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/meta-cognition.md](skills/02-reasoning/meta-cognition.md) - badge color yellow (machine-inferred · 1 pkg)
