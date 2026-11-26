@@ -1,47 +1,73 @@
 ---
-title: Refactoring
+title: "Refactoring"
 category: 05-code
 level: advanced
 stability: stable
-description: Restructure code to improve maintainability or design while preserving documented behavior and interfaces.
+version: v2
+description: "Restructure code to improve maintainability or design while preserving documented behavior and interfaces."
 added: "2026-09"
-related: [05-code]
+related: [code-review, unit-test-generation, linting-formatting]
 ---
 
-## Description
-Restructure code to improve maintainability or design while preserving documented behavior and interfaces. Refactoring is evidence-driven: establish current behavior, make a bounded change, and verify equivalence.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-refactoring.json)
 
-## When to Use
-Use when structure, duplication, coupling, readability, or maintainability needs improvement without changing intended behavior.
+# Refactoring
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Current implementation, tests, interfaces, and explicit design goal. |
-| Outputs | Cleaner structure with preserved behavior and verification evidence. |
-| Failure modes | Scope creep, hidden behavior changes, incomplete coverage, or API breakage. |
+### Description
 
-## Runnable Example
+Restructure code to improve maintainability or design while preserving documented behavior and interfaces. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | design_goal | string | The narrow structural goal and the files it may touch |
+| Input | tests | object | Coverage that pins current behavior, including characterization tests |
+| Output | refactored_code | object | Cleaner structure with behavior and public interfaces preserved |
+| Output | evidence | object | Green tests before and after, with a diff bounded to the goal |
+
+### Procedure
+1. Confirm tests exist that pin the behavior being preserved; add characterization tests for untested behavior first.
+2. Define the design goal narrowly and declare the file scope it may touch.
+3. Refactor in small steps, running the tests between steps.
+4. Keep public interfaces stable unless the goal explicitly includes an interface change with a migration path.
+5. Park unrelated findings as follow-ups; do not mix feature work into the refactoring.
+6. Verify equivalence: same tests green, no behavior change, diff reviewed against the stated goal.
+
+### Example
 
 ```python
 def normalize_name(value: str) -> str:
     return ' '.join(value.split())
 
-print(normalize_name('  example   name '))
-print('refactor only after behavior is understood')
+assert normalize_name('  example   name ') == 'example name'
+print('behavior pinned by assertions before and after restructuring')
 ```
 
-## Failure modes
+### Related Skills
+
+- [Code Review](code-review.md) - equivalence review before merge
+- [Unit Test Generation](unit-test-generation.md) - pin behavior before restructuring
+- [Linting Formatting](linting-formatting.md) - keep style changes separate
+
+## Failure Modes
+
 - Combining refactoring with unrelated feature work.
 - Changing public behavior unintentionally.
-- Removing tests instead of preserving coverage.
+- Removing or weakening tests instead of preserving coverage.
 - Reporting equivalence without verification.
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic equivalence example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

@@ -1,46 +1,72 @@
 ---
-title: Sql Query Generation
+title: "SQL Query Generation"
 category: 05-code
 level: advanced
 stability: stable
-description: Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling.
+version: v2
+description: "Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling."
 added: "2026-09"
-related: [05-code]
+related: [db-schema-design, database-migration-writing, input-sanitization]
 ---
 
-## Description
-Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling. Inspect the actual schema and query conventions before writing queries.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-sql-query-generation.json)
 
-## When to Use
-Use when a task requires a query, migration query, reporting query, or database interaction.
+# SQL Query Generation
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Schema, required result, dialect, parameters, and performance constraints. |
-| Outputs | Validated SQL with safe parameter handling and evidence. |
-| Failure modes | Wrong schema assumptions, injection-prone interpolation, incorrect joins, or inefficient queries. |
+### Description
 
-## Runnable Example
+Generate SQL from explicit data requirements, schema constraints, and supported database dialects while preserving correctness and safe parameter handling. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | schema | object | Tables, columns, types, and constraints read from the actual database |
+| Input | requirement | object | Result shape, filters, expected volume, and the target dialect |
+| Output | sql | object | Parameterized, dialect-correct queries with explicit joins and filters |
+| Output | verification | object | Explain-plan or test-database evidence including edge cases |
+
+### Procedure
+1. Read the actual schema (tables, columns, types, constraints) before writing the query.
+2. Confirm the dialect and its syntax differences: quoting, functions, limit clauses.
+3. Parameterize every external value; never interpolate untrusted input into SQL.
+4. Make joins and filters explicit; avoid SELECT * in production paths.
+5. Validate result shape and edge cases (empty sets, nulls, duplicates) against a test database or explain plan.
+6. Record performance characteristics for large tables.
+
+### Example
 
 ```python
 query = 'SELECT id, name FROM users WHERE status = ?'
 parameter = 'active'
-print(query)
-print('parameter:', parameter)
+assert '?' in query and parameter.isalpha()
+print(query, '| parameter bound safely:', parameter)
 ```
 
-## Failure modes
-- Guessing table or column names.
+### Related Skills
+
+- [DB Schema Design](db-schema-design.md) - the schema the queries run against
+- [Database Migration Writing](database-migration-writing.md) - versioned schema changes
+- [Input Sanitization](../14-security/input-sanitization.md) - parameterize untrusted values
+
+## Failure Modes
+
+- Guessing table or column names instead of reading the schema.
 - Interpolating untrusted values into SQL.
 - Ignoring dialect differences.
-- Failing to test result shape and edge cases.
+- Skipping result-shape and edge-case validation.
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic parameterization example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
