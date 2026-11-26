@@ -1,6 +1,6 @@
 # Graph Build Report
 
-**Generated:** 2026-11-08T03:25:41.869825+00:00  
+**Generated:** 2026-11-26T15:37:59.382896+00:00  
 **Generator:** tools/build_graph.py  
 **Schema Version:** 3.1  
 **Dry Run:** False  

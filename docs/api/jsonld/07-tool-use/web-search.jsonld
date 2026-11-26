@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/web-search.md",
-  "name": "Web Search",
-  "headline": "Web Search",
+  "name": "Web Search (Tool Contract)",
+  "headline": "Web Search (Tool Contract)",
   "description": "Use a web-search service as a bounded retrieval tool with explicit queries, freshness constraints, source tracking, and result verification.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/07-tool-use/web-search.md",
   "isPartOf": {
@@ -52,9 +52,9 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-06T14:09:49Z",
+  "dateModified": "2026-11-26T14:06:43Z",
   "skillId": "web-search",
-  "skillVersion": null,
+  "skillVersion": "v1",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "07-tool-use",
@@ -65,7 +65,8 @@
     "Runnable Example",
     "Failure modes",
     "Evidence",
-    "Related"
+    "Related",
+    "Changelog"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -77,7 +78,7 @@
   "keywords": "AI agent, LLM skill, search, skills tree, tool, use, web",
   "about": {
     "@type": "Thing",
-    "name": "Web Search",
-    "description": "An AI agent skill for web search."
+    "name": "Web Search (Tool Contract)",
+    "description": "An AI agent skill for web search (tool contract)."
   }
 }

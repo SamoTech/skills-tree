@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag.md",
-  "name": "RAG — Retrieval-Augmented Generation",
-  "headline": "RAG — Retrieval-Augmented Generation",
+  "name": "RAG (Agentic Grounding Pattern)",
+  "headline": "RAG (Agentic Grounding Pattern)",
   "description": "Ground generation with retrieved external context by separating ingestion, retrieval, context assembly, generation, and source attribution, with explicit handling for weak or conflicting retrieval.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag.md",
   "isPartOf": {
@@ -52,7 +52,7 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-03T08:04:56Z",
+  "dateModified": "2026-11-26T14:06:03Z",
   "skillId": "rag",
   "skillVersion": "v4",
   "skillLevel": "intermediate",
@@ -81,7 +81,7 @@
   "keywords": "AI agent, LLM skill, agentic, patterns, rag, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "RAG — Retrieval-Augmented Generation",
-    "description": "An AI agent skill for rag — retrieval-augmented generation."
+    "name": "RAG (Agentic Grounding Pattern)",
+    "description": "An AI agent skill for rag (agentic grounding pattern)."
   }
 }
