@@ -4,42 +4,68 @@ description: Generate regular expressions from explicit matching and rejection r
 metadata:
   source: skills/05-code/regex-generation.md
   category: 05-code
+  version: "v2"
 ---
 
-## Description
-Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases. Prefer readable patterns and explicit tests over clever or opaque expressions.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-regex-generation.json)
 
-## When to Use
-Use when structured text must be matched, extracted, validated, or rejected using regular expressions.
+# Regex Generation
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Required matches, required rejections, engine syntax, flags, and representative samples. |
-| Outputs | Tested regex and documented assumptions. |
-| Failure modes | Overmatching, undermatching, engine incompatibility, or pathological performance. |
+### Description
 
-## Runnable Example
+Generate regular expressions from explicit matching and rejection requirements and validate them against representative cases. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | requirements | object | Explicit must-match and must-reject example sets |
+| Input | engine | object | Target regex engine and flags (PCRE, RE2, Python re) |
+| Output | pattern | object | A readable, documented pattern targeting the stated engine |
+| Output | tests | list | Positive and negative cases, including boundary inputs |
+
+### Procedure
+1. Collect explicit positive and negative examples before writing the pattern.
+2. Write the simplest pattern that satisfies the requirement; prefer readability over cleverness.
+3. Target the actual engine syntax and note incompatibilities (backreferences, lookbehind, POSIX classes).
+4. Test every positive and negative case, including empty, unicode, and multiline boundaries.
+5. Check for pathological backtracking on adversarial input; prefer atomic constructs or a parser when risk exists.
+
+### Example
 
 ```python
 import re
 
-pattern = re.compile(r'^[A-Z]{2}-\\d{4}$')
-for value in ['AB-1234', 'bad']:
-    print(value, bool(pattern.fullmatch(value)))
+pattern = re.compile(r'^[A-Z]{2}-[0-9]{4}$')
+cases = {'AB-1234': True, 'ab-1234': False, 'AB-123': False, '': False}
+for value, expected in cases.items():
+    assert bool(pattern.fullmatch(value)) is expected, value
+print('all positive and negative cases pass')
 ```
 
-## Failure modes
-- Deriving a pattern without explicit examples.
-- Ignoring the target regex engine.
-- Testing only positive cases.
-- Creating unnecessarily expensive patterns.
+### Related Skills
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+- [Unit Test Generation](unit-test-generation.md) - pin pattern behavior with tests
+- [Debugging](debugging.md) - isolate overmatching and undermatching
+
+## Failure Modes
+
+- Deriving a pattern without explicit positive and negative examples.
+- Ignoring the target engine and shipping incompatible syntax.
+- Testing only positive cases.
+- Creating patterns with pathological backtracking.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic two-sided test example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

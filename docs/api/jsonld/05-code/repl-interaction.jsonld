@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/repl-interaction.md",
-  "name": "repl-interaction",
-  "headline": "repl-interaction",
+  "name": "Repl Interaction",
+  "headline": "Repl Interaction",
   "description": "Use an interactive language environment to inspect behavior, test hypotheses, and validate small code changes without replacing reproducible project tests.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/repl-interaction.md",
   "isPartOf": {
@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:41:59Z",
+  "dateModified": "2026-11-26T17:56:15Z",
   "skillId": "repl-interaction",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "intermediate",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],
@@ -77,7 +73,7 @@
   "keywords": "AI agent, LLM skill, code, interaction, repl, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "repl-interaction",
-    "description": "An AI agent skill for repl-interaction."
+    "name": "Repl Interaction",
+    "description": "An AI agent skill for repl interaction."
   }
 }

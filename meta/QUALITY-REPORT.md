@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2362
-- 🟡 **Enriched** (real description + runnable code): 126
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2382
+- 🟡 **Enriched** (real description + runnable code): 106
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -20,7 +20,7 @@
 | `02-reasoning` | 177 | 175 | 2 | 0 | 0 | 0 |
 | `03-memory` | 149 | 149 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 157 | 157 | 0 | 0 | 0 | 0 |
-| `05-code` | 160 | 140 | 20 | 0 | 0 | 0 |
+| `05-code` | 160 | 160 | 0 | 0 | 0 | 0 |
 | `06-communication` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 165 | 145 | 20 | 0 | 0 | 0 |
 | `08-multimodal` | 135 | 135 | 0 | 0 | 0 | 0 |
@@ -722,11 +722,15 @@
 - [`skills/05-code/cloud-session-code-handoff.md`](skills/05-code/cloud-session-code-handoff.md) — Cloud Session Code Handoff
 - [`skills/05-code/code-churn-analysis.md`](skills/05-code/code-churn-analysis.md) — Code Churn Analysis
 - [`skills/05-code/code-copyright-provenance-analysis.md`](skills/05-code/code-copyright-provenance-analysis.md) — Code Copyright Provenance Analysis
+- [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — Code Execution Sandbox
+- [`skills/05-code/code-explanation.md`](skills/05-code/code-explanation.md) — Code Explanation
 - [`skills/05-code/code-freeze-management.md`](skills/05-code/code-freeze-management.md) — Code Freeze Management
 - [`skills/05-code/code-fuzzing.md`](skills/05-code/code-fuzzing.md) — Code Fuzzing
 - [`skills/05-code/code-generation.md`](skills/05-code/code-generation.md) — Code Generation
 - [`skills/05-code/code-interpreter-agent.md`](skills/05-code/code-interpreter-agent.md) — Code Interpreter Agent
 - [`skills/05-code/code-review.md`](skills/05-code/code-review.md) — Code Review
+- [`skills/05-code/code-search.md`](skills/05-code/code-search.md) — Code Search
+- [`skills/05-code/code-translation.md`](skills/05-code/code-translation.md) — Code Translation
 - [`skills/05-code/codebase-onboarding.md`](skills/05-code/codebase-onboarding.md) — Codebase Onboarding
 - [`skills/05-code/codex-cloud-review-automation.md`](skills/05-code/codex-cloud-review-automation.md) — Codex Cloud Review Automation
 - [`skills/05-code/codex-multi-agent-task-delegation-development.md`](skills/05-code/codex-multi-agent-task-delegation-development.md) — Codex Multi Agent Task Delegation Development
@@ -740,12 +744,18 @@
 - [`skills/05-code/cross-cli-agent-skill-portability-testing.md`](skills/05-code/cross-cli-agent-skill-portability-testing.md) — Cross Cli Agent Skill Portability Testing
 - [`skills/05-code/cursor-rules-authoring.md`](skills/05-code/cursor-rules-authoring.md) — Cursor Rules Authoring
 - [`skills/05-code/database-migration-writing.md`](skills/05-code/database-migration-writing.md) — Database Migration Writing
+- [`skills/05-code/db-schema-design.md`](skills/05-code/db-schema-design.md) — DB Schema Design
 - [`skills/05-code/dead-code-elimination-verification.md`](skills/05-code/dead-code-elimination-verification.md) — Dead Code Elimination Verification
+- [`skills/05-code/debugging.md`](skills/05-code/debugging.md) — Debugging
 - [`skills/05-code/declarative-agent-configuration.md`](skills/05-code/declarative-agent-configuration.md) — Declarative Agent Configuration
+- [`skills/05-code/dependency-auditor.md`](skills/05-code/dependency-auditor.md) — Dependency Auditor (Project Manifests)
 - [`skills/05-code/dependency-diff-impact-review.md`](skills/05-code/dependency-diff-impact-review.md) — Dependency Diff Impact Review
+- [`skills/05-code/dependency-management.md`](skills/05-code/dependency-management.md) — Dependency Management
 - [`skills/05-code/dependency-update-automation.md`](skills/05-code/dependency-update-automation.md) — Dependency Update Automation
 - [`skills/05-code/differential-testing-llm-patches.md`](skills/05-code/differential-testing-llm-patches.md) — Differential Testing LLM Patches
+- [`skills/05-code/dockerfile-generation.md`](skills/05-code/dockerfile-generation.md) — Dockerfile Generation
 - [`skills/05-code/documentation-example-testing.md`](skills/05-code/documentation-example-testing.md) — Documentation Example Testing
+- [`skills/05-code/documentation-generation.md`](skills/05-code/documentation-generation.md) — Documentation Generation
 - [`skills/05-code/egress-allowlist-policy-implementation.md`](skills/05-code/egress-allowlist-policy-implementation.md) — Egress Allowlist Policy Implementation
 - [`skills/05-code/embedded-prompt-extraction.md`](skills/05-code/embedded-prompt-extraction.md) — Embedded Prompt Extraction
 - [`skills/05-code/error-handling-design.md`](skills/05-code/error-handling-design.md) — Error Handling Design
@@ -757,17 +767,21 @@
 - [`skills/05-code/framework-minor-upgrade-planning.md`](skills/05-code/framework-minor-upgrade-planning.md) — Framework Minor Upgrade Planning
 - [`skills/05-code/functional-workflow-step-authoring.md`](skills/05-code/functional-workflow-step-authoring.md) — Functional Workflow Step Authoring
 - [`skills/05-code/git-hook-coding-agent-attack-detection.md`](skills/05-code/git-hook-coding-agent-attack-detection.md) — Git Hook Coding Agent Attack Detection
+- [`skills/05-code/git-operations.md`](skills/05-code/git-operations.md) — Git Operations
+- [`skills/05-code/github-api.md`](skills/05-code/github-api.md) — GitHub API (Code Integration)
 - [`skills/05-code/harness-adapter-frozen-agent-evaluation.md`](skills/05-code/harness-adapter-frozen-agent-evaluation.md) — Harness Adapter Frozen Agent Evaluation
 - [`skills/05-code/harness-plugin-portability-testing.md`](skills/05-code/harness-plugin-portability-testing.md) — Harness Plugin Portability Testing
 - [`skills/05-code/harness-remote-engine-deployment.md`](skills/05-code/harness-remote-engine-deployment.md) — Harness Remote Engine Deployment
 - [`skills/05-code/ide-integration.md`](skills/05-code/ide-integration.md) — IDE Integration
 - [`skills/05-code/inference-efficiency-claim-verification.md`](skills/05-code/inference-efficiency-claim-verification.md) — Inference Efficiency Claim Verification
 - [`skills/05-code/inference-framework-patch-cadence-implementation.md`](skills/05-code/inference-framework-patch-cadence-implementation.md) — Inference Framework Patch Cadence Implementation
+- [`skills/05-code/integration-test-writing.md`](skills/05-code/integration-test-writing.md) — Integration Test Writing
 - [`skills/05-code/kernel-privilege-escalation-patch-generation.md`](skills/05-code/kernel-privilege-escalation-patch-generation.md) — Kernel Privilege Escalation Patch Generation
 - [`skills/05-code/langgraph-v1-migration.md`](skills/05-code/langgraph-v1-migration.md) — Langgraph V1 Migration
 - [`skills/05-code/lean-formal-proof-agent-workflow.md`](skills/05-code/lean-formal-proof-agent-workflow.md) — Lean Formal Proof Agent Workflow
 - [`skills/05-code/lean-formalized-mathematics-navigation.md`](skills/05-code/lean-formalized-mathematics-navigation.md) — Lean Formalized Mathematics Navigation
 - [`skills/05-code/license-compatibility-checking.md`](skills/05-code/license-compatibility-checking.md) — License Compatibility Checking
+- [`skills/05-code/linting-formatting.md`](skills/05-code/linting-formatting.md) — Linting Formatting
 - [`skills/05-code/llm-eval-harness-ci-integration.md`](skills/05-code/llm-eval-harness-ci-integration.md) — LLM Eval Harness CI Integration
 - [`skills/05-code/llm-generated-tool-description-review-automation.md`](skills/05-code/llm-generated-tool-description-review-automation.md) — LLM Generated Tool Description Review Automation
 - [`skills/05-code/maf-go-preview-interop-testing.md`](skills/05-code/maf-go-preview-interop-testing.md) — MAF Go Preview Interop Testing
@@ -787,14 +801,18 @@
 - [`skills/05-code/n-plus-one-query-detection.md`](skills/05-code/n-plus-one-query-detection.md) — N Plus One Query Detection
 - [`skills/05-code/observability-instrumentation.md`](skills/05-code/observability-instrumentation.md) — Observability Instrumentation
 - [`skills/05-code/opensandbox-code-execution-adoption.md`](skills/05-code/opensandbox-code-execution-adoption.md) — Opensandbox Code Execution Adoption
+- [`skills/05-code/performance-profiling.md`](skills/05-code/performance-profiling.md) — Performance Profiling
 - [`skills/05-code/polyglot-type-binding-generation.md`](skills/05-code/polyglot-type-binding-generation.md) — Polyglot Type Binding Generation
 - [`skills/05-code/property-based-testing.md`](skills/05-code/property-based-testing.md) — Property Based Testing
 - [`skills/05-code/protocol-schema-codegen.md`](skills/05-code/protocol-schema-codegen.md) — Protocol Schema Codegen
 - [`skills/05-code/provider-auth-guided-setup.md`](skills/05-code/provider-auth-guided-setup.md) — Provider Auth Guided Setup
 - [`skills/05-code/pydantic-ai-evals-integration.md`](skills/05-code/pydantic-ai-evals-integration.md) — Pydantic Ai Evals Integration
 - [`skills/05-code/pydantic-ai-typed-tool-authoring.md`](skills/05-code/pydantic-ai-typed-tool-authoring.md) — Pydantic Ai Typed Tool Authoring
+- [`skills/05-code/refactoring.md`](skills/05-code/refactoring.md) — Refactoring
+- [`skills/05-code/regex-generation.md`](skills/05-code/regex-generation.md) — Regex Generation
 - [`skills/05-code/regression-window-bisection-automation.md`](skills/05-code/regression-window-bisection-automation.md) — Regression Window Bisection Automation
 - [`skills/05-code/release-cancellation-dependency-impact-analysis.md`](skills/05-code/release-cancellation-dependency-impact-analysis.md) — Release Cancellation Dependency Impact Analysis
+- [`skills/05-code/repl-interaction.md`](skills/05-code/repl-interaction.md) — Repl Interaction
 - [`skills/05-code/requirement-tracing.md`](skills/05-code/requirement-tracing.md) — Requirement Tracing
 - [`skills/05-code/review-comment-resolution-planning.md`](skills/05-code/review-comment-resolution-planning.md) — Review Comment Resolution Planning
 - [`skills/05-code/rust-no-std-ml-engine-implementation.md`](skills/05-code/rust-no-std-ml-engine-implementation.md) — Rust No Std Ml Engine Implementation
@@ -804,6 +822,7 @@
 - [`skills/05-code/semantic-version-management.md`](skills/05-code/semantic-version-management.md) — Semantic Version Management
 - [`skills/05-code/spec-driven-implementation-planning.md`](skills/05-code/spec-driven-implementation-planning.md) — Spec-Driven Implementation Planning
 - [`skills/05-code/speculative-tool-call-execution-implementation.md`](skills/05-code/speculative-tool-call-execution-implementation.md) — Speculative Tool Call Execution Implementation
+- [`skills/05-code/sql-query-generation.md`](skills/05-code/sql-query-generation.md) — SQL Query Generation
 - [`skills/05-code/stack-trace-analysis.md`](skills/05-code/stack-trace-analysis.md) — Stack Trace Analysis
 - [`skills/05-code/stageshow-product-demo-building.md`](skills/05-code/stageshow-product-demo-building.md) — Stageshow Product Demo Building
 - [`skills/05-code/static-analysis-suppression-auditing.md`](skills/05-code/static-analysis-suppression-auditing.md) — Static Analysis Suppression Auditing
@@ -820,6 +839,7 @@
 - [`skills/05-code/trace-driven-test-generation.md`](skills/05-code/trace-driven-test-generation.md) — Trace Driven Test Generation
 - [`skills/05-code/type-annotation-generation.md`](skills/05-code/type-annotation-generation.md) — Type Annotation Generation
 - [`skills/05-code/type-error-triage.md`](skills/05-code/type-error-triage.md) — Type Error Triage
+- [`skills/05-code/unit-test-generation.md`](skills/05-code/unit-test-generation.md) — Unit Test Generation
 - [`skills/05-code/zero-day-patch-clock-compression-planning.md`](skills/05-code/zero-day-patch-clock-compression-planning.md) — Zero Day Patch Clock Compression Planning
 - [`skills/06-communication/a2a-compliance-claim-communication.md`](skills/06-communication/a2a-compliance-claim-communication.md) — A2A Compliance Claim Communication
 - [`skills/06-communication/accessibility-statement-writing.md`](skills/06-communication/accessibility-statement-writing.md) — Accessibility Statement Writing
@@ -2403,26 +2423,6 @@
 
 - [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
-- [`skills/05-code/code-execution-sandbox.md`](skills/05-code/code-execution-sandbox.md) — missing table or <60 lines
-- [`skills/05-code/code-explanation.md`](skills/05-code/code-explanation.md) — missing table or <60 lines
-- [`skills/05-code/code-search.md`](skills/05-code/code-search.md) — missing table or <60 lines
-- [`skills/05-code/code-translation.md`](skills/05-code/code-translation.md) — missing table or <60 lines
-- [`skills/05-code/db-schema-design.md`](skills/05-code/db-schema-design.md) — missing table or <60 lines
-- [`skills/05-code/debugging.md`](skills/05-code/debugging.md) — missing table or <60 lines
-- [`skills/05-code/dependency-auditor.md`](skills/05-code/dependency-auditor.md) — missing table or <60 lines
-- [`skills/05-code/dependency-management.md`](skills/05-code/dependency-management.md) — missing table or <60 lines
-- [`skills/05-code/dockerfile-generation.md`](skills/05-code/dockerfile-generation.md) — missing table or <60 lines
-- [`skills/05-code/documentation-generation.md`](skills/05-code/documentation-generation.md) — missing table or <60 lines
-- [`skills/05-code/git-operations.md`](skills/05-code/git-operations.md) — missing table or <60 lines
-- [`skills/05-code/github-api.md`](skills/05-code/github-api.md) — missing table or <60 lines
-- [`skills/05-code/integration-test-writing.md`](skills/05-code/integration-test-writing.md) — missing table or <60 lines
-- [`skills/05-code/linting-formatting.md`](skills/05-code/linting-formatting.md) — missing table or <60 lines
-- [`skills/05-code/performance-profiling.md`](skills/05-code/performance-profiling.md) — missing table or <60 lines
-- [`skills/05-code/refactoring.md`](skills/05-code/refactoring.md) — missing table or <60 lines
-- [`skills/05-code/regex-generation.md`](skills/05-code/regex-generation.md) — missing table or <60 lines
-- [`skills/05-code/repl-interaction.md`](skills/05-code/repl-interaction.md) — missing table or <60 lines
-- [`skills/05-code/sql-query-generation.md`](skills/05-code/sql-query-generation.md) — missing table or <60 lines
-- [`skills/05-code/unit-test-generation.md`](skills/05-code/unit-test-generation.md) — missing table or <60 lines
 - [`skills/07-tool-use/a2a-tool.md`](skills/07-tool-use/a2a-tool.md) — missing table or <60 lines
 - [`skills/07-tool-use/browser-tool.md`](skills/07-tool-use/browser-tool.md) — missing table or <60 lines
 - [`skills/07-tool-use/calculator.md`](skills/07-tool-use/calculator.md) — missing table or <60 lines

@@ -4,23 +4,39 @@ description: Generate focused unit tests that verify isolated behavior, edge cas
 metadata:
   source: skills/05-code/unit-test-generation.md
   category: 05-code
+  version: "v2"
 ---
 
-## Description
-Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts. Tests should be deterministic, readable, and aligned with repository conventions.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-unit-test-generation.json)
 
-## When to Use
-Use when a unit-level behavior needs regression coverage or when implementation changes require focused tests.
+# Unit Test Generation
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Function or component contract, dependencies, expected behavior, and edge cases. |
-| Outputs | Deterministic unit tests with meaningful assertions. |
-| Failure modes | Weak assertions, excessive mocking, missing boundaries, or flaky setup. |
+### Description
 
-## Runnable Example
+Generate focused unit tests that verify isolated behavior, edge cases, and failure handling from explicit contracts. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | contract | object | The function or component behavior, boundaries, and error paths to cover |
+| Output | tests | list | Deterministic tests, one behavior each, with meaningful assertions |
+| Output | coverage_notes | object | Cases included and explicitly excluded, with reasons |
+
+### Procedure
+1. Derive cases from the contract: normal paths, boundaries, and error paths, not from implementation internals.
+2. Write one behavior per test with a name that states the expectation.
+3. Assert on observable outcomes; avoid asserting call internals.
+4. Keep tests deterministic: fixed inputs, no uncontrolled network, time, or randomness.
+5. Mock only boundaries the unit does not own; over-mocking hides real defects.
+6. Verify the tests fail on a deliberately broken implementation before trusting them.
+
+### Example
 
 ```python
 def add(a: int, b: int) -> int:
@@ -28,18 +44,29 @@ def add(a: int, b: int) -> int:
 
 assert add(2, 3) == 5
 assert add(0, 0) == 0
+assert add(-1, 1) == 0
+print('contract cases: normal, zero, and boundary covered')
 ```
 
-## Failure modes
+### Related Skills
+
+- [Integration Test Writing](integration-test-writing.md) - boundary coverage beyond units
+- [Code Review](code-review.md) - review assertion quality, not just presence
+- [Refactoring](refactoring.md) - pin behavior before restructuring
+
+## Failure Modes
+
 - Testing implementation details instead of behavior.
 - Missing boundary and failure cases.
 - Over-mocking dependencies needed to establish behavior.
 - Tests that pass without meaningful assertions.
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic multi-case example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

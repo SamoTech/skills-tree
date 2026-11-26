@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-management.md",
-  "name": "dependency-management",
-  "headline": "dependency-management",
+  "name": "Dependency Management",
+  "headline": "Dependency Management",
   "description": "Manage software dependencies through explicit version constraints, reproducible updates, compatibility checks, and rollback-safe changes.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-management.md",
   "isPartOf": {
@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:35:28Z",
+  "dateModified": "2026-11-26T17:55:40Z",
   "skillId": "dependency-management",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],
@@ -77,7 +73,7 @@
   "keywords": "AI agent, LLM skill, code, dependency, management, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "dependency-management",
-    "description": "An AI agent skill for dependency-management."
+    "name": "Dependency Management",
+    "description": "An AI agent skill for dependency management."
   }
 }

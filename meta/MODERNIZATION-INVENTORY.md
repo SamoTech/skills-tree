@@ -17,23 +17,23 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2362
-- **Structural upgrade required (enriched tier):** 126
+- **Dependency evidence required:** 2382
+- **Structural upgrade required (enriched tier):** 106
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2362, enriched=126, test_fixture=1.
+Per-quality baseline: battle_tested=2382, enriched=106, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 202 |
-| v1 | 2136 |
-| v2 | 117 |
+| (none) | 184 |
+| v1 | 2134 |
+| v2 | 137 |
 | v3 | 33 |
 | v4 | 1 |
 
@@ -83,30 +83,10 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (126)
+## P1 - Structural upgrade required (enriched tier) (106)
 
 - [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
-- [skills/05-code/code-execution-sandbox.md](skills/05-code/code-execution-sandbox.md)
-- [skills/05-code/code-explanation.md](skills/05-code/code-explanation.md)
-- [skills/05-code/code-search.md](skills/05-code/code-search.md)
-- [skills/05-code/code-translation.md](skills/05-code/code-translation.md)
-- [skills/05-code/db-schema-design.md](skills/05-code/db-schema-design.md)
-- [skills/05-code/debugging.md](skills/05-code/debugging.md)
-- [skills/05-code/dependency-auditor.md](skills/05-code/dependency-auditor.md)
-- [skills/05-code/dependency-management.md](skills/05-code/dependency-management.md)
-- [skills/05-code/dockerfile-generation.md](skills/05-code/dockerfile-generation.md)
-- [skills/05-code/documentation-generation.md](skills/05-code/documentation-generation.md)
-- [skills/05-code/git-operations.md](skills/05-code/git-operations.md)
-- [skills/05-code/github-api.md](skills/05-code/github-api.md)
-- [skills/05-code/integration-test-writing.md](skills/05-code/integration-test-writing.md)
-- [skills/05-code/linting-formatting.md](skills/05-code/linting-formatting.md)
-- [skills/05-code/performance-profiling.md](skills/05-code/performance-profiling.md)
-- [skills/05-code/refactoring.md](skills/05-code/refactoring.md)
-- [skills/05-code/regex-generation.md](skills/05-code/regex-generation.md)
-- [skills/05-code/repl-interaction.md](skills/05-code/repl-interaction.md)
-- [skills/05-code/sql-query-generation.md](skills/05-code/sql-query-generation.md)
-- [skills/05-code/unit-test-generation.md](skills/05-code/unit-test-generation.md)
 - [skills/07-tool-use/a2a-tool.md](skills/07-tool-use/a2a-tool.md)
 - [skills/07-tool-use/browser-tool.md](skills/07-tool-use/browser-tool.md)
 - [skills/07-tool-use/calculator.md](skills/07-tool-use/calculator.md)
@@ -212,7 +192,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2362)
+## P2 - Dependency evidence required (2382)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -900,11 +880,15 @@ _None._
 - [skills/05-code/cloud-session-code-handoff.md](skills/05-code/cloud-session-code-handoff.md) - badge color lightgrey (unscanned)
 - [skills/05-code/code-churn-analysis.md](skills/05-code/code-churn-analysis.md) - badge color lightgrey (unscanned)
 - [skills/05-code/code-copyright-provenance-analysis.md](skills/05-code/code-copyright-provenance-analysis.md) - badge color lightgrey (unscanned)
+- [skills/05-code/code-execution-sandbox.md](skills/05-code/code-execution-sandbox.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/05-code/code-explanation.md](skills/05-code/code-explanation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/code-freeze-management.md](skills/05-code/code-freeze-management.md) - badge color lightgrey (unscanned)
 - [skills/05-code/code-fuzzing.md](skills/05-code/code-fuzzing.md) - badge color lightgrey (unscanned)
 - [skills/05-code/code-generation.md](skills/05-code/code-generation.md) - badge color 22c55e (✔ verified)
 - [skills/05-code/code-interpreter-agent.md](skills/05-code/code-interpreter-agent.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/05-code/code-review.md](skills/05-code/code-review.md) - badge color 22c55e (✔ verified)
+- [skills/05-code/code-search.md](skills/05-code/code-search.md) - badge color lightgrey (unscanned)
+- [skills/05-code/code-translation.md](skills/05-code/code-translation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/codebase-onboarding.md](skills/05-code/codebase-onboarding.md) - badge color lightgrey (unscanned)
 - [skills/05-code/codex-cloud-review-automation.md](skills/05-code/codex-cloud-review-automation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/codex-multi-agent-task-delegation-development.md](skills/05-code/codex-multi-agent-task-delegation-development.md) - badge color lightgrey (unscanned)
@@ -918,12 +902,18 @@ _None._
 - [skills/05-code/cross-cli-agent-skill-portability-testing.md](skills/05-code/cross-cli-agent-skill-portability-testing.md) - badge color lightgrey (unscanned)
 - [skills/05-code/cursor-rules-authoring.md](skills/05-code/cursor-rules-authoring.md) - badge color lightgrey (unscanned)
 - [skills/05-code/database-migration-writing.md](skills/05-code/database-migration-writing.md) - badge color lightgrey (unscanned)
+- [skills/05-code/db-schema-design.md](skills/05-code/db-schema-design.md) - badge color lightgrey (unscanned)
 - [skills/05-code/dead-code-elimination-verification.md](skills/05-code/dead-code-elimination-verification.md) - badge color lightgrey (unscanned)
+- [skills/05-code/debugging.md](skills/05-code/debugging.md) - badge color lightgrey (unscanned)
 - [skills/05-code/declarative-agent-configuration.md](skills/05-code/declarative-agent-configuration.md) - badge color lightgrey (unscanned)
+- [skills/05-code/dependency-auditor.md](skills/05-code/dependency-auditor.md) - badge color 22c55e (✔ verified)
 - [skills/05-code/dependency-diff-impact-review.md](skills/05-code/dependency-diff-impact-review.md) - badge color lightgrey (unscanned)
+- [skills/05-code/dependency-management.md](skills/05-code/dependency-management.md) - badge color lightgrey (unscanned)
 - [skills/05-code/dependency-update-automation.md](skills/05-code/dependency-update-automation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/differential-testing-llm-patches.md](skills/05-code/differential-testing-llm-patches.md) - badge color lightgrey (unscanned)
+- [skills/05-code/dockerfile-generation.md](skills/05-code/dockerfile-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/documentation-example-testing.md](skills/05-code/documentation-example-testing.md) - badge color lightgrey (unscanned)
+- [skills/05-code/documentation-generation.md](skills/05-code/documentation-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/egress-allowlist-policy-implementation.md](skills/05-code/egress-allowlist-policy-implementation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/embedded-prompt-extraction.md](skills/05-code/embedded-prompt-extraction.md) - badge color lightgrey (unscanned)
 - [skills/05-code/error-handling-design.md](skills/05-code/error-handling-design.md) - badge color lightgrey (unscanned)
@@ -935,17 +925,21 @@ _None._
 - [skills/05-code/framework-minor-upgrade-planning.md](skills/05-code/framework-minor-upgrade-planning.md) - badge color lightgrey (unscanned)
 - [skills/05-code/functional-workflow-step-authoring.md](skills/05-code/functional-workflow-step-authoring.md) - badge color lightgrey (unscanned)
 - [skills/05-code/git-hook-coding-agent-attack-detection.md](skills/05-code/git-hook-coding-agent-attack-detection.md) - badge color lightgrey (unscanned)
+- [skills/05-code/git-operations.md](skills/05-code/git-operations.md) - badge color lightgrey (unscanned)
+- [skills/05-code/github-api.md](skills/05-code/github-api.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/05-code/harness-adapter-frozen-agent-evaluation.md](skills/05-code/harness-adapter-frozen-agent-evaluation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/harness-plugin-portability-testing.md](skills/05-code/harness-plugin-portability-testing.md) - badge color lightgrey (unscanned)
 - [skills/05-code/harness-remote-engine-deployment.md](skills/05-code/harness-remote-engine-deployment.md) - badge color lightgrey (unscanned)
 - [skills/05-code/ide-integration.md](skills/05-code/ide-integration.md) - badge color lightgrey (unscanned)
 - [skills/05-code/inference-efficiency-claim-verification.md](skills/05-code/inference-efficiency-claim-verification.md) - badge color lightgrey (unscanned)
 - [skills/05-code/inference-framework-patch-cadence-implementation.md](skills/05-code/inference-framework-patch-cadence-implementation.md) - badge color lightgrey (unscanned)
+- [skills/05-code/integration-test-writing.md](skills/05-code/integration-test-writing.md) - badge color yellow (machine-inferred · 2 pkgs)
 - [skills/05-code/kernel-privilege-escalation-patch-generation.md](skills/05-code/kernel-privilege-escalation-patch-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/langgraph-v1-migration.md](skills/05-code/langgraph-v1-migration.md) - badge color lightgrey (unscanned)
 - [skills/05-code/lean-formal-proof-agent-workflow.md](skills/05-code/lean-formal-proof-agent-workflow.md) - badge color lightgrey (unscanned)
 - [skills/05-code/lean-formalized-mathematics-navigation.md](skills/05-code/lean-formalized-mathematics-navigation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/license-compatibility-checking.md](skills/05-code/license-compatibility-checking.md) - badge color lightgrey (unscanned)
+- [skills/05-code/linting-formatting.md](skills/05-code/linting-formatting.md) - badge color lightgrey (unscanned)
 - [skills/05-code/llm-eval-harness-ci-integration.md](skills/05-code/llm-eval-harness-ci-integration.md) - badge color lightgrey (unscanned)
 - [skills/05-code/llm-generated-tool-description-review-automation.md](skills/05-code/llm-generated-tool-description-review-automation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/maf-go-preview-interop-testing.md](skills/05-code/maf-go-preview-interop-testing.md) - badge color lightgrey (unscanned)
@@ -965,14 +959,18 @@ _None._
 - [skills/05-code/n-plus-one-query-detection.md](skills/05-code/n-plus-one-query-detection.md) - badge color lightgrey (unscanned)
 - [skills/05-code/observability-instrumentation.md](skills/05-code/observability-instrumentation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/opensandbox-code-execution-adoption.md](skills/05-code/opensandbox-code-execution-adoption.md) - badge color lightgrey (unscanned)
+- [skills/05-code/performance-profiling.md](skills/05-code/performance-profiling.md) - badge color lightgrey (unscanned)
 - [skills/05-code/polyglot-type-binding-generation.md](skills/05-code/polyglot-type-binding-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/property-based-testing.md](skills/05-code/property-based-testing.md) - badge color lightgrey (unscanned)
 - [skills/05-code/protocol-schema-codegen.md](skills/05-code/protocol-schema-codegen.md) - badge color lightgrey (unscanned)
 - [skills/05-code/provider-auth-guided-setup.md](skills/05-code/provider-auth-guided-setup.md) - badge color lightgrey (unscanned)
 - [skills/05-code/pydantic-ai-evals-integration.md](skills/05-code/pydantic-ai-evals-integration.md) - badge color lightgrey (unscanned)
 - [skills/05-code/pydantic-ai-typed-tool-authoring.md](skills/05-code/pydantic-ai-typed-tool-authoring.md) - badge color lightgrey (unscanned)
+- [skills/05-code/refactoring.md](skills/05-code/refactoring.md) - badge color lightgrey (unscanned)
+- [skills/05-code/regex-generation.md](skills/05-code/regex-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/regression-window-bisection-automation.md](skills/05-code/regression-window-bisection-automation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/release-cancellation-dependency-impact-analysis.md](skills/05-code/release-cancellation-dependency-impact-analysis.md) - badge color unreadable (badge file unreadable)
+- [skills/05-code/repl-interaction.md](skills/05-code/repl-interaction.md) - badge color lightgrey (unscanned)
 - [skills/05-code/requirement-tracing.md](skills/05-code/requirement-tracing.md) - badge color lightgrey (unscanned)
 - [skills/05-code/review-comment-resolution-planning.md](skills/05-code/review-comment-resolution-planning.md) - badge color lightgrey (unscanned)
 - [skills/05-code/rust-no-std-ml-engine-implementation.md](skills/05-code/rust-no-std-ml-engine-implementation.md) - badge color lightgrey (unscanned)
@@ -982,6 +980,7 @@ _None._
 - [skills/05-code/semantic-version-management.md](skills/05-code/semantic-version-management.md) - badge color lightgrey (unscanned)
 - [skills/05-code/spec-driven-implementation-planning.md](skills/05-code/spec-driven-implementation-planning.md) - badge color lightgrey (unscanned)
 - [skills/05-code/speculative-tool-call-execution-implementation.md](skills/05-code/speculative-tool-call-execution-implementation.md) - badge color lightgrey (unscanned)
+- [skills/05-code/sql-query-generation.md](skills/05-code/sql-query-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/stack-trace-analysis.md](skills/05-code/stack-trace-analysis.md) - badge color lightgrey (unscanned)
 - [skills/05-code/stageshow-product-demo-building.md](skills/05-code/stageshow-product-demo-building.md) - badge color lightgrey (unscanned)
 - [skills/05-code/static-analysis-suppression-auditing.md](skills/05-code/static-analysis-suppression-auditing.md) - badge color lightgrey (unscanned)
@@ -998,6 +997,7 @@ _None._
 - [skills/05-code/trace-driven-test-generation.md](skills/05-code/trace-driven-test-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/type-annotation-generation.md](skills/05-code/type-annotation-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/type-error-triage.md](skills/05-code/type-error-triage.md) - badge color lightgrey (unscanned)
+- [skills/05-code/unit-test-generation.md](skills/05-code/unit-test-generation.md) - badge color lightgrey (unscanned)
 - [skills/05-code/zero-day-patch-clock-compression-planning.md](skills/05-code/zero-day-patch-clock-compression-planning.md) - badge color lightgrey (unscanned)
 - [skills/06-communication/a2a-compliance-claim-communication.md](skills/06-communication/a2a-compliance-claim-communication.md) - badge color lightgrey (unscanned)
 - [skills/06-communication/accessibility-statement-writing.md](skills/06-communication/accessibility-statement-writing.md) - badge color lightgrey (unscanned)

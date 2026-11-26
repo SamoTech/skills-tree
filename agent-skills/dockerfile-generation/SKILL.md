@@ -4,41 +4,68 @@ description: Generate maintainable Dockerfiles from application runtime requirem
 metadata:
   source: skills/05-code/dockerfile-generation.md
   category: 05-code
+  version: "v2"
 ---
 
-## Description
-Generate maintainable Dockerfiles from verified application runtime requirements, build inputs, security constraints, and deployment targets. Inspect the repository before making assumptions and verify the resulting image behavior.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-05-code-dockerfile-generation.json)
 
-## When to Use
-Use when container packaging or a Dockerfile change is explicitly required.
+# Dockerfile Generation
 
-## Inputs / outputs / failure modes
+**Category:** `code`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Runtime, build system, dependencies, configuration, and deployment constraints. |
-| Outputs | A reproducible container build definition with verification evidence. |
-| Failure modes | Missing runtime assets, incorrect startup behavior, non-reproducible builds, or incomplete verification. |
+### Description
 
-## Runnable Example
+Generate maintainable Dockerfiles from application runtime requirements, build inputs, security constraints, and deployment targets. The skill is evidence-first: inspect actual state before acting, preserve existing contracts, and verify the result before reporting completion.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | runtime | object | Language, version, build system, and entrypoint verified from the repository |
+| Input | constraints | object | Base-image policy, image size, user privilege, and pinning requirements |
+| Output | dockerfile | string | Layer-ordered, pinned, non-root container build definition |
+| Output | verification | object | Build and container run evidence confirming startup behavior |
+
+### Procedure
+1. Verify the runtime version and dependency manifests from the repository, not from memory.
+2. Pin the base image by exact version or digest; prefer minimal official images.
+3. Order layers from least to most volatile so dependency layers cache.
+4. Run as a non-root user; copy only required artifacts; declare ports and health semantics explicitly.
+5. Build the image and run the container; verify the entrypoint behaves as documented.
+6. Record the build command and verification output as evidence.
+
+### Example
 
 ```python
-from pathlib import Path
-files = [p.name for p in Path('.').iterdir() if p.is_file()]
-print('files:', files[:10])
-print('inspect runtime metadata before generating a Dockerfile')
+plan = {'base': 'python:3.12-slim', 'layers': ['deps', 'source', 'config'], 'user': 'appuser'}
+assert plan['base'].endswith('slim')
+assert plan['user'] != 'root'
+assert plan['layers'].index('deps') < plan['layers'].index('source')
+print('dockerfile plan ordered for cache and least privilege')
 ```
 
-## Failure modes
-- Guessing runtime dependencies.
-- Omitting required build artifacts.
-- Skipping an image build or startup check.
-- Changing unrelated deployment behavior.
+### Related Skills
 
-## Related
-- 05-code
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+- [Dependency Management](dependency-management.md) - pin the dependencies the image installs
+- [Code Execution Sandbox](code-execution-sandbox.md) - verify image behavior in isolation
+- [Documentation Generation](documentation-generation.md) - document build and run commands
+
+## Failure Modes
+
+- Guessing runtime dependencies instead of reading the manifests.
+- Using unpinned or unverified base images.
+- Skipping the image build and container startup check.
+- Baking secrets into layers.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic plan example, an execution procedure, and corpus-verified related links.
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

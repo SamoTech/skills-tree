@@ -52,19 +52,15 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-09-30T14:20:29Z",
+  "dateModified": "2026-11-26T17:55:40Z",
   "skillId": "code-explanation",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "basic",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
-    "Failure modes",
-    "Related",
+    "Failure Modes",
+    "Changelog",
     "Evidence"
   ],
   "relatedSkills": [],

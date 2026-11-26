@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-auditor.md",
-  "name": "dependency-auditor",
-  "headline": "dependency-auditor",
+  "name": "Dependency Auditor (Project Manifests)",
+  "headline": "Dependency Auditor (Project Manifests)",
   "description": "Audit project dependencies for declared usage, version constraints, known risk signals, and unnecessary or inconsistent packages.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/05-code/dependency-auditor.md",
   "isPartOf": {
@@ -52,21 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-11-26T16:40:38Z",
+  "dateModified": "2026-11-26T17:55:40Z",
   "skillId": "dependency-auditor",
-  "skillVersion": "v1",
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "05-code",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / outputs / failure modes",
-    "Runnable Example",
     "Failure Modes",
-    "Related",
-    "Evidence",
-    "Changelog"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -78,7 +73,7 @@
   "keywords": "AI agent, LLM skill, auditor, code, dependency, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "dependency-auditor",
-    "description": "An AI agent skill for dependency-auditor."
+    "name": "Dependency Auditor (Project Manifests)",
+    "description": "An AI agent skill for dependency auditor (project manifests)."
   }
 }
