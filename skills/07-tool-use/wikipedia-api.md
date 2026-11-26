@@ -3,57 +3,71 @@ title: "Wikipedia API"
 category: 07-tool-use
 level: intermediate
 stability: stable
+version: v2
 description: "Retrieve encyclopedia content through the MediaWiki API with bounded queries, page identifiers, continuation handling, and source attribution."
 added: "2026-09"
-related: [07-tool-use, 14-security]
+related: [tool-guardrails, function-calling, tool-output-validation]
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-wikipedia-api.json)
 
 # Wikipedia API
 
-## Description
-Retrieve encyclopedia content through the MediaWiki API with bounded queries, page identifiers, continuation handling, and source attribution.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires wikipedia api, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Retrieve encyclopedia content through the MediaWiki API with bounded queries, page identifiers, continuation handling, and source attribution. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | query | object | Page titles or search terms with the target language wiki |
+| Input | limits | object | Result bounds and continuation budget |
+| Output | pages | list | Page content with ids, revision ids, and canonical URLs |
+| Output | attribution | object | Source attribution and license information preserved |
+
+### Procedure
+1. Resolve page titles to pageids through a verified lookup; names are ambiguous across languages.
+2. Query the documented MediaWiki endpoints with explicit language and revision parameters.
+3. Handle continuation tokens; never present a partial continuation as the full result.
+4. Record pageid, revid, and the canonical URL for every retrieved page.
+5. Preserve attribution and license information with any redistributed content.
+6. Cache raw responses and respect the API etiquette (user agent, rate limits).
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "wikipedia-api",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+page = {'title': 'Knowledge graph', 'pageid': 0, 'lang': 'en', 'revid': 0}
+assert page['lang'] == 'en'
+assert page['title'] != ''
+print('titles resolved to pageids before content retrieval')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [API Pagination](api-pagination.md) - continuation completeness
+
+## Failure Modes
+
+- Assuming a title maps to the intended page or language.
+- Ignoring continuation and truncating silently.
+- Redistributing content without attribution and license data.
+- Missing revision ids, making citations unverifiable.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://www.mediawiki.org/wiki/API:Main_page
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://www.mediawiki.org/wiki/API:Main_page
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.
