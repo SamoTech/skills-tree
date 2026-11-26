@@ -1,8 +1,9 @@
 ---
-title: "Hypothesis Generation"
+title: "Hypothesis Generation (Domain Research)"
 category: 16-domain-specific
 level: advanced
 stability: stable
+version: v1
 description: "Generate testable hypotheses from observations, data, or documented literature gaps, with explicit falsifiability criteria and expected outcomes."
 added: "2025-03"
 related: ["16-domain-specific", "input-guardrails", "output-guardrails"]
@@ -57,3 +58,9 @@ The canonical skill file is the authoritative repository implementation. Reposit
 - 16-domain-specific
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

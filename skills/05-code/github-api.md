@@ -1,8 +1,9 @@
 ---
-title: Github Api
+title: "GitHub API (Code Integration)"
 category: 05-code
 level: advanced
 stability: stable
+version: v1
 description: Work with GitHub APIs using documented endpoints, authentication boundaries, pagination, error handling, and least-privilege access.
 added: "2026-09"
 related: [05-code]
@@ -33,7 +34,7 @@ print(parts.netloc)
 print(parts.path)
 ```
 
-## Failure modes
+## Failure Modes
 - Using undocumented endpoint behavior.
 - Exposing credentials in source or logs.
 - Ignoring pagination or rate limits.
@@ -46,3 +47,9 @@ print(parts.path)
 
 ## Evidence
 Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

@@ -1,8 +1,9 @@
 ---
-title: "Procedural Memory"
+title: "Procedural Memory (Procedure Catalog)"
 category: 03-memory
 level: intermediate
 stability: stable
+version: v1
 description: "Store and retrieve reusable step-by-step procedures with versioning, applicability checks, and verification before execution."
 added: "2025-03"
 related: ["03-memory", "input-guardrails", "output-guardrails"]
@@ -63,3 +64,9 @@ Canonical repository skill: this file. Structural conformance is governed by the
 - 03-memory
 - input-guardrails
 - output-guardrails
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

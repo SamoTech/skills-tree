@@ -1,14 +1,15 @@
 ---
-title: "Screenshot Capture"
+title: "Screenshot Capture (App Region)"
 category: 04-action-execution
 level: basic
 stability: stable
+version: v1
 description: "Capture a verified application or screen region while minimizing sensitive content exposure."
 added: "2026-09"
 related: [screen-reading, mouse-input, clipboard-ops]
 ---
 
-# Screenshot Capture
+# Screenshot Capture (App Region)
 
 ## Description
 
@@ -39,7 +40,7 @@ def capture(page, path):
     return path
 ```
 
-## Failure modes
+## Failure Modes
 
 Capturing private data; uncontrolled storage; unverified artifact; excessive capture scope.
 
@@ -54,3 +55,9 @@ Capturing private data; uncontrolled storage; unverified artifact; excessive cap
 - AI_CONSTITUTION.md
 - AGENTS.md
 - Repository security and validation workflows
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |

@@ -1,8 +1,9 @@
 ---
-title: Dependency Auditor
+title: "Dependency Auditor (Project Manifests)"
 category: 05-code
 level: advanced
 stability: stable
+version: v1
 description: Audit project dependencies for declared usage, version constraints, known risk signals, and unnecessary or inconsistent packages.
 added: "2026-09"
 related: [05-code]
@@ -32,7 +33,7 @@ print('top-level files:', len(names))
 print('inspect manifests and lockfiles explicitly')
 ```
 
-## Failure modes
+## Failure Modes
 - Treating a package name as proof of runtime usage.
 - Ignoring lockfiles or platform constraints.
 - Making version changes without compatibility checks.
@@ -45,3 +46,9 @@ print('inspect manifests and lockfiles explicitly')
 
 ## Evidence
 Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+## Changelog
+
+| Version | Date | Change |
+|---|---|---|
+| `v1` | `2026-11` | Title disambiguated per DECISION-2026-11-26-TITLE-UNIQUENESS; capability contract unchanged. |
