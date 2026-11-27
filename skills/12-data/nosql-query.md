@@ -3,57 +3,72 @@ title: "Nosql Query"
 category: 12-data
 level: advanced
 stability: stable
-description: "Construct and validate NoSQL queries against an explicit document or key-value schema and query contract."
+version: v2
+description: "Construct and validate document-store queries with indexed filters, explicit projections, and consistency-aware reads."
 added: "2025-03"
-related: ["12-data", "input-guardrails", "output-guardrails"]
+related: [sql-execution, query-optimization, schema-inference]
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-nosql-query.json)
+
+# Nosql Query
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Construct and validate NoSQL queries against an explicit document or key-value schema and query contract.
+### Description
 
-## When to Use
-Use when collection structure, query semantics, and expected result shape are known.
+Construct and validate document-store queries with indexed filters, explicit projections, and consistency-aware reads. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Validated data, schema/context, method parameters, and required output contract. |
-| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the source schema, analytical or query objective, and output contract.
-2. Validate types, ranges, temporal or database context, and relevant assumptions.
-3. Apply only the declared operation within bounded scope.
-4. Validate outputs, counts, assumptions, and reproducibility.
-5. Preserve source data and record material uncertainty or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | query_spec | object | The requested data with filters, projection, and limits |
+| Input | store_profile | object | The store's indexing and consistency model |
+| Output | results | list of object | Retrieved documents matching the declared filters |
+| Output | query_report | object | Examined vs returned counts and index usage |
 
-## Runnable Example
+### Procedure
+1. Translate the request into filters the store can serve with its indexes.
+2. Declare projection and limit up front; never fetch whole collections.
+3. Prefer indexed field filters over client-side post-filtering.
+4. Check the consistency model: a stale read may answer an old question.
+5. Report examined vs returned counts to detect unindexed scans.
+
+### Example
+
 ```python
-task = {"capability": "nosql-query", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+docs = [{'id': 1, 'status': 'open', 'prio': 2}, {'id': 2, 'status': 'done', 'prio': 1}, {'id': 3, 'status': 'open', 'prio': 5}]
+indexed = {'status'}
+filt = {'status': 'open'}
+assert all(k in indexed for k in filt), 'unindexed filter'
+results = [d for d in docs if all(d.get(k) == v for k, v in filt.items())]
+assert len(results) == 2 and all(d['status'] == 'open' for d in results)
+print({'matched': len(results), 'examined': len(docs), 'indexed': True})
 ```
 
-## Failure Modes
-- Missing or ambiguous schema/context.
-- Unsupported assumptions or invalid method selection.
-- Silent data loss, leakage, or coercion.
-- Unbounded or unauthorized execution.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Query semantics vary by database; validate against the target engine and avoid unbounded scans.
+- [Sql Execution](sql-execution.md) - relational counterpart with the same discipline
+- [Query Optimization](query-optimization.md) - reduce scan cost
+- [Schema Inference](schema-inference.md) - confirm document field shapes
+
+## Failure Modes
+
+- Unindexed filter fields forcing full collection scans.
+- Missing limits or projections pulling entire collections into memory.
+- Eventual-consistency reads presented as current state.
+- Client-side post-filtering mistaken for server-side query results.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.
