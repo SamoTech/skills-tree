@@ -1,52 +1,73 @@
 ---
-title: Custom Api Wrapper
+title: "Custom Api Wrapper"
 category: 07-tool-use
 level: advanced
 stability: stable
-description: Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries.
+version: v2
+description: "Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries."
 added: "2026-09"
-related: [07-tool-use]
+related: [tool-schema-design, tool-output-validation, api-pagination]
 ---
 
-## Description
-Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries. Inspect the repository contract and target interface before invocation, validate inputs, and independently verify important outcomes.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-custom-api-wrapper.json)
 
-## When to Use
-Use when the repository task explicitly requires this tool capability.
+# Custom Api Wrapper
 
-## Inputs / outputs / failure modes
+**Category:** `tool-use`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2026-09
 
-| Area | Guidance |
-|---|---|
-| Inputs | Documented interface, validated inputs, authorization context, and expected result. |
-| Outputs | Verified result with concise evidence. |
-| Failure modes | Invalid inputs, unsupported assumptions, excessive permissions, side effects, or unverified outcomes. |
+### Description
 
-## Runnable Example
+Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries. The invocation is contract-first: validate the tool interface and inputs before calling, and verify the observable outcome afterwards rather than trusting acknowledgements.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | api_contract | object | Endpoint, method, auth scheme, request/response schema, and error model |
+| Input | request | object | Payload validated against the wrapper schema |
+| Output | response | object | Parsed, schema-validated response or classified error |
+| Output | verification | object | Independent confirmation of important outcomes |
+
+### Procedure
+1. Document the API contract (endpoints, auth, schemas, errors) before writing the wrapper.
+2. Validate requests against the schema; fail fast on contract violations.
+3. Keep credentials in the authorized channel only; never in code, logs, or URLs.
+4. Handle the documented error model explicitly: timeouts, rate limits, partial results.
+5. Paginate and bound result sets; never assume a single response is complete.
+6. Verify important outcomes by re-reading state; record evidence.
+
+### Example
 
 ```python
-from dataclasses import dataclass
-
-@dataclass
-class Request:
-    action: str
-
-request = Request(action="inspect")
-assert request.action
-print("validate the tool contract before invocation")
+contract = {'method': 'POST', 'path': '/v1/items', 'auth': 'bearer', 'max_page': 100}
+request = {'method': 'POST', 'path': '/v1/items'}
+assert request['method'] == contract['method']
+assert request['path'] == contract['path']
+print('request matches the documented wrapper contract')
 ```
 
-## Failure modes
-- Calling an undocumented interface.
-- Sending invalid or excessive data.
-- Exposing credentials or secrets.
-- Treating an acknowledgement as proof of completion.
-- Skipping repository validation.
+### Related Skills
 
-## Related
-- 07-tool-use
-- AI_CONSTITUTION.md
-- meta/AGENT_OPERATING_MODEL.md
+- [Tool Schema Design](tool-schema-design.md) - define the wrapper contract
+- [Tool Output Validation](tool-output-validation.md) - validate responses
+- [API Pagination](api-pagination.md) - bound and complete result sets
+
+## Failure Modes
+
+- Calling undocumented endpoints or assuming response shapes.
+- Hard-coding credentials or leaking them in logs.
+- Unbounded pagination or retries.
+- Treating a 2xx response as proof of the business outcome.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/AI_CONSTITUTION.md pointers where present).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Repository-backed implementation guidance grounded in repository governance and validation workflows; no external benchmark claim is made.
+
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

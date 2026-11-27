@@ -3,51 +3,70 @@ title: "Notion API"
 category: 07-tool-use
 level: intermediate
 stability: stable
+version: v2
 description: "Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification."
 added: "2026-09"
-related: [07-tool-use, 04-action-execution]
+related: [tool-guardrails, function-calling, tool-output-validation]
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-notion-api.json)
 
 # Notion API
 
-## Description
-Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill when the workflow explicitly requires notion api and the target account, document, channel, or provider is authorized.
+### Description
 
-## Inputs / outputs / failure modes
+Read and mutate authorized Notion pages, databases, and blocks with schema validation, least-privilege access, and post-write verification. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Use least-privilege credentials managed outside source code. |
-| Scope | Bound the operation to the intended resource and task. |
-| Inputs | Validate identifiers, content, filters, and required fields. |
-| Outputs | Preserve structured provider results needed by downstream steps. |
-| Verification | Re-check important reads or mutations when correctness matters. |
-| Privacy | Minimize exposure and retention of sensitive content. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | resource | object | Explicit page/database/block IDs from a verified lookup, never guessed |
+| Input | operation | enum | Query, read, append, or update, bounded to the integration scope |
+| Output | response | object | Parsed results or block objects with provider identifiers preserved |
+| Output | verification | object | Re-read confirming the write landed as intended |
+
+### Procedure
+1. Confirm the operation and required capabilities against current Notion API documentation.
+2. Use an integration token scoped to the minimum databases and pages the task needs.
+3. Resolve resource IDs through a verified lookup; never guess page or database IDs.
+4. Query with explicit filters and paginate with start_cursor until has_more is false.
+5. Preserve provider identifiers and structured properties for downstream steps.
+6. Verify writes by re-reading the affected page or block; record evidence.
+
+### Example
 
 ```python
-import os
-request = {"tool": "notion-api", "authorized": bool(os.getenv("TOOL_AUTH"))}
-assert request["authorized"]
-print("validated tool invocation")
+resource = {'database_id': 'a1b2c3d4e5f6', 'filter': 'status=active'}
+assert len(resource['database_id']) >= 8
+assert '=' in resource['filter']
+print('notion query bounded with explicit database id and filter')
 ```
 
-## Failure modes
-- Hard-coding credentials or exposing them in logs.
-- Assuming provider fields or identifiers are portable across accounts.
-- Performing side effects without validating authorization and current state.
-- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
-- Using unbounded pagination or retries.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate mutating or external-effect operations
+
+## Failure Modes
+
+- Hard-coding the integration token or exposing it in logs.
+- Guessing page or database IDs instead of looking them up.
+- Treating a 200 response as proof the content changed as intended.
+- Truncating paginated database queries silently.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

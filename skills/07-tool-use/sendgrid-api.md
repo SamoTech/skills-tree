@@ -3,51 +3,70 @@ title: "SendGrid API"
 category: 07-tool-use
 level: intermediate
 stability: stable
+version: v2
 description: "Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification."
 added: "2026-09"
-related: [07-tool-use, 04-action-execution]
+related: [tool-guardrails, function-calling, tool-output-validation]
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-sendgrid-api.json)
 
 # SendGrid API
 
-## Description
-Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill when the workflow explicitly requires sendgrid api and the target account, document, channel, or provider is authorized.
+### Description
 
-## Inputs / outputs / failure modes
+Send authorized transactional email with validated recipients, secret-safe authentication, and delivery-state verification. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Use least-privilege credentials managed outside source code. |
-| Scope | Bound the operation to the intended resource and task. |
-| Inputs | Validate identifiers, content, filters, and required fields. |
-| Outputs | Preserve structured provider results needed by downstream steps. |
-| Verification | Re-check important reads or mutations when correctness matters. |
-| Privacy | Minimize exposure and retention of sensitive content. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | message | object | Validated sender, recipients, subject, and template/content payload |
+| Input | authorization | reference | Least-privilege API key reference; never an inline secret |
+| Output | response | object | Provider message id and accepted status |
+| Output | delivery | object | Delivery-state follow-up evidence for important sends |
+
+### Procedure
+1. Validate recipients and sender domain before composing the send.
+2. Authenticate with a scoped API key from the authorized channel; never log it.
+3. Use templates or structured content with validated personalization fields.
+4. Send with an idempotency discipline so retries cannot duplicate messages.
+5. Check the delivery state for important sends instead of trusting the accepted status.
+6. Keep recipient data out of logs; minimize retention.
+
+### Example
 
 ```python
-import os
-request = {"tool": "sendgrid-api", "authorized": bool(os.getenv("TOOL_AUTH"))}
-assert request["authorized"]
-print("validated tool invocation")
+msg = {'to': ['user@example.com'], 'subject': 'Receipt', 'template_id': 'd-123', 'idempotency_key': 'ord-9'}
+assert all('@' in r for r in msg['to'])
+assert msg['idempotency_key'] != ''
+print('recipients validated; retry-safe idempotency key present')
 ```
 
-## Failure modes
-- Hard-coding credentials or exposing them in logs.
-- Assuming provider fields or identifiers are portable across accounts.
-- Performing side effects without validating authorization and current state.
-- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
-- Using unbounded pagination or retries.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate mutating or external-effect operations
+
+## Failure Modes
+
+- Hard-coding the API key or exposing it in logs.
+- Retries without idempotency duplicating messages.
+- Sending to unvalidated recipient lists.
+- Treating an accepted status as delivered.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

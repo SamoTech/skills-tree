@@ -4,54 +4,68 @@ description: Retrieve weather observations or forecasts through a documented API
 metadata:
   source: skills/07-tool-use/weather-api.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-weather-api.json)
 
 # Weather API
 
-## Description
-Retrieve weather observations or forecasts through a documented API with explicit location, time window, units, freshness, and provider-status handling.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires weather api, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Retrieve weather observations or forecasts through a documented API with explicit location, time window, units, freshness, and provider-status handling. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | location | object | Explicit coordinates or verified place id, never a guessed name |
+| Input | window | object | Time range, units (metric/imperial), and acceptable data age |
+| Output | weather | object | Observations or forecast with units, timestamps, and provider metadata |
+| Output | freshness | object | Data age disclosed; stale data labeled rather than passed as current |
+
+### Procedure
+1. Resolve the location explicitly (coordinates or verified place id) before querying.
+2. State the time window and units in the request; never convert by assumption.
+3. Authenticate with a least-privilege key from the authorized channel.
+4. Validate the response schema and check the observation timestamp against the freshness bound.
+5. Disclose data age and provider status; label stale or degraded results.
+6. Cache raw responses with their fetch time for reproducibility.
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "weather-api",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+req = {'lat': 30.0444, 'lon': 31.2357, 'units': 'metric', 'window_h': 24, 'max_age_min': 60}
+assert -90 <= req['lat'] <= 90 and -180 <= req['lon'] <= 180
+assert req['units'] == 'metric'
+print('explicit location, units, and freshness bound')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Tool Result Caching](tool-result-caching.md) - time-stamped response reuse
+
+## Failure Modes
+
+- Guessing locations from ambiguous names.
+- Mixing unit systems or omitting them from results.
+- Passing stale observations as current.
+- Exposing the API key in code or logs.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://openweathermap.org/api
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://openweathermap.org/api
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

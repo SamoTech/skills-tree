@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2382
-- 🟡 **Enriched** (real description + runnable code): 106
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2402
+- 🟡 **Enriched** (real description + runnable code): 86
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -22,7 +22,7 @@
 | `04-action-execution` | 157 | 157 | 0 | 0 | 0 | 0 |
 | `05-code` | 160 | 160 | 0 | 0 | 0 | 0 |
 | `06-communication` | 141 | 141 | 0 | 0 | 0 | 0 |
-| `07-tool-use` | 165 | 145 | 20 | 0 | 0 | 0 |
+| `07-tool-use` | 165 | 165 | 0 | 0 | 0 | 0 |
 | `08-multimodal` | 135 | 135 | 0 | 0 | 0 | 0 |
 | `09-agentic-patterns` | 155 | 146 | 9 | 0 | 0 | 0 |
 | `10-computer-use` | 137 | 119 | 18 | 0 | 0 | 0 |
@@ -990,6 +990,7 @@
 - [`skills/07-tool-use/a2a-skill-declaration-mapping.md`](skills/07-tool-use/a2a-skill-declaration-mapping.md) — A2A Skill Declaration Mapping
 - [`skills/07-tool-use/a2a-task-lifecycle-management.md`](skills/07-tool-use/a2a-task-lifecycle-management.md) — A2a Task Lifecycle Management
 - [`skills/07-tool-use/a2a-tenant-scoped-communication-usage.md`](skills/07-tool-use/a2a-tenant-scoped-communication-usage.md) — A2A Tenant Scoped Communication Usage
+- [`skills/07-tool-use/a2a-tool.md`](skills/07-tool-use/a2a-tool.md) — A2a Tool
 - [`skills/07-tool-use/ag-ui-event-emission-usage.md`](skills/07-tool-use/ag-ui-event-emission-usage.md) — AG-UI Event Emission Usage
 - [`skills/07-tool-use/agent-client-protocol-usage.md`](skills/07-tool-use/agent-client-protocol-usage.md) — Agent Client Protocol Usage
 - [`skills/07-tool-use/agent-launch-tracker-monitoring-tooling.md`](skills/07-tool-use/agent-launch-tracker-monitoring-tooling.md) — Agent Launch Tracker Monitoring Tooling
@@ -1008,17 +1009,22 @@
 - [`skills/07-tool-use/api-pagination.md`](skills/07-tool-use/api-pagination.md) — API Pagination
 - [`skills/07-tool-use/api-version-pinning.md`](skills/07-tool-use/api-version-pinning.md) — API Version Pinning
 - [`skills/07-tool-use/azure-mcp-server-3-tool-integration.md`](skills/07-tool-use/azure-mcp-server-3-tool-integration.md) — Azure MCP Server 3.0 Tool Integration
+- [`skills/07-tool-use/browser-tool.md`](skills/07-tool-use/browser-tool.md) — Browser Tool
 - [`skills/07-tool-use/byok-provider-key-configuration.md`](skills/07-tool-use/byok-provider-key-configuration.md) — BYOK Provider Key Configuration
+- [`skills/07-tool-use/calculator.md`](skills/07-tool-use/calculator.md) — Calculator
 - [`skills/07-tool-use/cdp-session-log-export-usage.md`](skills/07-tool-use/cdp-session-log-export-usage.md) — CDP Session Log Export Usage
+- [`skills/07-tool-use/code-exec-tool.md`](skills/07-tool-use/code-exec-tool.md) — Code Exec Tool
 - [`skills/07-tool-use/codex-cli-config-authoring.md`](skills/07-tool-use/codex-cli-config-authoring.md) — Codex CLI Config Authoring
 - [`skills/07-tool-use/composite-tool-composition.md`](skills/07-tool-use/composite-tool-composition.md) — Composite Tool Composition
 - [`skills/07-tool-use/connect-once-connector-governance.md`](skills/07-tool-use/connect-once-connector-governance.md) — Connect Once Connector Governance
 - [`skills/07-tool-use/connector-connect-once-authorization.md`](skills/07-tool-use/connector-connect-once-authorization.md) — Connector Connect Once Authorization
 - [`skills/07-tool-use/cron-expression-authoring.md`](skills/07-tool-use/cron-expression-authoring.md) — Cron Expression Authoring
+- [`skills/07-tool-use/custom-api-wrapper.md`](skills/07-tool-use/custom-api-wrapper.md) — Custom Api Wrapper
 - [`skills/07-tool-use/decisions-api-finite-choice-tool-usage.md`](skills/07-tool-use/decisions-api-finite-choice-tool-usage.md) — Decisions API Finite Choice Tool Usage
 - [`skills/07-tool-use/edge-small-model-deployment-tool-usage.md`](skills/07-tool-use/edge-small-model-deployment-tool-usage.md) — Edge Small Model Deployment Tool Usage
 - [`skills/07-tool-use/emulator-free-ui-inspection-tool-usage.md`](skills/07-tool-use/emulator-free-ui-inspection-tool-usage.md) — Emulator Free Ui Inspection Tool Usage
 - [`skills/07-tool-use/enterprise-suite-embedded-agent-tool-usage.md`](skills/07-tool-use/enterprise-suite-embedded-agent-tool-usage.md) — Enterprise Suite Embedded Agent Tool Usage
+- [`skills/07-tool-use/file-system-tool.md`](skills/07-tool-use/file-system-tool.md) — File System Tool
 - [`skills/07-tool-use/free-busy-availability-querying.md`](skills/07-tool-use/free-busy-availability-querying.md) — Free Busy Availability Querying
 - [`skills/07-tool-use/function-calling.md`](skills/07-tool-use/function-calling.md) — Function / Tool Calling
 - [`skills/07-tool-use/gateway-cli-selective-tool-result-inspection-usage.md`](skills/07-tool-use/gateway-cli-selective-tool-result-inspection-usage.md) — Gateway CLI Selective Tool Result Inspection Usage
@@ -1027,8 +1033,11 @@
 - [`skills/07-tool-use/gemini-cli-custom-command-authoring.md`](skills/07-tool-use/gemini-cli-custom-command-authoring.md) — Gemini CLI Custom Command Authoring
 - [`skills/07-tool-use/gemini-universal-agent-tool-integration.md`](skills/07-tool-use/gemini-universal-agent-tool-integration.md) — Gemini Universal Agent Tool Integration
 - [`skills/07-tool-use/genie-4-world-model-api-usage.md`](skills/07-tool-use/genie-4-world-model-api-usage.md) — Genie 4 World Model Api Usage
+- [`skills/07-tool-use/github-api.md`](skills/07-tool-use/github-api.md) — GitHub API
 - [`skills/07-tool-use/google-cloud-developer-plugin-usage.md`](skills/07-tool-use/google-cloud-developer-plugin-usage.md) — Google Cloud Developer Plugin Usage
+- [`skills/07-tool-use/google-workspace-api.md`](skills/07-tool-use/google-workspace-api.md) — Google Workspace API
 - [`skills/07-tool-use/harness-plugin-tool-usage.md`](skills/07-tool-use/harness-plugin-tool-usage.md) — Harness Plugin Tool Usage
+- [`skills/07-tool-use/huggingface-api.md`](skills/07-tool-use/huggingface-api.md) — Hugging Face API
 - [`skills/07-tool-use/image-gen-tool.md`](skills/07-tool-use/image-gen-tool.md) — Image Generation Tool
 - [`skills/07-tool-use/jira-api.md`](skills/07-tool-use/jira-api.md) — Jira API
 - [`skills/07-tool-use/kubernetes-api-interaction.md`](skills/07-tool-use/kubernetes-api-interaction.md) — Kubernetes API Interaction
@@ -1073,7 +1082,9 @@
 - [`skills/07-tool-use/mcp-well-known-capability-discovery.md`](skills/07-tool-use/mcp-well-known-capability-discovery.md) — Mcp Well Known Capability Discovery
 - [`skills/07-tool-use/mobile-proxy-sms-spend-control.md`](skills/07-tool-use/mobile-proxy-sms-spend-control.md) — Mobile Proxy Sms Spend Control
 - [`skills/07-tool-use/multi-provider-redundancy.md`](skills/07-tool-use/multi-provider-redundancy.md) — Multi-Provider Redundancy
+- [`skills/07-tool-use/news-api.md`](skills/07-tool-use/news-api.md) — News API
 - [`skills/07-tool-use/notification-access-tool-scoping.md`](skills/07-tool-use/notification-access-tool-scoping.md) — Notification Access Tool Scoping
+- [`skills/07-tool-use/notion-api.md`](skills/07-tool-use/notion-api.md) — Notion API
 - [`skills/07-tool-use/nova-multimodal-embedding-usage.md`](skills/07-tool-use/nova-multimodal-embedding-usage.md) — Nova Multimodal Embedding Usage
 - [`skills/07-tool-use/offline-tool-fallback.md`](skills/07-tool-use/offline-tool-fallback.md) — Offline Tool Fallback
 - [`skills/07-tool-use/omni-mcp-incremental-tool-discovery-usage.md`](skills/07-tool-use/omni-mcp-incremental-tool-discovery-usage.md) — Omni MCP Incremental Tool Discovery Usage
@@ -1084,20 +1095,25 @@
 - [`skills/07-tool-use/openrouter-api-usage.md`](skills/07-tool-use/openrouter-api-usage.md) — OpenRouter API Usage
 - [`skills/07-tool-use/orchestration-platform-comparison-tooling.md`](skills/07-tool-use/orchestration-platform-comparison-tooling.md) — Orchestration Platform Comparison Tooling
 - [`skills/07-tool-use/pap-personal-agent-protocol-usage.md`](skills/07-tool-use/pap-personal-agent-protocol-usage.md) — PAP Personal Agent Protocol Usage
+- [`skills/07-tool-use/pdf-tool.md`](skills/07-tool-use/pdf-tool.md) — PDF Tool
 - [`skills/07-tool-use/persistent-workplace-agent-usage.md`](skills/07-tool-use/persistent-workplace-agent-usage.md) — Persistent Workplace Agent Usage
 - [`skills/07-tool-use/protocol-native-agent-gateway-usage.md`](skills/07-tool-use/protocol-native-agent-gateway-usage.md) — Protocol Native Agent Gateway Usage
 - [`skills/07-tool-use/real-time-token-usage-instrumentation.md`](skills/07-tool-use/real-time-token-usage-instrumentation.md) — Real Time Token Usage Instrumentation
 - [`skills/07-tool-use/remote-mcp-oauth-configuration.md`](skills/07-tool-use/remote-mcp-oauth-configuration.md) — Remote Mcp Oauth Configuration
 - [`skills/07-tool-use/scheduled-trigger-authoring.md`](skills/07-tool-use/scheduled-trigger-authoring.md) — Scheduled Trigger Authoring
 - [`skills/07-tool-use/search-federation-tooling.md`](skills/07-tool-use/search-federation-tooling.md) — Search Federation Tooling
+- [`skills/07-tool-use/sendgrid-api.md`](skills/07-tool-use/sendgrid-api.md) — SendGrid API
 - [`skills/07-tool-use/shell-command-dry-run-analysis.md`](skills/07-tool-use/shell-command-dry-run-analysis.md) — Shell Command Dry Run Analysis
 - [`skills/07-tool-use/shopify-api.md`](skills/07-tool-use/shopify-api.md) — Shopify API
+- [`skills/07-tool-use/slack-api.md`](skills/07-tool-use/slack-api.md) — Slack API
 - [`skills/07-tool-use/small-model-tool-routing.md`](skills/07-tool-use/small-model-tool-routing.md) — Small Model Tool Routing
 - [`skills/07-tool-use/sparse-activation-model-tool-usage.md`](skills/07-tool-use/sparse-activation-model-tool-usage.md) — Sparse Activation Model Tool Usage
 - [`skills/07-tool-use/speech-model-fine-tuning-tool-usage.md`](skills/07-tool-use/speech-model-fine-tuning-tool-usage.md) — Speech Model Fine Tuning Tool Usage
+- [`skills/07-tool-use/sql-tool.md`](skills/07-tool-use/sql-tool.md) — SQL Tool
 - [`skills/07-tool-use/stateless-session-tool-routing.md`](skills/07-tool-use/stateless-session-tool-routing.md) — Stateless Session Tool Routing
 - [`skills/07-tool-use/stateless-tool-request-idempotency.md`](skills/07-tool-use/stateless-tool-request-idempotency.md) — Stateless Tool Request Idempotency
 - [`skills/07-tool-use/streaming-tool-output.md`](skills/07-tool-use/streaming-tool-output.md) — Streaming Tool Output
+- [`skills/07-tool-use/stripe-api.md`](skills/07-tool-use/stripe-api.md) — Stripe API
 - [`skills/07-tool-use/teammate-role-tool-grant-scoping.md`](skills/07-tool-use/teammate-role-tool-grant-scoping.md) — Teammate Role Tool Grant Scoping
 - [`skills/07-tool-use/tool-approval-allowlist-policy-testing.md`](skills/07-tool-use/tool-approval-allowlist-policy-testing.md) — Tool Approval Allowlist Policy Testing
 - [`skills/07-tool-use/tool-argument-construction.md`](skills/07-tool-use/tool-argument-construction.md) — Tool Argument Construction
@@ -1116,13 +1132,17 @@
 - [`skills/07-tool-use/tool-schema-design.md`](skills/07-tool-use/tool-schema-design.md) — Tool Schema Design
 - [`skills/07-tool-use/tool-source-vetting.md`](skills/07-tool-use/tool-source-vetting.md) — Tool Source Vetting
 - [`skills/07-tool-use/tool-token-budget-management.md`](skills/07-tool-use/tool-token-budget-management.md) — Tool Token Budget Management
+- [`skills/07-tool-use/twilio-api.md`](skills/07-tool-use/twilio-api.md) — Twilio API
 - [`skills/07-tool-use/ucp-universal-capability-protocol-usage.md`](skills/07-tool-use/ucp-universal-capability-protocol-usage.md) — UCP Universal Capability Protocol Usage
+- [`skills/07-tool-use/vector-db-tool.md`](skills/07-tool-use/vector-db-tool.md) — Vector DB Tool
 - [`skills/07-tool-use/verified-plugin-tier-catalog-curation.md`](skills/07-tool-use/verified-plugin-tier-catalog-curation.md) — Verified Plugin Tier Catalog Curation
 - [`skills/07-tool-use/virtual-breakpoint-read-only-debugging.md`](skills/07-tool-use/virtual-breakpoint-read-only-debugging.md) — Virtual Breakpoint Read-Only Debugging
 - [`skills/07-tool-use/visa-tap-protocol-usage.md`](skills/07-tool-use/visa-tap-protocol-usage.md) — Visa Tap Protocol Usage
+- [`skills/07-tool-use/weather-api.md`](skills/07-tool-use/weather-api.md) — Weather API
 - [`skills/07-tool-use/web-search.md`](skills/07-tool-use/web-search.md) — Web Search (Tool Contract)
 - [`skills/07-tool-use/webmcp-page-tool-exposure.md`](skills/07-tool-use/webmcp-page-tool-exposure.md) — WebMCP Page Tool Exposure
 - [`skills/07-tool-use/websocket-communication.md`](skills/07-tool-use/websocket-communication.md) — WebSocket Communication
+- [`skills/07-tool-use/wikipedia-api.md`](skills/07-tool-use/wikipedia-api.md) — Wikipedia API
 - [`skills/07-tool-use/wolfram-api.md`](skills/07-tool-use/wolfram-api.md) — Wolfram Alpha API
 - [`skills/07-tool-use/x402-crypto-payment-tool-usage.md`](skills/07-tool-use/x402-crypto-payment-tool-usage.md) — X402 Crypto Payment Tool Usage
 - [`skills/07-tool-use/x402-multi-scheme-acceptance-tooling.md`](skills/07-tool-use/x402-multi-scheme-acceptance-tooling.md) — X402 Multi Scheme Acceptance Tooling
@@ -2423,26 +2443,6 @@
 
 - [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
-- [`skills/07-tool-use/a2a-tool.md`](skills/07-tool-use/a2a-tool.md) — missing table or <60 lines
-- [`skills/07-tool-use/browser-tool.md`](skills/07-tool-use/browser-tool.md) — missing table or <60 lines
-- [`skills/07-tool-use/calculator.md`](skills/07-tool-use/calculator.md) — missing table or <60 lines
-- [`skills/07-tool-use/code-exec-tool.md`](skills/07-tool-use/code-exec-tool.md) — missing table or <60 lines
-- [`skills/07-tool-use/custom-api-wrapper.md`](skills/07-tool-use/custom-api-wrapper.md) — missing table or <60 lines
-- [`skills/07-tool-use/file-system-tool.md`](skills/07-tool-use/file-system-tool.md) — missing table or <60 lines
-- [`skills/07-tool-use/github-api.md`](skills/07-tool-use/github-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/google-workspace-api.md`](skills/07-tool-use/google-workspace-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/huggingface-api.md`](skills/07-tool-use/huggingface-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/news-api.md`](skills/07-tool-use/news-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/notion-api.md`](skills/07-tool-use/notion-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/pdf-tool.md`](skills/07-tool-use/pdf-tool.md) — missing table or <60 lines
-- [`skills/07-tool-use/sendgrid-api.md`](skills/07-tool-use/sendgrid-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/slack-api.md`](skills/07-tool-use/slack-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/sql-tool.md`](skills/07-tool-use/sql-tool.md) — missing table or <60 lines
-- [`skills/07-tool-use/stripe-api.md`](skills/07-tool-use/stripe-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/twilio-api.md`](skills/07-tool-use/twilio-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/vector-db-tool.md`](skills/07-tool-use/vector-db-tool.md) — missing table or <60 lines
-- [`skills/07-tool-use/weather-api.md`](skills/07-tool-use/weather-api.md) — missing table or <60 lines
-- [`skills/07-tool-use/wikipedia-api.md`](skills/07-tool-use/wikipedia-api.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — missing table or <60 lines
 - [`skills/09-agentic-patterns/debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — missing table or <60 lines

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T17:56:15Z",
+  "generated": "2026-11-26T18:20:40Z",
   "count": 2488,
   "skills": [
     {
@@ -26280,21 +26280,17 @@
     {
       "id": "a2a-tool",
       "path": "skills/07-tool-use/a2a-tool.md",
-      "name": "a2a-tool",
+      "name": "A2a Tool",
       "description": "Use agent-to-agent tool interfaces with explicit contracts, authorization boundaries, message validation, and observable outcomes.",
       "category": "tool-use",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
         "Failure Modes",
-        "Related",
+        "Changelog",
         "Evidence"
       ],
       "related": [],
@@ -26822,21 +26818,17 @@
     {
       "id": "browser-tool",
       "path": "skills/07-tool-use/browser-tool.md",
-      "name": "browser-tool",
+      "name": "Browser Tool",
       "description": "Use browser automation through explicit navigation, interaction, extraction, and verification steps.",
       "category": "tool-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Related",
+        "Failure Modes",
+        "Changelog",
         "Evidence"
       ],
       "related": [],
@@ -26875,21 +26867,17 @@
     {
       "id": "calculator",
       "path": "skills/07-tool-use/calculator.md",
-      "name": "calculator",
+      "name": "Calculator",
       "description": "Perform deterministic calculations with explicit inputs, units, assumptions, and verifiable outputs.",
       "category": "tool-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Related",
+        "Failure Modes",
+        "Changelog",
         "Evidence"
       ],
       "related": [],
@@ -26928,24 +26916,22 @@
     {
       "id": "code-exec-tool",
       "path": "skills/07-tool-use/code-exec-tool.md",
-      "name": "code-exec-tool",
+      "name": "Code Exec Tool",
       "description": "Execute code in an explicitly scoped runtime while validating inputs, outputs, resource limits, and side effects.",
       "category": "tool-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Related",
+        "Failure Modes",
+        "Changelog",
         "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../05-code/code-execution-sandbox.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -27085,21 +27071,17 @@
     {
       "id": "custom-api-wrapper",
       "path": "skills/07-tool-use/custom-api-wrapper.md",
-      "name": "custom-api-wrapper",
+      "name": "Custom Api Wrapper",
       "description": "Integrate a custom API through a documented wrapper with validated requests, responses, errors, and authentication boundaries.",
       "category": "tool-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Related",
+        "Failure Modes",
+        "Changelog",
         "Evidence"
       ],
       "related": [],
@@ -27224,24 +27206,22 @@
     {
       "id": "file-system-tool",
       "path": "skills/07-tool-use/file-system-tool.md",
-      "name": "file-system-tool",
+      "name": "File System Tool",
       "description": "Operate on files through explicit paths, scope checks, content validation, and reversible changes.",
       "category": "tool-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Related",
+        "Failure Modes",
+        "Changelog",
         "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-sanitization.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -27479,19 +27459,17 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -27529,17 +27507,13 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -27582,17 +27556,13 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -28812,17 +28782,13 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -28865,19 +28831,17 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -29175,17 +29139,13 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -29365,19 +29325,17 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -29448,19 +29406,17 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -29554,19 +29510,17 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-sanitization.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -29658,19 +29612,17 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -30162,19 +30114,17 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "07-tool-use"
     },
     {
@@ -30215,17 +30165,13 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -30322,17 +30268,13 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "07-tool-use"
@@ -30421,17 +30363,13 @@
       "category": "tool-use",
       "level": "intermediate",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2026-09",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / outputs / failure modes",
-        "Runnable Example",
-        "Failure modes",
-        "Evidence",
-        "Related"
+        "Failure Modes",
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "07-tool-use"

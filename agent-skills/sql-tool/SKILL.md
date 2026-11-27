@@ -4,54 +4,69 @@ description: Execute bounded SQL through an authorized database tool using param
 metadata:
   source: skills/07-tool-use/sql-tool.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-sql-tool.json)
 
 # SQL Tool
 
-## Description
-Execute bounded SQL through an authorized database tool using parameterized queries, least privilege, transaction boundaries, and result validation.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires sql tool, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Execute bounded SQL through an authorized database tool using parameterized queries, least privilege, transaction boundaries, and result validation. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | query | object | Parameterized SQL with explicit parameters; no string interpolation |
+| Input | scope | object | Target database, transaction boundary, and row/time limits |
+| Output | result | object | Validated rows or mutation counts with the transaction outcome |
+| Output | verification | object | Re-read or constraint check confirming the intended effect |
+
+### Procedure
+1. Use a role with the minimum privileges the operation needs; never write as an admin.
+2. Parameterize every external value; reject any query that interpolates input into SQL text.
+3. Bound the operation: LIMIT on reads, explicit transaction on multi-statement writes.
+4. Validate result shape and edge cases (empty sets, nulls, duplicates) before use.
+5. Verify mutations with a re-read inside the same transaction boundary where possible.
+6. Record the executed statement, parameters, and affected-row counts as evidence.
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "sql-tool",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+query = 'SELECT id, name FROM users WHERE status = ? LIMIT 100'
+params = ['active']
+assert '?' in query and 'LIMIT' in query
+assert all(isinstance(p, str) for p in params)
+print('parameterized, bounded query ready for execution')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Input Sanitization](../14-security/input-sanitization.md) - reject interpolation of untrusted values
+
+## Failure Modes
+
+- Interpolating untrusted values into SQL text.
+- Running with more privileges than the task needs.
+- Unbounded reads or non-transactional multi-statement writes.
+- Treating affected-rows counts as proof of business correctness.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://www.postgresql.org/docs/current/sql.html
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://www.postgresql.org/docs/current/sql.html
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

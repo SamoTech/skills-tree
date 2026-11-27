@@ -3,57 +3,72 @@ title: "Hugging Face API"
 category: 07-tool-use
 level: intermediate
 stability: stable
+version: v2
 description: "Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation."
 added: "2026-09"
-related: [07-tool-use, 14-security]
+related: [tool-guardrails, tool-output-validation, api-version-pinning]
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-huggingface-api.json)
 
 # Hugging Face API
 
-## Description
-Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires hugging face api, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Call Hugging Face inference services from agents with explicit model selection, bounded inputs, authentication, and response validation. The invocation is contract-first: validate the tool interface and inputs before calling, and verify the observable outcome afterwards rather than trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | model | string | An explicit model id (and revision where reproducibility matters) |
+| Input | inputs | object | Bounded, schema-validated inference inputs |
+| Output | response | object | Validated inference output with model and revision recorded |
+| Output | usage | object | Tokens, latency, and errors for budget and retry decisions |
+
+### Procedure
+1. Select the model explicitly; pin the revision when results must be reproducible.
+2. Authenticate with a least-privilege token from the authorized channel only.
+3. Bound input size and rate; respect provider quotas and timeouts.
+4. Validate the response schema and content before using it downstream.
+5. Record usage (tokens, latency, model revision) with the result.
+6. Classify and retry only transient failures; never mask repeated provider errors.
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "huggingface-api",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+call = {'model': 'org/model', 'revision': 'main', 'max_input_chars': 2000}
+assert call['model'].count('/') == 1
+assert len(call['revision']) > 0
+assert call['max_input_chars'] > 0
+print('inference call bounded and model pinned')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries
+- [Tool Output Validation](tool-output-validation.md) - validate inference output
+- [API Version Pinning](api-version-pinning.md) - pin models and revisions
+
+## Failure Modes
+
+- Calling unpinned models and getting irreproducible outputs.
+- Exceeding input or quota bounds.
+- Trusting malformed or empty inference responses.
+- Exposing tokens in code or logs.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/AI_CONSTITUTION.md pointers where present).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://huggingface.co/docs/api-inference
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://huggingface.co/docs/api-inference
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

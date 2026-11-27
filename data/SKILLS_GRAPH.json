@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-11-26T17:58:10.073092+00:00",
+    "generated_at": "2026-11-26T18:21:31.762307+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
-    "edge_count": 3748,
+    "edge_count": 3808,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -14359,7 +14359,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -14644,7 +14644,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -14674,7 +14674,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -14704,7 +14704,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -14794,7 +14794,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -14869,7 +14869,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -15004,7 +15004,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -15034,7 +15034,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -15064,7 +15064,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -15739,7 +15739,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -15769,7 +15769,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -15934,7 +15934,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16039,7 +16039,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16084,7 +16084,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16144,7 +16144,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16204,7 +16204,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16489,7 +16489,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16519,7 +16519,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16579,7 +16579,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -16639,7 +16639,7 @@
       "layer": "execution",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2026-09",
       "tags": [],
       "prerequisites": [],
@@ -49377,6 +49377,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/a2a-tool",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/a2a-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/a2a-tool",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/a2a-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/a2a-tool",
+      "target": "07-tool-use/tool-call-trace-capture",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Call Trace Capture](tool-call-trace-capture.md)",
+      "source_file": "skills/07-tool-use/a2a-tool.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/ag-ui-event-emission-usage",
       "target": "01-perception/ag-ui-event-stream-parsing",
       "type": "RELATED_TO",
@@ -49665,6 +49689,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/browser-tool",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/browser-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/browser-tool",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/browser-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/browser-tool",
+      "target": "07-tool-use/streaming-tool-output",
+      "type": "RELATED_TO",
+      "evidence": "[Streaming Tool Output](streaming-tool-output.md)",
+      "source_file": "skills/07-tool-use/browser-tool.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/byok-provider-key-configuration",
       "target": "17-infrastructure/secrets-management",
       "type": "RELATED_TO",
@@ -49681,6 +49729,22 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/calculator",
+      "target": "07-tool-use/tool-argument-construction",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Argument Construction](tool-argument-construction.md)",
+      "source_file": "skills/07-tool-use/calculator.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/calculator",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/calculator.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/cdp-session-log-export-usage",
       "target": "07-tool-use/streaming-tool-output",
       "type": "RELATED_TO",
@@ -49694,6 +49758,30 @@
       "type": "RELATED_TO",
       "evidence": "[Tool Behavior Contract Testing](../07-tool-use/tool-behavior-contract-testing.md)",
       "source_file": "skills/07-tool-use/cdp-session-log-export-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/code-exec-tool",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/code-exec-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/code-exec-tool",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/code-exec-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/code-exec-tool",
+      "target": "05-code/code-execution-sandbox",
+      "type": "RELATED_TO",
+      "evidence": "[Code Execution Sandbox](../05-code/code-execution-sandbox.md)",
+      "source_file": "skills/07-tool-use/code-exec-tool.md",
       "confidence": "high"
     },
     {
@@ -49734,6 +49822,30 @@
       "type": "RELATED_TO",
       "evidence": "[Stateless Tool Request Idempotency](stateless-tool-request-idempotency.md)",
       "source_file": "skills/07-tool-use/connector-connect-once-authorization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/custom-api-wrapper",
+      "target": "07-tool-use/tool-schema-design",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Schema Design](tool-schema-design.md)",
+      "source_file": "skills/07-tool-use/custom-api-wrapper.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/custom-api-wrapper",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/custom-api-wrapper.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/custom-api-wrapper",
+      "target": "07-tool-use/api-pagination",
+      "type": "RELATED_TO",
+      "evidence": "[API Pagination](api-pagination.md)",
+      "source_file": "skills/07-tool-use/custom-api-wrapper.md",
       "confidence": "high"
     },
     {
@@ -49798,6 +49910,30 @@
       "type": "RELATED_TO",
       "evidence": "[Google Workspace Api](../07-tool-use/google-workspace-api.md)",
       "source_file": "skills/07-tool-use/enterprise-suite-embedded-agent-tool-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/file-system-tool",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/file-system-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/file-system-tool",
+      "target": "07-tool-use/tool-argument-construction",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Argument Construction](tool-argument-construction.md)",
+      "source_file": "skills/07-tool-use/file-system-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/file-system-tool",
+      "target": "14-security/input-sanitization",
+      "type": "RELATED_TO",
+      "evidence": "[Input Sanitization](../14-security/input-sanitization.md)",
+      "source_file": "skills/07-tool-use/file-system-tool.md",
       "confidence": "high"
     },
     {
@@ -49929,6 +50065,38 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/github-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/github-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/github-api",
+      "target": "07-tool-use/function-calling",
+      "type": "RELATED_TO",
+      "evidence": "[Function Calling](function-calling.md)",
+      "source_file": "skills/07-tool-use/github-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/github-api",
+      "target": "07-tool-use/api-pagination",
+      "type": "RELATED_TO",
+      "evidence": "[API Pagination](api-pagination.md)",
+      "source_file": "skills/07-tool-use/github-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/github-api",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/07-tool-use/github-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/google-cloud-developer-plugin-usage",
       "target": "07-tool-use/mcp-tool",
       "type": "RELATED_TO",
@@ -49945,6 +50113,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/google-workspace-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/google-workspace-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/google-workspace-api",
+      "target": "07-tool-use/api-pagination",
+      "type": "RELATED_TO",
+      "evidence": "[API Pagination](api-pagination.md)",
+      "source_file": "skills/07-tool-use/google-workspace-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/google-workspace-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/google-workspace-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/harness-plugin-tool-usage",
       "target": "07-tool-use/agent-skills-open-standard-package-usage",
       "type": "RELATED_TO",
@@ -49958,6 +50150,30 @@
       "type": "RELATED_TO",
       "evidence": "[Function Calling](../07-tool-use/function-calling.md)",
       "source_file": "skills/07-tool-use/harness-plugin-tool-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/huggingface-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/huggingface-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/huggingface-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/huggingface-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/huggingface-api",
+      "target": "07-tool-use/api-version-pinning",
+      "type": "RELATED_TO",
+      "evidence": "[API Version Pinning](api-version-pinning.md)",
+      "source_file": "skills/07-tool-use/huggingface-api.md",
       "confidence": "high"
     },
     {
@@ -50441,6 +50657,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/news-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/news-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/news-api",
+      "target": "07-tool-use/api-pagination",
+      "type": "RELATED_TO",
+      "evidence": "[API Pagination](api-pagination.md)",
+      "source_file": "skills/07-tool-use/news-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/news-api",
+      "target": "07-tool-use/tool-result-caching",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Result Caching](tool-result-caching.md)",
+      "source_file": "skills/07-tool-use/news-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/notification-access-tool-scoping",
       "target": "07-tool-use/tool-guardrails",
       "type": "RELATED_TO",
@@ -50454,6 +50694,30 @@
       "type": "RELATED_TO",
       "evidence": "[Tool Source Vetting](../07-tool-use/tool-source-vetting.md)",
       "source_file": "skills/07-tool-use/notification-access-tool-scoping.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/notion-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/notion-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/notion-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/notion-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/notion-api",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/07-tool-use/notion-api.md",
       "confidence": "high"
     },
     {
@@ -50609,6 +50873,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/pdf-tool",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/pdf-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/pdf-tool",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/pdf-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/pdf-tool",
+      "target": "07-tool-use/composite-tool-composition",
+      "type": "RELATED_TO",
+      "evidence": "[Composite Tool Composition](composite-tool-composition.md)",
+      "source_file": "skills/07-tool-use/pdf-tool.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/persistent-workplace-agent-usage",
       "target": "07-tool-use/multi-provider-redundancy",
       "type": "RELATED_TO",
@@ -50673,6 +50961,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/sendgrid-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/sendgrid-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/sendgrid-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/sendgrid-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/sendgrid-api",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/07-tool-use/sendgrid-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/shell-command-dry-run-analysis",
       "target": "07-tool-use/tool-capability-cataloging",
       "type": "RELATED_TO",
@@ -50705,6 +51017,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/slack-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/slack-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/slack-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/slack-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/slack-api",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/07-tool-use/slack-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/sparse-activation-model-tool-usage",
       "target": "07-tool-use/genie-4-world-model-api-usage",
       "type": "RELATED_TO",
@@ -50734,6 +51070,30 @@
       "type": "RELATED_TO",
       "evidence": "[Clinical Note Summarization](../16-domain-specific/clinical-note-summarization.md)",
       "source_file": "skills/07-tool-use/speech-model-fine-tuning-tool-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/sql-tool",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/sql-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/sql-tool",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/sql-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/sql-tool",
+      "target": "14-security/input-sanitization",
+      "type": "RELATED_TO",
+      "evidence": "[Input Sanitization](../14-security/input-sanitization.md)",
+      "source_file": "skills/07-tool-use/sql-tool.md",
       "confidence": "high"
     },
     {
@@ -50774,6 +51134,30 @@
       "type": "RELATED_TO",
       "evidence": "[MCP Tool](mcp-tool.md)",
       "source_file": "skills/07-tool-use/streaming-tool-output.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/stripe-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/stripe-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/stripe-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/stripe-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/stripe-api",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/07-tool-use/stripe-api.md",
       "confidence": "high"
     },
     {
@@ -50913,6 +51297,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/twilio-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/twilio-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/twilio-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/twilio-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/twilio-api",
+      "target": "14-security/approval-before-destructive-tools",
+      "type": "RELATED_TO",
+      "evidence": "[Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md)",
+      "source_file": "skills/07-tool-use/twilio-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/ucp-universal-capability-protocol-usage",
       "target": "07-tool-use/mcp-tool",
       "type": "RELATED_TO",
@@ -50926,6 +51334,30 @@
       "type": "RELATED_TO",
       "evidence": "[Anp Agent Network Protocol Usage](../07-tool-use/anp-agent-network-protocol-usage.md)",
       "source_file": "skills/07-tool-use/ucp-universal-capability-protocol-usage.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/vector-db-tool",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/vector-db-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/vector-db-tool",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/vector-db-tool.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/vector-db-tool",
+      "target": "07-tool-use/tool-result-caching",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Result Caching](tool-result-caching.md)",
+      "source_file": "skills/07-tool-use/vector-db-tool.md",
       "confidence": "high"
     },
     {
@@ -50977,6 +51409,30 @@
       "confidence": "high"
     },
     {
+      "source": "07-tool-use/weather-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/weather-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/weather-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/weather-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/weather-api",
+      "target": "07-tool-use/tool-result-caching",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Result Caching](tool-result-caching.md)",
+      "source_file": "skills/07-tool-use/weather-api.md",
+      "confidence": "high"
+    },
+    {
       "source": "07-tool-use/websocket-communication",
       "target": "07-tool-use/streaming-tool-output",
       "type": "RELATED_TO",
@@ -50990,6 +51446,30 @@
       "type": "RELATED_TO",
       "evidence": "[Function Calling](function-calling.md)",
       "source_file": "skills/07-tool-use/websocket-communication.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/wikipedia-api",
+      "target": "07-tool-use/tool-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Guardrails](tool-guardrails.md)",
+      "source_file": "skills/07-tool-use/wikipedia-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/wikipedia-api",
+      "target": "07-tool-use/tool-output-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Tool Output Validation](tool-output-validation.md)",
+      "source_file": "skills/07-tool-use/wikipedia-api.md",
+      "confidence": "high"
+    },
+    {
+      "source": "07-tool-use/wikipedia-api",
+      "target": "07-tool-use/api-pagination",
+      "type": "RELATED_TO",
+      "evidence": "[API Pagination](api-pagination.md)",
+      "source_file": "skills/07-tool-use/wikipedia-api.md",
       "confidence": "high"
     },
     {

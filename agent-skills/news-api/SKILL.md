@@ -4,48 +4,67 @@ description: Query documented news APIs with bounded searches, explicit freshnes
 metadata:
   source: skills/07-tool-use/news-api.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-news-api.json)
 
 # News API
 
-## Description
-Query documented news APIs with bounded searches, explicit freshness windows, source metadata, pagination limits, and verified responses.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill when the workflow explicitly requires news api and the target account, document, channel, or provider is authorized.
+### Description
 
-## Inputs / outputs / failure modes
+Query documented news APIs with bounded searches, explicit freshness windows, source metadata, pagination limits, and verified responses. The invocation is contract-first: validate the tool interface and inputs before calling, and verify the observable outcome afterwards rather than trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Use least-privilege credentials managed outside source code. |
-| Scope | Bound the operation to the intended resource and task. |
-| Inputs | Validate identifiers, content, filters, and required fields. |
-| Outputs | Preserve structured provider results needed by downstream steps. |
-| Verification | Re-check important reads or mutations when correctness matters. |
-| Privacy | Minimize exposure and retention of sensitive content. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, or stale state. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | query | object | Search terms with an explicit freshness window and language/region filters |
+| Input | limits | object | Page size, max pages, and rate-limit budget |
+| Output | articles | list | Deduplicated results with source, date, and URL metadata |
+| Output | coverage | object | Window, pages fetched, and any truncation disclosed |
+
+### Procedure
+1. Define the search terms, freshness window, and language/region filters before querying.
+2. Authenticate with least-privilege credentials managed outside source code.
+3. Bound the result set: page size, max pages, and rate-limit budget.
+4. Deduplicate by canonical URL and keep source and date metadata per item.
+5. Validate the response schema; disclose truncation instead of presenting partial results as complete.
+6. Cache raw responses for reproducibility within the freshness window.
+
+### Example
 
 ```python
-import os
-request = {"tool": "news-api", "authorized": bool(os.getenv("TOOL_AUTH"))}
-assert request["authorized"]
-print("validated tool invocation")
+q = {'terms': 'agent skills', 'window_days': 7, 'page_size': 50, 'max_pages': 2}
+assert q['window_days'] > 0 and q['max_pages'] > 0
+assert q['page_size'] <= 100
+print('bounded news query with explicit freshness window')
 ```
 
-## Failure modes
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries
+- [API Pagination](api-pagination.md) - bounded completeness
+- [Tool Result Caching](tool-result-caching.md) - reproducible raw responses
+
+## Failure Modes
+
 - Hard-coding credentials or exposing them in logs.
-- Assuming provider fields or identifiers are portable across accounts.
-- Performing side effects without validating authorization and current state.
-- Treating an HTTP/API acknowledgement as proof of the desired business outcome.
-- Using unbounded pagination or retries.
+- Unbounded pagination or retries.
+- Presenting a truncated result set as complete.
+- Dropping source and date metadata needed for verification.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/AI_CONSTITUTION.md pointers where present).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-Provider-specific behavior must be checked against the provider documentation linked below; repository schema and validation workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.

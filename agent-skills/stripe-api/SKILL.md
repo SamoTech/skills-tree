@@ -4,54 +4,68 @@ description: Use Stripe APIs for authorized payment and billing operations with 
 metadata:
   source: skills/07-tool-use/stripe-api.md
   category: 07-tool-use
+  version: "v2"
 ---
+
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-07-tool-use-stripe-api.json)
 
 # Stripe API
 
-## Description
-Use Stripe APIs for authorized payment and billing operations with idempotency, secret-safe authentication, explicit amounts, and post-action verification.
+**Category:** `tool-use`
+**Skill Level:** `intermediate`
+**Stability:** `stable`
+**Added:** 2026-09
 
-## When to Use
-Use this skill only when the workflow requires stripe api, the target account or resource is authorized, and the provider contract is documented.
+### Description
 
-## Inputs / outputs / failure modes
+Use Stripe APIs for authorized payment and billing operations with idempotency, secret-safe authentication, explicit amounts, and post-action verification. The invocation is contract-first: least-privilege credentials, bounded scope, validated inputs, and post-action verification instead of trusting acknowledgements.
 
-| Area | Guidance |
-|---|---|
-| Authentication | Keep credentials outside source code and prompts; use least privilege. |
-| Scope | Bound the target resource, operation, and result set. |
-| Inputs | Validate identifiers, filters, amounts, content, and provider-required fields. |
-| Outputs | Preserve structured results and provider identifiers needed downstream. |
-| Verification | Re-read or otherwise verify important outcomes and side effects. |
-| Safety | Apply authorization, rate limits, and sensitive-data controls. |
-| Failure modes | Invalid input, permission denial, rate limit, provider outage, stale state, or malformed response. |
+### Inputs / Outputs
 
-## Runnable Example
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | operation | enum | Payment, refund, or customer operation, explicitly authorized |
+| Input | amount | object | Exact integer amount in the smallest currency unit with the currency code |
+| Output | response | object | Provider object with its id and status preserved |
+| Output | verification | object | Retrieve or event check confirming the final state |
+
+### Procedure
+1. Confirm the operation and API version against current Stripe documentation.
+2. Authenticate with a restricted key scoped to the operation; never log secret keys.
+3. Express amounts as integers in the smallest currency unit with an explicit currency.
+4. Send an idempotency key on every write so retries cannot double-charge.
+5. Verify the final state by retrieving the object or consuming the webhook event, not by trusting the response status alone.
+6. Keep payment data out of logs; store only provider identifiers.
+
+### Example
 
 ```python
-import os
-
-request = {
-    "capability": "stripe-api",
-    "authorized": bool(os.getenv("TOOL_AUTH")),
-}
-assert request["authorized"]
-print("validated tool invocation")
+charge = {'amount': 4999, 'currency': 'usd', 'idempotency_key': 'order-42'}
+assert isinstance(charge['amount'], int) and charge['amount'] == 4999
+assert charge['currency'] == 'usd'
+print('amount in smallest currency unit; idempotent retry safe')
 ```
 
-## Failure modes
-- Hard-coding credentials or placing secrets in tool arguments.
-- Assuming provider identifiers or schemas are portable across accounts.
-- Performing mutations without authorization and current-state checks.
-- Treating a successful API response as proof of the desired business outcome.
-- Using unbounded retries, pagination, or result sets.
+### Related Skills
+
+- [Tool Guardrails](tool-guardrails.md) - invocation boundaries and least privilege
+- [Tool Output Validation](tool-output-validation.md) - validate provider responses before use
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate mutating or external-effect operations
+
+## Failure Modes
+
+- Floating-point amounts or missing currency codes.
+- Retries without idempotency keys double-charging.
+- Logging card data or secret keys.
+- Treating a succeeded response as final without the retrieval or event check.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails reference).
+- v1 (2026-09): Initial entry.
 
 ## Evidence
-- Provider documentation: https://docs.stripe.com/api
-- Repository schema, Agent Skills validation, security scanning, and quality workflows define local conformance.
 
-## Related
-- tool-guardrails
-- function-calling
-- approval-before-destructive-tools
-- input-guardrails
+- https://agentskills.io/specification
+- https://docs.stripe.com/api
+
+Evidence status: implementation guidance only; provider behavior must be checked against current provider documentation; no benchmark claim is made without reproducible evidence.
