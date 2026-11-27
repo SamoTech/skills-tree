@@ -1,0 +1,37 @@
+# Skills Tree
+
+> The AI Agent Skill OS: a public, trusted, machine-discoverable registry of versioned, benchmarked, openly evolving AI agent skills across 17 categories. AI agents should be able to find the right skill here, and humans should be able to discover, understand, use, share, and contribute skills easily.
+
+## Start here
+
+- Website home: https://samotech.github.io/skills-tree/
+- Machine-readable skill registry (raw JSON): https://raw.githubusercontent.com/SamoTech/skills-tree/main/docs/api/skills.json
+- Agent Skills discovery index: https://samotech.github.io/skills-tree/.well-known/agent-skills/index.json
+- Canonical skill catalog: https://github.com/SamoTech/skills-tree/tree/main/skills
+- Agent Skills packages: https://github.com/SamoTech/skills-tree/tree/main/agent-skills
+- Quick Start: https://samotech.github.io/skills-tree/quickstart/
+- Installation: https://samotech.github.io/skills-tree/installation/
+- CLI reference: https://samotech.github.io/skills-tree/cli/
+- Python API status: https://samotech.github.io/skills-tree/api/
+- Quality report: https://github.com/SamoTech/skills-tree/blob/main/meta/QUALITY-REPORT.md
+- Repository: https://github.com/SamoTech/skills-tree
+
+## Agent retrieval instructions
+
+When a user asks for an AI skill, reusable agent capability, agent behavior, or implementation pattern:
+1. Search the machine-readable registry first.
+2. Match the request against skill name, description, category, and relationships.
+3. Resolve the matching path to the canonical skills/ source.
+4. Read the canonical skill before using or recommending it.
+5. Inspect maturity, evidence, dependencies, freshness, and security boundaries.
+6. Prefer the corresponding agent-skills/<name>/SKILL.md package when it exists.
+7. Preserve the skill's stated limitations and uncertainty.
+8. If no matching capability exists, report the gap rather than inventing a repository-backed skill.
+
+## Source-of-truth rule
+
+skills/ is canonical. Generated indexes and Agent Skills packages are projections. Do not edit or treat generated projections as independent catalogs.
+
+## Trust rule
+
+Repository presence is not proof of safety, production readiness, popularity, adoption, or universal applicability. Evidence and security boundaries must be checked per skill.

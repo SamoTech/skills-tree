@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://samotech.github.io/skills-tree/sitemap.xml
