@@ -21,7 +21,7 @@ Without a shared vocabulary:
 |---|---|
 | **AI agent builders** | Canonical skill IDs, versioned implementations, and benchmarks to copy-paste |
 | **Orchestration engineers** | A taxonomy-driven routing layer — skills expose typed I/O, agents declare their skills |
-| **Developer educators** | A curriculum map: 515+ skills organized from foundational to expert, with progression paths |
+| **Developer educators** | A curriculum map: 2,488 public skills organized from foundational to expert, with progression paths |
 | **Researchers** | A structured dataset for agent capability studies and benchmark design |
 | **Enterprise architects** | A governance layer — standardize what “memory”, “reasoning”, and “planning” mean in your org |
 | **MCP server authors** | A registry of tools your server should expose, with schemas and examples |
@@ -32,17 +32,19 @@ Without a shared vocabulary:
 |---|---|---|---|---|
 | Skills taxonomy | ✅ Structured, versioned | ❌ Prompts only | ❌ Models only | ⚠️ Ad hoc |
 | Versioned quality tiers | ✅ v1/v2/v3 | ❌ | ❌ | ❌ |
-| CLI + Python API | ✅ | ⚠️ Limited | ⚠️ Limited | ❌ |
+| Ready-to-use CLI | ✅ | ⚠️ SDK-first | ⚠️ SDK-first | ❌ |
 | MCP server built-in | ✅ | ❌ | ❌ | ❌ |
 | Dependency graph | ✅ Prerequisite chains | ❌ | ❌ | ❌ |
 | Runnable code examples | ✅ | ⚠️ Prompts | ❌ | ⚠️ Varies |
 | Open source, self-hostable | ✅ MIT | ⚠️ Partial | ⚠️ Partial | ✅ |
 | Benchmark data | ✅ | ❌ | ⚠️ Model cards | ❌ |
 
+**Ecosystem note (2026-11-27):** Anthropic's official skills repository ([anthropics/skills](https://github.com/anthropics/skills)) and the [Agent Skills open standard](https://agentskills.io/specification) define the SKILL.md format that Claude Code and other agent tools consume. Skills Tree publishes packages in that same open format; the sources are complementary: first-party Claude skills for Claude-native workflows, Skills Tree for a broad, versioned, evidence-mapped cross-platform corpus. The Python API row has been corrected over time: the historical `skills_tree.SkillsTree` API is not implemented; the verified programmatic surface is the CLI ([docs/api.md](api.md)).
+
 ## Unique Advantages
 
-### 1. Versioned Quality Tiers
-Skills have three quality levels — v1 (stub), v2 (production-ready), v3 (battle-tested with benchmarks). You can filter by tier so you only use skills that meet your quality bar.
+### 1. Versioned Skills with Quality Classifications
+Skills carry explicit versions (v1, v2, ...) and a repository-assigned quality classification (battle-tested, enriched, stub) published in the auto-generated quality report. You can filter by tier so you only use skills that meet your quality bar.
 
 ### 2. Prerequisite Dependency Graph
 Every skill declares its prerequisites. Skills Tree builds a directed graph you can query: *“what do I need to master before I can implement skill X?”*
@@ -50,11 +52,11 @@ Every skill declares its prerequisites. Skills Tree builds a directed graph you 
 ### 3. MCP-Native
 Skills Tree ships a Model Context Protocol server. Any MCP-compatible host (Claude Desktop, Cursor, Cline, Continue) can query Skills Tree directly. Your IDE becomes a skill oracle.
 
-### 4. Typed I/O Contracts
-v2+ skills declare strongly typed inputs and outputs using Pydantic. This means skills can be composed into pipelines without manual schema negotiation.
+### 4. Typed I/O Contract Tables
+Skills document their inputs and outputs as structured contract tables, and the CI quality gate validates skill file structure. Documented contracts make it easier to compose skills into pipelines without manual schema negotiation.
 
 ### 5. Framework Portability
-Each skill includes implementation notes for LangChain, LangGraph, CrewAI, AutoGen, and plain Python. You’re never locked into one framework.
+Skills document runnable plain-Python examples that are independent of any single agent framework, so adopting a skill does not lock you into one framework.
 
 ## Network Effect
 
