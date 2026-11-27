@@ -1,7 +1,7 @@
 # GitHub Actions Workflow Inventory
 
 **Snapshot:** 2026-10-07  
-**Live workflow files:** 47
+**Live workflow files:** 46
 
 This is the Phase 0 workflow classification baseline. It classifies every workflow by operational role and records the remaining security/control-plane boundary. YAML does not prove GitHub repository settings such as branch protection, required checks, environment approvals, or Actions execution policies.
 
@@ -40,7 +40,6 @@ This is the Phase 0 workflow classification baseline. It classifies every workfl
 | `stale-skills.yml` | Supporting issue maintenance | Skill freshness issues |
 | `stale.yml` | Supporting issue maintenance | Generic stale issues/PRs |
 | `sync-badges.yml` | Generated-main writer | Badge reconciliation |
-| `temp-regen.yml` | Temporary branch-local steward | Batch-7 P1 structural upgrade regen steward (issue #699); branch-local only, deleted before merge |
 | `test.yml` | Authoritative test execution | Repository tests |
 | `update-skill-count.yml` | Generated-main writer | Skill-count projection through protected-main PR; README stat anchors (hero strip, comparison row, What's-Inside line, heading, category table) are patched loudly and fail on drift; the MkDocs landing page (docs/index.md) and mkdocs.yml site_description are patched from the same counts |
 | `uptime-monitor.yml` | Scheduled maintenance | Availability monitoring |
@@ -386,3 +385,7 @@ The temporary `temp-regen.yml` steward workflow completed the deterministic proj
 ## Reopen note — 2026-11-27 (P1 structural upgrade batch 7, issue #699)
 
 `temp-regen.yml` is temporary steward tooling on the `counsel/p1-structural-upgrade-b7-2026-11-27` branch only: it re-derives drifted agent-skills packages through the repository's own `project()`/`write_projection()` with the reconcile `desired_names` resolution, runs the repository's own generators (build_graph, build_search_index, export_skills, check_skill_quality, update_readme_counts, modernization_inventory) at the branch head, and aligns the two committed graph projections to one build. It publishes nothing to `main`, alters no existing workflow, and is deleted before merge so the live count returns to 46. No CI, quality, security, or governance gate is weakened; the normal PR checks continue to gate the PR independently.
+
+## Final closure note — 2026-11-27 (P1 structural upgrade batch 7, issue #699)
+
+The temporary `temp-regen.yml` steward workflow completed the deterministic projection regen at the batch-7 head (final bot commit `0c80f702`: graph 2488 nodes / 3992 edges / 8 REQUIRES / 0 warnings, search index 2488 docs, Skills API export 2,238,543 bytes + 2489 JSON-LD files, quality report battle-tested 2462 / enriched 26 / stub 0 / invalid 0, modernization inventory needs-structural-upgrade 46→26, and the twenty batch packages re-derived through the repository's own `project()`/`write_projection()` with the reconcile `desired_names` resolution; distribution audit green — reconcile zero drifted/stale/unexpected, validate 2499/2499 packages with 0 failures). The workflow and all temporary reports (`meta/REGEN-LOG.txt`, `meta/REGEN-AUDIT.txt`, `meta/REGEN-VALIDATE.txt`, `meta/REGEN-RECONCILE.txt`) are deleted before merge (net zero on `main`); the live workflow count returns to **Live workflow files:** 46 and the temporary table row is removed. No CI, quality, security, or governance gate is weakened.
