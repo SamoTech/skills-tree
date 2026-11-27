@@ -21,7 +21,7 @@ Benchmark pages describe methodology, datasets, and reproduction material where 
 
 | Benchmark | Dataset | Winner | Margin | Link |
 |---|---|---|---|---|
-| Function calling | 200 hand-crafted tasks (5 tool categories) | Claude Opus 4.5 | Top single-call score 95.0/100 | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/tool-use/function-calling-comparison.md) |
+| Function calling | 200 hand-crafted tasks (5 tool categories) | Claude Opus 4.5 | Top single-call score 95.0 | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/tool-use/function-calling-comparison.md) |
 
 ## Reproducing a Benchmark
 

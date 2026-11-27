@@ -348,7 +348,7 @@ Every battle-tested skill is CI-gated to include a real description, runnable Py
 | ReAct vs LATS (HotpotQA) | LATS | +8.3 points accuracy | [→](benchmarks/reasoning/react-vs-lats.md) |
 | RAG retrieval strategies | HyDE | +12.9 points recall | [→](benchmarks/memory/rag-retrieval-strategies.md) |
 | Memory injection methods | Top-K semantic | Best cost/quality | [→](benchmarks/memory/injection-strategies.md) |
-| Function calling comparison | Claude Opus 4.5 | Top single-call score 95.0/100 | [→](benchmarks/tool-use/function-calling-comparison.md) |
+| Function calling comparison | Claude Opus 4.5 | Top single-call score 95.0 | [→](benchmarks/tool-use/function-calling-comparison.md) |
 
 > Margins are **percentage-point differences** between the top two configurations (source: each linked document). The ReAct vs LATS run used **simulated** Wikipedia retrieval snippets — see the methodology section for scope limits. Historical scorecard runs have documented methodology but no committed runner artifacts; the CAP capability contracts carry committed, CI-executed runners.
 
