@@ -38,6 +38,21 @@ Improve the global discoverability, adoption, usability, credibility, and organi
 |---|---|---|---|---|---|---|---|
 | E1 | Completing community standards (CoC) + richer repo topics improves first-impression conversion and external contribution rate | All visitors | CoC added; topic set proposed to owner (B1) | 4 stars / 3 forks / 4 open issues | 30 days post-application | PENDING | Re-verified 2026-11-27: topics + website URL NOT yet applied by owner; window has not started; re-measure 30 days after application |
 
+## B5 — Pages technical SEO audit (2026-11-27)
+
+Audit of the live Pages site (samotech.github.io/skills-tree), findings with verification method and limits:
+
+| Item | Finding | Verification |
+|---|---|---|
+| robots.txt | Live: `User-agent: * / Allow: /` + sitemap reference | fetched from the live site |
+| sitemap.xml | Live and fresh (lastmod = deploy date), covers site pages | fetched from the live site |
+| Page titles | Subpages follow the clean "Page - Skills Tree" pattern (verified on quickstart, why, installation); homepage stays branded "Skills Tree" (a richer title would duplicate the site-name suffix) | fetched from the live site |
+| Meta description | Global site_description present on every page; page-specific descriptions added in the same PR for index / quickstart / why | live fetch + mkdocs.yml |
+| Canonical URLs | site_url configured in mkdocs.yml (theme emits canonical links from it); the raw <link> tag could NOT be independently verified: the available page-fetch tooling strips HTML | config-verified, not served-bytes-verified |
+| Open Graph / Twitter meta | Theme-generated expectation only; same raw-HTML tooling limit as canonical | tooling-limited, disclosed |
+| Structured data | Machine-readable registry surfaces live (skills.json, JSON-LD per skill, llms.txt, /.well-known/agent-skills/index.json); page-level schema.org JSON-LD not present (optional future work) | file/site audit |
+| Build reproducibility | mkdocs-material was UNPINNED in deploy-pages.yml; pinned to 9.8.2 (PyPI latest at audit time) so meta/theme behavior is reproducible; CI `mkdocs build --strict` validates | workflow diff + CI |
+
 ## Two-track growth (P3, issue #730 plan)
 
 Both tracks are recorded in this file only; there is no separate campaign file.
@@ -63,5 +78,5 @@ Each track feeds the same experiment log and baseline table above; no metric is 
 
 1. Owner: apply proposed repo topics (B1). Re-verified 2026-11-27: still pending.
 2. B4: clean-environment verification of the 60-second quick-start path. BLOCKED on a Python runtime in the agent sandbox; recorded as blocked, not executed.
-3. B5: Pages technical SEO audit (titles, meta, canonical, OG, sitemap, robots, structured data).
+3. B5: Pages technical SEO audit — DONE 2026-11-27 (see B5 section below); residual: page-level JSON-LD structured data not present (optional future work).
 4. B6/B7: first organic publications + directory submissions where permitted.

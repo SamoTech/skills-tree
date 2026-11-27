@@ -1,3 +1,7 @@
+---
+description: The case for a shared, evidence-backed vocabulary of AI agent capabilities, and how Skills Tree complements Claude Code skills, the Agent Skills open standard, and model hubs.
+---
+
 # Why Skills Tree?
 
 > The problem with AI agent development isn’t model intelligence — it’s skill chaos.
