@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2402
-- 🟡 **Enriched** (real description + runnable code): 86
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2422
+- 🟡 **Enriched** (real description + runnable code): 66
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -24,13 +24,13 @@
 | `06-communication` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 165 | 165 | 0 | 0 | 0 | 0 |
 | `08-multimodal` | 135 | 135 | 0 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 155 | 146 | 9 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 155 | 155 | 0 | 0 | 0 | 0 |
 | `10-computer-use` | 137 | 119 | 18 | 0 | 0 | 0 |
 | `11-web` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `12-data` | 154 | 138 | 16 | 0 | 0 | 0 |
 | `13-creative` | 115 | 115 | 0 | 0 | 0 | 0 |
 | `14-security` | 143 | 143 | 0 | 0 | 0 | 0 |
-| `15-orchestration` | 138 | 123 | 15 | 0 | 0 | 0 |
+| `15-orchestration` | 138 | 134 | 4 | 0 | 0 | 0 |
 | `16-domain-specific` | 145 | 119 | 26 | 0 | 0 | 0 |
 | `17-infrastructure` | 112 | 112 | 0 | 0 | 0 | 0 |
 
@@ -1328,15 +1328,18 @@
 - [`skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md`](skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md) — Browser Agent Fragility Hardening Pattern
 - [`skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md`](skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md) — Cache Prefix Preserving Context Patterns
 - [`skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md`](skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md) — Case Review Agent Recommendation Pattern
+- [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — Constitutional AI
 - [`skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md`](skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md) — Consumer Computer Use Adoption Pattern
 - [`skills/09-agentic-patterns/context-compaction-api-integration-pattern.md`](skills/09-agentic-patterns/context-compaction-api-integration-pattern.md) — Context Compaction API Integration Pattern
 - [`skills/09-agentic-patterns/context-engineering-production-audit-patterns.md`](skills/09-agentic-patterns/context-engineering-production-audit-patterns.md) — Context Engineering Production Audit Patterns
 - [`skills/09-agentic-patterns/context-engineering.md`](skills/09-agentic-patterns/context-engineering.md) — Context Engineering
 - [`skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md`](skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md) — Copilot Harness Adoption Evaluation
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
+- [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — Critic Agent
 - [`skills/09-agentic-patterns/cross-cloud-agent-interoperability-patterns.md`](skills/09-agentic-patterns/cross-cloud-agent-interoperability-patterns.md) — Cross Cloud Agent Interoperability Patterns
 - [`skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md`](skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md) — Cross Team Assistant Scope Partitioning
 - [`skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md`](skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md) — Day Scale Single Task Agent Patterns
+- [`skills/09-agentic-patterns/debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — Debate Pattern
 - [`skills/09-agentic-patterns/definition-of-done-enforcement.md`](skills/09-agentic-patterns/definition-of-done-enforcement.md) — Definition of Done Enforcement
 - [`skills/09-agentic-patterns/discovered-tool-owner-enablement-gating-pattern.md`](skills/09-agentic-patterns/discovered-tool-owner-enablement-gating-pattern.md) — Discovered Tool Owner Enablement Gating Pattern
 - [`skills/09-agentic-patterns/enterprise-messaging-system-agent-binding.md`](skills/09-agentic-patterns/enterprise-messaging-system-agent-binding.md) — Enterprise Messaging System Agent Binding
@@ -1361,14 +1364,17 @@
 - [`skills/09-agentic-patterns/incident-derived-authorization-narrowing-pattern.md`](skills/09-agentic-patterns/incident-derived-authorization-narrowing-pattern.md) — Incident Derived Authorization Narrowing Pattern
 - [`skills/09-agentic-patterns/inter-agent-protocol-compliance.md`](skills/09-agentic-patterns/inter-agent-protocol-compliance.md) — Inter-Agent Protocol Compliance
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
+- [`skills/09-agentic-patterns/lats.md`](skills/09-agentic-patterns/lats.md) — LATS
 - [`skills/09-agentic-patterns/live-internet-training-isolation-decision.md`](skills/09-agentic-patterns/live-internet-training-isolation-decision.md) — Live Internet Training Isolation Decision
 - [`skills/09-agentic-patterns/llm-judge-calibration.md`](skills/09-agentic-patterns/llm-judge-calibration.md) — LLM Judge Calibration
 - [`skills/09-agentic-patterns/long-running-agent-dead-end-recovery-pattern.md`](skills/09-agentic-patterns/long-running-agent-dead-end-recovery-pattern.md) — Long Running Agent Dead End Recovery Pattern
 - [`skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md`](skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md) — Maf Sequential Workflow Agent Pattern
 - [`skills/09-agentic-patterns/mass-agent-delegation-feasibility-estimation.md`](skills/09-agentic-patterns/mass-agent-delegation-feasibility-estimation.md) — Mass Agent Delegation Feasibility Estimation
+- [`skills/09-agentic-patterns/mcts.md`](skills/09-agentic-patterns/mcts.md) — Monte Carlo Tree Search
 - [`skills/09-agentic-patterns/memory-augmented.md`](skills/09-agentic-patterns/memory-augmented.md) — Memory-Augmented Agent
 - [`skills/09-agentic-patterns/mid-response-steering-pattern.md`](skills/09-agentic-patterns/mid-response-steering-pattern.md) — Mid Response Steering Pattern
 - [`skills/09-agentic-patterns/milestone-commitment-tracking.md`](skills/09-agentic-patterns/milestone-commitment-tracking.md) — Milestone Commitment Tracking
+- [`skills/09-agentic-patterns/mixture-of-agents.md`](skills/09-agentic-patterns/mixture-of-agents.md) — Mixture of Agents
 - [`skills/09-agentic-patterns/mobile-checkpoint-supervision-pattern.md`](skills/09-agentic-patterns/mobile-checkpoint-supervision-pattern.md) — Mobile Checkpoint Supervision Pattern
 - [`skills/09-agentic-patterns/model-tool-pre-approval-tiering.md`](skills/09-agentic-patterns/model-tool-pre-approval-tiering.md) — Model Tool Pre Approval Tiering
 - [`skills/09-agentic-patterns/multi-agent-debate-resolution.md`](skills/09-agentic-patterns/multi-agent-debate-resolution.md) — Multi Agent Debate Resolution
@@ -1396,9 +1402,11 @@
 - [`skills/09-agentic-patterns/prompt-version-control.md`](skills/09-agentic-patterns/prompt-version-control.md) — Prompt Version Control
 - [`skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md`](skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md) — Protocol Migration Coexistence Patterns
 - [`skills/09-agentic-patterns/purchase-intent-binding-patterns.md`](skills/09-agentic-patterns/purchase-intent-binding-patterns.md) — Purchase Intent Binding Patterns
+- [`skills/09-agentic-patterns/rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — RAG Pipeline
 - [`skills/09-agentic-patterns/rag-security-assessment-pattern.md`](skills/09-agentic-patterns/rag-security-assessment-pattern.md) — Rag Security Assessment Pattern
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — RAG (Agentic Grounding Pattern)
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
+- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — Reflection
 - [`skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md`](skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md) — Refusal Aware Evaluation Harness Pattern
 - [`skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md`](skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md) — Reverse Game Theory Agent Checking Pattern
 - [`skills/09-agentic-patterns/reward-hacking-detection.md`](skills/09-agentic-patterns/reward-hacking-detection.md) — Reward Hacking Detection
@@ -1407,6 +1415,7 @@
 - [`skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md`](skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md) — Scheduled Agent Supervision Pattern
 - [`skills/09-agentic-patterns/scoped-agent-identity-gateway.md`](skills/09-agentic-patterns/scoped-agent-identity-gateway.md) — Scoped Agent Identity Gateway
 - [`skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md`](skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md) — Self-Healing Workflow Repair Patterns
+- [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — Self-Play
 - [`skills/09-agentic-patterns/self-refine-critique-loop.md`](skills/09-agentic-patterns/self-refine-critique-loop.md) — Self Refine Critique Loop
 - [`skills/09-agentic-patterns/simulated-user-evaluation.md`](skills/09-agentic-patterns/simulated-user-evaluation.md) — Simulated User Evaluation
 - [`skills/09-agentic-patterns/skill-composition-chaining.md`](skills/09-agentic-patterns/skill-composition-chaining.md) — Skill Composition Chaining
@@ -2089,6 +2098,7 @@
 - [`skills/15-orchestration/ad-click-to-booking-lead-orchestration.md`](skills/15-orchestration/ad-click-to-booking-lead-orchestration.md) — Ad Click To Booking Lead Orchestration
 - [`skills/15-orchestration/agent-authorization-context-propagation.md`](skills/15-orchestration/agent-authorization-context-propagation.md) — Agent Authorization Context Propagation
 - [`skills/15-orchestration/agent-communication.md`](skills/15-orchestration/agent-communication.md) — Agent Communication
+- [`skills/15-orchestration/agent-handoff.md`](skills/15-orchestration/agent-handoff.md) — Agent Handoff
 - [`skills/15-orchestration/agent-incident-command.md`](skills/15-orchestration/agent-incident-command.md) — Agent Incident Command
 - [`skills/15-orchestration/agent-incident-response-runbook-orchestration.md`](skills/15-orchestration/agent-incident-response-runbook-orchestration.md) — Agent Incident Response Runbook Orchestration
 - [`skills/15-orchestration/agent-pool-autoscaling.md`](skills/15-orchestration/agent-pool-autoscaling.md) — Agent Pool Autoscaling
@@ -2105,6 +2115,7 @@
 - [`skills/15-orchestration/backpressure-handling.md`](skills/15-orchestration/backpressure-handling.md) — Backpressure Handling
 - [`skills/15-orchestration/bedrock-managed-agent-orchestration.md`](skills/15-orchestration/bedrock-managed-agent-orchestration.md) — Bedrock Managed Agent Orchestration
 - [`skills/15-orchestration/browser-agent-retry-budget-orchestration.md`](skills/15-orchestration/browser-agent-retry-budget-orchestration.md) — Browser Agent Retry Budget Orchestration
+- [`skills/15-orchestration/budget-management.md`](skills/15-orchestration/budget-management.md) — Budget Management
 - [`skills/15-orchestration/business-process-agentification-prioritization.md`](skills/15-orchestration/business-process-agentification-prioritization.md) — Business Process Agentification Prioritization
 - [`skills/15-orchestration/canary-agent-deployment.md`](skills/15-orchestration/canary-agent-deployment.md) — Canary Agent Deployment
 - [`skills/15-orchestration/capability-based-skill-selection.md`](skills/15-orchestration/capability-based-skill-selection.md) — Capability-Based Skill Selection
@@ -2114,6 +2125,8 @@
 - [`skills/15-orchestration/circuit-breaking.md`](skills/15-orchestration/circuit-breaking.md) — Circuit Breaking
 - [`skills/15-orchestration/commander-specialist-team-orchestration.md`](skills/15-orchestration/commander-specialist-team-orchestration.md) — Commander Specialist Team Orchestration
 - [`skills/15-orchestration/concurrent-agent-session-orchestration.md`](skills/15-orchestration/concurrent-agent-session-orchestration.md) — Concurrent Agent Session Orchestration
+- [`skills/15-orchestration/conditional-branching.md`](skills/15-orchestration/conditional-branching.md) — Conditional Branching
+- [`skills/15-orchestration/consensus-voting.md`](skills/15-orchestration/consensus-voting.md) — Consensus Voting
 - [`skills/15-orchestration/coordinated-cve-cluster-response-orchestration.md`](skills/15-orchestration/coordinated-cve-cluster-response-orchestration.md) — Coordinated Cve Cluster Response Orchestration
 - [`skills/15-orchestration/cost-aware-model-routing.md`](skills/15-orchestration/cost-aware-model-routing.md) — Cost-Aware Model Routing
 - [`skills/15-orchestration/cross-agent-locking.md`](skills/15-orchestration/cross-agent-locking.md) — Cross-Agent Locking
@@ -2135,6 +2148,7 @@
 - [`skills/15-orchestration/election-night-misinformation-response-orchestration.md`](skills/15-orchestration/election-night-misinformation-response-orchestration.md) — Election Night Misinformation Response Orchestration
 - [`skills/15-orchestration/embedded-suite-agent-workflow-orchestration.md`](skills/15-orchestration/embedded-suite-agent-workflow-orchestration.md) — Embedded Suite Agent Workflow Orchestration
 - [`skills/15-orchestration/enterprise-workplace-agent-embedding.md`](skills/15-orchestration/enterprise-workplace-agent-embedding.md) — Enterprise Workplace Agent Embedding
+- [`skills/15-orchestration/event-triggers.md`](skills/15-orchestration/event-triggers.md) — Event Triggers
 - [`skills/15-orchestration/evidence-verification.md`](skills/15-orchestration/evidence-verification.md) — Evidence Verification
 - [`skills/15-orchestration/execution-handoff.md`](skills/15-orchestration/execution-handoff.md) — Execution Handoff
 - [`skills/15-orchestration/fleet-permission-policy-distribution.md`](skills/15-orchestration/fleet-permission-policy-distribution.md) — Fleet Permission Policy Distribution
@@ -2148,6 +2162,7 @@
 - [`skills/15-orchestration/gemini-at-work-rollout-orchestration.md`](skills/15-orchestration/gemini-at-work-rollout-orchestration.md) — Gemini At Work Rollout Orchestration
 - [`skills/15-orchestration/governed-ontology-context-orchestration.md`](skills/15-orchestration/governed-ontology-context-orchestration.md) — Governed Ontology Context Orchestration
 - [`skills/15-orchestration/harness-plugin-fleet-composition-orchestration.md`](skills/15-orchestration/harness-plugin-fleet-composition-orchestration.md) — Harness Plugin Fleet Composition Orchestration
+- [`skills/15-orchestration/hierarchical-tree.md`](skills/15-orchestration/hierarchical-tree.md) — Hierarchical Tree
 - [`skills/15-orchestration/horizontal-scale-session-orchestration.md`](skills/15-orchestration/horizontal-scale-session-orchestration.md) — Horizontal Scale Session Orchestration
 - [`skills/15-orchestration/human-approval-gates.md`](skills/15-orchestration/human-approval-gates.md) — Human Approval Gates
 - [`skills/15-orchestration/human-escalation-routing.md`](skills/15-orchestration/human-escalation-routing.md) — Human Escalation Routing
@@ -2155,6 +2170,7 @@
 - [`skills/15-orchestration/kanban-task-management.md`](skills/15-orchestration/kanban-task-management.md) — Kanban Task Management
 - [`skills/15-orchestration/langgraph-checkpointing.md`](skills/15-orchestration/langgraph-checkpointing.md) — LangGraph Checkpointing
 - [`skills/15-orchestration/legacy-system-agentification-roadmapping.md`](skills/15-orchestration/legacy-system-agentification-roadmapping.md) — Legacy System Agentification Roadmapping
+- [`skills/15-orchestration/logging-observability.md`](skills/15-orchestration/logging-observability.md) — Logging Observability
 - [`skills/15-orchestration/maf-workflow-composition-orchestration.md`](skills/15-orchestration/maf-workflow-composition-orchestration.md) — Maf Workflow Composition Orchestration
 - [`skills/15-orchestration/mainframe-agent-workload-orchestration.md`](skills/15-orchestration/mainframe-agent-workload-orchestration.md) — Mainframe Agent Workload Orchestration
 - [`skills/15-orchestration/mcp-gateway-registry-proxy-architecture-design.md`](skills/15-orchestration/mcp-gateway-registry-proxy-architecture-design.md) — MCP Gateway Registry Proxy Architecture Design
@@ -2169,6 +2185,7 @@
 - [`skills/15-orchestration/on-device-agent-task-orchestration.md`](skills/15-orchestration/on-device-agent-task-orchestration.md) — On Device Agent Task Orchestration
 - [`skills/15-orchestration/open-responses-conformance-testing.md`](skills/15-orchestration/open-responses-conformance-testing.md) — Open Responses Conformance Testing
 - [`skills/15-orchestration/oversight-stack-role-orchestration.md`](skills/15-orchestration/oversight-stack-role-orchestration.md) — Oversight Stack Role Orchestration
+- [`skills/15-orchestration/parallel-execution.md`](skills/15-orchestration/parallel-execution.md) — Parallel Execution
 - [`skills/15-orchestration/payment-protocol-failover-orchestration.md`](skills/15-orchestration/payment-protocol-failover-orchestration.md) — Payment Protocol Failover Orchestration
 - [`skills/15-orchestration/phased-enterprise-agent-rollout-orchestration.md`](skills/15-orchestration/phased-enterprise-agent-rollout-orchestration.md) — Phased Enterprise Agent Rollout Orchestration
 - [`skills/15-orchestration/policy-as-code-gate-authoring.md`](skills/15-orchestration/policy-as-code-gate-authoring.md) — Policy As Code Gate Authoring
@@ -2178,11 +2195,14 @@
 - [`skills/15-orchestration/regulated-workflow-multi-agent-orchestration.md`](skills/15-orchestration/regulated-workflow-multi-agent-orchestration.md) — Regulated Workflow Multi Agent Orchestration
 - [`skills/15-orchestration/repository-state-load.md`](skills/15-orchestration/repository-state-load.md) — Repository State Load
 - [`skills/15-orchestration/result-aggregation.md`](skills/15-orchestration/result-aggregation.md) — Result Aggregation
+- [`skills/15-orchestration/retry-backoff.md`](skills/15-orchestration/retry-backoff.md) — Retry Backoff
+- [`skills/15-orchestration/role-assignment.md`](skills/15-orchestration/role-assignment.md) — Role Assignment
 - [`skills/15-orchestration/runbook-driven-orchestration.md`](skills/15-orchestration/runbook-driven-orchestration.md) — Runbook-Driven Orchestration
 - [`skills/15-orchestration/safety-threshold-runtime-gating.md`](skills/15-orchestration/safety-threshold-runtime-gating.md) — Safety Threshold Runtime Gating
 - [`skills/15-orchestration/scheduled-agent-workflow-orchestration.md`](skills/15-orchestration/scheduled-agent-workflow-orchestration.md) — Scheduled Agent Workflow Orchestration
 - [`skills/15-orchestration/school-district-agent-rollout-orchestration.md`](skills/15-orchestration/school-district-agent-rollout-orchestration.md) — School District Agent Rollout Orchestration
 - [`skills/15-orchestration/self-service-agent-deployment-pipelines.md`](skills/15-orchestration/self-service-agent-deployment-pipelines.md) — Self Service Agent Deployment Pipelines
+- [`skills/15-orchestration/sequential-workflow.md`](skills/15-orchestration/sequential-workflow.md) — Sequential Workflow
 - [`skills/15-orchestration/service-level-objective-enforcement.md`](skills/15-orchestration/service-level-objective-enforcement.md) — Service Level Objective Enforcement
 - [`skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md`](skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md) — Shared Surface Human Agent Collaboration Orchestration
 - [`skills/15-orchestration/single-api-multi-model-gateway-configuration.md`](skills/15-orchestration/single-api-multi-model-gateway-configuration.md) — Single Api Multi Model Gateway Configuration
@@ -2443,15 +2463,6 @@
 
 - [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/lats.md`](skills/09-agentic-patterns/lats.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/mcts.md`](skills/09-agentic-patterns/mcts.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/mixture-of-agents.md`](skills/09-agentic-patterns/mixture-of-agents.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — missing table or <60 lines
 - [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — missing table or <60 lines
@@ -2486,17 +2497,6 @@
 - [`skills/12-data/sql-execution.md`](skills/12-data/sql-execution.md) — missing table or <60 lines
 - [`skills/12-data/statistical-analysis.md`](skills/12-data/statistical-analysis.md) — missing table or <60 lines
 - [`skills/12-data/time-series.md`](skills/12-data/time-series.md) — missing table or <60 lines
-- [`skills/15-orchestration/agent-handoff.md`](skills/15-orchestration/agent-handoff.md) — missing table or <60 lines
-- [`skills/15-orchestration/budget-management.md`](skills/15-orchestration/budget-management.md) — missing table or <60 lines
-- [`skills/15-orchestration/conditional-branching.md`](skills/15-orchestration/conditional-branching.md) — missing table or <60 lines
-- [`skills/15-orchestration/consensus-voting.md`](skills/15-orchestration/consensus-voting.md) — missing table or <60 lines
-- [`skills/15-orchestration/event-triggers.md`](skills/15-orchestration/event-triggers.md) — missing table or <60 lines
-- [`skills/15-orchestration/hierarchical-tree.md`](skills/15-orchestration/hierarchical-tree.md) — missing table or <60 lines
-- [`skills/15-orchestration/logging-observability.md`](skills/15-orchestration/logging-observability.md) — missing table or <60 lines
-- [`skills/15-orchestration/parallel-execution.md`](skills/15-orchestration/parallel-execution.md) — missing table or <60 lines
-- [`skills/15-orchestration/retry-backoff.md`](skills/15-orchestration/retry-backoff.md) — missing table or <60 lines
-- [`skills/15-orchestration/role-assignment.md`](skills/15-orchestration/role-assignment.md) — missing table or <60 lines
-- [`skills/15-orchestration/sequential-workflow.md`](skills/15-orchestration/sequential-workflow.md) — missing table or <60 lines
 - [`skills/15-orchestration/shared-memory.md`](skills/15-orchestration/shared-memory.md) — missing table or <60 lines
 - [`skills/15-orchestration/state-machine.md`](skills/15-orchestration/state-machine.md) — missing table or <60 lines
 - [`skills/15-orchestration/subagent-spawning.md`](skills/15-orchestration/subagent-spawning.md) — missing table or <60 lines

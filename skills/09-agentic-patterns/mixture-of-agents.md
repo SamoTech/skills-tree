@@ -3,56 +3,79 @@ title: "Mixture of Agents"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
+version: v2
 description: "Route a task through multiple specialized agents and aggregate their outputs using an explicit synthesis policy."
 added: "2025-03"
-related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
+related: [debate-pattern, critic-agent]
 ---
 
-## Description
-Route a task through multiple specialized agents and aggregate their outputs using an explicit synthesis policy.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-mixture-of-agents.json)
 
-## When to Use
-Use when specialization or independent perspectives can improve coverage and the aggregation rule is defined.
+# Mixture of Agents
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | task, agent_outputs, and task constraints or execution bounds. |
-| Outputs | synthesized_output with assumptions, evidence references, and unresolved uncertainty where material. |
-| Failure modes | More agents increase cost and correlated errors; measure whether added agents provide incremental signal before scaling. |
+**Category:** `agentic-patterns`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Procedure
-1. Define the objective, state representation, evaluation criteria, and termination condition.
-2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
-3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
-4. Preserve candidate provenance and the observations or evidence supporting selection.
-5. Verify the selected result against the declared criteria before acceptance.
-6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
+### Description
 
-## Runnable Example
+Route a task through multiple specialized agents and aggregate their outputs using an explicit synthesis policy declared before execution. The policy states how disagreements are resolved and what counts as a veto, so aggregation is reproducible rather than improvised.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | task | text | The task routed to the specialist agents |
+| Input | agent_outputs | list of object | Per-agent answers with their self-reported confidence and evidence |
+| Output | synthesized_output | object | The aggregated answer under the declared synthesis policy |
+| Output | dissent | list of object | Agent answers the policy overruled, kept visible |
+
+### Procedure
+1. Declare the synthesis policy (precedence, majority, or adjudicator) and any veto rule before routing.
+2. Route the task to the specialists with the same task statement and evidence boundary.
+3. Collect outputs with each agent's cited evidence and confidence.
+4. Aggregate strictly under the declared policy; record overruled answers as dissent.
+5. Measure whether added agents provide incremental signal before scaling the mixture.
+6. Report the synthesized output with the dissent list and the policy version used.
+
+### Example
+
 ```python
-pattern = {
-    "capability": "mixture-of-agents",
-    "validated": True,
-    "budget": 4,
-}
-assert pattern["validated"] and pattern["budget"] > 0
-result = {"status": "bounded_execution", "capability": pattern["capability"]}
-print(result)
+policy = {'v1': 'majority_then_precedence'}
+outputs = [
+    {'agent': 'retriever', 'answer': '2024-03', 'evidence': ['doc 7']},
+    {'agent': 'analyst', 'answer': '2024-03', 'evidence': []},
+    {'agent': 'verifier', 'answer': '2025-01', 'evidence': ['ledger']},
+]
+votes = {}
+for o in outputs: votes[o['answer']] = votes.get(o['answer'], 0) + 1
+top = max(votes, key=votes.get)
+dissent = [o for o in outputs if o['answer'] != top]
+assert top == '2024-03' and len(dissent) == 1
+print({'answer': top, 'policy': policy['v1'], 'dissent': [d['agent'] for d in dissent]})
 ```
 
+### Related Skills
+
+- [Debate Pattern](debate-pattern.md) - adversarial reconciliation of competing claims
+- [Critic Agent](critic-agent.md) - rubric-based review of a candidate answer
+- [Input Guardrails](../14-security/input-guardrails.md) - bound what enters each agent
+- [Output Guardrails](../14-security/output-guardrails.md) - validate the aggregated result
+
 ## Failure Modes
-- Ambiguous objective or evaluation criterion.
-- Search or agent budget exhaustion without a verified result.
-- Correlated model errors presented as independent evidence.
-- Stale, conflicting, or missing source evidence.
-- Optimization against a proxy metric that diverges from the actual task objective.
-- Completion reported without a reproducible postcondition.
+
+- Scaling the mixture without measuring incremental signal, only cost.
+- Aggregating under an undeclared or post-hoc policy.
+- Hiding overruled agent answers instead of recording dissent.
+- Correlated agent errors counted as independent votes.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-## Related
-- 09-agentic-patterns
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; pattern behavior must be checked against current framework documentation; no benchmark claim is made without reproducible evidence.

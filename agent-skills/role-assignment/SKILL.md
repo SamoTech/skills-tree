@@ -4,54 +4,70 @@ description: Assign explicit responsibilities to agents or workflow stages using
 metadata:
   source: skills/15-orchestration/role-assignment.md
   category: 15-orchestration
+  version: "v2"
 ---
 
-**Category:** Orchestration
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-role-assignment.json)
+
+# Role Assignment
+
+**Category:** `orchestration`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Assign explicit responsibilities to agents or workflow stages using capability, authority, inputs, outputs, and escalation boundaries.
+### Description
 
-## When to Use
-Use when a workflow needs deterministic ownership or delegation.
+Assign explicit responsibilities to agents or workflow stages using capability, authority, inputs, outputs, and escalation boundaries. The orchestration step is contract-first: validate state and inputs before acting, and verify the resulting state transition instead of trusting acknowledgements.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
-| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
-| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish state, ownership, dependencies, and acceptance criteria.
-2. Validate preconditions before changing workflow state.
-3. Execute the declared orchestration operation within bounded authority.
-4. Record state changes, evidence, and unresolved conditions.
-5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | responsibilities | list of object | Task scopes with required capability and authority bounds |
+| Input | candidates | list of object | Available agents with verified capabilities |
+| Output | assignments | list of object | Agent-task pairs with declared authority and escalation path |
+| Output | unassigned | list of string | Responsibilities no candidate can hold within scope |
 
-## Runnable Example
+### Procedure
+1. Declare each responsibility's scope, required capability, and authority bound.
+2. Match candidates by verified capability, never by assumed identity or seniority.
+3. Assign minimum authority; an assignment never exceeds the task's declared scope.
+4. Declare the escalation path and the conditions that trigger it for each assignment.
+5. Record the assignments with their scope so later steps can verify authority.
+6. Leave unmatched responsibilities explicitly unassigned rather than force-fitting a candidate.
+
+### Example
+
 ```python
-task = {"capability": "role-assignment", "validated": True}
-assert task["validated"]
-result = {"status": "orchestration_step", "capability": task["capability"]}
-print(result)
+resp = [{'task': 'audit', 'cap': 'security', 'auth': 'read'}]
+cands = [{'agent': 'a', 'caps': ['code']}, {'agent': 'b', 'caps': ['security']}]
+assignments = [{'task': r['task'], 'agent': c['agent'], 'auth': r['auth']}
+               for r in resp for c in cands if r['cap'] in c['caps']]
+unassigned = [r['task'] for r in resp if r['task'] not in [a['task'] for a in assignments]]
+assert assignments == [{'task': 'audit', 'agent': 'b', 'auth': 'read'}] and unassigned == []
+print({'assignments': assignments, 'unassigned': unassigned})
 ```
 
-## Failure Modes
-- Missing or ambiguous workflow state.
-- Invalid transition or unmet dependency.
-- Duplicate or concurrent execution.
-- Capability or authority exceeds declared scope.
-- Completion cannot be verified.
+### Related Skills
 
-## Orchestration Boundary
-Role assignment must not silently grant capabilities or authority beyond the declared task scope.
+- [Hierarchical Tree](hierarchical-tree.md) - parent-child delegation structure
+- [Specialist Agent Routing](specialist-agent-routing.md) - route tasks to specialists
+- [Least Privilege Scoping](../14-security/least-privilege-scoping.md) - authority bounds per role
+
+## Failure Modes
+
+- Assignments granting capability or authority beyond the declared task scope.
+- Matching by assumed identity instead of verified capability.
+- Force-fitting a candidate and hiding the mismatch.
+- Missing escalation path, so scope violations have no route back.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
 
-## Related
-- 15-orchestration
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing framework's documentation; no benchmark claim is made without reproducible evidence.

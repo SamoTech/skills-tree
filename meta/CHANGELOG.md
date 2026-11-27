@@ -1,5 +1,7 @@
 # Changelog
 
+- **Fixed** [P1 structural upgrades batch 4 (20 enriched-tier tool-use skills, issue #699)](https://github.com/SamoTech/skills-tree/pull/712) by @SamoTech (#712) — 2026-11-27
+
 - **Fixed** [P1 structural upgrades batch 3 (20 enriched-tier code skills, issue #699)](https://github.com/SamoTech/skills-tree/pull/710) by @SamoTech (#710) — 2026-11-26
 
 - **Added** [add demand-driven skills 2026-11-05 batch 1 (50 skills)](https://github.com/SamoTech/skills-tree/pull/686) by @SamoTech (#686) — 2026-11-05

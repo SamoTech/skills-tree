@@ -28,7 +28,7 @@ The graph and search projections are generated artifacts. skills/ remains canoni
 
 ```
 skills-tree/
-├── skills/               # 381 public canonical skills (382 quality files including one sandbox fixture)
+├── skills/               # 2488 public canonical skills (2489 quality files including one sandbox fixture)
 │   ├── 01-perception/
 │   ├── 02-reasoning/
 │   ├── 03-memory/

@@ -4,53 +4,72 @@ description: Use a separate critic role to inspect an agent output against expli
 metadata:
   source: skills/09-agentic-patterns/critic-agent.md
   category: 09-agentic-patterns
+  version: "v2"
 ---
 
-## Description
-Use a separate critic role to inspect an agent output against explicit criteria and return actionable findings for revision or acceptance.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-critic-agent.json)
 
-## When to Use
-Use when critique can be separated from generation and the evaluation criteria are concrete.
+# Critic Agent
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | candidate_output, rubric, and task constraints or execution bounds. |
-| Outputs | critique with assumptions, evidence references, and unresolved uncertainty where material. |
-| Failure modes | A critic can reproduce generator errors; avoid treating subjective scores as objective truth and retain the cited reasons. |
+**Category:** `agentic-patterns`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Procedure
-1. Define the objective, state representation, evaluation criteria, and termination condition.
-2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
-3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
-4. Preserve candidate provenance and the observations or evidence supporting selection.
-5. Verify the selected result against the declared criteria before acceptance.
-6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
+### Description
 
-## Runnable Example
+Use a separate critic role to inspect an agent output against explicit criteria and return actionable findings. The critic is contract-first: it scores against a declared rubric, cites the evidence for each finding, and never converts subjective scores into objective truth.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | candidate_output | text | The generated output under review |
+| Input | rubric | list of object | Declared criteria, each with a check the critic can actually perform |
+| Output | critique | list of object | Findings with criterion id, verdict, cited reason, and severity |
+| Output | verdict | enum | accept, revise, or reject, with the decisive findings named |
+
+### Procedure
+1. Fix the rubric and its version before reviewing; the critic never scores against undeclared criteria.
+2. Check each criterion independently and cite the exact passage supporting the verdict.
+3. Separate subjective preference from checkable defects; label which is which.
+4. Return findings as actionable revisions, not as an unexplained score.
+5. Verify the critic's findings against the output before acting on them; a critic can reproduce generator errors.
+6. Accept, revise, or reject with the decisive findings named in the record.
+
+### Example
+
 ```python
-pattern = {
-    "capability": "critic-agent",
-    "validated": True,
-    "budget": 4,
-}
-assert pattern["validated"] and pattern["budget"] > 0
-result = {"status": "bounded_execution", "capability": pattern["capability"]}
-print(result)
+output = {'answer': '42 rows', 'cites': ['query log'], 'states_limit': True}
+rubric = {'v2': {'grounded': output['cites'] != [], 'bounded': output['states_limit']}}
+findings = [{'criterion': k, 'verdict': 'pass' if v else 'fail'}
+            for k, v in rubric['v2'].items()]
+verdict = 'accept' if all(f['verdict'] == 'pass' for f in findings) else 'revise'
+assert findings == [{'criterion': 'grounded', 'verdict': 'pass'},
+                    {'criterion': 'bounded', 'verdict': 'pass'}]
+print(verdict)
 ```
 
+### Related Skills
+
+- [Reflection](reflection.md) - critique-and-revision pass inside one agent
+- [Self-Refine Critique Loop](self-refine-critique-loop.md) - iterate critique until the rubric passes
+- [LLM Judge Calibration](llm-judge-calibration.md) - calibrate subjective scoring
+- [Input Guardrails](../14-security/input-guardrails.md) - bound the critic's inputs
+
 ## Failure Modes
-- Ambiguous objective or evaluation criterion.
-- Search or agent budget exhaustion without a verified result.
-- Correlated model errors presented as independent evidence.
-- Stale, conflicting, or missing source evidence.
-- Optimization against a proxy metric that diverges from the actual task objective.
-- Completion reported without a reproducible postcondition.
+
+- The critic reproduces the generator's errors and confirms a wrong answer.
+- Subjective scores presented as objective truth without cited reasons.
+- Scoring against criteria that were never declared in the rubric.
+- Acting on critique without verifying the findings against the output.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-## Related
-- 09-agentic-patterns
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; pattern behavior must be checked against current framework documentation; no benchmark claim is made without reproducible evidence.

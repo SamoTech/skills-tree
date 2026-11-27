@@ -25,6 +25,43 @@ def gh_get(url: str, headers: dict) -> list | dict:
         return json.loads(resp.read())
 
 
+def is_skill_file(path: str) -> bool:
+    """True for canonical skill files in either repository layout.
+
+    Canonical catalog files live at skills/<category>/<skill>.md while the
+    Agent Skills distribution packages live at agent-skills/<name>/SKILL.md.
+    Before issue #719 only the skills/ prefix was counted, so PRs touching
+    the agent-skills distribution were invisible to the highlights.
+    """
+    if not path or not path.endswith(".md"):
+        return False
+    return path.startswith("skills/") or path.startswith("agent-skills/")
+
+
+def skill_display_name(path: str) -> str:
+    """Human-readable skill name for a counted file path.
+
+    Agent Skills packages use SKILL.md as the file name, so the skill's
+    identity is carried by its parent directory instead of the stem.
+    """
+    stem = os.path.splitext(os.path.basename(path))[0]
+    if stem.upper() == "SKILL":
+        parent = os.path.basename(os.path.dirname(path.rstrip("/")))
+        if parent:
+            stem = parent
+    return stem.replace("-", " ").title()
+
+
+def collect_skill_counts(pr_files: list) -> dict:
+    """Count skill-file touches across one PR's file list."""
+    counts: dict = {}
+    for f in pr_files:
+        name = (f or {}).get("filename") or ""
+        if is_skill_file(name):
+            counts[name] = counts.get(name, 0) + 1
+    return counts
+
+
 def main() -> None:
     repo = os.environ.get("REPO", "")
     token = os.environ.get("GH_TOKEN", "")
@@ -63,10 +100,8 @@ def main() -> None:
         files_url = f"https://api.github.com/repos/{repo}/pulls/{pr['number']}/files"
         try:
             files = gh_get(files_url, headers)
-            for f in files:
-                name = f["filename"]
-                if name.startswith("skills/") and name.endswith(".md"):
-                    skill_counts[name] = skill_counts.get(name, 0) + 1
+            for name, count in collect_skill_counts(files).items():
+                skill_counts[name] = skill_counts.get(name, 0) + count
         except urllib.error.HTTPError as exc:
             print(f"[weekly-highlights] WARNING: HTTP {exc.code} for PR #{pr['number']} files.")
         except urllib.error.URLError as exc:
@@ -94,7 +129,7 @@ def main() -> None:
     if top_skills:
         lines.append("### \U0001f525 Most Active Skills")
         for path, count in top_skills:
-            skill_name = os.path.splitext(os.path.basename(path))[0].replace("-", " ").title()
+            skill_name = skill_display_name(path)
             lines.append(f"- **{skill_name}** \u2014 {count} PR{'' if count == 1 else 's'}")
         lines.append("")
 

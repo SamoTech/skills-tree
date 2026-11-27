@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/role-assignment.md",
-  "name": "role-assignment",
-  "headline": "role-assignment",
+  "name": "Role Assignment",
+  "headline": "Role Assignment",
   "description": "Assign explicit responsibilities to agents or workflow stages using capability, authority, inputs, outputs, and escalation boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/role-assignment.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:46:40Z",
+  "dateModified": "2026-11-27T00:24:43Z",
   "skillId": "role-assignment",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Orchestration Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/least-privilege-scoping.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, assignment, orchestration, role, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "role-assignment",
-    "description": "An AI agent skill for role-assignment."
+    "name": "Role Assignment",
+    "description": "An AI agent skill for role assignment."
   }
 }

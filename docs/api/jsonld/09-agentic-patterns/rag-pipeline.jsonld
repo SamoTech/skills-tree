@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag-pipeline.md",
-  "name": "rag-pipeline",
-  "headline": "rag-pipeline",
+  "name": "RAG Pipeline",
+  "headline": "RAG Pipeline",
   "description": "Construct a retrieval-augmented generation pipeline with explicit ingestion, indexing, retrieval, grounding, generation, and verification stages.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag-pipeline.md",
   "isPartOf": {
@@ -52,23 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T09:17:33Z",
+  "dateModified": "2026-11-27T00:23:11Z",
   "skillId": "rag-pipeline",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/indirect-prompt-injection-detection.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -78,7 +75,7 @@
   "keywords": "AI agent, LLM skill, agentic, patterns, pipeline, rag, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "rag-pipeline",
-    "description": "An AI agent skill for rag-pipeline."
+    "name": "RAG Pipeline",
+    "description": "An AI agent skill for rag pipeline."
   }
 }

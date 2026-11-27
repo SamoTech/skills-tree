@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/budget-management.md",
-  "name": "budget-management",
-  "headline": "budget-management",
+  "name": "Budget Management",
+  "headline": "Budget Management",
   "description": "Track and enforce declared resource budgets across an agent workflow, including token, time, tool, or monetary limits.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/budget-management.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:44:02Z",
+  "dateModified": "2026-11-27T00:24:43Z",
   "skillId": "budget-management",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Orchestration Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/least-privilege-scoping.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, budget, management, orchestration, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "budget-management",
-    "description": "An AI agent skill for budget-management."
+    "name": "Budget Management",
+    "description": "An AI agent skill for budget management."
   }
 }

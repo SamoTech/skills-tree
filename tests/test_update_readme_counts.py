@@ -130,3 +130,84 @@ def test_count_workflow_stages_docs_index_next_to_readme():
     ).read_text(encoding="utf-8")
 
     assert "git add README.md docs/index.md" in workflow
+
+def test_mkdocs_site_description_is_patched_from_live_counts():
+    from tools.update_readme_counts import MKDOCS_YML, patch_mkdocs_text
+
+    counts = gather_counts()
+    source = MKDOCS_YML.read_text(encoding="utf-8")
+    source = re.sub(
+        r"(site_description: The AI Agent Skill OS — )\d+\+? skills",
+        r"\g<1>9999 skills",
+        source,
+        count=1,
+    )
+
+    patched = patch_mkdocs_text(source, counts)
+
+    assert (
+        f"site_description: The AI Agent Skill OS — {counts['total']} skills, "
+        "versioned, benchmarked, and openly evolving."
+    ) in patched
+    assert "9999 skills" not in patched
+
+
+def test_committed_mkdocs_site_description_is_at_live_counts():
+    from tools.update_readme_counts import MKDOCS_YML, patch_mkdocs_text
+
+    counts = gather_counts()
+    source = MKDOCS_YML.read_text(encoding="utf-8")
+    assert patch_mkdocs_text(source, counts) == source, (
+        "mkdocs.yml site_description skill count is stale relative to the "
+        "live corpus; run python3 tools/update_readme_counts.py and commit "
+        "the result (or merge the pending count automation PR)"
+    )
+
+
+def test_count_workflow_stages_mkdocs_next_to_readme():
+    workflow = (
+        ROOT / ".github/workflows/update-skill-count.yml"
+    ).read_text(encoding="utf-8")
+
+    assert "git add README.md docs/index.md mkdocs.yml" in workflow
+
+
+def test_architecture_count_is_patched_from_live_counts():
+    from tools.update_readme_counts import ARCHITECTURE_MD, patch_architecture_text
+
+    counts = gather_counts()
+    source = ARCHITECTURE_MD.read_text(encoding="utf-8")
+    source = re.sub(
+        r"# \d+ public canonical skills \(\d+ quality files including one sandbox fixture\)",
+        "# 999 public canonical skills (1000 quality files including one sandbox fixture)",
+        source,
+        count=1,
+    )
+
+    patched = patch_architecture_text(source, counts)
+
+    assert (
+        f"# {counts['total']} public canonical skills "
+        f"({counts['total'] + 1} quality files including one sandbox fixture)"
+    ) in patched
+    assert "999 public canonical skills" not in patched
+
+
+def test_committed_architecture_is_at_live_counts():
+    from tools.update_readme_counts import ARCHITECTURE_MD, patch_architecture_text
+
+    counts = gather_counts()
+    source = ARCHITECTURE_MD.read_text(encoding="utf-8")
+    assert patch_architecture_text(source, counts) == source, (
+        "docs/architecture.md skill count is stale relative to the live "
+        "corpus; run python3 tools/update_readme_counts.py and commit "
+        "the result (or merge the pending count automation PR)"
+    )
+
+
+def test_count_workflow_stages_architecture_next_to_readme():
+    workflow = (
+        ROOT / ".github/workflows/update-skill-count.yml"
+    ).read_text(encoding="utf-8")
+
+    assert "git add README.md docs/index.md mkdocs.yml docs/architecture.md" in workflow
