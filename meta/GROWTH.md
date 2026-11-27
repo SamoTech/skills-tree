@@ -18,7 +18,7 @@ Improve the global discoverability, adoption, usability, credibility, and organi
 | Repo traffic / clones / referrers | UNAVAILABLE | GitHub traffic API requires authenticated access not exposed by current tooling | BLOCKED — never fabricated |
 | Site | Live, counts current (2488 skills) | samotech.github.io/skills-tree | no on-site analytics (by design) |
 | Search indexing | PyPI page, Pages pages (quickstart, architecture, why, explorer), GitHub pages indexed; one third-party mirror detected | web search | impressions/clicks need Search Console (owner-only) |
-| GitHub topics | 7 (agent, ai, ai-agents, markdown, md, memory-management, skills); re-verified 2026-11-27: unchanged, website URL still unset | GitHub API | thin/weak set; update BLOCKED at connector level (owner action) |
+| GitHub topics | 7 (agent, ai, ai-agents, markdown, md, memory-management, skills); re-verified twice 2026-11-27: topics unchanged, website URL now SET | GitHub API (repos + dedicated topics endpoints, cache-busted) | thin/weak set; topics update still BLOCKED at connector level (owner action) |
 | Name-collision landscape | 169 repositories match "skills-tree" in name | GitHub search API (`skills-tree in:name`), 2026-11-27 | substring match, includes unrelated projects; method: repository search API, first-page verification of SamoTech/skills-tree presence |
 | Community health | 7 issue templates + SECURITY.md present; CODE_OF_CONDUCT.md was missing → added in the kickoff PR | file audit | — |
 | AI discoverability | llms.txt, docs/AI_DISCOVERY.md, docs/api/skills.json, /.well-known/agent-skills/index.json live | file + site audit | maintained by existing pipelines |
@@ -36,7 +36,7 @@ Improve the global discoverability, adoption, usability, credibility, and organi
 
 | ID | Hypothesis | Target | Implementation | Baseline | Window | Result | Next |
 |---|---|---|---|---|---|---|---|
-| E1 | Completing community standards (CoC) + richer repo topics improves first-impression conversion and external contribution rate | All visitors | CoC added; topic set proposed to owner (B1) | 4 stars / 3 forks / 4 open issues | 30 days post-application | PENDING | Re-verified 2026-11-27: topics + website URL NOT yet applied by owner; window has not started; re-measure 30 days after application |
+| E1 | Completing community standards (CoC) + richer repo topics improves first-impression conversion and external contribution rate | All visitors | CoC added; topic set proposed to owner (B1) | 4 stars / 3 forks / 4 open issues | 30 days post-application | PARTIAL | Owner applied the website URL (verified via GitHub API 2026-11-27); topics re-verified twice the same day: still the unchanged 7-set — the 30-day measurement window starts only after the topic set is applied; re-measure 30 days after that |
 
 ## B5 — Pages technical SEO audit (2026-11-27)
 
@@ -71,12 +71,12 @@ Each track feeds the same experiment log and baseline table above; no metric is 
 
 ## Blockers
 
-- **B1**: Repository settings (description, website URL, topics, social preview) are not writable via the available GitHub connector. Owner action required; proposed topic list recorded on issue #727.
+- **B1 (PARTIAL)**: Website URL set by the owner and verified via the GitHub API (2026-11-27). Topics + social preview are not writable via the available GitHub connector and remain owner action; proposed topic list recorded on issue #727.
 - **B9 (data)**: GitHub traffic/clones/referrers and Search Console metrics are owner-only. Baseline records what is verifiable; nothing is fabricated.
 
 ## Next executable actions
 
-1. Owner: apply proposed repo topics (B1). Re-verified 2026-11-27: still pending.
+1. Owner: apply proposed repo topics (B1). Re-verified twice 2026-11-27: website URL DONE, topics still pending.
 2. B4: clean-environment verification of the 60-second quick-start path. BLOCKED on a Python runtime in the agent sandbox; recorded as blocked, not executed.
 3. B5: Pages technical SEO audit — DONE 2026-11-27 (see B5 section below); residual: page-level JSON-LD structured data not present (optional future work).
 4. B6/B7: first organic publications + directory submissions where permitted.
