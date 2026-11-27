@@ -42,7 +42,7 @@ Skills Tree is the shared operating system for AI agent capabilities. It is a li
   Built-in Model Context Protocol server for runtime capability discovery.
 
 - :material-package: **Python Package**  
-  `pip install skills-tree` — CLI and API included.
+  `pip install skills-tree` — CLI included; the Python API is planned ([api.md](api.md)).
 
 - :material-account-group: **Community Governed**  
   Quality gates, PR templates, and contributor guides for collaborative improvement.

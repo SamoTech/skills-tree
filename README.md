@@ -176,8 +176,8 @@ Quality classifications are repository validation states, not proof of productio
 │                     skills-tree                         │
 │                   (Python package)                      │
 ├─────────────┬───────────────────┬───────────────────────┤
-│   CLI       │   Python API      │   MCP Server          │
-│ (Typer)     │ (FastAPI/Pydantic)│ (tools/mcp/)          │
+│   CLI       │  Python API*      │   MCP Server          │
+│ (Typer)     │ (planned)         │ (tools/mcp/)          │
 ├─────────────┴───────────────────┴───────────────────────┤
 │              Skills Data Layer (Markdown + YAML)        │
 │  skills/  │  systems/  │  blueprints/  │  benchmarks/   │
@@ -186,6 +186,8 @@ Quality classifications are repository validation states, not proof of productio
 │  (tools/)           │  (Lunr.js)     │  (meta/)         │
 └─────────────────────────────────────────────────────────┘
 ```
+
+\* The historical `skills_tree.SkillsTree` Python API is **not currently implemented** — see [docs/api.md](docs/api.md) for the verified boundary.
 
 → Full architecture deep-dive: **[docs/architecture.md](docs/architecture.md)**
 
@@ -201,12 +203,12 @@ Quality classifications are repository validation states, not proof of productio
 | Benchmarks included | ✅ Head-to-head | ❌ | ⚠️ Leaderboards | ❌ |
 | MCP server integration | ✅ Built-in | ❌ | ❌ | ❌ |
 | Multi-agent blueprints | ✅ 7+ blueprints | ⚠️ Templates | ❌ | ❌ |
-| CLI + Python API | ✅ Both | ⚠️ Python only | ✅ Both | ❌ |
+| Ready-to-use CLI | ✅ | ⚠️ SDK-first | ✅ | ❌ |
 | Community-governed | ✅ Open PRs | ⚠️ Curated | ✅ Open | ✅ (yours only) |
 | Failure modes documented | ✅ Every public skill (CI-gated) | ❌ | ❌ | ❌ |
 | Free & open source (MIT) | ✅ | ⚠️ Mixed | ✅ | ✅ |
 
-> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes coverage is corpus-wide and CI-gated: every new or modified skill file must carry a `## Failure Modes` section (`validate-skills.yml`), and the 2026-10-12 backfill added the section to the remaining legacy skill files, so all 538 public skill files carry it (the intentional `00-sandbox` fixture is excluded); repository code search verified zero public skills lacking the section after the backfill. Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents).
+> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes coverage is corpus-wide and CI-gated: every new or modified skill file must carry a `## Failure Modes` section (`validate-skills.yml`), and the 2026-10-12 backfill added the section to the remaining legacy skill files, so all 538 public skill files carry it (the intentional `00-sandbox` fixture is excluded); repository code search verified zero public skills lacking the section after the backfill. Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents). Skills Tree row is CLI-only today: the historical `skills_tree.SkillsTree` Python API is not implemented ([docs/api.md](docs/api.md)); competitor cells use neutral wording, not verified feature matrices.
 
 ---
 
@@ -343,10 +345,12 @@ Every battle-tested skill is CI-gated to include a real description, runnable Py
 
 | Benchmark | Winner | Margin | Link |
 |---|---|---|---|
-| ReAct vs LATS (HotpotQA) | LATS | +8.3% accuracy | [→](benchmarks/reasoning/react-vs-lats.md) |
-| RAG retrieval strategies | HyDE | +12% recall | [→](benchmarks/memory/rag-retrieval-strategies.md) |
+| ReAct vs LATS (HotpotQA) | LATS | +8.3 points accuracy | [→](benchmarks/reasoning/react-vs-lats.md) |
+| RAG retrieval strategies | HyDE | +12.9 points recall | [→](benchmarks/memory/rag-retrieval-strategies.md) |
 | Memory injection methods | Top-K semantic | Best cost/quality | [→](benchmarks/memory/injection-strategies.md) |
-| Function calling comparison | Claude 3.7 | +6% tool accuracy | [→](benchmarks/tool-use/function-calling-comparison.md) |
+| Function calling comparison | Claude Opus 4.5 | Top single-call score 95.0 | [→](benchmarks/tool-use/function-calling-comparison.md) |
+
+> Margins are **percentage-point differences** between the top two configurations (source: each linked document). The ReAct vs LATS run used **simulated** Wikipedia retrieval snippets — see the methodology section for scope limits. Historical scorecard runs have documented methodology but no committed runner artifacts; the CAP capability contracts carry committed, CI-executed runners.
 
 ---
 
@@ -373,9 +377,10 @@ Full guide: **[CONTRIBUTING.md](CONTRIBUTING.md)**
 
 See the full plan: **[meta/ROADMAP.md](meta/ROADMAP.md)**
 
-**Near-term (v2.x):** Skill dependency graph · Skill Paths · JSON/YAML export · Community ratings  
-**Medium-term (v3.0):** LangChain Hub / MCP registry integration · 500+ skills  
-**Long-term:** Skills Tree becomes the canonical reference for AI agent capabilities
+**Near-term (v2.x):** Skill Paths · Community ratings · Recommendation-quality benchmarks  
+**Medium-term (v3.0):** LangChain Hub / MCP registry integration · Agent-runtime adapters  
+**Long-term:** Skills Tree becomes the canonical reference for AI agent capabilities  
+*(Scale milestones retired: the registry passed its historical 500+ and 1000+ skill targets; the priority now is quality, evidence, and adoption.)*
 
 ---
 
