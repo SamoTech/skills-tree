@@ -17,23 +17,23 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2442
-- **Structural upgrade required (enriched tier):** 46
+- **Dependency evidence required:** 2462
+- **Structural upgrade required (enriched tier):** 26
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2442, enriched=46, test_fixture=1.
+Per-quality baseline: battle_tested=2462, enriched=26, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 128 |
+| (none) | 108 |
 | v1 | 2132 |
-| v2 | 193 |
+| v2 | 213 |
 | v3 | 35 |
 | v4 | 1 |
 
@@ -83,28 +83,8 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (46)
+## P1 - Structural upgrade required (enriched tier) (26)
 
-- [skills/12-data/csv-processing.md](skills/12-data/csv-processing.md)
-- [skills/12-data/data-aggregation.md](skills/12-data/data-aggregation.md)
-- [skills/12-data/data-cleaning.md](skills/12-data/data-cleaning.md)
-- [skills/12-data/data-filtering.md](skills/12-data/data-filtering.md)
-- [skills/12-data/data-joining.md](skills/12-data/data-joining.md)
-- [skills/12-data/data-summarization.md](skills/12-data/data-summarization.md)
-- [skills/12-data/data-visualization.md](skills/12-data/data-visualization.md)
-- [skills/12-data/etl-pipeline.md](skills/12-data/etl-pipeline.md)
-- [skills/12-data/json-transformation.md](skills/12-data/json-transformation.md)
-- [skills/12-data/nosql-query.md](skills/12-data/nosql-query.md)
-- [skills/12-data/pandas-operations.md](skills/12-data/pandas-operations.md)
-- [skills/12-data/schema-inference.md](skills/12-data/schema-inference.md)
-- [skills/12-data/similarity-search.md](skills/12-data/similarity-search.md)
-- [skills/12-data/sql-execution.md](skills/12-data/sql-execution.md)
-- [skills/12-data/statistical-analysis.md](skills/12-data/statistical-analysis.md)
-- [skills/12-data/time-series.md](skills/12-data/time-series.md)
-- [skills/15-orchestration/shared-memory.md](skills/15-orchestration/shared-memory.md)
-- [skills/15-orchestration/state-machine.md](skills/15-orchestration/state-machine.md)
-- [skills/15-orchestration/subagent-spawning.md](skills/15-orchestration/subagent-spawning.md)
-- [skills/15-orchestration/task-queue.md](skills/15-orchestration/task-queue.md)
 - [skills/16-domain-specific/ad-copy.md](skills/16-domain-specific/ad-copy.md) - no inputs/outputs/failure-modes table
 - [skills/16-domain-specific/alert-triage.md](skills/16-domain-specific/alert-triage.md) - no inputs/outputs/failure-modes table
 - [skills/16-domain-specific/clinical-note-summarization.md](skills/16-domain-specific/clinical-note-summarization.md) - no inputs/outputs/failure-modes table
@@ -132,7 +112,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2442)
+## P2 - Dependency evidence required (2462)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -1858,19 +1838,26 @@ _None._
 - [skills/12-data/cohort-analysis.md](skills/12-data/cohort-analysis.md) - badge color lightgrey (unscanned)
 - [skills/12-data/cost-per-capability-benchmark-analytics.md](skills/12-data/cost-per-capability-benchmark-analytics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/cross-verified-data-source-onboarding.md](skills/12-data/cross-verified-data-source-onboarding.md) - badge color lightgrey (unscanned)
+- [skills/12-data/csv-processing.md](skills/12-data/csv-processing.md) - badge color 22c55e (✔ verified)
+- [skills/12-data/data-aggregation.md](skills/12-data/data-aggregation.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-anonymization.md](skills/12-data/data-anonymization.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-backfill-pipeline-design.md](skills/12-data/data-backfill-pipeline-design.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-center-power-cost-dataset-modeling.md](skills/12-data/data-center-power-cost-dataset-modeling.md) - badge color lightgrey (unscanned)
+- [skills/12-data/data-cleaning.md](skills/12-data/data-cleaning.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-contract-enforcement.md](skills/12-data/data-contract-enforcement.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-deletion-request-fulfillment-automation.md](skills/12-data/data-deletion-request-fulfillment-automation.md) - badge color lightgrey (unscanned)
+- [skills/12-data/data-filtering.md](skills/12-data/data-filtering.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-freshness-staleness-accounting.md](skills/12-data/data-freshness-staleness-accounting.md) - badge color lightgrey (unscanned)
+- [skills/12-data/data-joining.md](skills/12-data/data-joining.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-lineage.md](skills/12-data/data-lineage.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-pipeline-observability.md](skills/12-data/data-pipeline-observability.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-profiling.md](skills/12-data/data-profiling.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-quality-scoring.md](skills/12-data/data-quality-scoring.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-quality-sla-monitoring.md](skills/12-data/data-quality-sla-monitoring.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-residency-enforcement-automation.md](skills/12-data/data-residency-enforcement-automation.md) - badge color lightgrey (unscanned)
+- [skills/12-data/data-summarization.md](skills/12-data/data-summarization.md) - badge color lightgrey (unscanned)
 - [skills/12-data/data-validation.md](skills/12-data/data-validation.md) - badge color lightgrey (unscanned)
+- [skills/12-data/data-visualization.md](skills/12-data/data-visualization.md) - badge color 22c55e (✔ verified)
 - [skills/12-data/dataset-contamination-screening.md](skills/12-data/dataset-contamination-screening.md) - badge color lightgrey (unscanned)
 - [skills/12-data/dialogue-analytics.md](skills/12-data/dialogue-analytics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/dna-sequence-model-output-analysis.md](skills/12-data/dna-sequence-model-output-analysis.md) - badge color lightgrey (unscanned)
@@ -1881,6 +1868,7 @@ _None._
 - [skills/12-data/embedding-pipeline-cost-tracking.md](skills/12-data/embedding-pipeline-cost-tracking.md) - badge color lightgrey (unscanned)
 - [skills/12-data/employee-agent-monitoring-telemetry-configuration.md](skills/12-data/employee-agent-monitoring-telemetry-configuration.md) - badge color lightgrey (unscanned)
 - [skills/12-data/enterprise-agent-seat-usage-analytics.md](skills/12-data/enterprise-agent-seat-usage-analytics.md) - badge color lightgrey (unscanned)
+- [skills/12-data/etl-pipeline.md](skills/12-data/etl-pipeline.md) - badge color lightgrey (unscanned)
 - [skills/12-data/evaluation-dataset-curation.md](skills/12-data/evaluation-dataset-curation.md) - badge color lightgrey (unscanned)
 - [skills/12-data/event-sourced-projections.md](skills/12-data/event-sourced-projections.md) - badge color lightgrey (unscanned)
 - [skills/12-data/experiment-guardrail-metrics-monitoring.md](skills/12-data/experiment-guardrail-metrics-monitoring.md) - badge color lightgrey (unscanned)
@@ -1897,6 +1885,7 @@ _None._
 - [skills/12-data/idl-to-mcp-schema-generation-pipeline.md](skills/12-data/idl-to-mcp-schema-generation-pipeline.md) - badge color lightgrey (unscanned)
 - [skills/12-data/incremental-processing.md](skills/12-data/incremental-processing.md) - badge color lightgrey (unscanned)
 - [skills/12-data/inter-annotator-agreement-measurement.md](skills/12-data/inter-annotator-agreement-measurement.md) - badge color lightgrey (unscanned)
+- [skills/12-data/json-transformation.md](skills/12-data/json-transformation.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/12-data/kill-switch-invocation-audit-analytics.md](skills/12-data/kill-switch-invocation-audit-analytics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/kpi-linked-agent-performance-metrics.md](skills/12-data/kpi-linked-agent-performance-metrics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/lakehouse-table-maintenance.md](skills/12-data/lakehouse-table-maintenance.md) - badge color lightgrey (unscanned)
@@ -1914,8 +1903,10 @@ _None._
 - [skills/12-data/model-pricing-table-normalization.md](skills/12-data/model-pricing-table-normalization.md) - badge color lightgrey (unscanned)
 - [skills/12-data/model-release-ledger-maintenance.md](skills/12-data/model-release-ledger-maintenance.md) - badge color lightgrey (unscanned)
 - [skills/12-data/multiday-agent-activity-log-forensics.md](skills/12-data/multiday-agent-activity-log-forensics.md) - badge color lightgrey (unscanned)
+- [skills/12-data/nosql-query.md](skills/12-data/nosql-query.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/12-data/notification-ingest-data-minimization.md](skills/12-data/notification-ingest-data-minimization.md) - badge color lightgrey (unscanned)
 - [skills/12-data/observability-span-taxonomies.md](skills/12-data/observability-span-taxonomies.md) - badge color lightgrey (unscanned)
+- [skills/12-data/pandas-operations.md](skills/12-data/pandas-operations.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/12-data/parquet-processing.md](skills/12-data/parquet-processing.md) - badge color lightgrey (unscanned)
 - [skills/12-data/permission-grant-ledger-analytics.md](skills/12-data/permission-grant-ledger-analytics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/pii-discovery.md](skills/12-data/pii-discovery.md) - badge color lightgrey (unscanned)
@@ -1933,14 +1924,19 @@ _None._
 - [skills/12-data/released-model-trace-reproduction-analytics.md](skills/12-data/released-model-trace-reproduction-analytics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/response-schema-validation.md](skills/12-data/response-schema-validation.md) - badge color lightgrey (unscanned)
 - [skills/12-data/retention-policy-automation.md](skills/12-data/retention-policy-automation.md) - badge color lightgrey (unscanned)
+- [skills/12-data/schema-inference.md](skills/12-data/schema-inference.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/12-data/schema-registry-management.md](skills/12-data/schema-registry-management.md) - badge color lightgrey (unscanned)
 - [skills/12-data/semiconductor-lead-time-trend-analysis.md](skills/12-data/semiconductor-lead-time-trend-analysis.md) - badge color lightgrey (unscanned)
 - [skills/12-data/session-replay-sampling.md](skills/12-data/session-replay-sampling.md) - badge color lightgrey (unscanned)
+- [skills/12-data/similarity-search.md](skills/12-data/similarity-search.md) - badge color yellow (machine-inferred · 2 pkgs)
 - [skills/12-data/splunk-otel-agent-telemetry-pipeline.md](skills/12-data/splunk-otel-agent-telemetry-pipeline.md) - badge color lightgrey (unscanned)
+- [skills/12-data/sql-execution.md](skills/12-data/sql-execution.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/12-data/statistical-analysis.md](skills/12-data/statistical-analysis.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/12-data/stream-processing.md](skills/12-data/stream-processing.md) - badge color lightgrey (unscanned)
 - [skills/12-data/synthetic-data-generation.md](skills/12-data/synthetic-data-generation.md) - badge color lightgrey (unscanned)
 - [skills/12-data/teammate-credit-consumption-accounting.md](skills/12-data/teammate-credit-consumption-accounting.md) - badge color lightgrey (unscanned)
 - [skills/12-data/telecom-fault-call-resolution-analytics.md](skills/12-data/telecom-fault-call-resolution-analytics.md) - badge color lightgrey (unscanned)
+- [skills/12-data/time-series.md](skills/12-data/time-series.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/12-data/token-exfil-incident-forensics.md](skills/12-data/token-exfil-incident-forensics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/token-roi-analytics.md](skills/12-data/token-roi-analytics.md) - badge color lightgrey (unscanned)
 - [skills/12-data/trace-based-eval-dataset-generation.md](skills/12-data/trace-based-eval-dataset-generation.md) - badge color lightgrey (unscanned)
@@ -2322,16 +2318,20 @@ _None._
 - [skills/15-orchestration/self-service-agent-deployment-pipelines.md](skills/15-orchestration/self-service-agent-deployment-pipelines.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/sequential-workflow.md](skills/15-orchestration/sequential-workflow.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/service-level-objective-enforcement.md](skills/15-orchestration/service-level-objective-enforcement.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/shared-memory.md](skills/15-orchestration/shared-memory.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md](skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/single-api-multi-model-gateway-configuration.md](skills/15-orchestration/single-api-multi-model-gateway-configuration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/skill-composition-verification.md](skills/15-orchestration/skill-composition-verification.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/specialist-agent-routing.md](skills/15-orchestration/specialist-agent-routing.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/15-orchestration/speculative-execution.md](skills/15-orchestration/speculative-execution.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/state-machine.md](skills/15-orchestration/state-machine.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/stateful-agent-graphs.md](skills/15-orchestration/stateful-agent-graphs.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/15-orchestration/stateless-mcp-gateway-orchestration.md](skills/15-orchestration/stateless-mcp-gateway-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/steering-command-queue-orchestration.md](skills/15-orchestration/steering-command-queue-orchestration.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/subagent-spawning.md](skills/15-orchestration/subagent-spawning.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/supplier-agent-session-brokering-orchestration.md](skills/15-orchestration/supplier-agent-session-brokering-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/task-priority-queue-orchestration.md](skills/15-orchestration/task-priority-queue-orchestration.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/task-queue.md](skills/15-orchestration/task-queue.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/tasks-inbox-backlog-orchestration.md](skills/15-orchestration/tasks-inbox-backlog-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/teammate-parallel-thread-monitoring-orchestration.md](skills/15-orchestration/teammate-parallel-thread-monitoring-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/thread-based-resume.md](skills/15-orchestration/thread-based-resume.md) - badge color lightgrey (unscanned)

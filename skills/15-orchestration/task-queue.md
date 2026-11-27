@@ -3,57 +3,76 @@ title: "Task Queue"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Manage pending work through explicit task states, priorities, ownership, retries, and completion semantics."
+version: v2
+description: "Manage pending work with declared ordering, visibility timeouts, dead-letter handling, and explicit backpressure."
 added: "2025-03"
-related: ["15-orchestration", "input-guardrails", "output-guardrails"]
+related: [task-priority-queue-orchestration, dead-letter-queuing, backpressure-handling]
 ---
 
-**Category:** Orchestration
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-task-queue.json)
+
+# Task Queue
+
+**Category:** `orchestration`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Manage pending work through explicit task states, priorities, ownership, retries, and completion semantics.
+### Description
 
-## When to Use
-Use when work must be queued, scheduled, retried, or resumed across execution cycles.
+Manage pending work with declared ordering, visibility timeouts, dead-letter handling, and explicit backpressure. The orchestration step is contract-first: validate state and inputs before acting, and verify the resulting state transition instead of trusting acknowledgements.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
-| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
-| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish state, ownership, dependencies, and acceptance criteria.
-2. Validate preconditions before changing workflow state.
-3. Execute the declared orchestration operation within bounded authority.
-4. Record state changes, evidence, and unresolved conditions.
-5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | task | object | The queued work item with priority, payload, and deadline |
+| Input | queue_policy | object | Ordering key, visibility timeout, and retry/dead-letter rules |
+| Output | dequeue_result | object | The next task by policy order, or an explicit empty signal |
+| Output | queue_state | object | Depths, in-flight counts, and dead-letter totals |
 
-## Runnable Example
+### Procedure
+1. Enqueue each task with its priority, payload, and deadline in one atomic write.
+2. Dequeue by the declared ordering key; never cherry-pick outside the policy.
+3. Hold dequeued tasks under a visibility timeout so crashes requeue them.
+4. Move exhausted tasks to a dead-letter queue instead of retrying forever.
+5. Apply backpressure by bounding the queue depth and rejecting overflow explicitly.
+6. Report queue depth and dead-letter counts so backlog drift is visible.
+
+### Example
+
 ```python
-task = {"capability": "task-queue", "validated": True}
-assert task["validated"]
-result = {"status": "orchestration_step", "capability": task["capability"]}
-print(result)
+tasks = [{'id': 't1', 'priority': 5}, {'id': 't2', 'priority': 1}, {'id': 't3', 'priority': 3}]
+order = sorted(tasks, key=lambda t: t['priority'])
+next_task = order[0]
+assert next_task['id'] == 't2' and order[-1]['id'] == 't1'
+dead_letter = []
+attempts = {'t1': 3}
+if attempts['t1'] >= 3:
+    dead_letter.append('t1')
+assert dead_letter == ['t1']
+print({'next': next_task['id'], 'dead_lettered': dead_letter})
 ```
 
-## Failure Modes
-- Missing or ambiguous workflow state.
-- Invalid transition or unmet dependency.
-- Duplicate or concurrent execution.
-- Capability or authority exceeds declared scope.
-- Completion cannot be verified.
+### Related Skills
 
-## Orchestration Boundary
-Duplicate delivery and poison tasks can destabilize workflows; use idempotency, visibility timeouts, and dead-letter handling.
+- [Task Priority Queue Orchestration](task-priority-queue-orchestration.md) - order work by priority across agents
+- [Dead Letter Queuing](dead-letter-queuing.md) - isolate poison messages
+- [Backpressure Handling](backpressure-handling.md) - bound queues under load
+
+## Failure Modes
+
+- Tasks enqueued without a priority or deadline, breaking ordering guarantees.
+- Lost in-flight work after a crash because no visibility timeout was set.
+- Poison messages retried forever with no dead-letter path.
+- Silent unbounded queue growth instead of explicit backpressure.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
 
-## Related
-- 15-orchestration
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing framework's documentation; no benchmark claim is made without reproducible evidence.

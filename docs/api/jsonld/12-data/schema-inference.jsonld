@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/schema-inference.md",
-  "name": "schema-inference",
-  "headline": "schema-inference",
-  "description": "Infer candidate data schemas from representative records while distinguishing observed fields from inferred types or optionality.",
+  "name": "Schema Inference",
+  "headline": "Schema Inference",
+  "description": "Infer candidate schemas from representative samples with type-conflict flagging, nullability thresholds, and held-out validation.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/schema-inference.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,22 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:40:39Z",
+  "dateModified": "2026-11-27T01:31:35Z",
   "skillId": "schema-inference",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Data Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -79,7 +73,7 @@
   "keywords": "AI agent, LLM skill, data, inference, schema, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "schema-inference",
-    "description": "An AI agent skill for schema-inference."
+    "name": "Schema Inference",
+    "description": "An AI agent skill for schema inference."
   }
 }

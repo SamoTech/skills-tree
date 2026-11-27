@@ -1,57 +1,76 @@
 ---
 name: data-filtering
-description: Filter datasets using explicit predicates while preserving reproducibility and row-selection semantics.
+description: Filter datasets with declared predicates, explicit null semantics, and per-predicate exclusion counts.
 metadata:
   source: skills/12-data/data-filtering.md
   category: 12-data
+  version: "v2"
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-filtering.json)
+
+# Data Filtering
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Filter datasets using explicit predicates while preserving reproducibility and row-selection semantics.
+### Description
 
-## When to Use
-Use when inclusion/exclusion criteria are clearly defined.
+Filter datasets with declared predicates, explicit null semantics, and per-predicate exclusion counts. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
-| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Inspect the source schema and establish explicit transformation semantics.
-2. Validate required fields, types, encoding, null behavior, and relevant constraints.
-3. Apply only the declared transformation or analysis.
-4. Compare input/output counts and validate the resulting schema and values.
-5. Preserve source data and record material assumptions or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | dataset | list of object | Records with typed fields to filter on |
+| Input | filter_spec | object | Declared predicates, combinators, and null handling |
+| Output | filtered | list of object | Records satisfying all declared predicates |
+| Output | filter_report | object | Counts before, after, and excluded per predicate |
 
-## Runnable Example
+### Procedure
+1. Declare each predicate with its field, operator, and null behavior.
+2. Decide AND/OR composition up front; never mix it per row.
+3. Apply predicates in a fixed order and count exclusions per predicate.
+4. Treat nulls explicitly (exclude, include, or flag) per the spec.
+5. Report counts before, after, and per predicate so filtering is reconcilable.
+
+### Example
+
 ```python
-task = {"capability": "data-filtering", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+rows = [{'id': 1, 'qty': 5}, {'id': 2, 'qty': 0}, {'id': 3, 'qty': None}]
+spec = {'min_qty': 1, 'null_policy': 'exclude'}
+kept, nulls = [], 0
+for r in rows:
+    if r['qty'] is None:
+        nulls += 1
+        continue
+    if r['qty'] >= spec['min_qty']:
+        kept.append(r['id'])
+assert kept == [1] and nulls == 1
+print({'kept': kept, 'excluded_nulls': nulls})
 ```
 
-## Failure Modes
-- Missing or ambiguous schema.
-- Unexpected nulls, duplicates, or malformed records.
-- Silent row/field loss.
-- Incorrect join, aggregation, or type coercion semantics.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Ambiguous predicates or null semantics can change results; validate counts before and after filtering.
+- [Data Cleaning](data-cleaning.md) - repair records before filtering
+- [Data Aggregation](data-aggregation.md) - aggregate the filtered set
+- [Sql Execution](sql-execution.md) - push filters into the database
+
+## Failure Modes
+
+- Null semantics left implicit, so filters silently drop or keep rows.
+- AND/OR ambiguity when predicates are combined without a declared combinator.
+- Case or type mismatches (string vs numeric) making predicates never match.
+- No exclusion counts, so a too-restrictive filter goes unnoticed.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.

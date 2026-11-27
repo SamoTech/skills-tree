@@ -3,57 +3,73 @@ title: "State Machine"
 category: 15-orchestration
 level: advanced
 stability: stable
-description: "Model workflow execution as explicit states and transitions with guards, entry/exit effects, and terminal conditions."
+version: v2
+description: "Model workflow progress as an explicit finite state machine with declared states, guarded transitions, and auditable history."
 added: "2025-03"
-related: ["15-orchestration", "input-guardrails", "output-guardrails"]
+related: [conditional-branching, langgraph-checkpointing, durable-execution-guarantees]
 ---
 
-**Category:** Orchestration
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-state-machine.json)
+
+# State Machine
+
+**Category:** `orchestration`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Model workflow execution as explicit states and transitions with guards, entry/exit effects, and terminal conditions.
+### Description
 
-## When to Use
-Use when a process has well-defined states and transition rules.
+Model workflow progress as an explicit finite state machine with declared states, guarded transitions, and auditable history. The orchestration step is contract-first: validate state and inputs before acting, and verify the resulting state transition instead of trusting acknowledgements.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
-| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
-| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish state, ownership, dependencies, and acceptance criteria.
-2. Validate preconditions before changing workflow state.
-3. Execute the declared orchestration operation within bounded authority.
-4. Record state changes, evidence, and unresolved conditions.
-5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | states | list of string | The declared, finite set of workflow states |
+| Input | transitions | list of object | Allowed from/to pairs with guard conditions |
+| Output | current_state | enum | The state after applying the event, with history |
+| Output | transition_log | list | Each applied or rejected transition with its guard result |
 
-## Runnable Example
+### Procedure
+1. Declare the finite state set before defining any transition.
+2. Define transitions as explicit from/to pairs with guard conditions.
+3. Apply one event at a time; reject any transition not declared in the table.
+4. Evaluate guards before mutating; log rejected transitions with reasons.
+5. Record the transition history so the path to the current state is auditable.
+6. Declare terminal states and reject events applied after them.
+
+### Example
+
 ```python
-task = {"capability": "state-machine", "validated": True}
-assert task["validated"]
-result = {"status": "orchestration_step", "capability": task["capability"]}
-print(result)
+states = ['queued', 'running', 'done', 'failed']
+transitions = {('queued', 'start'): 'running', ('running', 'ok'): 'done', ('running', 'err'): 'failed'}
+state, event = 'queued', 'start'
+assert state in states and (state, event) in transitions
+state = transitions[(state, event)]
+assert state == 'running' and ('running', 'ok') in transitions
+print({'state': state, 'terminal_reached': False})
 ```
 
-## Failure Modes
-- Missing or ambiguous workflow state.
-- Invalid transition or unmet dependency.
-- Duplicate or concurrent execution.
-- Capability or authority exceeds declared scope.
-- Completion cannot be verified.
+### Related Skills
 
-## Orchestration Boundary
-Unreachable, ambiguous, or cyclic transitions can stall execution; validate the transition graph.
+- [Conditional Branching](conditional-branching.md) - route control flow on conditions
+- [LangGraph Checkpointing](langgraph-checkpointing.md) - persist graph state between steps
+- [Durable Execution Guarantees](durable-execution-guarantees.md) - resume workflows after failures
+
+## Failure Modes
+
+- Implicit states reached by side effects instead of declared transitions.
+- Guard conditions evaluated after the state has already changed.
+- Missing terminal states letting finished workflows accept events.
+- Unbounded state growth that defeats the finite-state contract.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
 
-## Related
-- 15-orchestration
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing framework's documentation; no benchmark claim is made without reproducible evidence.

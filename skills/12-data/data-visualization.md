@@ -3,57 +3,71 @@ title: "Data Visualization"
 category: 12-data
 level: advanced
 stability: stable
-description: "Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent."
+version: v2
+description: "Create data visualizations from pre-aggregated values with declared axes, units, and plotted-to-source verification."
 added: "2025-03"
-related: ["12-data", "input-guardrails", "output-guardrails"]
+related: [data-aggregation, data-summarization, funnel-analysis]
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-data-visualization.json)
+
+# Data Visualization
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent.
+### Description
 
-## When to Use
-Use when the analytical question and visual encoding are defined.
+Create data visualizations from pre-aggregated values with declared axes, units, and plotted-to-source verification. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Dataset or records, schema/context, transformation rules, and required output format. |
-| Outputs | Structured result with row counts, assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, null/encoding issues, silent data loss, cardinality errors, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Inspect the source schema and establish explicit transformation semantics.
-2. Validate required fields, types, encoding, null behavior, and relevant constraints.
-3. Apply only the declared transformation or analysis.
-4. Compare input/output counts and validate the resulting schema and values.
-5. Preserve source data and record material assumptions or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | aggregates | list of object | Pre-aggregated values with their labels and units |
+| Input | chart_spec | object | Chart type, axes, units, and sorting |
+| Output | chart | object | A rendered specification mapping values to visual channels |
+| Output | data_check | object | Confirmation that plotted values match the aggregates |
 
-## Runnable Example
+### Procedure
+1. Aggregate before plotting; never render raw row-level data.
+2. Choose the chart type from the comparison being made, not decoration.
+3. Declare axes, units, and sorting before rendering.
+4. Start quantitative axes at zero for bar charts or disclose truncation.
+5. Verify plotted values match the aggregates one-to-one.
+
+### Example
+
 ```python
-task = {"capability": "data-visualization", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+agg = [{'label': 'east', 'sales': 15}, {'label': 'west', 'sales': 7}]
+chart_spec = {'type': 'bar', 'x': 'label', 'y': 'sales', 'baseline_zero': True}
+plotted = {a['label']: a['sales'] for a in agg}
+assert all(v >= 0 for v in plotted.values()) and chart_spec['baseline_zero']
+assert plotted == {'east': 15, 'west': 7}
+print({'plotted': plotted, 'max': max(plotted.values())})
 ```
 
-## Failure Modes
-- Missing or ambiguous schema.
-- Unexpected nulls, duplicates, or malformed records.
-- Silent row/field loss.
-- Incorrect join, aggregation, or type coercion semantics.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Charts can mislead through scales, aggregation, or omitted context; validate labels, units, and source data.
+- [Data Aggregation](data-aggregation.md) - prepare aggregates to plot
+- [Data Summarization](data-summarization.md) - summarize before visualizing
+- [Funnel Analysis](funnel-analysis.md) - visualize stage conversion
+
+## Failure Modes
+
+- Truncated axes exaggerating differences without disclosure.
+- Plotting raw rows instead of aggregates, producing noise.
+- Mismatched units across series on one axis.
+- A chart type hiding the comparison the reader needs.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data transformations must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.

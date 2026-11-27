@@ -1,57 +1,73 @@
 ---
 name: similarity-search
-description: Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.
+description: Retrieve semantically similar items with matched embedding models, declared metrics, thresholds, and returned provenance.
 metadata:
   source: skills/12-data/similarity-search.md
   category: 12-data
+  version: "v2"
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-similarity-search.json)
+
+# Similarity Search
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.
+### Description
 
-## When to Use
-Use when embeddings/features, distance metric, and retrieval scope are defined.
+Retrieve semantically similar items with matched embedding models, declared metrics, thresholds, and returned provenance. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Validated data, schema/context, method parameters, and required output contract. |
-| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the source schema, analytical or query objective, and output contract.
-2. Validate types, ranges, temporal or database context, and relevant assumptions.
-3. Apply only the declared operation within bounded scope.
-4. Validate outputs, counts, assumptions, and reproducibility.
-5. Preserve source data and record material uncertainty or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | query | object | The query text with its embedding model and metric declared |
+| Input | index_profile | object | The vector index, its metric (cosine/L2), and top_k |
+| Output | matches | list of object | Top-k items with scores from the declared metric |
+| Output | search_report | object | Candidates examined, threshold applied, model ids |
 
-## Runnable Example
+### Procedure
+1. Embed the query with the same model that built the index.
+2. Use the index's declared metric; never mix cosine and L2 scores.
+3. Retrieve top-k, then apply the declared relevance threshold.
+4. Verify match metadata (ids, sources) is returned with the scores.
+5. Report the model, metric, and threshold so results are reproducible.
+
+### Example
+
 ```python
-task = {"capability": "similarity-search", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+import math
+q, docs = [1.0, 0.0], [{'id': 'a', 'v': [1.0, 0.0]}, {'id': 'b', 'v': [0.0, 1.0]}]
+def cosine(u, v):
+    dot = sum(x*y for x, y in zip(u, v))
+    return dot / (math.sqrt(sum(x*x for x in u)) * math.sqrt(sum(y*y for y in v)))
+scored = sorted(({'id': d['id'], 'score': round(cosine(q, d['v']), 6)} for d in docs), key=lambda m: -m['score'])
+assert scored[0]['id'] == 'a' and scored[0]['score'] == 1.0
+print(scored)
 ```
 
-## Failure Modes
-- Missing or ambiguous schema/context.
-- Unsupported assumptions or invalid method selection.
-- Silent data loss, leakage, or coercion.
-- Unbounded or unauthorized execution.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Similarity is metric-dependent and not proof of semantic equivalence; validate retrieved candidates.
+- [Embedding Generation](embedding-generation.md) - produce the vectors being searched
+- [Vector Index Tuning](vector-index-tuning.md) - tune the index for recall and latency
+- [Embedding Model Selection](embedding-model-selection.md) - choose one model for index and query
+
+## Failure Modes
+
+- Query embedded with a different model than the index.
+- Metric mismatch (cosine vs L2) making scores incomparable.
+- No relevance threshold, so irrelevant top-k results surface as matches.
+- Match provenance (ids, sources) dropped, making results unverifiable.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.

@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-11-27T01:16:22.589843+00:00",
+    "generated_at": "2026-11-27T01:32:28.425840+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
-    "edge_count": 3933,
+    "edge_count": 3992,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -25889,7 +25889,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -25904,7 +25904,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -25964,7 +25964,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26009,7 +26009,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26039,7 +26039,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26144,7 +26144,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26174,7 +26174,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26339,7 +26339,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26594,7 +26594,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26864,7 +26864,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -26909,7 +26909,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -27179,7 +27179,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -27239,7 +27239,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -27269,7 +27269,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -27284,7 +27284,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -27359,7 +27359,7 @@
       "layer": "execution",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -33089,7 +33089,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -33179,7 +33179,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -33239,7 +33239,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -33284,7 +33284,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -59073,6 +59073,54 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/csv-processing",
+      "target": "12-data/data-cleaning",
+      "type": "RELATED_TO",
+      "evidence": "[Data Cleaning](data-cleaning.md)",
+      "source_file": "skills/12-data/csv-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/csv-processing",
+      "target": "12-data/schema-inference",
+      "type": "RELATED_TO",
+      "evidence": "[Schema Inference](schema-inference.md)",
+      "source_file": "skills/12-data/csv-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/csv-processing",
+      "target": "12-data/parquet-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Parquet Processing](parquet-processing.md)",
+      "source_file": "skills/12-data/csv-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-aggregation",
+      "target": "12-data/data-summarization",
+      "type": "RELATED_TO",
+      "evidence": "[Data Summarization](data-summarization.md)",
+      "source_file": "skills/12-data/data-aggregation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-aggregation",
+      "target": "12-data/cohort-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Cohort Analysis](cohort-analysis.md)",
+      "source_file": "skills/12-data/data-aggregation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-aggregation",
+      "target": "12-data/funnel-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Funnel Analysis](funnel-analysis.md)",
+      "source_file": "skills/12-data/data-aggregation.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/data-anonymization",
       "target": "12-data/data-validation",
       "type": "RELATED_TO",
@@ -59121,6 +59169,30 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/data-cleaning",
+      "target": "12-data/missing-data-imputation",
+      "type": "RELATED_TO",
+      "evidence": "[Missing Data Imputation](missing-data-imputation.md)",
+      "source_file": "skills/12-data/data-cleaning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-cleaning",
+      "target": "12-data/data-profiling",
+      "type": "RELATED_TO",
+      "evidence": "[Data Profiling](data-profiling.md)",
+      "source_file": "skills/12-data/data-cleaning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-cleaning",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/data-cleaning.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/data-contract-enforcement",
       "target": "12-data/data-validation",
       "type": "RELATED_TO",
@@ -59153,6 +59225,30 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/data-filtering",
+      "target": "12-data/data-cleaning",
+      "type": "RELATED_TO",
+      "evidence": "[Data Cleaning](data-cleaning.md)",
+      "source_file": "skills/12-data/data-filtering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-filtering",
+      "target": "12-data/data-aggregation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Aggregation](data-aggregation.md)",
+      "source_file": "skills/12-data/data-filtering.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-filtering",
+      "target": "12-data/sql-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Sql Execution](sql-execution.md)",
+      "source_file": "skills/12-data/data-filtering.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/data-freshness-staleness-accounting",
       "target": "12-data/cross-verified-data-source-onboarding",
       "type": "RELATED_TO",
@@ -59166,6 +59262,30 @@
       "type": "RELATED_TO",
       "evidence": "[Aggregate Dataset Screening Pipeline](aggregate-dataset-screening-pipeline.md)",
       "source_file": "skills/12-data/data-freshness-staleness-accounting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-joining",
+      "target": "12-data/sql-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Sql Execution](sql-execution.md)",
+      "source_file": "skills/12-data/data-joining.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-joining",
+      "target": "12-data/data-cleaning",
+      "type": "RELATED_TO",
+      "evidence": "[Data Cleaning](data-cleaning.md)",
+      "source_file": "skills/12-data/data-joining.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-joining",
+      "target": "12-data/schema-inference",
+      "type": "RELATED_TO",
+      "evidence": "[Schema Inference](schema-inference.md)",
+      "source_file": "skills/12-data/data-joining.md",
       "confidence": "high"
     },
     {
@@ -59233,6 +59353,30 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/data-summarization",
+      "target": "12-data/data-aggregation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Aggregation](data-aggregation.md)",
+      "source_file": "skills/12-data/data-summarization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-summarization",
+      "target": "12-data/ab-test-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Ab Test Analysis](ab-test-analysis.md)",
+      "source_file": "skills/12-data/data-summarization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-summarization",
+      "target": "12-data/funnel-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Funnel Analysis](funnel-analysis.md)",
+      "source_file": "skills/12-data/data-summarization.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/data-validation",
       "target": "12-data/data-cleaning",
       "type": "RELATED_TO",
@@ -59246,6 +59390,30 @@
       "type": "RELATED_TO",
       "evidence": "[Schema Inference](schema-inference.md)",
       "source_file": "skills/12-data/data-validation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-visualization",
+      "target": "12-data/data-aggregation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Aggregation](data-aggregation.md)",
+      "source_file": "skills/12-data/data-visualization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-visualization",
+      "target": "12-data/data-summarization",
+      "type": "RELATED_TO",
+      "evidence": "[Data Summarization](data-summarization.md)",
+      "source_file": "skills/12-data/data-visualization.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/data-visualization",
+      "target": "12-data/funnel-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Funnel Analysis](funnel-analysis.md)",
+      "source_file": "skills/12-data/data-visualization.md",
       "confidence": "high"
     },
     {
@@ -59350,6 +59518,30 @@
       "type": "RELATED_TO",
       "evidence": "[Llm Cost Usage Accounting](../12-data/llm-cost-usage-accounting.md)",
       "source_file": "skills/12-data/enterprise-agent-seat-usage-analytics.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/etl-pipeline",
+      "target": "12-data/incremental-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Incremental Processing](incremental-processing.md)",
+      "source_file": "skills/12-data/etl-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/etl-pipeline",
+      "target": "12-data/change-data-capture",
+      "type": "RELATED_TO",
+      "evidence": "[Change Data Capture](change-data-capture.md)",
+      "source_file": "skills/12-data/etl-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/etl-pipeline",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/etl-pipeline.md",
       "confidence": "high"
     },
     {
@@ -59526,6 +59718,30 @@
       "type": "RELATED_TO",
       "evidence": "[Data Aggregation](data-aggregation.md)",
       "source_file": "skills/12-data/incremental-processing.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/json-transformation",
+      "target": "12-data/schema-inference",
+      "type": "RELATED_TO",
+      "evidence": "[Schema Inference](schema-inference.md)",
+      "source_file": "skills/12-data/json-transformation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/json-transformation",
+      "target": "12-data/response-schema-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Response Schema Validation](response-schema-validation.md)",
+      "source_file": "skills/12-data/json-transformation.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/json-transformation",
+      "target": "12-data/csv-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Csv Processing](csv-processing.md)",
+      "source_file": "skills/12-data/json-transformation.md",
       "confidence": "high"
     },
     {
@@ -59761,6 +59977,30 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/nosql-query",
+      "target": "12-data/sql-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Sql Execution](sql-execution.md)",
+      "source_file": "skills/12-data/nosql-query.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/nosql-query",
+      "target": "12-data/query-optimization",
+      "type": "RELATED_TO",
+      "evidence": "[Query Optimization](query-optimization.md)",
+      "source_file": "skills/12-data/nosql-query.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/nosql-query",
+      "target": "12-data/schema-inference",
+      "type": "RELATED_TO",
+      "evidence": "[Schema Inference](schema-inference.md)",
+      "source_file": "skills/12-data/nosql-query.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/notification-ingest-data-minimization",
       "target": "12-data/pii-discovery",
       "type": "RELATED_TO",
@@ -59790,6 +60030,30 @@
       "type": "RELATED_TO",
       "evidence": "[session replay sampling](../12-data/session-replay-sampling.md)",
       "source_file": "skills/12-data/observability-span-taxonomies.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/pandas-operations",
+      "target": "12-data/csv-processing",
+      "type": "RELATED_TO",
+      "evidence": "[Csv Processing](csv-processing.md)",
+      "source_file": "skills/12-data/pandas-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/pandas-operations",
+      "target": "12-data/statistical-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Statistical Analysis](statistical-analysis.md)",
+      "source_file": "skills/12-data/pandas-operations.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/pandas-operations",
+      "target": "12-data/data-cleaning",
+      "type": "RELATED_TO",
+      "evidence": "[Data Cleaning](data-cleaning.md)",
+      "source_file": "skills/12-data/pandas-operations.md",
       "confidence": "high"
     },
     {
@@ -60001,6 +60265,30 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/schema-inference",
+      "target": "12-data/json-transformation",
+      "type": "RELATED_TO",
+      "evidence": "[Json Transformation](json-transformation.md)",
+      "source_file": "skills/12-data/schema-inference.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/schema-inference",
+      "target": "12-data/data-validation",
+      "type": "RELATED_TO",
+      "evidence": "[Data Validation](data-validation.md)",
+      "source_file": "skills/12-data/schema-inference.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/schema-inference",
+      "target": "12-data/data-profiling",
+      "type": "RELATED_TO",
+      "evidence": "[Data Profiling](data-profiling.md)",
+      "source_file": "skills/12-data/schema-inference.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/semiconductor-lead-time-trend-analysis",
       "target": "12-data/time-series",
       "type": "RELATED_TO",
@@ -60033,6 +60321,30 @@
       "confidence": "high"
     },
     {
+      "source": "12-data/similarity-search",
+      "target": "12-data/embedding-generation",
+      "type": "RELATED_TO",
+      "evidence": "[Embedding Generation](embedding-generation.md)",
+      "source_file": "skills/12-data/similarity-search.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/similarity-search",
+      "target": "12-data/vector-index-tuning",
+      "type": "RELATED_TO",
+      "evidence": "[Vector Index Tuning](vector-index-tuning.md)",
+      "source_file": "skills/12-data/similarity-search.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/similarity-search",
+      "target": "12-data/embedding-model-selection",
+      "type": "RELATED_TO",
+      "evidence": "[Embedding Model Selection](embedding-model-selection.md)",
+      "source_file": "skills/12-data/similarity-search.md",
+      "confidence": "high"
+    },
+    {
       "source": "12-data/splunk-otel-agent-telemetry-pipeline",
       "target": "12-data/agent-usage-metering-event-pipeline",
       "type": "RELATED_TO",
@@ -60046,6 +60358,54 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Trace Data Modeling](../12-data/agent-trace-data-modeling.md)",
       "source_file": "skills/12-data/splunk-otel-agent-telemetry-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/sql-execution",
+      "target": "12-data/query-optimization",
+      "type": "RELATED_TO",
+      "evidence": "[Query Optimization](query-optimization.md)",
+      "source_file": "skills/12-data/sql-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/sql-execution",
+      "target": "12-data/nosql-query",
+      "type": "RELATED_TO",
+      "evidence": "[Nosql Query](nosql-query.md)",
+      "source_file": "skills/12-data/sql-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/sql-execution",
+      "target": "12-data/data-joining",
+      "type": "RELATED_TO",
+      "evidence": "[Data Joining](data-joining.md)",
+      "source_file": "skills/12-data/sql-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/statistical-analysis",
+      "target": "12-data/ab-test-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Ab Test Analysis](ab-test-analysis.md)",
+      "source_file": "skills/12-data/statistical-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/statistical-analysis",
+      "target": "12-data/cohort-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Cohort Analysis](cohort-analysis.md)",
+      "source_file": "skills/12-data/statistical-analysis.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/statistical-analysis",
+      "target": "12-data/time-series",
+      "type": "RELATED_TO",
+      "evidence": "[Time Series](time-series.md)",
+      "source_file": "skills/12-data/statistical-analysis.md",
       "confidence": "high"
     },
     {
@@ -60110,6 +60470,30 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Task Success Rate Measurement](agent-task-success-rate-measurement.md)",
       "source_file": "skills/12-data/telecom-fault-call-resolution-analytics.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/time-series",
+      "target": "12-data/statistical-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Statistical Analysis](statistical-analysis.md)",
+      "source_file": "skills/12-data/time-series.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/time-series",
+      "target": "12-data/anomaly-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Anomaly Detection](anomaly-detection.md)",
+      "source_file": "skills/12-data/time-series.md",
+      "confidence": "high"
+    },
+    {
+      "source": "12-data/time-series",
+      "target": "12-data/cohort-analysis",
+      "type": "RELATED_TO",
+      "evidence": "[Cohort Analysis](cohort-analysis.md)",
+      "source_file": "skills/12-data/time-series.md",
       "confidence": "high"
     },
     {
@@ -65297,6 +65681,22 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/shared-memory",
+      "target": "15-orchestration/state-machine",
+      "type": "RELATED_TO",
+      "evidence": "[State Machine](state-machine.md)",
+      "source_file": "skills/15-orchestration/shared-memory.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/shared-memory",
+      "target": "09-agentic-patterns/agent-checkpointing",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Checkpointing](../09-agentic-patterns/agent-checkpointing.md)",
+      "source_file": "skills/15-orchestration/shared-memory.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/shared-surface-human-agent-collaboration-orchestration",
       "target": "15-orchestration/agent-communication",
       "type": "RELATED_TO",
@@ -65361,6 +65761,30 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/state-machine",
+      "target": "15-orchestration/conditional-branching",
+      "type": "RELATED_TO",
+      "evidence": "[Conditional Branching](conditional-branching.md)",
+      "source_file": "skills/15-orchestration/state-machine.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/state-machine",
+      "target": "15-orchestration/langgraph-checkpointing",
+      "type": "RELATED_TO",
+      "evidence": "[LangGraph Checkpointing](langgraph-checkpointing.md)",
+      "source_file": "skills/15-orchestration/state-machine.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/state-machine",
+      "target": "15-orchestration/durable-execution-guarantees",
+      "type": "RELATED_TO",
+      "evidence": "[Durable Execution Guarantees](durable-execution-guarantees.md)",
+      "source_file": "skills/15-orchestration/state-machine.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/stateless-mcp-gateway-orchestration",
       "target": "15-orchestration/cross-protocol-agent-bridging",
       "type": "RELATED_TO",
@@ -65393,6 +65817,30 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/subagent-spawning",
+      "target": "15-orchestration/parallel-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Parallel Execution](parallel-execution.md)",
+      "source_file": "skills/15-orchestration/subagent-spawning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/subagent-spawning",
+      "target": "15-orchestration/agent-pool-warming",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Pool Warming](agent-pool-warming.md)",
+      "source_file": "skills/15-orchestration/subagent-spawning.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/subagent-spawning",
+      "target": "15-orchestration/specialist-agent-routing",
+      "type": "RELATED_TO",
+      "evidence": "[Specialist Agent Routing](specialist-agent-routing.md)",
+      "source_file": "skills/15-orchestration/subagent-spawning.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/supplier-agent-session-brokering-orchestration",
       "target": "04-action-execution/per-task-credential-scoping-actions",
       "type": "RELATED_TO",
@@ -65406,6 +65854,30 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Gateway Quota Enforcement](../17-infrastructure/agent-gateway-quota-enforcement.md)",
       "source_file": "skills/15-orchestration/supplier-agent-session-brokering-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/task-queue",
+      "target": "15-orchestration/task-priority-queue-orchestration",
+      "type": "RELATED_TO",
+      "evidence": "[Task Priority Queue Orchestration](task-priority-queue-orchestration.md)",
+      "source_file": "skills/15-orchestration/task-queue.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/task-queue",
+      "target": "15-orchestration/dead-letter-queuing",
+      "type": "RELATED_TO",
+      "evidence": "[Dead Letter Queuing](dead-letter-queuing.md)",
+      "source_file": "skills/15-orchestration/task-queue.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/task-queue",
+      "target": "15-orchestration/backpressure-handling",
+      "type": "RELATED_TO",
+      "evidence": "[Backpressure Handling](backpressure-handling.md)",
+      "source_file": "skills/15-orchestration/task-queue.md",
       "confidence": "high"
     },
     {

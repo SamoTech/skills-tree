@@ -3,57 +3,75 @@ title: "Schema Inference"
 category: 12-data
 level: advanced
 stability: stable
-description: "Infer candidate data schemas from representative records while distinguishing observed fields from inferred types or optionality."
+version: v2
+description: "Infer candidate schemas from representative samples with type-conflict flagging, nullability thresholds, and held-out validation."
 added: "2025-03"
-related: ["12-data", "input-guardrails", "output-guardrails"]
+related: [json-transformation, data-validation, data-profiling]
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-schema-inference.json)
+
+# Schema Inference
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Infer candidate data schemas from representative records while distinguishing observed fields from inferred types or optionality.
+### Description
 
-## When to Use
-Use when a source schema is absent and representative samples are available.
+Infer candidate schemas from representative samples with type-conflict flagging, nullability thresholds, and held-out validation. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Validated data, schema/context, method parameters, and required output contract. |
-| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the source schema, analytical or query objective, and output contract.
-2. Validate types, ranges, temporal or database context, and relevant assumptions.
-3. Apply only the declared operation within bounded scope.
-4. Validate outputs, counts, assumptions, and reproducibility.
-5. Preserve source data and record material uncertainty or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | sample | list of object | Representative records (or a declared sample) to infer from |
+| Input | inference_rules | object | Type mapping, nullability threshold, and confidence rules |
+| Output | schema | object | Inferred fields with types, nullability, and confidence |
+| Output | inference_notes | list | Ambiguities, conflicts, and records that disagree |
 
-## Runnable Example
+### Procedure
+1. Sample data deliberately; never infer a schema from a single record.
+2. Infer types per field and record conflicts (int vs str) instead of coercing.
+3. Compute nullability from observed null rates with a declared threshold.
+4. Flag low-confidence fields for human confirmation, not silent acceptance.
+5. Validate the inferred schema against a held-out slice before committing it.
+
+### Example
+
 ```python
-task = {"capability": "schema-inference", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+records = [{'qty': 1, 'tag': 'a'}, {'qty': 2, 'tag': None}, {'qty': 3, 'tag': 'b'}]
+fields = {}
+for k in ('qty', 'tag'):
+    vals = [r[k] for r in records if r[k] is not None]
+    types = {type(v).__name__ for v in vals}
+    nulls = sum(1 for r in records if r[k] is None)
+    fields[k] = {'type': types.pop() if len(types) == 1 else 'conflict', 'nulls': nulls}
+assert fields['qty'] == {'type': 'int', 'nulls': 0}
+assert fields['tag'] == {'type': 'str', 'nulls': 1}
+print(fields)
 ```
 
-## Failure Modes
-- Missing or ambiguous schema/context.
-- Unsupported assumptions or invalid method selection.
-- Silent data loss, leakage, or coercion.
-- Unbounded or unauthorized execution.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Inference from samples can miss rare fields or types; treat the result as a candidate schema requiring validation.
+- [Json Transformation](json-transformation.md) - map documents into the inferred schema
+- [Data Validation](data-validation.md) - validate data against the schema
+- [Data Profiling](data-profiling.md) - profile fields before inference
+
+## Failure Modes
+
+- Inferring from one record and missing the field's real variation.
+- Type conflicts coerced silently instead of flagged.
+- Nullability underestimated from a small or biased sample.
+- An inferred schema never validated against held-out data.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.

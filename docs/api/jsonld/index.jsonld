@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 2488,
-  "dateModified": "2026-11-27T01:12:59Z",
+  "dateModified": "2026-11-27T01:31:35Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -10361,13 +10361,13 @@
       "@type": "ListItem",
       "position": 1725,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/csv-processing.md",
-      "name": "csv-processing"
+      "name": "Csv Processing"
     },
     {
       "@type": "ListItem",
       "position": 1726,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-aggregation.md",
-      "name": "data-aggregation"
+      "name": "Data Aggregation"
     },
     {
       "@type": "ListItem",
@@ -10391,7 +10391,7 @@
       "@type": "ListItem",
       "position": 1730,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-cleaning.md",
-      "name": "data-cleaning"
+      "name": "Data Cleaning"
     },
     {
       "@type": "ListItem",
@@ -10409,7 +10409,7 @@
       "@type": "ListItem",
       "position": 1733,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-filtering.md",
-      "name": "data-filtering"
+      "name": "Data Filtering"
     },
     {
       "@type": "ListItem",
@@ -10421,7 +10421,7 @@
       "@type": "ListItem",
       "position": 1735,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-joining.md",
-      "name": "data-joining"
+      "name": "Data Joining"
     },
     {
       "@type": "ListItem",
@@ -10463,7 +10463,7 @@
       "@type": "ListItem",
       "position": 1742,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-summarization.md",
-      "name": "data-summarization"
+      "name": "Data Summarization"
     },
     {
       "@type": "ListItem",
@@ -10475,7 +10475,7 @@
       "@type": "ListItem",
       "position": 1744,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/data-visualization.md",
-      "name": "data-visualization"
+      "name": "Data Visualization"
     },
     {
       "@type": "ListItem",
@@ -10541,7 +10541,7 @@
       "@type": "ListItem",
       "position": 1755,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/etl-pipeline.md",
-      "name": "etl-pipeline"
+      "name": "Etl Pipeline"
     },
     {
       "@type": "ListItem",
@@ -10643,7 +10643,7 @@
       "@type": "ListItem",
       "position": 1772,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/json-transformation.md",
-      "name": "json-transformation"
+      "name": "Json Transformation"
     },
     {
       "@type": "ListItem",
@@ -10751,7 +10751,7 @@
       "@type": "ListItem",
       "position": 1790,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/nosql-query.md",
-      "name": "nosql-query"
+      "name": "Nosql Query"
     },
     {
       "@type": "ListItem",
@@ -10769,7 +10769,7 @@
       "@type": "ListItem",
       "position": 1793,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/pandas-operations.md",
-      "name": "pandas-operations"
+      "name": "Pandas Operations"
     },
     {
       "@type": "ListItem",
@@ -10877,7 +10877,7 @@
       "@type": "ListItem",
       "position": 1811,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/schema-inference.md",
-      "name": "schema-inference"
+      "name": "Schema Inference"
     },
     {
       "@type": "ListItem",
@@ -10901,7 +10901,7 @@
       "@type": "ListItem",
       "position": 1815,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/similarity-search.md",
-      "name": "similarity-search"
+      "name": "Similarity Search"
     },
     {
       "@type": "ListItem",
@@ -10913,13 +10913,13 @@
       "@type": "ListItem",
       "position": 1817,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/sql-execution.md",
-      "name": "sql-execution"
+      "name": "Sql Execution"
     },
     {
       "@type": "ListItem",
       "position": 1818,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/statistical-analysis.md",
-      "name": "statistical-analysis"
+      "name": "Statistical Analysis"
     },
     {
       "@type": "ListItem",
@@ -10949,7 +10949,7 @@
       "@type": "ListItem",
       "position": 1823,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/time-series.md",
-      "name": "time-series"
+      "name": "Time Series"
     },
     {
       "@type": "ListItem",
@@ -13241,7 +13241,7 @@
       "@type": "ListItem",
       "position": 2205,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/shared-memory.md",
-      "name": "shared-memory"
+      "name": "Shared Memory"
     },
     {
       "@type": "ListItem",
@@ -13277,7 +13277,7 @@
       "@type": "ListItem",
       "position": 2211,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/state-machine.md",
-      "name": "state-machine"
+      "name": "State Machine"
     },
     {
       "@type": "ListItem",
@@ -13301,7 +13301,7 @@
       "@type": "ListItem",
       "position": 2215,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/subagent-spawning.md",
-      "name": "subagent-spawning"
+      "name": "Subagent Spawning"
     },
     {
       "@type": "ListItem",
@@ -13319,7 +13319,7 @@
       "@type": "ListItem",
       "position": 2218,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/task-queue.md",
-      "name": "task-queue"
+      "name": "Task Queue"
     },
     {
       "@type": "ListItem",

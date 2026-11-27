@@ -1,57 +1,71 @@
 ---
 name: pandas-operations
-description: Apply reproducible pandas transformations to validated tabular data while preserving schema and row-count expectations.
+description: Apply reproducible pandas transformations with dtype and shape verification at each step and no silent NaN propagation.
 metadata:
   source: skills/12-data/pandas-operations.md
   category: 12-data
+  version: "v2"
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-pandas-operations.json)
+
+# Pandas Operations
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Apply reproducible pandas transformations to validated tabular data while preserving schema and row-count expectations.
+### Description
 
-## When to Use
-Use when pandas is the intended execution environment and the transformation is explicit.
+Apply reproducible pandas transformations with dtype and shape verification at each step and no silent NaN propagation. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Validated data, schema/context, method parameters, and required output contract. |
-| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the source schema, analytical or query objective, and output contract.
-2. Validate types, ranges, temporal or database context, and relevant assumptions.
-3. Apply only the declared operation within bounded scope.
-4. Validate outputs, counts, assumptions, and reproducibility.
-5. Preserve source data and record material uncertainty or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | dataframe | object | A loaded DataFrame with declared dtypes and index |
+| Input | operation_plan | object | Ordered operations with expected shapes per step |
+| Output | result | object | The transformed DataFrame with verified dtypes and shape |
+| Output | shape_trace | list | Input/output shape of each operation for reconciliation |
 
-## Runnable Example
+### Procedure
+1. Verify dtypes and shape right after loading, before any operation.
+2. Chain operations in a declared order with the expected shape per step.
+3. Avoid chained assignment; use explicit .loc or vectorized operations.
+4. Check for silent NaN propagation after merges and aggregations.
+5. Assert the final shape and dtypes against expectations before export.
+
+### Example
+
 ```python
-task = {"capability": "pandas-operations", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+col = [1, 2, 3, 4]
+op_plan = [{'op': 'filter>2', 'expect': 2}, {'op': 'sum', 'expect': 7}]
+filtered = [v for v in col if v > 2]
+total = sum(filtered)
+assert len(filtered) == op_plan[0]['expect'] and total == op_plan[1]['expect']
+print({'shape_after_filter': len(filtered), 'sum': total})
 ```
 
-## Failure Modes
-- Missing or ambiguous schema/context.
-- Unsupported assumptions or invalid method selection.
-- Silent data loss, leakage, or coercion.
-- Unbounded or unauthorized execution.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Index alignment, dtype coercion, chained assignment, and missing values can change results; validate outputs.
+- [Csv Processing](csv-processing.md) - load tabular input correctly
+- [Statistical Analysis](statistical-analysis.md) - analyze the prepared frame
+- [Data Cleaning](data-cleaning.md) - repair defects before analysis
+
+## Failure Modes
+
+- Chained assignment producing SettingWithCopyWarning and no real update.
+- dtype drift (object where numeric was expected) breaking vectorized ops.
+- Silent NaN introduction after merges or groupby on missing keys.
+- No shape assertions, so an accidental row drop goes unnoticed.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.

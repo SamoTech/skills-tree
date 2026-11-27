@@ -4,54 +4,69 @@ description: Coordinate shared workflow state across agents using explicit schem
 metadata:
   source: skills/15-orchestration/shared-memory.md
   category: 15-orchestration
+  version: "v2"
 ---
 
-**Category:** Orchestration
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-shared-memory.json)
+
+# Shared Memory
+
+**Category:** `orchestration`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Coordinate shared workflow state across agents using explicit schemas, ownership, synchronization, and provenance.
+### Description
 
-## When to Use
-Use when multiple agents need a common state store or shared context.
+Coordinate shared workflow state across agents using explicit schemas, ownership, synchronization, and provenance. The orchestration step is contract-first: validate state and inputs before acting, and verify the resulting state transition instead of trusting acknowledgements.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Workflow state, roles, task constraints, dependencies, authorization, and acceptance criteria. |
-| Outputs | Explicit orchestration state/result with ownership, evidence, and recovery information. |
-| Failure modes | Stale state, ambiguous transitions, duplicate work, missing authority, or unverifiable completion. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish state, ownership, dependencies, and acceptance criteria.
-2. Validate preconditions before changing workflow state.
-3. Execute the declared orchestration operation within bounded authority.
-4. Record state changes, evidence, and unresolved conditions.
-5. Apply explicit retry, recovery, escalation, or terminal behavior when required.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | state_schema | object | The shared record types, fields, and allowed transitions |
+| Input | ownership | object | Which agent owns each record and who may write it |
+| Output | state_update | object | The versioned write with owner, timestamp, and provenance |
+| Output | conflict_report | list | Stale or concurrent writes detected, with their resolution |
 
-## Runnable Example
+### Procedure
+1. Define the shared record schema and each record's single writer before storing state.
+2. Read state with its version; reject reads lacking version and ownership metadata.
+3. Write conditionally on the version (compare-and-swap) so stale writers fail loudly.
+4. Record every state change with owner, version, and reason for provenance.
+5. Resolve conflicts by re-applying the newest state, never by blind overwrite.
+6. Expose the current state and its history so any agent can audit the workflow.
+
+### Example
+
 ```python
-task = {"capability": "shared-memory", "validated": True}
-assert task["validated"]
-result = {"status": "orchestration_step", "capability": task["capability"]}
-print(result)
+state, version = {'owner': 'planner', 'status': 'running'}, 3
+write = {'owner': 'planner', 'status': 'done'}
+recorded = {'data': state, 'version': version}
+accepted = {'data': write, 'version': version + 1}
+assert recorded['version'] == 3 and accepted['version'] == 4
+assert accepted['data']['owner'] == recorded['data']['owner']
+print({'accepted_version': accepted['version'], 'owner': accepted['data']['owner']})
 ```
 
-## Failure Modes
-- Missing or ambiguous workflow state.
-- Invalid transition or unmet dependency.
-- Duplicate or concurrent execution.
-- Capability or authority exceeds declared scope.
-- Completion cannot be verified.
+### Related Skills
 
-## Orchestration Boundary
-Concurrent writes can corrupt state; define ownership, versioning, and conflict handling.
+- [State Machine](state-machine.md) - model state transitions explicitly
+- [Agent Checkpointing](../09-agentic-patterns/agent-checkpointing.md) - persist and restore agent progress
+
+## Failure Modes
+
+- Two agents writing the same record without ownership or versioning.
+- Stale reads spreading outdated state to downstream steps.
+- Unversioned writes that cannot be audited or rolled back.
+- Shared state growing into an unbounded context dump.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration state must remain explicit, bounded, and traceable.
 
-## Related
-- 15-orchestration
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing framework's documentation; no benchmark claim is made without reproducible evidence.

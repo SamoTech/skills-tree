@@ -36,9 +36,9 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/similarity-search.md",
-  "name": "similarity-search",
-  "headline": "similarity-search",
-  "description": "Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.",
+  "name": "Similarity Search",
+  "headline": "Similarity Search",
+  "description": "Retrieve semantically similar items with matched embedding models, declared metrics, thresholds, and returned provenance.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/12-data/similarity-search.md",
   "isPartOf": {
     "@type": "Dataset",
@@ -52,22 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:40:39Z",
+  "dateModified": "2026-11-27T01:31:35Z",
   "skillId": "similarity-search",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "12-data",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Data Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -79,7 +73,7 @@
   "keywords": "AI agent, LLM skill, data, search, similarity, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "similarity-search",
-    "description": "An AI agent skill for similarity-search."
+    "name": "Similarity Search",
+    "description": "An AI agent skill for similarity search."
   }
 }
