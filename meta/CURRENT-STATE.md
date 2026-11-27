@@ -1,6 +1,12 @@
 # Skills Tree — Live Repository State
 
-## Current Live Reconciliation - 2026-11-27 (B5 Pages technical SEO audit, issue #727)
+## Current Live Reconciliation - 2026-11-27 (B1 partial verification: website URL applied, topics pending, issue #727)
+
+- **Status: VERIFIED (PARTIAL) — the owner applied the repository website URL; the topic set is still the unchanged 7-topic list.** Verified via the GitHub API (repos endpoint + dedicated `/topics` endpoint, cache-busted, two independent reads on 2026-11-27): `homepage` = `https://samotech.github.io/skills-tree/` (previously unset) is now set; `topics` = agent, ai, ai-agents, markdown, md, memory-management, skills (unchanged).
+- **Recorded in meta/GROWTH.md (same docs-sync PR):** baseline topics row updated (website URL set, topics still pending), E1 result updated to PARTIAL (the 30-day measurement window still starts only after the topic set is applied), blockers B1 narrowed to topics + social preview, next-actions item 1 updated.
+- **Next executable increment:** owner applies the proposed topic set (issue #727 B1) to complete B1 and start the E1 window; B6/B7 organic publications; residual B5 re-check of the served per-page meta descriptions once the Pages deploy lands.
+
+## Historical Live Reconciliation - 2026-11-27 (B5 Pages technical SEO audit, issue #727)
 
 - **Status: IMPLEMENTED — B5 audit executed against the live site; safe remediations shipped in the same PR; raw-HTML tooling limits disclosed rather than claimed.** Verified live: robots.txt (allow-all + sitemap ref), fresh sitemap.xml, clean per-page title pattern, global meta description on every page. Config-verified: site_url/canonical emission. Tooling-limited (disclosed, not claimed): raw canonical/OG tag bytes cannot be fetched (the available page-fetch tooling strips HTML); page-level schema.org JSON-LD is not present.
 - **What shipped:** page-specific meta descriptions for docs/index.md, docs/quickstart.md, docs/WHY_SKILLS_TREE.md (description now differs per page instead of the generic global one); mkdocs-material pinned to 9.8.2 (PyPI latest at audit time) in .github/workflows/deploy-pages.yml so theme/meta behavior is reproducible (CI `mkdocs build --strict` validates the pin); full findings table recorded in meta/GROWTH.md B5 section.
