@@ -6,7 +6,11 @@
 > Product mission: `meta/PRODUCT_MISSION.md`
 > Execution mission: `meta/COO_MASTER_MISSION.md`
 
-## Current Execution Block â 2026-10-11
+## Current Execution Block — 2026-11-26
+
+The latest verified operational baseline is recorded in [CURRENT-STATE.md](CURRENT-STATE.md), including PR #710 and its exact-head CI evidence. The public corpus contains 2488 skills across 17 categories; the graph contains 2488 nodes and 3748 edges. The next executable engineering increment is the remaining P1 structural upgrades (106 skills), followed by the P2 dependency-evidence sweep (2382 skills). These are repository classifications, not independent production-readiness claims. The October execution block below is retained as historical evidence; current operational selection follows CURRENT-STATE.md. Existing empirical evidence gates remain unchanged.
+
+## Historical Execution Block — 2026-10-11
 
 1. **Canonical corpus and distribution â verified.** 394 Markdown skill files including one intentional fixture; 393 public canonical skills across 17 categories. PR #467 (issue #466) adds the first demand-gap skills selected under the measured-gap rule: `skill-quality-evaluation` (09-agentic-patterns, tier A) and `progressive-skill-loading` (03-memory, tier B), both `stability: experimental` v1 with dated public demand signals recorded in `meta/MOST-WANTED-SKILLS.md` and byte-exact deterministic `project()` packages. The latest exact reconciliation [#38133298990](https://github.com/SamoTech/skills-tree/actions/runs/38133298990) passed on `f13420a27b1162faa08c74286779dbc6d71265b6`; no canonical skill content changed since that run. Result: 264 eligible, 118 blocked, 302 existing packages validated, zero missing eligible projections/drift/stale/unexpected/ambiguous/unresolved collisions. The ten former name-only fallback packages are grounded in PR #461: their legacy canonical files now carry the required `## Evidence` sections and their packages are deterministic projections with declared provenance (zero name-only matches; 274 eligible / 108 blocked after the exact-head audit passed on the PR head).
 2. **Retrieval and selection â verified within bounded datasets.** Retrieval [#38133299000](https://github.com/SamoTech/skills-tree/actions/runs/38133299000): 12 cases, Recall@5 1.0, MRR 0.9583, deterministic replay. Selection [#38133298996](https://github.com/SamoTech/skills-tree/actions/runs/38133298996): 9 cases, accuracy 1.0, deterministic replay. These are not substitutes for the separate 100-case empirical contracts.
@@ -60,7 +64,7 @@ The final repository audit verified the current main control plane and canonical
 - At that historical audit point, graph projections were recorded at 382 nodes / 250 edges; the current 2026-10-11 baseline is 381 nodes / 255 edges as recorded in the Current Execution Block above.
 - Remaining material evidence gap is Issue #357 (real runtime activation traces). Issue #336 retrieval evidence freshness/reproducibility is resolved by the version-matched deterministic benchmark and explicit historical qualification.
 
-The **Current Execution Block â 2026-10-11** above governs execution selection. This dated audit and older entries below are historical records.
+The October 11 execution block above is historical; the latest current execution block governs selection. This dated audit and older entries below are historical records.
 
 ## Phase 0 Exit Interpretation
 
