@@ -18,7 +18,8 @@ Improve the global discoverability, adoption, usability, credibility, and organi
 | Repo traffic / clones / referrers | UNAVAILABLE | GitHub traffic API requires authenticated access not exposed by current tooling | BLOCKED — never fabricated |
 | Site | Live, counts current (2488 skills) | samotech.github.io/skills-tree | no on-site analytics (by design) |
 | Search indexing | PyPI page, Pages pages (quickstart, architecture, why, explorer), GitHub pages indexed; one third-party mirror detected | web search | impressions/clicks need Search Console (owner-only) |
-| GitHub topics | 7 (agent, ai, ai-agents, markdown, md, memory-management, skills) | GitHub API | thin/weak set; update BLOCKED at connector level (owner action) |
+| GitHub topics | 7 (agent, ai, ai-agents, markdown, md, memory-management, skills); re-verified 2026-11-27: unchanged, website URL still unset | GitHub API | thin/weak set; update BLOCKED at connector level (owner action) |
+| Name-collision landscape | 169 repositories match "skills-tree" in name | GitHub search API (`skills-tree in:name`), 2026-11-27 | substring match, includes unrelated projects; method: repository search API, first-page verification of SamoTech/skills-tree presence |
 | Community health | 7 issue templates + SECURITY.md present; CODE_OF_CONDUCT.md was missing → added in the kickoff PR | file audit | — |
 | AI discoverability | llms.txt, docs/AI_DISCOVERY.md, docs/api/skills.json, /.well-known/agent-skills/index.json live | file + site audit | maintained by existing pipelines |
 
@@ -35,7 +36,17 @@ Improve the global discoverability, adoption, usability, credibility, and organi
 
 | ID | Hypothesis | Target | Implementation | Baseline | Window | Result | Next |
 |---|---|---|---|---|---|---|---|
-| E1 | Completing community standards (CoC) + richer repo topics improves first-impression conversion and external contribution rate | All visitors | CoC added; topic set proposed to owner (B1) | 4 stars / 3 forks / 4 open issues | 30 days post-application | PENDING | Apply topics (owner), re-measure |
+| E1 | Completing community standards (CoC) + richer repo topics improves first-impression conversion and external contribution rate | All visitors | CoC added; topic set proposed to owner (B1) | 4 stars / 3 forks / 4 open issues | 30 days post-application | PENDING | Re-verified 2026-11-27: topics + website URL NOT yet applied by owner; window has not started; re-measure 30 days after application |
+
+## Two-track growth (P3, issue #730 plan)
+
+Both tracks are recorded in this file only; there is no separate campaign file.
+
+**Track A — users:** make the first five minutes genuinely useful: quickstart accuracy (B4 verification BLOCKED on a Python runtime in the agent sandbox; recorded, not claimed), Pages technical SEO (B5), machine-readable registry and discovery artifacts (live and freshness-gated), honest benchmark disclosure, organic technical content per platform, directory submissions only where rules permit.
+
+**Track B — contributors:** community-health completeness (CoC added; templates + SECURITY.md live), clear contribution categories in README, batch content-quality contract for reviewers, responsive PR/issue triage (external PR #655 awaiting owner review), good-first-issue labeling when genuine beginner-sized work exists.
+
+Each track feeds the same experiment log and baseline table above; no metric is fabricated and nothing is claimed before it is verified.
 
 ## Publishing log
 
@@ -50,7 +61,7 @@ Improve the global discoverability, adoption, usability, credibility, and organi
 
 ## Next executable actions
 
-1. Owner: apply proposed repo topics (B1).
-2. B4: clean-environment verification of the 60-second quick-start path.
+1. Owner: apply proposed repo topics (B1). Re-verified 2026-11-27: still pending.
+2. B4: clean-environment verification of the 60-second quick-start path. BLOCKED on a Python runtime in the agent sandbox; recorded as blocked, not executed.
 3. B5: Pages technical SEO audit (titles, meta, canonical, OG, sitemap, robots, structured data).
 4. B6/B7: first organic publications + directory submissions where permitted.

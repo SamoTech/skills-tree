@@ -208,7 +208,24 @@ Quality classifications are repository validation states, not proof of productio
 | Failure modes documented | ✅ Every public skill (CI-gated) | ❌ | ❌ | ❌ |
 | Free & open source (MIT) | ✅ | ⚠️ Mixed | ✅ | ✅ |
 
-> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes coverage is corpus-wide and CI-gated: every new or modified skill file must carry a `## Failure Modes` section (`validate-skills.yml`), and the 2026-10-12 backfill added the section to the remaining legacy skill files, so all 538 public skill files carry it (the intentional `00-sandbox` fixture is excluded); repository code search verified zero public skills lacking the section after the backfill. Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents). Skills Tree row is CLI-only today: the historical `skills_tree.SkillsTree` Python API is not implemented ([docs/api.md](docs/api.md)); competitor cells use neutral wording, not verified feature matrices.
+> **Claim basis (2026-10-12 audit):** runnable-example coverage is CI-enforced — the quality gate blocks new stubs and the live report shows 0 stubs / 0 invalid. Failure-modes coverage is corpus-wide and CI-gated: every new or modified skill file must carry a `## Failure Modes` section (`validate-skills.yml`), and the 2026-10-12 backfill added the section to the remaining legacy skill files, so every public skill file carries it (the intentional `00-sandbox` fixture is excluded); repository code search verified zero public skills lacking the section after the backfill. Blueprint and benchmark counts are verified against `blueprints/` (7 reference blueprints) and `benchmarks/` (head-to-head comparison documents). Skills Tree row is CLI-only today: the historical `skills_tree.SkillsTree` Python API is not implemented ([docs/api.md](docs/api.md)); competitor cells use neutral wording, not verified feature matrices.
+
+---
+
+
+### Skills Tree alongside the Claude / Agent Skills ecosystem
+
+Skills Tree publishes its packages in the open [Agent Skills](https://agentskills.io/specification) format (SKILL.md), the same format Anthropic's official [skills repository](https://github.com/anthropics/skills) and the Claude Code skill/plugin ecosystem build on. These sources are complementary rather than competing:
+
+| Source | What it is | Best for |
+|---|---|---|
+| [anthropics/skills](https://github.com/anthropics/skills) | Anthropic's official, curated skills for Claude products (Claude Code, Claude.ai, API), distributed as plugins via a marketplace | First-party, tightly integrated Claude skills |
+| [Agent Skills standard](https://agentskills.io/specification) | The open SKILL.md format specification | Interoperability across agent tool ecosystems |
+| Claude Code ecosystem | Skills, plugins, and marketplaces built around Claude Code | In-editor, Claude-native workflows |
+| Community curated lists (e.g. [awesome-claude-skills](https://github.com/travisvn/awesome-claude-skills), [awesome-agent-skills](https://github.com/VoltAgent/awesome-agent-skills)) | Community-maintained link directories | Browsing third-party collections |
+| **Skills Tree** | A broad, versioned, evidence- and dependency-mapped corpus (2,488 public skills, 17 categories) with CI-gated quality checks, head-to-head benchmark documents, and machine-readable registry artifacts | Cross-platform discovery, per-skill evidence and failure-mode inspection, bulk programmatic access via the CLI and registry JSON |
+
+**Why Skills Tree alongside Claude Code skills:** Claude-ecosystem skills are optimized for Claude products; Skills Tree focuses on taxonomy breadth with documented failure modes, a prerequisite dependency graph, and per-skill evidence, and ships standard-compatible packages that any Agent Skills consumer can install. Teams can legitimately combine both: first-party skills from Anthropic for Claude-native work, Skills Tree for structured cross-platform reuse. Competitor descriptions in this table are neutral summaries of the linked official sources (verified 2026-11-27), not feature audits.
 
 ---
 
