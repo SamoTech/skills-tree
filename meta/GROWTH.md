@@ -69,7 +69,7 @@ Each track feeds the same experiment log and baseline table above; no metric is 
 |---|---|---|---|---|
 | 2026-11-27 | Skills Tree blog (Pages) | "Give Your AI Agent a Shared Vocabulary: A Five-Minute Tour of Skills Tree" | https://samotech.github.io/skills-tree/blog/ | First B7 publication; honest-boundaries wording; counts linked to the live registry instead of hard-coded |
 | — | — | External platform publications (dev.to / Medium / LinkedIn) | — | DRAFTED, not published: no publishing connector in the agent environment; copy-ready drafts delivered to the owner |
-| — | — | Awesome-List submissions (B6) | — | PREPARED, not submitted: connector cannot fork or open issues/PRs on third-party repos (403 Resource not accessible by integration, tested 2026-11-27); copy-ready submission package delivered to the owner; VoltAgent/awesome-agent-skills assessed as scope-mismatch (curates individual skills, not registries) and not submitted |
+| 2026-11-27 | travisvn/awesome-claude-skills (Awesome List) | B6 submission: "Add SamoTech/skills-tree to Collections & Libraries" | https://github.com/travisvn/awesome-claude-skills/compare/main...SamoTech:awesome-claude-skills:add-skills-tree-registry | Fork branch `add-skills-tree-registry` pushed with the exact entry (entry verified against the list's CONTRIBUTING.md); final step is opening the PR from the compare URL — the connector cannot create cross-repo PRs (403). VoltAgent/awesome-agent-skills assessed as scope-mismatch (curates individual skills, not registries) and not submitted |
 
 ## Blockers
 
