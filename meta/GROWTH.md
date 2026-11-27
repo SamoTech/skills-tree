@@ -67,16 +67,19 @@ Each track feeds the same experiment log and baseline table above; no metric is 
 
 | Date | Channel | Item | Link | Notes |
 |---|---|---|---|---|
-| — | — | — | — | No publications yet; baseline cycle in progress |
+| 2026-11-27 | Skills Tree blog (Pages) | "Give Your AI Agent a Shared Vocabulary: A Five-Minute Tour of Skills Tree" | https://samotech.github.io/skills-tree/blog/ | First B7 publication; honest-boundaries wording; counts linked to the live registry instead of hard-coded |
+| — | — | External platform publications (dev.to / Medium / LinkedIn) | — | DRAFTED, not published: no publishing connector in the agent environment; copy-ready drafts delivered to the owner |
+| — | — | Awesome-List submissions (B6) | — | PREPARED, not submitted: connector cannot fork or open issues/PRs on third-party repos (403 Resource not accessible by integration, tested 2026-11-27); copy-ready submission package delivered to the owner; VoltAgent/awesome-agent-skills assessed as scope-mismatch (curates individual skills, not registries) and not submitted |
 
 ## Blockers
 
 - **B1 (PARTIAL)**: Website URL set by the owner and verified via the GitHub API (2026-11-27). Topics + social preview are not writable via the available GitHub connector and remain owner action; proposed topic list recorded on issue #727.
 - **B9 (data)**: GitHub traffic/clones/referrers and Search Console metrics are owner-only. Baseline records what is verifiable; nothing is fabricated.
+- **B6 (external writes)**: the GitHub connector cannot fork third-party repos or open issues/PRs on them (403 "Resource not accessible by integration", tested 2026-11-27 on travisvn/awesome-claude-skills). Submissions are packaged for owner application; nothing is bypassed.
 
 ## Next executable actions
 
 1. Owner: apply proposed repo topics (B1). Re-verified twice 2026-11-27: website URL DONE, topics still pending.
 2. B4: clean-environment verification of the 60-second quick-start path. BLOCKED on a Python runtime in the agent sandbox; recorded as blocked, not executed.
 3. B5: Pages technical SEO audit — DONE 2026-11-27 (see B5 section below); residual: page-level JSON-LD structured data not present (optional future work).
-4. B6/B7: first organic publications + directory submissions where permitted.
+4. B6/B7 — progressed 2026-11-27: first B7 publication LIVE on Pages (blog); external-platform drafts + B6 submission package prepared for the owner (connector cannot write outside this org). Owner applies the package, then the publishing log gains the external rows.
