@@ -17,23 +17,23 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2411
-- **Structural upgrade required (enriched tier):** 77
+- **Dependency evidence required:** 2422
+- **Structural upgrade required (enriched tier):** 66
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2411, enriched=77, test_fixture=1.
+Per-quality baseline: battle_tested=2422, enriched=66, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 157 |
+| (none) | 146 |
 | v1 | 2132 |
-| v2 | 166 |
+| v2 | 177 |
 | v3 | 33 |
 | v4 | 1 |
 
@@ -83,7 +83,7 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (77)
+## P1 - Structural upgrade required (enriched tier) (66)
 
 - [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
@@ -121,17 +121,6 @@ _None._
 - [skills/12-data/sql-execution.md](skills/12-data/sql-execution.md)
 - [skills/12-data/statistical-analysis.md](skills/12-data/statistical-analysis.md)
 - [skills/12-data/time-series.md](skills/12-data/time-series.md)
-- [skills/15-orchestration/agent-handoff.md](skills/15-orchestration/agent-handoff.md)
-- [skills/15-orchestration/budget-management.md](skills/15-orchestration/budget-management.md)
-- [skills/15-orchestration/conditional-branching.md](skills/15-orchestration/conditional-branching.md)
-- [skills/15-orchestration/consensus-voting.md](skills/15-orchestration/consensus-voting.md)
-- [skills/15-orchestration/event-triggers.md](skills/15-orchestration/event-triggers.md)
-- [skills/15-orchestration/hierarchical-tree.md](skills/15-orchestration/hierarchical-tree.md)
-- [skills/15-orchestration/logging-observability.md](skills/15-orchestration/logging-observability.md)
-- [skills/15-orchestration/parallel-execution.md](skills/15-orchestration/parallel-execution.md)
-- [skills/15-orchestration/retry-backoff.md](skills/15-orchestration/retry-backoff.md)
-- [skills/15-orchestration/role-assignment.md](skills/15-orchestration/role-assignment.md)
-- [skills/15-orchestration/sequential-workflow.md](skills/15-orchestration/sequential-workflow.md)
 - [skills/15-orchestration/shared-memory.md](skills/15-orchestration/shared-memory.md)
 - [skills/15-orchestration/state-machine.md](skills/15-orchestration/state-machine.md)
 - [skills/15-orchestration/subagent-spawning.md](skills/15-orchestration/subagent-spawning.md)
@@ -163,7 +152,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2411)
+## P2 - Dependency evidence required (2422)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -2227,6 +2216,7 @@ _None._
 - [skills/15-orchestration/ad-click-to-booking-lead-orchestration.md](skills/15-orchestration/ad-click-to-booking-lead-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/agent-authorization-context-propagation.md](skills/15-orchestration/agent-authorization-context-propagation.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/agent-communication.md](skills/15-orchestration/agent-communication.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/agent-handoff.md](skills/15-orchestration/agent-handoff.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/agent-incident-command.md](skills/15-orchestration/agent-incident-command.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/agent-incident-response-runbook-orchestration.md](skills/15-orchestration/agent-incident-response-runbook-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/agent-pool-autoscaling.md](skills/15-orchestration/agent-pool-autoscaling.md) - badge color lightgrey (unscanned)
@@ -2243,6 +2233,7 @@ _None._
 - [skills/15-orchestration/backpressure-handling.md](skills/15-orchestration/backpressure-handling.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/bedrock-managed-agent-orchestration.md](skills/15-orchestration/bedrock-managed-agent-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/browser-agent-retry-budget-orchestration.md](skills/15-orchestration/browser-agent-retry-budget-orchestration.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/budget-management.md](skills/15-orchestration/budget-management.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/business-process-agentification-prioritization.md](skills/15-orchestration/business-process-agentification-prioritization.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/canary-agent-deployment.md](skills/15-orchestration/canary-agent-deployment.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/capability-based-skill-selection.md](skills/15-orchestration/capability-based-skill-selection.md) - badge color lightgrey (unscanned)
@@ -2252,6 +2243,8 @@ _None._
 - [skills/15-orchestration/circuit-breaking.md](skills/15-orchestration/circuit-breaking.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/commander-specialist-team-orchestration.md](skills/15-orchestration/commander-specialist-team-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/concurrent-agent-session-orchestration.md](skills/15-orchestration/concurrent-agent-session-orchestration.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/conditional-branching.md](skills/15-orchestration/conditional-branching.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/consensus-voting.md](skills/15-orchestration/consensus-voting.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/15-orchestration/coordinated-cve-cluster-response-orchestration.md](skills/15-orchestration/coordinated-cve-cluster-response-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/cost-aware-model-routing.md](skills/15-orchestration/cost-aware-model-routing.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/cross-agent-locking.md](skills/15-orchestration/cross-agent-locking.md) - badge color lightgrey (unscanned)
@@ -2273,6 +2266,7 @@ _None._
 - [skills/15-orchestration/election-night-misinformation-response-orchestration.md](skills/15-orchestration/election-night-misinformation-response-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/embedded-suite-agent-workflow-orchestration.md](skills/15-orchestration/embedded-suite-agent-workflow-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/enterprise-workplace-agent-embedding.md](skills/15-orchestration/enterprise-workplace-agent-embedding.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/event-triggers.md](skills/15-orchestration/event-triggers.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/evidence-verification.md](skills/15-orchestration/evidence-verification.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/execution-handoff.md](skills/15-orchestration/execution-handoff.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/fleet-permission-policy-distribution.md](skills/15-orchestration/fleet-permission-policy-distribution.md) - badge color lightgrey (unscanned)
@@ -2286,6 +2280,7 @@ _None._
 - [skills/15-orchestration/gemini-at-work-rollout-orchestration.md](skills/15-orchestration/gemini-at-work-rollout-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/governed-ontology-context-orchestration.md](skills/15-orchestration/governed-ontology-context-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/harness-plugin-fleet-composition-orchestration.md](skills/15-orchestration/harness-plugin-fleet-composition-orchestration.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/hierarchical-tree.md](skills/15-orchestration/hierarchical-tree.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/15-orchestration/horizontal-scale-session-orchestration.md](skills/15-orchestration/horizontal-scale-session-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/human-approval-gates.md](skills/15-orchestration/human-approval-gates.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/human-escalation-routing.md](skills/15-orchestration/human-escalation-routing.md) - badge color lightgrey (unscanned)
@@ -2293,6 +2288,7 @@ _None._
 - [skills/15-orchestration/kanban-task-management.md](skills/15-orchestration/kanban-task-management.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/langgraph-checkpointing.md](skills/15-orchestration/langgraph-checkpointing.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/15-orchestration/legacy-system-agentification-roadmapping.md](skills/15-orchestration/legacy-system-agentification-roadmapping.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/logging-observability.md](skills/15-orchestration/logging-observability.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/maf-workflow-composition-orchestration.md](skills/15-orchestration/maf-workflow-composition-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/mainframe-agent-workload-orchestration.md](skills/15-orchestration/mainframe-agent-workload-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/mcp-gateway-registry-proxy-architecture-design.md](skills/15-orchestration/mcp-gateway-registry-proxy-architecture-design.md) - badge color lightgrey (unscanned)
@@ -2307,6 +2303,7 @@ _None._
 - [skills/15-orchestration/on-device-agent-task-orchestration.md](skills/15-orchestration/on-device-agent-task-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/open-responses-conformance-testing.md](skills/15-orchestration/open-responses-conformance-testing.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/oversight-stack-role-orchestration.md](skills/15-orchestration/oversight-stack-role-orchestration.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/parallel-execution.md](skills/15-orchestration/parallel-execution.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/payment-protocol-failover-orchestration.md](skills/15-orchestration/payment-protocol-failover-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/phased-enterprise-agent-rollout-orchestration.md](skills/15-orchestration/phased-enterprise-agent-rollout-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/policy-as-code-gate-authoring.md](skills/15-orchestration/policy-as-code-gate-authoring.md) - badge color lightgrey (unscanned)
@@ -2316,11 +2313,14 @@ _None._
 - [skills/15-orchestration/regulated-workflow-multi-agent-orchestration.md](skills/15-orchestration/regulated-workflow-multi-agent-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/repository-state-load.md](skills/15-orchestration/repository-state-load.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/result-aggregation.md](skills/15-orchestration/result-aggregation.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/retry-backoff.md](skills/15-orchestration/retry-backoff.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/role-assignment.md](skills/15-orchestration/role-assignment.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/runbook-driven-orchestration.md](skills/15-orchestration/runbook-driven-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/safety-threshold-runtime-gating.md](skills/15-orchestration/safety-threshold-runtime-gating.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/scheduled-agent-workflow-orchestration.md](skills/15-orchestration/scheduled-agent-workflow-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/school-district-agent-rollout-orchestration.md](skills/15-orchestration/school-district-agent-rollout-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/self-service-agent-deployment-pipelines.md](skills/15-orchestration/self-service-agent-deployment-pipelines.md) - badge color lightgrey (unscanned)
+- [skills/15-orchestration/sequential-workflow.md](skills/15-orchestration/sequential-workflow.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/service-level-objective-enforcement.md](skills/15-orchestration/service-level-objective-enforcement.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md](skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md) - badge color lightgrey (unscanned)
 - [skills/15-orchestration/single-api-multi-model-gateway-configuration.md](skills/15-orchestration/single-api-multi-model-gateway-configuration.md) - badge color lightgrey (unscanned)

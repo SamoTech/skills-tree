@@ -1,4 +1,4 @@
-generated: '2026-11-27T00:23:11Z'
+generated: '2026-11-27T00:24:57Z'
 count: 2488
 skills:
 - id: a2a-agent-card-capability-parsing
@@ -53101,26 +53101,21 @@ skills:
   category_dir: 15-orchestration
 - id: agent-handoff
   path: skills/15-orchestration/agent-handoff.md
-  name: agent-handoff
+  name: Agent Handoff
   description: Transfer an active task between agents with a complete state snapshot,
     pending actions, evidence, and acceptance criteria.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
-  related: []
+  related:
+  - ../14-security/human-in-loop.md
   category_dir: 15-orchestration
 - id: agent-incident-command
   path: skills/15-orchestration/agent-incident-command.md
@@ -53537,26 +53532,21 @@ skills:
   category_dir: 15-orchestration
 - id: budget-management
   path: skills/15-orchestration/budget-management.md
-  name: budget-management
+  name: Budget Management
   description: Track and enforce declared resource budgets across an agent workflow,
     including token, time, tool, or monetary limits.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
-  related: []
+  related:
+  - ../14-security/least-privilege-scoping.md
   category_dir: 15-orchestration
 - id: business-process-agentification-prioritization
   path: skills/15-orchestration/business-process-agentification-prioritization.md
@@ -53790,49 +53780,39 @@ skills:
   category_dir: 15-orchestration
 - id: conditional-branching
   path: skills/15-orchestration/conditional-branching.md
-  name: conditional-branching
+  name: Conditional Branching
   description: Route workflow execution using explicit conditions, predicates, and
     mutually understood branch outcomes.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
   related: []
   category_dir: 15-orchestration
 - id: consensus-voting
   path: skills/15-orchestration/consensus-voting.md
-  name: consensus-voting
+  name: Consensus Voting
   description: Combine independent agent votes under an explicit voting rule, quorum,
     tie-break policy, and evidence boundary.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
-  related: []
+  related:
+  - ../09-agentic-patterns/debate-pattern.md
+  - ../09-agentic-patterns/llm-judge-calibration.md
   category_dir: 15-orchestration
 - id: coordinated-cve-cluster-response-orchestration
   path: skills/15-orchestration/coordinated-cve-cluster-response-orchestration.md
@@ -54369,25 +54349,19 @@ skills:
   category_dir: 15-orchestration
 - id: event-triggers
   path: skills/15-orchestration/event-triggers.md
-  name: event-triggers
+  name: Event Triggers
   description: Start workflow actions from explicit events, filters, deduplication
     rules, and authorization boundaries.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
   related: []
   category_dir: 15-orchestration
 - id: evidence-verification
@@ -54718,26 +54692,21 @@ skills:
   category_dir: 15-orchestration
 - id: hierarchical-tree
   path: skills/15-orchestration/hierarchical-tree.md
-  name: hierarchical-tree
+  name: Hierarchical Tree
   description: Coordinate hierarchical agent teams with explicit parent-child roles,
     delegation boundaries, and result aggregation.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
-  related: []
+  related:
+  - ../14-security/least-privilege-scoping.md
   category_dir: 15-orchestration
 - id: horizontal-scale-session-orchestration
   path: skills/15-orchestration/horizontal-scale-session-orchestration.md
@@ -54924,26 +54893,21 @@ skills:
   category_dir: 15-orchestration
 - id: logging-observability
   path: skills/15-orchestration/logging-observability.md
-  name: logging-observability
+  name: Logging Observability
   description: Instrument agent workflows with structured logs, correlation identifiers,
     metrics, and traceable state transitions.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
-  related: []
+  related:
+  - ../14-security/audit-logging.md
   category_dir: 15-orchestration
 - id: maf-workflow-composition-orchestration
   path: skills/15-orchestration/maf-workflow-composition-orchestration.md
@@ -55311,25 +55275,19 @@ skills:
   category_dir: 15-orchestration
 - id: parallel-execution
   path: skills/15-orchestration/parallel-execution.md
-  name: parallel-execution
+  name: Parallel Execution
   description: Run independent workflow branches concurrently while defining isolation,
     synchronization, failure aggregation, and join semantics.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
   related: []
   category_dir: 15-orchestration
 - id: payment-protocol-failover-orchestration
@@ -55566,49 +55524,38 @@ skills:
   category_dir: 15-orchestration
 - id: retry-backoff
   path: skills/15-orchestration/retry-backoff.md
-  name: retry-backoff
+  name: Retry Backoff
   description: Retry transient workflow failures using explicit retryable conditions,
     attempt limits, and backoff policy.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
   related: []
   category_dir: 15-orchestration
 - id: role-assignment
   path: skills/15-orchestration/role-assignment.md
-  name: role-assignment
+  name: Role Assignment
   description: Assign explicit responsibilities to agents or workflow stages using
     capability, authority, inputs, outputs, and escalation boundaries.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
-  related: []
+  related:
+  - ../14-security/least-privilege-scoping.md
   category_dir: 15-orchestration
 - id: runbook-driven-orchestration
   path: skills/15-orchestration/runbook-driven-orchestration.md
@@ -55743,25 +55690,19 @@ skills:
   category_dir: 15-orchestration
 - id: sequential-workflow
   path: skills/15-orchestration/sequential-workflow.md
-  name: sequential-workflow
+  name: Sequential Workflow
   description: Execute workflow stages in a declared order with explicit dependencies,
     checkpoints, and completion criteria.
-  category: Orchestration
+  category: orchestration
   level: advanced
   stability: stable
-  version: null
+  version: v2
   added: 2025-03
   last_updated: null
   sections:
-  - Description
-  - When to Use
-  - Inputs / Outputs / Failure Modes
-  - Procedure
-  - Runnable Example
   - Failure Modes
-  - Orchestration Boundary
+  - Changelog
   - Evidence
-  - Related
   related: []
   category_dir: 15-orchestration
 - id: service-level-objective-enforcement

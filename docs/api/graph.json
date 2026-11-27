@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-11-27T00:23:44.835124+00:00",
+    "generated_at": "2026-11-27T00:25:50.448081+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
-    "edge_count": 3844,
+    "edge_count": 3877,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -31499,7 +31499,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -31754,7 +31754,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -31904,7 +31904,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -31919,7 +31919,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -32249,7 +32249,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -32459,7 +32459,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -32579,7 +32579,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -32804,7 +32804,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -32954,7 +32954,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -32969,7 +32969,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -33059,7 +33059,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -63409,6 +63409,30 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/agent-handoff",
+      "target": "15-orchestration/execution-handoff",
+      "type": "RELATED_TO",
+      "evidence": "[Execution Handoff](execution-handoff.md)",
+      "source_file": "skills/15-orchestration/agent-handoff.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/agent-handoff",
+      "target": "15-orchestration/agent-communication",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Communication](agent-communication.md)",
+      "source_file": "skills/15-orchestration/agent-handoff.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/agent-handoff",
+      "target": "14-security/human-in-loop",
+      "type": "RELATED_TO",
+      "evidence": "[Human-in-Loop](../14-security/human-in-loop.md)",
+      "source_file": "skills/15-orchestration/agent-handoff.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/agent-incident-response-runbook-orchestration",
       "target": "15-orchestration/runbook-driven-orchestration",
       "type": "RELATED_TO",
@@ -63601,6 +63625,30 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/budget-management",
+      "target": "15-orchestration/workflow-cost-ceiling",
+      "type": "RELATED_TO",
+      "evidence": "[Workflow Cost Ceiling](workflow-cost-ceiling.md)",
+      "source_file": "skills/15-orchestration/budget-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/budget-management",
+      "target": "15-orchestration/cost-aware-model-routing",
+      "type": "RELATED_TO",
+      "evidence": "[Cost-Aware Model Routing](cost-aware-model-routing.md)",
+      "source_file": "skills/15-orchestration/budget-management.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/budget-management",
+      "target": "14-security/least-privilege-scoping",
+      "type": "RELATED_TO",
+      "evidence": "[Least Privilege Scoping](../14-security/least-privilege-scoping.md)",
+      "source_file": "skills/15-orchestration/budget-management.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/business-process-agentification-prioritization",
       "target": "04-action-execution/process-management",
       "type": "RELATED_TO",
@@ -63718,6 +63766,54 @@
       "type": "RELATED_TO",
       "evidence": "[Multi Agent Ide Coexistence Pattern](../09-agentic-patterns/multi-agent-ide-coexistence-pattern.md)",
       "source_file": "skills/15-orchestration/concurrent-agent-session-orchestration.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/conditional-branching",
+      "target": "15-orchestration/sequential-workflow",
+      "type": "RELATED_TO",
+      "evidence": "[Sequential Workflow](sequential-workflow.md)",
+      "source_file": "skills/15-orchestration/conditional-branching.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/conditional-branching",
+      "target": "15-orchestration/state-machine",
+      "type": "RELATED_TO",
+      "evidence": "[State Machine](state-machine.md)",
+      "source_file": "skills/15-orchestration/conditional-branching.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/conditional-branching",
+      "target": "15-orchestration/human-approval-gates",
+      "type": "RELATED_TO",
+      "evidence": "[Human Approval Gates](human-approval-gates.md)",
+      "source_file": "skills/15-orchestration/conditional-branching.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/consensus-voting",
+      "target": "09-agentic-patterns/debate-pattern",
+      "type": "RELATED_TO",
+      "evidence": "[Debate Pattern](../09-agentic-patterns/debate-pattern.md)",
+      "source_file": "skills/15-orchestration/consensus-voting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/consensus-voting",
+      "target": "15-orchestration/result-aggregation",
+      "type": "RELATED_TO",
+      "evidence": "[Result Aggregation](result-aggregation.md)",
+      "source_file": "skills/15-orchestration/consensus-voting.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/consensus-voting",
+      "target": "09-agentic-patterns/llm-judge-calibration",
+      "type": "RELATED_TO",
+      "evidence": "[LLM Judge Calibration](../09-agentic-patterns/llm-judge-calibration.md)",
+      "source_file": "skills/15-orchestration/consensus-voting.md",
       "confidence": "high"
     },
     {
@@ -63977,6 +64073,30 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/event-triggers",
+      "target": "15-orchestration/idempotency-keys",
+      "type": "RELATED_TO",
+      "evidence": "[Idempotency Keys](idempotency-keys.md)",
+      "source_file": "skills/15-orchestration/event-triggers.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/event-triggers",
+      "target": "15-orchestration/backpressure-handling",
+      "type": "RELATED_TO",
+      "evidence": "[Backpressure Handling](backpressure-handling.md)",
+      "source_file": "skills/15-orchestration/event-triggers.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/event-triggers",
+      "target": "15-orchestration/dead-letter-queuing",
+      "type": "RELATED_TO",
+      "evidence": "[Dead Letter Queuing](dead-letter-queuing.md)",
+      "source_file": "skills/15-orchestration/event-triggers.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/fleet-permission-policy-distribution",
       "target": "15-orchestration/fleet-wide-config-rollout",
       "type": "RELATED_TO",
@@ -64137,6 +64257,30 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/hierarchical-tree",
+      "target": "15-orchestration/subagent-spawning",
+      "type": "RELATED_TO",
+      "evidence": "[Subagent Spawning](subagent-spawning.md)",
+      "source_file": "skills/15-orchestration/hierarchical-tree.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/hierarchical-tree",
+      "target": "15-orchestration/result-aggregation",
+      "type": "RELATED_TO",
+      "evidence": "[Result Aggregation](result-aggregation.md)",
+      "source_file": "skills/15-orchestration/hierarchical-tree.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/hierarchical-tree",
+      "target": "14-security/least-privilege-scoping",
+      "type": "RELATED_TO",
+      "evidence": "[Least Privilege Scoping](../14-security/least-privilege-scoping.md)",
+      "source_file": "skills/15-orchestration/hierarchical-tree.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/horizontal-scale-session-orchestration",
       "target": "15-orchestration/mcp-tasks-lifecycle-orchestration",
       "type": "RELATED_TO",
@@ -64174,6 +64318,30 @@
       "type": "RELATED_TO",
       "evidence": "[Mainframe Console Workflow Actions](../04-action-execution/mainframe-console-workflow-actions.md)",
       "source_file": "skills/15-orchestration/legacy-system-agentification-roadmapping.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/logging-observability",
+      "target": "15-orchestration/workflow-heartbeat-monitoring",
+      "type": "RELATED_TO",
+      "evidence": "[Workflow Heartbeat Monitoring](workflow-heartbeat-monitoring.md)",
+      "source_file": "skills/15-orchestration/logging-observability.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/logging-observability",
+      "target": "15-orchestration/thread-based-resume",
+      "type": "RELATED_TO",
+      "evidence": "[Thread-Based Resume](thread-based-resume.md)",
+      "source_file": "skills/15-orchestration/logging-observability.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/logging-observability",
+      "target": "14-security/audit-logging",
+      "type": "RELATED_TO",
+      "evidence": "[Audit Logging](../14-security/audit-logging.md)",
+      "source_file": "skills/15-orchestration/logging-observability.md",
       "confidence": "high"
     },
     {
@@ -64377,6 +64545,30 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/parallel-execution",
+      "target": "15-orchestration/sequential-workflow",
+      "type": "RELATED_TO",
+      "evidence": "[Sequential Workflow](sequential-workflow.md)",
+      "source_file": "skills/15-orchestration/parallel-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/parallel-execution",
+      "target": "15-orchestration/speculative-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Speculative Execution](speculative-execution.md)",
+      "source_file": "skills/15-orchestration/parallel-execution.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/parallel-execution",
+      "target": "15-orchestration/circuit-breaking",
+      "type": "RELATED_TO",
+      "evidence": "[Circuit Breaking](circuit-breaking.md)",
+      "source_file": "skills/15-orchestration/parallel-execution.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/payment-protocol-failover-orchestration",
       "target": "15-orchestration/agent-incident-command",
       "type": "RELATED_TO",
@@ -64505,6 +64697,54 @@
       "confidence": "high"
     },
     {
+      "source": "15-orchestration/retry-backoff",
+      "target": "15-orchestration/idempotency-keys",
+      "type": "RELATED_TO",
+      "evidence": "[Idempotency Keys](idempotency-keys.md)",
+      "source_file": "skills/15-orchestration/retry-backoff.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/retry-backoff",
+      "target": "15-orchestration/circuit-breaking",
+      "type": "RELATED_TO",
+      "evidence": "[Circuit Breaking](circuit-breaking.md)",
+      "source_file": "skills/15-orchestration/retry-backoff.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/retry-backoff",
+      "target": "15-orchestration/agent-pool-autoscaling",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Pool Autoscaling](agent-pool-autoscaling.md)",
+      "source_file": "skills/15-orchestration/retry-backoff.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/role-assignment",
+      "target": "15-orchestration/hierarchical-tree",
+      "type": "RELATED_TO",
+      "evidence": "[Hierarchical Tree](hierarchical-tree.md)",
+      "source_file": "skills/15-orchestration/role-assignment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/role-assignment",
+      "target": "15-orchestration/specialist-agent-routing",
+      "type": "RELATED_TO",
+      "evidence": "[Specialist Agent Routing](specialist-agent-routing.md)",
+      "source_file": "skills/15-orchestration/role-assignment.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/role-assignment",
+      "target": "14-security/least-privilege-scoping",
+      "type": "RELATED_TO",
+      "evidence": "[Least Privilege Scoping](../14-security/least-privilege-scoping.md)",
+      "source_file": "skills/15-orchestration/role-assignment.md",
+      "confidence": "high"
+    },
+    {
       "source": "15-orchestration/runbook-driven-orchestration",
       "target": "15-orchestration/state-machine",
       "type": "RELATED_TO",
@@ -64582,6 +64822,30 @@
       "type": "RELATED_TO",
       "evidence": "[Multi Agent Workspace Coordination](multi-agent-workspace-coordination.md)",
       "source_file": "skills/15-orchestration/self-service-agent-deployment-pipelines.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/sequential-workflow",
+      "target": "15-orchestration/parallel-execution",
+      "type": "RELATED_TO",
+      "evidence": "[Parallel Execution](parallel-execution.md)",
+      "source_file": "skills/15-orchestration/sequential-workflow.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/sequential-workflow",
+      "target": "15-orchestration/state-machine",
+      "type": "RELATED_TO",
+      "evidence": "[State Machine](state-machine.md)",
+      "source_file": "skills/15-orchestration/sequential-workflow.md",
+      "confidence": "high"
+    },
+    {
+      "source": "15-orchestration/sequential-workflow",
+      "target": "15-orchestration/thread-based-resume",
+      "type": "RELATED_TO",
+      "evidence": "[Thread-Based Resume](thread-based-resume.md)",
+      "source_file": "skills/15-orchestration/sequential-workflow.md",
       "confidence": "high"
     },
     {

@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-handoff.md",
-  "name": "agent-handoff",
-  "headline": "agent-handoff",
+  "name": "Agent Handoff",
+  "headline": "Agent Handoff",
   "description": "Transfer an active task between agents with a complete state snapshot, pending actions, evidence, and acceptance criteria.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/agent-handoff.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:44:02Z",
+  "dateModified": "2026-11-27T00:24:43Z",
   "skillId": "agent-handoff",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Orchestration Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/human-in-loop.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, agent, handoff, orchestration, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "agent-handoff",
-    "description": "An AI agent skill for agent-handoff."
+    "name": "Agent Handoff",
+    "description": "An AI agent skill for agent handoff."
   }
 }
