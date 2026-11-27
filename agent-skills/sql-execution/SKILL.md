@@ -1,57 +1,73 @@
 ---
 name: sql-execution
-description: Execute bounded SQL against an explicitly identified database, schema, and authorized query scope.
+description: Execute bounded SQL with parameterized values, enforced access scope, explicit limits, and visible plan cost.
 metadata:
   source: skills/12-data/sql-execution.md
   category: 12-data
+  version: "v2"
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-sql-execution.json)
+
+# Sql Execution
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Execute bounded SQL against an explicitly identified database, schema, and authorized query scope.
+### Description
 
-## When to Use
-Use when the target database and query intent are verified.
+Execute bounded SQL with parameterized values, enforced access scope, explicit limits, and visible plan cost. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Validated data, schema/context, method parameters, and required output contract. |
-| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the source schema, analytical or query objective, and output contract.
-2. Validate types, ranges, temporal or database context, and relevant assumptions.
-3. Apply only the declared operation within bounded scope.
-4. Validate outputs, counts, assumptions, and reproducibility.
-5. Preserve source data and record material uncertainty or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | statement | object | The SQL with declared parameters (no interpolated values) |
+| Input | access_scope | object | Read-only vs write, row/time limits, and allowed tables |
+| Output | rows | list of object | Result rows bounded by the declared limits |
+| Output | execution_report | object | Rows returned, elapsed time, and the plan's scan type |
 
-## Runnable Example
+### Procedure
+1. Classify the statement (read vs write) and enforce the access scope.
+2. Parameterize every value; never interpolate inputs into SQL text.
+3. Apply explicit row and time limits before executing.
+4. Inspect the plan for full scans on large tables before running blind.
+5. Report rows returned and the scan type so cost is visible.
+
+### Example
+
 ```python
-task = {"capability": "sql-execution", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+stmt = {'sql': 'SELECT id FROM orders WHERE status = :status LIMIT :lim', 'params': {'status': 'open', 'lim': 2}}
+table = [{'id': 1, 'status': 'open'}, {'id': 2, 'status': 'done'}, {'id': 3, 'status': 'open'}]
+def run(stmt, table):
+    lim = stmt['params']['lim']
+    return [r['id'] for r in table if r['status'] == stmt['params']['status']][:lim]
+rows = run(stmt, table)
+assert rows == [1, 3] and len(rows) <= stmt['params']['lim']
+print({'rows': rows, 'parameterized': ':' in stmt['sql']})
 ```
 
-## Failure Modes
-- Missing or ambiguous schema/context.
-- Unsupported assumptions or invalid method selection.
-- Silent data loss, leakage, or coercion.
-- Unbounded or unauthorized execution.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Treat writes and destructive SQL as high-impact; verify query scope, transaction boundaries, and postconditions.
+- [Query Optimization](query-optimization.md) - reduce the cost before running
+- [Nosql Query](nosql-query.md) - document-store counterpart
+- [Data Joining](data-joining.md) - combine tables correctly
+
+## Failure Modes
+
+- String-interpolated inputs enabling injection.
+- Unbounded queries scanning whole tables without limits.
+- Write statements run under a read-only scope by misclassification.
+- No plan inspection, so a full scan on a huge table runs unseen.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.

@@ -1,57 +1,72 @@
 ---
 name: statistical-analysis
-description: Apply declared statistical methods to validated data with explicit assumptions, estimands, and uncertainty reporting.
+description: Apply declared statistical tests with checked assumptions, reported effect sizes, and stated limitations.
 metadata:
   source: skills/12-data/statistical-analysis.md
   category: 12-data
+  version: "v2"
 ---
 
-**Category:** Data
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-12-data-statistical-analysis.json)
+
+# Statistical Analysis
+
+**Category:** `data`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Apply declared statistical methods to validated data with explicit assumptions, estimands, and uncertainty reporting.
+### Description
 
-## When to Use
-Use when the research question, variables, sample, and statistical method are defined.
+Apply declared statistical tests with checked assumptions, reported effect sizes, and stated limitations. The data step is contract-first: validate the input contract before transforming, and verify the output against explicit expectations rather than trusting the pipeline.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Validated data, schema/context, method parameters, and required output contract. |
-| Outputs | Reproducible result with assumptions, validation findings, and provenance where material. |
-| Failure modes | Schema mismatch, invalid assumptions, data leakage, unbounded execution, or skipped validation. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the source schema, analytical or query objective, and output contract.
-2. Validate types, ranges, temporal or database context, and relevant assumptions.
-3. Apply only the declared operation within bounded scope.
-4. Validate outputs, counts, assumptions, and reproducibility.
-5. Preserve source data and record material uncertainty or exceptions.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | sample | list of number | The observed values with their collection method |
+| Input | analysis_spec | object | Declared test, significance level, and assumptions |
+| Output | statistics | object | Descriptive statistics with sample size and spread |
+| Output | inference | object | The test result with effect size and stated assumptions |
 
-## Runnable Example
+### Procedure
+1. State the question and the declared test before computing anything.
+2. Report descriptive statistics (n, mean, spread) before any inference.
+3. Check the test's assumptions (normality, independence) or pick a robust alternative.
+4. Report effect size with the p-value, never the p-value alone.
+5. State the assumptions the conclusion depends on.
+
+### Example
+
 ```python
-task = {"capability": "statistical-analysis", "validated": True}
-assert task["validated"]
-result = {"status": "validation_required", "capability": task["capability"]}
-print(result)
+xs = [2, 4, 4, 4, 5, 5, 7, 9]
+n = len(xs)
+mean = sum(xs) / n
+var = sum((x - mean) ** 2 for x in xs) / (n - 1)
+sd = var ** 0.5
+assert n == 8 and round(mean, 4) == 5.0 and round(sd, 4) == 2.1381
+print({'n': n, 'mean': mean, 'sd': round(sd, 4)})
 ```
 
-## Failure Modes
-- Missing or ambiguous schema/context.
-- Unsupported assumptions or invalid method selection.
-- Silent data loss, leakage, or coercion.
-- Unbounded or unauthorized execution.
-- Output not validated against the required contract.
+### Related Skills
 
-## Data Boundary
-Statistical results depend on assumptions and sampling; do not infer causality from descriptive or correlational output alone.
+- [Ab Test Analysis](ab-test-analysis.md) - apply the discipline to experiments
+- [Cohort Analysis](cohort-analysis.md) - compare groups over time
+- [Time Series](time-series.md) - analyze temporally dependent data
+
+## Failure Modes
+
+- P-values reported without effect size or sample size.
+- Assumption violations ignored because the test produced a number.
+- Pseudoreplication: correlated samples treated as independent.
+- Conclusions stated with confidence the design does not support.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Data results must preserve provenance and make material assumptions explicit.
 
-## Related
-- 12-data
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing pipeline's documentation; no benchmark claim is made without reproducible evidence.

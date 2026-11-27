@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T01:12:59Z",
+  "generated": "2026-11-27T01:31:35Z",
   "count": 2488,
   "skills": [
     {
@@ -47366,24 +47366,18 @@
     {
       "id": "csv-processing",
       "path": "skills/12-data/csv-processing.md",
-      "name": "csv-processing",
-      "description": "Read, validate, transform, and export CSV data while preserving schema and row-level integrity.",
-      "category": "Data",
+      "name": "Csv Processing",
+      "description": "Read, validate, and emit delimited records with declared formats, schemas, and reconciled row counts.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -47391,24 +47385,18 @@
     {
       "id": "data-aggregation",
       "path": "skills/12-data/data-aggregation.md",
-      "name": "data-aggregation",
-      "description": "Aggregate records by declared dimensions using explicit metrics, filters, and null-handling rules.",
-      "category": "Data",
+      "name": "Data Aggregation",
+      "description": "Aggregate records into declared group-by measures with explicit grain, null handling, and reconciled totals.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -47500,24 +47488,18 @@
     {
       "id": "data-cleaning",
       "path": "skills/12-data/data-cleaning.md",
-      "name": "data-cleaning",
-      "description": "Detect and resolve missing, malformed, duplicate, or inconsistent data according to explicit cleaning rules.",
-      "category": "Data",
+      "name": "Data Cleaning",
+      "description": "Detect and resolve data defects with declared rules, recorded changes, and re-validation of the cleaned output.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -47582,24 +47564,18 @@
     {
       "id": "data-filtering",
       "path": "skills/12-data/data-filtering.md",
-      "name": "data-filtering",
-      "description": "Filter datasets using explicit predicates while preserving reproducibility and row-selection semantics.",
-      "category": "Data",
+      "name": "Data Filtering",
+      "description": "Filter datasets with declared predicates, explicit null semantics, and per-predicate exclusion counts.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -47634,24 +47610,18 @@
     {
       "id": "data-joining",
       "path": "skills/12-data/data-joining.md",
-      "name": "data-joining",
-      "description": "Combine datasets using explicit keys and join semantics while checking cardinality and unmatched records.",
-      "category": "Data",
+      "name": "Data Joining",
+      "description": "Combine datasets on declared keys with the correct join type, duplicate-key handling, and a full match report.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -47823,24 +47793,18 @@
     {
       "id": "data-summarization",
       "path": "skills/12-data/data-summarization.md",
-      "name": "data-summarization",
-      "description": "Produce structured summaries of datasets using declared metrics, dimensions, and source coverage.",
-      "category": "Data",
+      "name": "Data Summarization",
+      "description": "Produce structured summaries with declared statistics, their bases, and the material assumptions that bound them.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -47875,24 +47839,18 @@
     {
       "id": "data-visualization",
       "path": "skills/12-data/data-visualization.md",
-      "name": "data-visualization",
-      "description": "Create data visualizations from validated datasets with explicit measures, dimensions, and chart intent.",
-      "category": "Data",
+      "name": "Data Visualization",
+      "description": "Create data visualizations from pre-aggregated values with declared axes, units, and plotted-to-source verification.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -48174,24 +48132,18 @@
     {
       "id": "etl-pipeline",
       "path": "skills/12-data/etl-pipeline.md",
-      "name": "etl-pipeline",
-      "description": "Design or execute bounded extract-transform-load workflows with explicit source, transformation, destination, and validation contracts.",
-      "category": "Data",
+      "name": "Etl Pipeline",
+      "description": "Design or execute extract-transform-load pipelines with idempotent stages, reconciled counts, and verified checkpoints.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -48636,24 +48588,18 @@
     {
       "id": "json-transformation",
       "path": "skills/12-data/json-transformation.md",
-      "name": "json-transformation",
-      "description": "Transform JSON structures between explicit schemas while preserving required fields and data types.",
-      "category": "Data",
+      "name": "Json Transformation",
+      "description": "Transform JSON documents through explicit mapping rules with recorded defaults, deliberate drops, and target-schema validation.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -49141,24 +49087,18 @@
     {
       "id": "nosql-query",
       "path": "skills/12-data/nosql-query.md",
-      "name": "nosql-query",
-      "description": "Construct and validate NoSQL queries against an explicit document or key-value schema and query contract.",
-      "category": "Data",
+      "name": "Nosql Query",
+      "description": "Construct and validate document-store queries with indexed filters, explicit projections, and consistency-aware reads.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -49226,24 +49166,18 @@
     {
       "id": "pandas-operations",
       "path": "skills/12-data/pandas-operations.md",
-      "name": "pandas-operations",
-      "description": "Apply reproducible pandas transformations to validated tabular data while preserving schema and row-count expectations.",
-      "category": "Data",
+      "name": "Pandas Operations",
+      "description": "Apply reproducible pandas transformations with dtype and shape verification at each step and no silent NaN propagation.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -49729,24 +49663,18 @@
     {
       "id": "schema-inference",
       "path": "skills/12-data/schema-inference.md",
-      "name": "schema-inference",
-      "description": "Infer candidate data schemas from representative records while distinguishing observed fields from inferred types or optionality.",
-      "category": "Data",
+      "name": "Schema Inference",
+      "description": "Infer candidate schemas from representative samples with type-conflict flagging, nullability thresholds, and held-out validation.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -49836,24 +49764,18 @@
     {
       "id": "similarity-search",
       "path": "skills/12-data/similarity-search.md",
-      "name": "similarity-search",
-      "description": "Retrieve semantically or structurally similar records using an explicit representation, metric, and threshold.",
-      "category": "Data",
+      "name": "Similarity Search",
+      "description": "Retrieve semantically similar items with matched embedding models, declared metrics, thresholds, and returned provenance.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -49891,24 +49813,18 @@
     {
       "id": "sql-execution",
       "path": "skills/12-data/sql-execution.md",
-      "name": "sql-execution",
-      "description": "Execute bounded SQL against an explicitly identified database, schema, and authorized query scope.",
-      "category": "Data",
+      "name": "Sql Execution",
+      "description": "Execute bounded SQL with parameterized values, enforced access scope, explicit limits, and visible plan cost.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -49916,24 +49832,18 @@
     {
       "id": "statistical-analysis",
       "path": "skills/12-data/statistical-analysis.md",
-      "name": "statistical-analysis",
-      "description": "Apply declared statistical methods to validated data with explicit assumptions, estimands, and uncertainty reporting.",
-      "category": "Data",
+      "name": "Statistical Analysis",
+      "description": "Apply declared statistical tests with checked assumptions, reported effect sizes, and stated limitations.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -50049,24 +49959,18 @@
     {
       "id": "time-series",
       "path": "skills/12-data/time-series.md",
-      "name": "time-series",
-      "description": "Analyze or transform ordered time-series data using explicit frequency, time zone, window, and forecasting assumptions.",
-      "category": "Data",
+      "name": "Time Series",
+      "description": "Analyze or transform timestamped series with validated ordering, explicit frequency, honest windows, and forecast intervals.",
+      "category": "data",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Data Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "12-data"
@@ -60632,26 +60536,22 @@
     {
       "id": "shared-memory",
       "path": "skills/15-orchestration/shared-memory.md",
-      "name": "shared-memory",
+      "name": "Shared Memory",
       "description": "Coordinate shared workflow state across agents using explicit schemas, ownership, synchronization, and provenance.",
-      "category": "Orchestration",
+      "category": "orchestration",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Orchestration Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../09-agentic-patterns/agent-checkpointing.md"
+      ],
       "category_dir": "15-orchestration"
     },
     {
@@ -60794,24 +60694,18 @@
     {
       "id": "state-machine",
       "path": "skills/15-orchestration/state-machine.md",
-      "name": "state-machine",
-      "description": "Model workflow execution as explicit states and transitions with guards, entry/exit effects, and terminal conditions.",
-      "category": "Orchestration",
+      "name": "State Machine",
+      "description": "Model workflow progress as an explicit finite state machine with declared states, guarded transitions, and auditable history.",
+      "category": "orchestration",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Orchestration Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "15-orchestration"
@@ -60905,24 +60799,18 @@
     {
       "id": "subagent-spawning",
       "path": "skills/15-orchestration/subagent-spawning.md",
-      "name": "subagent-spawning",
-      "description": "Create bounded subagent tasks with explicit goals, permissions, budgets, lifecycle, and result-collection rules.",
-      "category": "Orchestration",
+      "name": "Subagent Spawning",
+      "description": "Create bounded subagent runs for independent subtasks with explicit scopes, concurrency caps, and verified result collection.",
+      "category": "orchestration",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Orchestration Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "15-orchestration"
@@ -60985,24 +60873,18 @@
     {
       "id": "task-queue",
       "path": "skills/15-orchestration/task-queue.md",
-      "name": "task-queue",
-      "description": "Manage pending work through explicit task states, priorities, ownership, retries, and completion semantics.",
-      "category": "Orchestration",
+      "name": "Task Queue",
+      "description": "Manage pending work with declared ordering, visibility timeouts, dead-letter handling, and explicit backpressure.",
+      "category": "orchestration",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Orchestration Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "15-orchestration"

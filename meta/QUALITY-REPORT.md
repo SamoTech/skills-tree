@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2442
-- 🟡 **Enriched** (real description + runnable code): 46
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2462
+- 🟡 **Enriched** (real description + runnable code): 26
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -27,10 +27,10 @@
 | `09-agentic-patterns` | 155 | 155 | 0 | 0 | 0 | 0 |
 | `10-computer-use` | 137 | 137 | 0 | 0 | 0 | 0 |
 | `11-web` | 141 | 141 | 0 | 0 | 0 | 0 |
-| `12-data` | 154 | 138 | 16 | 0 | 0 | 0 |
+| `12-data` | 154 | 154 | 0 | 0 | 0 | 0 |
 | `13-creative` | 115 | 115 | 0 | 0 | 0 | 0 |
 | `14-security` | 143 | 143 | 0 | 0 | 0 | 0 |
-| `15-orchestration` | 138 | 134 | 4 | 0 | 0 | 0 |
+| `15-orchestration` | 138 | 138 | 0 | 0 | 0 | 0 |
 | `16-domain-specific` | 145 | 119 | 26 | 0 | 0 | 0 |
 | `17-infrastructure` | 112 | 112 | 0 | 0 | 0 | 0 |
 
@@ -1760,19 +1760,26 @@
 - [`skills/12-data/cohort-analysis.md`](skills/12-data/cohort-analysis.md) — Cohort Analysis
 - [`skills/12-data/cost-per-capability-benchmark-analytics.md`](skills/12-data/cost-per-capability-benchmark-analytics.md) — Cost Per Capability Benchmark Analytics
 - [`skills/12-data/cross-verified-data-source-onboarding.md`](skills/12-data/cross-verified-data-source-onboarding.md) — Cross Verified Data Source Onboarding
+- [`skills/12-data/csv-processing.md`](skills/12-data/csv-processing.md) — Csv Processing
+- [`skills/12-data/data-aggregation.md`](skills/12-data/data-aggregation.md) — Data Aggregation
 - [`skills/12-data/data-anonymization.md`](skills/12-data/data-anonymization.md) — Data Anonymization
 - [`skills/12-data/data-backfill-pipeline-design.md`](skills/12-data/data-backfill-pipeline-design.md) — Data Backfill Pipeline Design
 - [`skills/12-data/data-center-power-cost-dataset-modeling.md`](skills/12-data/data-center-power-cost-dataset-modeling.md) — Data Center Power Cost Dataset Modeling
+- [`skills/12-data/data-cleaning.md`](skills/12-data/data-cleaning.md) — Data Cleaning
 - [`skills/12-data/data-contract-enforcement.md`](skills/12-data/data-contract-enforcement.md) — Data Contract Enforcement
 - [`skills/12-data/data-deletion-request-fulfillment-automation.md`](skills/12-data/data-deletion-request-fulfillment-automation.md) — Data Deletion Request Fulfillment Automation
+- [`skills/12-data/data-filtering.md`](skills/12-data/data-filtering.md) — Data Filtering
 - [`skills/12-data/data-freshness-staleness-accounting.md`](skills/12-data/data-freshness-staleness-accounting.md) — Data Freshness Staleness Accounting
+- [`skills/12-data/data-joining.md`](skills/12-data/data-joining.md) — Data Joining
 - [`skills/12-data/data-lineage.md`](skills/12-data/data-lineage.md) — Data Lineage
 - [`skills/12-data/data-pipeline-observability.md`](skills/12-data/data-pipeline-observability.md) — Data Pipeline Observability
 - [`skills/12-data/data-profiling.md`](skills/12-data/data-profiling.md) — Data Profiling
 - [`skills/12-data/data-quality-scoring.md`](skills/12-data/data-quality-scoring.md) — Data Quality Scoring
 - [`skills/12-data/data-quality-sla-monitoring.md`](skills/12-data/data-quality-sla-monitoring.md) — Data Quality Sla Monitoring
 - [`skills/12-data/data-residency-enforcement-automation.md`](skills/12-data/data-residency-enforcement-automation.md) — Data Residency Enforcement Automation
+- [`skills/12-data/data-summarization.md`](skills/12-data/data-summarization.md) — Data Summarization
 - [`skills/12-data/data-validation.md`](skills/12-data/data-validation.md) — Data Validation
+- [`skills/12-data/data-visualization.md`](skills/12-data/data-visualization.md) — Data Visualization
 - [`skills/12-data/dataset-contamination-screening.md`](skills/12-data/dataset-contamination-screening.md) — Dataset Contamination Screening
 - [`skills/12-data/dialogue-analytics.md`](skills/12-data/dialogue-analytics.md) — Dialogue Analytics
 - [`skills/12-data/dna-sequence-model-output-analysis.md`](skills/12-data/dna-sequence-model-output-analysis.md) — DNA Sequence Model Output Analysis
@@ -1783,6 +1790,7 @@
 - [`skills/12-data/embedding-pipeline-cost-tracking.md`](skills/12-data/embedding-pipeline-cost-tracking.md) — Embedding Pipeline Cost Tracking
 - [`skills/12-data/employee-agent-monitoring-telemetry-configuration.md`](skills/12-data/employee-agent-monitoring-telemetry-configuration.md) — Employee Agent Monitoring Telemetry Configuration
 - [`skills/12-data/enterprise-agent-seat-usage-analytics.md`](skills/12-data/enterprise-agent-seat-usage-analytics.md) — Enterprise Agent Seat Usage Analytics
+- [`skills/12-data/etl-pipeline.md`](skills/12-data/etl-pipeline.md) — Etl Pipeline
 - [`skills/12-data/evaluation-dataset-curation.md`](skills/12-data/evaluation-dataset-curation.md) — Evaluation Dataset Curation
 - [`skills/12-data/event-sourced-projections.md`](skills/12-data/event-sourced-projections.md) — Event-Sourced Projections
 - [`skills/12-data/experiment-guardrail-metrics-monitoring.md`](skills/12-data/experiment-guardrail-metrics-monitoring.md) — Experiment Guardrail Metrics Monitoring
@@ -1799,6 +1807,7 @@
 - [`skills/12-data/idl-to-mcp-schema-generation-pipeline.md`](skills/12-data/idl-to-mcp-schema-generation-pipeline.md) — IDL to MCP Schema Generation Pipeline
 - [`skills/12-data/incremental-processing.md`](skills/12-data/incremental-processing.md) — Incremental Processing
 - [`skills/12-data/inter-annotator-agreement-measurement.md`](skills/12-data/inter-annotator-agreement-measurement.md) — Inter-Annotator Agreement Measurement
+- [`skills/12-data/json-transformation.md`](skills/12-data/json-transformation.md) — Json Transformation
 - [`skills/12-data/kill-switch-invocation-audit-analytics.md`](skills/12-data/kill-switch-invocation-audit-analytics.md) — Kill Switch Invocation Audit Analytics
 - [`skills/12-data/kpi-linked-agent-performance-metrics.md`](skills/12-data/kpi-linked-agent-performance-metrics.md) — Kpi Linked Agent Performance Metrics
 - [`skills/12-data/lakehouse-table-maintenance.md`](skills/12-data/lakehouse-table-maintenance.md) — Lakehouse Table Maintenance
@@ -1816,8 +1825,10 @@
 - [`skills/12-data/model-pricing-table-normalization.md`](skills/12-data/model-pricing-table-normalization.md) — Model Pricing Table Normalization
 - [`skills/12-data/model-release-ledger-maintenance.md`](skills/12-data/model-release-ledger-maintenance.md) — Model Release Ledger Maintenance
 - [`skills/12-data/multiday-agent-activity-log-forensics.md`](skills/12-data/multiday-agent-activity-log-forensics.md) — Multiday Agent Activity Log Forensics
+- [`skills/12-data/nosql-query.md`](skills/12-data/nosql-query.md) — Nosql Query
 - [`skills/12-data/notification-ingest-data-minimization.md`](skills/12-data/notification-ingest-data-minimization.md) — Notification Ingest Data Minimization
 - [`skills/12-data/observability-span-taxonomies.md`](skills/12-data/observability-span-taxonomies.md) — Observability Span Taxonomies
+- [`skills/12-data/pandas-operations.md`](skills/12-data/pandas-operations.md) — Pandas Operations
 - [`skills/12-data/parquet-processing.md`](skills/12-data/parquet-processing.md) — Parquet Processing
 - [`skills/12-data/permission-grant-ledger-analytics.md`](skills/12-data/permission-grant-ledger-analytics.md) — Permission Grant Ledger Analytics
 - [`skills/12-data/pii-discovery.md`](skills/12-data/pii-discovery.md) — PII Discovery
@@ -1835,14 +1846,19 @@
 - [`skills/12-data/released-model-trace-reproduction-analytics.md`](skills/12-data/released-model-trace-reproduction-analytics.md) — Released Model Trace Reproduction Analytics
 - [`skills/12-data/response-schema-validation.md`](skills/12-data/response-schema-validation.md) — Response Schema Validation
 - [`skills/12-data/retention-policy-automation.md`](skills/12-data/retention-policy-automation.md) — Retention Policy Automation
+- [`skills/12-data/schema-inference.md`](skills/12-data/schema-inference.md) — Schema Inference
 - [`skills/12-data/schema-registry-management.md`](skills/12-data/schema-registry-management.md) — Schema Registry Management
 - [`skills/12-data/semiconductor-lead-time-trend-analysis.md`](skills/12-data/semiconductor-lead-time-trend-analysis.md) — Semiconductor Lead Time Trend Analysis
 - [`skills/12-data/session-replay-sampling.md`](skills/12-data/session-replay-sampling.md) — Session Replay Sampling
+- [`skills/12-data/similarity-search.md`](skills/12-data/similarity-search.md) — Similarity Search
 - [`skills/12-data/splunk-otel-agent-telemetry-pipeline.md`](skills/12-data/splunk-otel-agent-telemetry-pipeline.md) — Splunk Otel Agent Telemetry Pipeline
+- [`skills/12-data/sql-execution.md`](skills/12-data/sql-execution.md) — Sql Execution
+- [`skills/12-data/statistical-analysis.md`](skills/12-data/statistical-analysis.md) — Statistical Analysis
 - [`skills/12-data/stream-processing.md`](skills/12-data/stream-processing.md) — Stream Processing
 - [`skills/12-data/synthetic-data-generation.md`](skills/12-data/synthetic-data-generation.md) — Synthetic Data Generation
 - [`skills/12-data/teammate-credit-consumption-accounting.md`](skills/12-data/teammate-credit-consumption-accounting.md) — Teammate Credit Consumption Accounting
 - [`skills/12-data/telecom-fault-call-resolution-analytics.md`](skills/12-data/telecom-fault-call-resolution-analytics.md) — Telecom Fault Call Resolution Analytics
+- [`skills/12-data/time-series.md`](skills/12-data/time-series.md) — Time Series
 - [`skills/12-data/token-exfil-incident-forensics.md`](skills/12-data/token-exfil-incident-forensics.md) — Token Exfiltration Incident Forensics
 - [`skills/12-data/token-roi-analytics.md`](skills/12-data/token-roi-analytics.md) — Token Roi Analytics
 - [`skills/12-data/trace-based-eval-dataset-generation.md`](skills/12-data/trace-based-eval-dataset-generation.md) — Trace Based Eval Dataset Generation
@@ -2224,16 +2240,20 @@
 - [`skills/15-orchestration/self-service-agent-deployment-pipelines.md`](skills/15-orchestration/self-service-agent-deployment-pipelines.md) — Self Service Agent Deployment Pipelines
 - [`skills/15-orchestration/sequential-workflow.md`](skills/15-orchestration/sequential-workflow.md) — Sequential Workflow
 - [`skills/15-orchestration/service-level-objective-enforcement.md`](skills/15-orchestration/service-level-objective-enforcement.md) — Service Level Objective Enforcement
+- [`skills/15-orchestration/shared-memory.md`](skills/15-orchestration/shared-memory.md) — Shared Memory
 - [`skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md`](skills/15-orchestration/shared-surface-human-agent-collaboration-orchestration.md) — Shared Surface Human Agent Collaboration Orchestration
 - [`skills/15-orchestration/single-api-multi-model-gateway-configuration.md`](skills/15-orchestration/single-api-multi-model-gateway-configuration.md) — Single Api Multi Model Gateway Configuration
 - [`skills/15-orchestration/skill-composition-verification.md`](skills/15-orchestration/skill-composition-verification.md) — Skill Composition Verification
 - [`skills/15-orchestration/specialist-agent-routing.md`](skills/15-orchestration/specialist-agent-routing.md) — Specialist Agent Routing
 - [`skills/15-orchestration/speculative-execution.md`](skills/15-orchestration/speculative-execution.md) — Speculative Execution
+- [`skills/15-orchestration/state-machine.md`](skills/15-orchestration/state-machine.md) — State Machine
 - [`skills/15-orchestration/stateful-agent-graphs.md`](skills/15-orchestration/stateful-agent-graphs.md) — Stateful Agent Graphs
 - [`skills/15-orchestration/stateless-mcp-gateway-orchestration.md`](skills/15-orchestration/stateless-mcp-gateway-orchestration.md) — Stateless MCP Gateway Orchestration
 - [`skills/15-orchestration/steering-command-queue-orchestration.md`](skills/15-orchestration/steering-command-queue-orchestration.md) — Steering Command Queue Orchestration
+- [`skills/15-orchestration/subagent-spawning.md`](skills/15-orchestration/subagent-spawning.md) — Subagent Spawning
 - [`skills/15-orchestration/supplier-agent-session-brokering-orchestration.md`](skills/15-orchestration/supplier-agent-session-brokering-orchestration.md) — Supplier Agent Session Brokering Orchestration
 - [`skills/15-orchestration/task-priority-queue-orchestration.md`](skills/15-orchestration/task-priority-queue-orchestration.md) — Task Priority Queue Orchestration
+- [`skills/15-orchestration/task-queue.md`](skills/15-orchestration/task-queue.md) — Task Queue
 - [`skills/15-orchestration/tasks-inbox-backlog-orchestration.md`](skills/15-orchestration/tasks-inbox-backlog-orchestration.md) — Tasks Inbox Backlog Orchestration
 - [`skills/15-orchestration/teammate-parallel-thread-monitoring-orchestration.md`](skills/15-orchestration/teammate-parallel-thread-monitoring-orchestration.md) — Teammate Parallel Thread Monitoring Orchestration
 - [`skills/15-orchestration/thread-based-resume.md`](skills/15-orchestration/thread-based-resume.md) — Thread-Based Resume
@@ -2481,26 +2501,6 @@
 
 ## 🟡 Enriched skills
 
-- [`skills/12-data/csv-processing.md`](skills/12-data/csv-processing.md) — missing table or <60 lines
-- [`skills/12-data/data-aggregation.md`](skills/12-data/data-aggregation.md) — missing table or <60 lines
-- [`skills/12-data/data-cleaning.md`](skills/12-data/data-cleaning.md) — missing table or <60 lines
-- [`skills/12-data/data-filtering.md`](skills/12-data/data-filtering.md) — missing table or <60 lines
-- [`skills/12-data/data-joining.md`](skills/12-data/data-joining.md) — missing table or <60 lines
-- [`skills/12-data/data-summarization.md`](skills/12-data/data-summarization.md) — missing table or <60 lines
-- [`skills/12-data/data-visualization.md`](skills/12-data/data-visualization.md) — missing table or <60 lines
-- [`skills/12-data/etl-pipeline.md`](skills/12-data/etl-pipeline.md) — missing table or <60 lines
-- [`skills/12-data/json-transformation.md`](skills/12-data/json-transformation.md) — missing table or <60 lines
-- [`skills/12-data/nosql-query.md`](skills/12-data/nosql-query.md) — missing table or <60 lines
-- [`skills/12-data/pandas-operations.md`](skills/12-data/pandas-operations.md) — missing table or <60 lines
-- [`skills/12-data/schema-inference.md`](skills/12-data/schema-inference.md) — missing table or <60 lines
-- [`skills/12-data/similarity-search.md`](skills/12-data/similarity-search.md) — missing table or <60 lines
-- [`skills/12-data/sql-execution.md`](skills/12-data/sql-execution.md) — missing table or <60 lines
-- [`skills/12-data/statistical-analysis.md`](skills/12-data/statistical-analysis.md) — missing table or <60 lines
-- [`skills/12-data/time-series.md`](skills/12-data/time-series.md) — missing table or <60 lines
-- [`skills/15-orchestration/shared-memory.md`](skills/15-orchestration/shared-memory.md) — missing table or <60 lines
-- [`skills/15-orchestration/state-machine.md`](skills/15-orchestration/state-machine.md) — missing table or <60 lines
-- [`skills/15-orchestration/subagent-spawning.md`](skills/15-orchestration/subagent-spawning.md) — missing table or <60 lines
-- [`skills/15-orchestration/task-queue.md`](skills/15-orchestration/task-queue.md) — missing table or <60 lines
 - [`skills/16-domain-specific/ad-copy.md`](skills/16-domain-specific/ad-copy.md) — no inputs/outputs/failure-modes table
 - [`skills/16-domain-specific/alert-triage.md`](skills/16-domain-specific/alert-triage.md) — no inputs/outputs/failure-modes table
 - [`skills/16-domain-specific/clinical-note-summarization.md`](skills/16-domain-specific/clinical-note-summarization.md) — no inputs/outputs/failure-modes table
