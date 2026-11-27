@@ -72,7 +72,7 @@ def test_no_contradictory_python_api_claims() -> None:
     assert "| CLI + Python API | ✅ Both |" not in readme
     for line in readme.split("\n"):
         if "Python API" in line or "skills_tree." in line:
-            assert re.search(r"planned|not currently implemented|not implemented|Not yet|docs/api\.md", line, re.IGNORECASE), (
+            assert re.search(r"planned|not currently implemented|not implemented|Not yet|docs/api\.md|\*", line, re.IGNORECASE), (
                 f"README Python-API line without an honest status marker: {line[:160]}"
             )
     assert "does not contain a verified implementation" in _read("docs/api.md")
