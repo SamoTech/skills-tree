@@ -3,56 +3,77 @@ title: "Reflection"
 category: 09-agentic-patterns
 level: advanced
 stability: stable
+version: v2
 description: "Add a structured critique-and-revision pass that evaluates an agent output against explicit criteria before acceptance."
 added: "2025-03"
-related: ["09-agentic-patterns", "input-guardrails", "output-guardrails"]
+related: [critic-agent, self-refine-critique-loop]
 ---
 
-## Description
-Add a structured critique-and-revision pass that evaluates an agent output against explicit criteria before acceptance.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-reflection.json)
 
-## When to Use
-Use when output quality benefits from an independent verification pass and the acceptance criteria are observable.
+# Reflection
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | draft, evaluation_criteria, and task constraints or execution bounds. |
-| Outputs | revised_output with assumptions, evidence references, and unresolved uncertainty where material. |
-| Failure modes | Reflection is not independent evidence if the same model and context generate both draft and critique; use external checks when stakes require them. |
+**Category:** `agentic-patterns`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Procedure
-1. Define the objective, state representation, evaluation criteria, and termination condition.
-2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
-3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
-4. Preserve candidate provenance and the observations or evidence supporting selection.
-5. Verify the selected result against the declared criteria before acceptance.
-6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
+### Description
 
-## Runnable Example
+Add a structured critique-and-revision pass that evaluates an agent output against explicit criteria before acceptance. Reflection loops until the declared criteria pass or the iteration budget is spent; it is not independent evidence when the same model and context produce both draft and critique.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | draft | text | The output to critique and revise |
+| Input | evaluation_criteria | list of object | Checkable acceptance criteria with a version |
+| Output | revised_output | text | The final draft after the reflection passes |
+| Output | reflection_log | list of object | Per-iteration findings and the changes made |
+
+### Procedure
+1. Declare the acceptance criteria and the iteration budget before the first pass.
+2. Critique the draft against each criterion and cite the failing passage.
+3. Revise the draft to address the findings; log the change per finding.
+4. Stop when all criteria pass or the budget is spent; never iterate past the budget.
+5. Verify the final draft against the declared criteria version.
+6. Use external checks when the stakes require independence beyond same-model reflection.
+
+### Example
+
 ```python
-pattern = {
-    "capability": "reflection",
-    "validated": True,
-    "budget": 4,
-}
-assert pattern["validated"] and pattern["budget"] > 0
-result = {"status": "bounded_execution", "capability": pattern["capability"]}
-print(result)
+criteria = {'v1': ['cited', 'bounded']}
+draft = {'text': '42 rows', 'cited': False, 'bounded': False}
+budget = 3
+for i in range(budget):
+    fails = [c for c in criteria['v1'] if not draft[c]]
+    if not fails: break
+    draft = dict(draft, **{c: True for c in fails})
+fails = [c for c in criteria['v1'] if not draft[c]]
+assert fails == [] and draft['cited'] and draft['bounded']
+print({'iterations': 1, 'status': 'accepted'})
 ```
 
+### Related Skills
+
+- [Critic Agent](critic-agent.md) - role-separated critique for independence
+- [Self-Refine Critique Loop](self-refine-critique-loop.md) - the iterating variant
+- [Tree of Thoughts](tot.md) - explore alternatives instead of revising one draft
+- [Human-in-Loop](../14-security/human-in-loop.md) - external verification when stakes require it
+
 ## Failure Modes
-- Ambiguous objective or evaluation criterion.
-- Search or agent budget exhaustion without a verified result.
-- Correlated model errors presented as independent evidence.
-- Stale, conflicting, or missing source evidence.
-- Optimization against a proxy metric that diverges from the actual task objective.
-- Completion reported without a reproducible postcondition.
+
+- Same-model reflection presented as independent verification.
+- Iterating past the declared budget or against shifting criteria.
+- Accepting a draft whose criteria were never actually re-checked.
+- Findings without cited passages, so revisions cannot be verified.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-## Related
-- 09-agentic-patterns
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; pattern behavior must be checked against current framework documentation; no benchmark claim is made without reproducible evidence.
