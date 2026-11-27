@@ -19,7 +19,7 @@ Done. 2488 document(s) written to 'docs/search-index.json' and 'data/search-inde
 [export] Done.
 Wrote meta/QUALITY-REPORT.md
 Summary: {'battle_tested': 2422, 'enriched': 66, 'stub': 0, 'invalid': 0}
-Updated README.md.
+README.md already in sync.
 docs/index.md already in sync.
 Live counts → 2488 skills, 17 categories, 3877 graph edges, 2422 battle-tested, 0 stubs.
 Wrote meta/MODERNIZATION-INVENTORY.md
