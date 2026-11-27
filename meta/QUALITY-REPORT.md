@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2402
-- 🟡 **Enriched** (real description + runnable code): 86
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2411
+- 🟡 **Enriched** (real description + runnable code): 77
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -24,7 +24,7 @@
 | `06-communication` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `07-tool-use` | 165 | 165 | 0 | 0 | 0 | 0 |
 | `08-multimodal` | 135 | 135 | 0 | 0 | 0 | 0 |
-| `09-agentic-patterns` | 155 | 146 | 9 | 0 | 0 | 0 |
+| `09-agentic-patterns` | 155 | 155 | 0 | 0 | 0 | 0 |
 | `10-computer-use` | 137 | 119 | 18 | 0 | 0 | 0 |
 | `11-web` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `12-data` | 154 | 138 | 16 | 0 | 0 | 0 |
@@ -1328,15 +1328,18 @@
 - [`skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md`](skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md) — Browser Agent Fragility Hardening Pattern
 - [`skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md`](skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md) — Cache Prefix Preserving Context Patterns
 - [`skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md`](skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md) — Case Review Agent Recommendation Pattern
+- [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — Constitutional AI
 - [`skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md`](skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md) — Consumer Computer Use Adoption Pattern
 - [`skills/09-agentic-patterns/context-compaction-api-integration-pattern.md`](skills/09-agentic-patterns/context-compaction-api-integration-pattern.md) — Context Compaction API Integration Pattern
 - [`skills/09-agentic-patterns/context-engineering-production-audit-patterns.md`](skills/09-agentic-patterns/context-engineering-production-audit-patterns.md) — Context Engineering Production Audit Patterns
 - [`skills/09-agentic-patterns/context-engineering.md`](skills/09-agentic-patterns/context-engineering.md) — Context Engineering
 - [`skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md`](skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md) — Copilot Harness Adoption Evaluation
 - [`skills/09-agentic-patterns/cot.md`](skills/09-agentic-patterns/cot.md) — Chain of Thought (CoT)
+- [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — Critic Agent
 - [`skills/09-agentic-patterns/cross-cloud-agent-interoperability-patterns.md`](skills/09-agentic-patterns/cross-cloud-agent-interoperability-patterns.md) — Cross Cloud Agent Interoperability Patterns
 - [`skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md`](skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md) — Cross Team Assistant Scope Partitioning
 - [`skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md`](skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md) — Day Scale Single Task Agent Patterns
+- [`skills/09-agentic-patterns/debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — Debate Pattern
 - [`skills/09-agentic-patterns/definition-of-done-enforcement.md`](skills/09-agentic-patterns/definition-of-done-enforcement.md) — Definition of Done Enforcement
 - [`skills/09-agentic-patterns/discovered-tool-owner-enablement-gating-pattern.md`](skills/09-agentic-patterns/discovered-tool-owner-enablement-gating-pattern.md) — Discovered Tool Owner Enablement Gating Pattern
 - [`skills/09-agentic-patterns/enterprise-messaging-system-agent-binding.md`](skills/09-agentic-patterns/enterprise-messaging-system-agent-binding.md) — Enterprise Messaging System Agent Binding
@@ -1361,14 +1364,17 @@
 - [`skills/09-agentic-patterns/incident-derived-authorization-narrowing-pattern.md`](skills/09-agentic-patterns/incident-derived-authorization-narrowing-pattern.md) — Incident Derived Authorization Narrowing Pattern
 - [`skills/09-agentic-patterns/inter-agent-protocol-compliance.md`](skills/09-agentic-patterns/inter-agent-protocol-compliance.md) — Inter-Agent Protocol Compliance
 - [`skills/09-agentic-patterns/interruptible-agent-flows.md`](skills/09-agentic-patterns/interruptible-agent-flows.md) — Interruptible Agent Flows
+- [`skills/09-agentic-patterns/lats.md`](skills/09-agentic-patterns/lats.md) — LATS
 - [`skills/09-agentic-patterns/live-internet-training-isolation-decision.md`](skills/09-agentic-patterns/live-internet-training-isolation-decision.md) — Live Internet Training Isolation Decision
 - [`skills/09-agentic-patterns/llm-judge-calibration.md`](skills/09-agentic-patterns/llm-judge-calibration.md) — LLM Judge Calibration
 - [`skills/09-agentic-patterns/long-running-agent-dead-end-recovery-pattern.md`](skills/09-agentic-patterns/long-running-agent-dead-end-recovery-pattern.md) — Long Running Agent Dead End Recovery Pattern
 - [`skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md`](skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md) — Maf Sequential Workflow Agent Pattern
 - [`skills/09-agentic-patterns/mass-agent-delegation-feasibility-estimation.md`](skills/09-agentic-patterns/mass-agent-delegation-feasibility-estimation.md) — Mass Agent Delegation Feasibility Estimation
+- [`skills/09-agentic-patterns/mcts.md`](skills/09-agentic-patterns/mcts.md) — Monte Carlo Tree Search
 - [`skills/09-agentic-patterns/memory-augmented.md`](skills/09-agentic-patterns/memory-augmented.md) — Memory-Augmented Agent
 - [`skills/09-agentic-patterns/mid-response-steering-pattern.md`](skills/09-agentic-patterns/mid-response-steering-pattern.md) — Mid Response Steering Pattern
 - [`skills/09-agentic-patterns/milestone-commitment-tracking.md`](skills/09-agentic-patterns/milestone-commitment-tracking.md) — Milestone Commitment Tracking
+- [`skills/09-agentic-patterns/mixture-of-agents.md`](skills/09-agentic-patterns/mixture-of-agents.md) — Mixture of Agents
 - [`skills/09-agentic-patterns/mobile-checkpoint-supervision-pattern.md`](skills/09-agentic-patterns/mobile-checkpoint-supervision-pattern.md) — Mobile Checkpoint Supervision Pattern
 - [`skills/09-agentic-patterns/model-tool-pre-approval-tiering.md`](skills/09-agentic-patterns/model-tool-pre-approval-tiering.md) — Model Tool Pre Approval Tiering
 - [`skills/09-agentic-patterns/multi-agent-debate-resolution.md`](skills/09-agentic-patterns/multi-agent-debate-resolution.md) — Multi Agent Debate Resolution
@@ -1396,9 +1402,11 @@
 - [`skills/09-agentic-patterns/prompt-version-control.md`](skills/09-agentic-patterns/prompt-version-control.md) — Prompt Version Control
 - [`skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md`](skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md) — Protocol Migration Coexistence Patterns
 - [`skills/09-agentic-patterns/purchase-intent-binding-patterns.md`](skills/09-agentic-patterns/purchase-intent-binding-patterns.md) — Purchase Intent Binding Patterns
+- [`skills/09-agentic-patterns/rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — RAG Pipeline
 - [`skills/09-agentic-patterns/rag-security-assessment-pattern.md`](skills/09-agentic-patterns/rag-security-assessment-pattern.md) — Rag Security Assessment Pattern
 - [`skills/09-agentic-patterns/rag.md`](skills/09-agentic-patterns/rag.md) — RAG (Agentic Grounding Pattern)
 - [`skills/09-agentic-patterns/react.md`](skills/09-agentic-patterns/react.md) — ReAct (Reasoning + Acting)
+- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — Reflection
 - [`skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md`](skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md) — Refusal Aware Evaluation Harness Pattern
 - [`skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md`](skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md) — Reverse Game Theory Agent Checking Pattern
 - [`skills/09-agentic-patterns/reward-hacking-detection.md`](skills/09-agentic-patterns/reward-hacking-detection.md) — Reward Hacking Detection
@@ -1407,6 +1415,7 @@
 - [`skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md`](skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md) — Scheduled Agent Supervision Pattern
 - [`skills/09-agentic-patterns/scoped-agent-identity-gateway.md`](skills/09-agentic-patterns/scoped-agent-identity-gateway.md) — Scoped Agent Identity Gateway
 - [`skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md`](skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md) — Self-Healing Workflow Repair Patterns
+- [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — Self-Play
 - [`skills/09-agentic-patterns/self-refine-critique-loop.md`](skills/09-agentic-patterns/self-refine-critique-loop.md) — Self Refine Critique Loop
 - [`skills/09-agentic-patterns/simulated-user-evaluation.md`](skills/09-agentic-patterns/simulated-user-evaluation.md) — Simulated User Evaluation
 - [`skills/09-agentic-patterns/skill-composition-chaining.md`](skills/09-agentic-patterns/skill-composition-chaining.md) — Skill Composition Chaining
@@ -2443,15 +2452,6 @@
 
 - [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — no inputs/outputs/failure-modes table
 - [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
-- [`skills/09-agentic-patterns/constitutional-ai.md`](skills/09-agentic-patterns/constitutional-ai.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/critic-agent.md`](skills/09-agentic-patterns/critic-agent.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/debate-pattern.md`](skills/09-agentic-patterns/debate-pattern.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/lats.md`](skills/09-agentic-patterns/lats.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/mcts.md`](skills/09-agentic-patterns/mcts.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/mixture-of-agents.md`](skills/09-agentic-patterns/mixture-of-agents.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/rag-pipeline.md`](skills/09-agentic-patterns/rag-pipeline.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/reflection.md`](skills/09-agentic-patterns/reflection.md) — missing table or <60 lines
-- [`skills/09-agentic-patterns/self-play.md`](skills/09-agentic-patterns/self-play.md) — missing table or <60 lines
 - [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — missing table or <60 lines
 - [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — missing table or <60 lines

@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 2488,
-  "dateModified": "2026-11-26T18:20:40Z",
+  "dateModified": "2026-11-27T00:23:11Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -7781,7 +7781,7 @@
       "@type": "ListItem",
       "position": 1295,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/constitutional-ai.md",
-      "name": "constitutional-ai"
+      "name": "Constitutional AI"
     },
     {
       "@type": "ListItem",
@@ -7823,7 +7823,7 @@
       "@type": "ListItem",
       "position": 1302,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/critic-agent.md",
-      "name": "critic-agent"
+      "name": "Critic Agent"
     },
     {
       "@type": "ListItem",
@@ -7847,7 +7847,7 @@
       "@type": "ListItem",
       "position": 1306,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/debate-pattern.md",
-      "name": "debate-pattern"
+      "name": "Debate Pattern"
     },
     {
       "@type": "ListItem",
@@ -7997,7 +7997,7 @@
       "@type": "ListItem",
       "position": 1331,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/lats.md",
-      "name": "lats"
+      "name": "LATS"
     },
     {
       "@type": "ListItem",
@@ -8033,7 +8033,7 @@
       "@type": "ListItem",
       "position": 1337,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mcts.md",
-      "name": "mcts"
+      "name": "Monte Carlo Tree Search"
     },
     {
       "@type": "ListItem",
@@ -8057,7 +8057,7 @@
       "@type": "ListItem",
       "position": 1341,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mixture-of-agents.md",
-      "name": "mixture-of-agents"
+      "name": "Mixture of Agents"
     },
     {
       "@type": "ListItem",
@@ -8225,7 +8225,7 @@
       "@type": "ListItem",
       "position": 1369,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/rag-pipeline.md",
-      "name": "rag-pipeline"
+      "name": "RAG Pipeline"
     },
     {
       "@type": "ListItem",
@@ -8249,7 +8249,7 @@
       "@type": "ListItem",
       "position": 1373,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/reflection.md",
-      "name": "reflection"
+      "name": "Reflection"
     },
     {
       "@type": "ListItem",
@@ -8303,7 +8303,7 @@
       "@type": "ListItem",
       "position": 1382,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/self-play.md",
-      "name": "self-play"
+      "name": "Self-Play"
     },
     {
       "@type": "ListItem",

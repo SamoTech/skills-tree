@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-26T18:20:40Z",
+  "generated": "2026-11-27T00:23:11Z",
   "count": 2488,
   "skills": [
     {
@@ -35536,25 +35536,23 @@
     {
       "id": "constitutional-ai",
       "path": "skills/09-agentic-patterns/constitutional-ai.md",
-      "name": "constitutional-ai",
+      "name": "Constitutional AI",
       "description": "Apply a declared set of principles to critique and revise generated outputs without treating those principles as universal law.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-guardrails.md",
+        "../14-security/output-guardrails.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -35740,25 +35738,22 @@
     {
       "id": "critic-agent",
       "path": "skills/09-agentic-patterns/critic-agent.md",
-      "name": "critic-agent",
+      "name": "Critic Agent",
       "description": "Use a separate critic role to inspect an agent output against explicit criteria and return actionable findings for revision or acceptance.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-guardrails.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -35854,25 +35849,22 @@
     {
       "id": "debate-pattern",
       "path": "skills/09-agentic-patterns/debate-pattern.md",
-      "name": "debate-pattern",
+      "name": "Debate Pattern",
       "description": "Use multiple role-separated agents to present, challenge, and reconcile competing claims under an explicit evidence protocol.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/output-guardrails.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -36542,23 +36534,18 @@
     {
       "id": "lats",
       "path": "skills/09-agentic-patterns/lats.md",
-      "name": "lats",
+      "name": "LATS",
       "description": "Combine tree search, tool use, and reflective evaluation to explore candidate actions under a bounded search budget.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "09-agentic-patterns"
@@ -36706,23 +36693,18 @@
     {
       "id": "mcts",
       "path": "skills/09-agentic-patterns/mcts.md",
-      "name": "mcts",
+      "name": "Monte Carlo Tree Search",
       "description": "Use stochastic rollout and value estimates to explore a decision tree while controlling expansion, simulation, and selection budgets.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "09-agentic-patterns"
@@ -36809,25 +36791,23 @@
     {
       "id": "mixture-of-agents",
       "path": "skills/09-agentic-patterns/mixture-of-agents.md",
-      "name": "mixture-of-agents",
+      "name": "Mixture of Agents",
       "description": "Route a task through multiple specialized agents and aggregate their outputs using an explicit synthesis policy.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-guardrails.md",
+        "../14-security/output-guardrails.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -37598,25 +37578,22 @@
     {
       "id": "rag-pipeline",
       "path": "skills/09-agentic-patterns/rag-pipeline.md",
-      "name": "rag-pipeline",
+      "name": "RAG Pipeline",
       "description": "Construct a retrieval-augmented generation pipeline with explicit ingestion, indexing, retrieval, grounding, generation, and verification stages.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/indirect-prompt-injection-detection.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -37720,25 +37697,22 @@
     {
       "id": "reflection",
       "path": "skills/09-agentic-patterns/reflection.md",
-      "name": "reflection",
+      "name": "Reflection",
       "description": "Add a structured critique-and-revision pass that evaluates an agent output against explicit criteria before acceptance.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/human-in-loop.md"
+      ],
       "category_dir": "09-agentic-patterns"
     },
     {
@@ -37969,23 +37943,18 @@
     {
       "id": "self-play",
       "path": "skills/09-agentic-patterns/self-play.md",
-      "name": "self-play",
+      "name": "Self-Play",
       "description": "Train or improve an agent through controlled adversarial interaction between role-separated policies or prompts.",
       "category": "agentic-patterns",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "09-agentic-patterns"

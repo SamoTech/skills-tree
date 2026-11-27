@@ -1,10 +1,10 @@
 {
   "meta": {
-    "generated_at": "2026-11-27T00:21:30.653688+00:00",
+    "generated_at": "2026-11-27T00:23:44.835124+00:00",
     "generator": "tools/build_graph.py",
     "schema_version": "3.1",
     "node_count": 2488,
-    "edge_count": 3808,
+    "edge_count": 3844,
     "requires_count": 8,
     "initiative": "INITIATIVE-004"
   },
@@ -19432,7 +19432,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -19537,7 +19537,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -19597,7 +19597,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -19972,7 +19972,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -20062,7 +20062,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -20122,7 +20122,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -20545,7 +20545,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -20607,7 +20607,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -20742,7 +20742,7 @@
       "layer": "systems",
       "level": "advanced",
       "stability": "stable",
-      "version": "v1",
+      "version": "v2",
       "added": "2025-03",
       "tags": [],
       "prerequisites": [],
@@ -53537,6 +53537,38 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/constitutional-ai",
+      "target": "09-agentic-patterns/critic-agent",
+      "type": "RELATED_TO",
+      "evidence": "[Critic Agent](critic-agent.md)",
+      "source_file": "skills/09-agentic-patterns/constitutional-ai.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/constitutional-ai",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection](reflection.md)",
+      "source_file": "skills/09-agentic-patterns/constitutional-ai.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/constitutional-ai",
+      "target": "14-security/input-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Input Guardrails](../14-security/input-guardrails.md)",
+      "source_file": "skills/09-agentic-patterns/constitutional-ai.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/constitutional-ai",
+      "target": "14-security/output-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Output Guardrails](../14-security/output-guardrails.md)",
+      "source_file": "skills/09-agentic-patterns/constitutional-ai.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/consumer-computer-use-adoption-pattern",
       "target": "09-agentic-patterns/guardrail-wrapped-agent-loops",
       "type": "RELATED_TO",
@@ -53633,6 +53665,38 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/critic-agent",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection](reflection.md)",
+      "source_file": "skills/09-agentic-patterns/critic-agent.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/critic-agent",
+      "target": "09-agentic-patterns/self-refine-critique-loop",
+      "type": "RELATED_TO",
+      "evidence": "[Self-Refine Critique Loop](self-refine-critique-loop.md)",
+      "source_file": "skills/09-agentic-patterns/critic-agent.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/critic-agent",
+      "target": "09-agentic-patterns/llm-judge-calibration",
+      "type": "RELATED_TO",
+      "evidence": "[LLM Judge Calibration](llm-judge-calibration.md)",
+      "source_file": "skills/09-agentic-patterns/critic-agent.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/critic-agent",
+      "target": "14-security/input-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Input Guardrails](../14-security/input-guardrails.md)",
+      "source_file": "skills/09-agentic-patterns/critic-agent.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/cross-cloud-agent-interoperability-patterns",
       "target": "09-agentic-patterns/inter-agent-protocol-compliance",
       "type": "RELATED_TO",
@@ -53678,6 +53742,38 @@
       "type": "RELATED_TO",
       "evidence": "[Multiday Agent Mission Decomposition Patterns](../09-agentic-patterns/multiday-agent-mission-decomposition-patterns.md)",
       "source_file": "skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/debate-pattern",
+      "target": "09-agentic-patterns/critic-agent",
+      "type": "RELATED_TO",
+      "evidence": "[Critic Agent](critic-agent.md)",
+      "source_file": "skills/09-agentic-patterns/debate-pattern.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/debate-pattern",
+      "target": "09-agentic-patterns/multi-agent-debate-resolution",
+      "type": "RELATED_TO",
+      "evidence": "[Multi-Agent Debate Resolution](multi-agent-debate-resolution.md)",
+      "source_file": "skills/09-agentic-patterns/debate-pattern.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/debate-pattern",
+      "target": "09-agentic-patterns/llm-judge-calibration",
+      "type": "RELATED_TO",
+      "evidence": "[LLM Judge Calibration](llm-judge-calibration.md)",
+      "source_file": "skills/09-agentic-patterns/debate-pattern.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/debate-pattern",
+      "target": "14-security/output-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Output Guardrails](../14-security/output-guardrails.md)",
+      "source_file": "skills/09-agentic-patterns/debate-pattern.md",
       "confidence": "high"
     },
     {
@@ -53953,6 +54049,38 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/mcts",
+      "type": "RELATED_TO",
+      "evidence": "[Monte Carlo Tree Search](mcts.md)",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/reflection",
+      "type": "RELATED_TO",
+      "evidence": "[Reflection](reflection.md)",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/bounded-exploration",
+      "type": "RELATED_TO",
+      "evidence": "[Bounded Exploration](bounded-exploration.md)",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/lats",
+      "target": "09-agentic-patterns/tot",
+      "type": "RELATED_TO",
+      "evidence": "[Tree of Thoughts](tot.md)",
+      "source_file": "skills/09-agentic-patterns/lats.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/live-internet-training-isolation-decision",
       "target": "09-agentic-patterns/agent-originated-commerce-channel-segmentation",
       "type": "RELATED_TO",
@@ -54017,6 +54145,38 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/mcts",
+      "target": "09-agentic-patterns/lats",
+      "type": "RELATED_TO",
+      "evidence": "[LATS](lats.md)",
+      "source_file": "skills/09-agentic-patterns/mcts.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/mcts",
+      "target": "09-agentic-patterns/tot",
+      "type": "RELATED_TO",
+      "evidence": "[Tree of Thoughts](tot.md)",
+      "source_file": "skills/09-agentic-patterns/mcts.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/mcts",
+      "target": "09-agentic-patterns/bounded-exploration",
+      "type": "RELATED_TO",
+      "evidence": "[Bounded Exploration](bounded-exploration.md)",
+      "source_file": "skills/09-agentic-patterns/mcts.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/mcts",
+      "target": "09-agentic-patterns/exploration-exploitation-balancing",
+      "type": "RELATED_TO",
+      "evidence": "[Exploration-Exploitation Balancing](exploration-exploitation-balancing.md)",
+      "source_file": "skills/09-agentic-patterns/mcts.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/mid-response-steering-pattern",
       "target": "09-agentic-patterns/interruptible-agent-flows",
       "type": "RELATED_TO",
@@ -54030,6 +54190,38 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Turn Budget Pacing](../09-agentic-patterns/agent-turn-budget-pacing.md)",
       "source_file": "skills/09-agentic-patterns/mid-response-steering-pattern.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/mixture-of-agents",
+      "target": "09-agentic-patterns/debate-pattern",
+      "type": "RELATED_TO",
+      "evidence": "[Debate Pattern](debate-pattern.md)",
+      "source_file": "skills/09-agentic-patterns/mixture-of-agents.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/mixture-of-agents",
+      "target": "09-agentic-patterns/critic-agent",
+      "type": "RELATED_TO",
+      "evidence": "[Critic Agent](critic-agent.md)",
+      "source_file": "skills/09-agentic-patterns/mixture-of-agents.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/mixture-of-agents",
+      "target": "14-security/input-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Input Guardrails](../14-security/input-guardrails.md)",
+      "source_file": "skills/09-agentic-patterns/mixture-of-agents.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/mixture-of-agents",
+      "target": "14-security/output-guardrails",
+      "type": "RELATED_TO",
+      "evidence": "[Output Guardrails](../14-security/output-guardrails.md)",
+      "source_file": "skills/09-agentic-patterns/mixture-of-agents.md",
       "confidence": "high"
     },
     {
@@ -54409,6 +54601,38 @@
       "confidence": "high"
     },
     {
+      "source": "09-agentic-patterns/rag-pipeline",
+      "target": "09-agentic-patterns/rag",
+      "type": "RELATED_TO",
+      "evidence": "[RAG](rag.md)",
+      "source_file": "skills/09-agentic-patterns/rag-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/rag-pipeline",
+      "target": "09-agentic-patterns/agentic-rag",
+      "type": "RELATED_TO",
+      "evidence": "[Agentic RAG](agentic-rag.md)",
+      "source_file": "skills/09-agentic-patterns/rag-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/rag-pipeline",
+      "target": "09-agentic-patterns/memory-augmented",
+      "type": "RELATED_TO",
+      "evidence": "[Memory-Augmented](memory-augmented.md)",
+      "source_file": "skills/09-agentic-patterns/rag-pipeline.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/rag-pipeline",
+      "target": "14-security/indirect-prompt-injection-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Indirect Prompt Injection Detection](../14-security/indirect-prompt-injection-detection.md)",
+      "source_file": "skills/09-agentic-patterns/rag-pipeline.md",
+      "confidence": "high"
+    },
+    {
       "source": "09-agentic-patterns/rag-security-assessment-pattern",
       "target": "09-agentic-patterns/rag-pipeline",
       "type": "RELATED_TO",
@@ -54454,6 +54678,38 @@
       "type": "RELATED_TO",
       "evidence": "[Planning](../02-reasoning/planning.md)",
       "source_file": "skills/09-agentic-patterns/react.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/reflection",
+      "target": "09-agentic-patterns/critic-agent",
+      "type": "RELATED_TO",
+      "evidence": "[Critic Agent](critic-agent.md)",
+      "source_file": "skills/09-agentic-patterns/reflection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/reflection",
+      "target": "09-agentic-patterns/self-refine-critique-loop",
+      "type": "RELATED_TO",
+      "evidence": "[Self-Refine Critique Loop](self-refine-critique-loop.md)",
+      "source_file": "skills/09-agentic-patterns/reflection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/reflection",
+      "target": "09-agentic-patterns/tot",
+      "type": "RELATED_TO",
+      "evidence": "[Tree of Thoughts](tot.md)",
+      "source_file": "skills/09-agentic-patterns/reflection.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/reflection",
+      "target": "14-security/human-in-loop",
+      "type": "RELATED_TO",
+      "evidence": "[Human-in-Loop](../14-security/human-in-loop.md)",
+      "source_file": "skills/09-agentic-patterns/reflection.md",
       "confidence": "high"
     },
     {
@@ -54566,6 +54822,38 @@
       "type": "RELATED_TO",
       "evidence": "[Agent Checkpoint Restore Patterns](../09-agentic-patterns/agent-checkpoint-restore-patterns.md)",
       "source_file": "skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/self-play",
+      "target": "09-agentic-patterns/debate-pattern",
+      "type": "RELATED_TO",
+      "evidence": "[Debate Pattern](debate-pattern.md)",
+      "source_file": "skills/09-agentic-patterns/self-play.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/self-play",
+      "target": "09-agentic-patterns/exploration-exploitation-balancing",
+      "type": "RELATED_TO",
+      "evidence": "[Exploration-Exploitation Balancing](exploration-exploitation-balancing.md)",
+      "source_file": "skills/09-agentic-patterns/self-play.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/self-play",
+      "target": "09-agentic-patterns/reward-hacking-detection",
+      "type": "RELATED_TO",
+      "evidence": "[Reward Hacking Detection](reward-hacking-detection.md)",
+      "source_file": "skills/09-agentic-patterns/self-play.md",
+      "confidence": "high"
+    },
+    {
+      "source": "09-agentic-patterns/self-play",
+      "target": "09-agentic-patterns/agent-eval-harness-design",
+      "type": "RELATED_TO",
+      "evidence": "[Agent Eval Harness Design](agent-eval-harness-design.md)",
+      "source_file": "skills/09-agentic-patterns/self-play.md",
       "confidence": "high"
     },
     {

@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/lats.md",
-  "name": "lats",
-  "headline": "lats",
+  "name": "LATS",
+  "headline": "LATS",
   "description": "Combine tree search, tool use, and reflective evaluation to explore candidate actions under a bounded search budget.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/lats.md",
   "isPartOf": {
@@ -52,21 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T09:17:33Z",
+  "dateModified": "2026-11-27T00:23:11Z",
   "skillId": "lats",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -78,7 +73,7 @@
   "keywords": "AI agent, LLM skill, agentic, lats, patterns, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "lats",
+    "name": "LATS",
     "description": "An AI agent skill for lats."
   }
 }

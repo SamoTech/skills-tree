@@ -17,23 +17,23 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2402
-- **Structural upgrade required (enriched tier):** 86
+- **Dependency evidence required:** 2411
+- **Structural upgrade required (enriched tier):** 77
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2402, enriched=86, test_fixture=1.
+Per-quality baseline: battle_tested=2411, enriched=77, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 165 |
-| v1 | 2133 |
-| v2 | 157 |
+| (none) | 157 |
+| v1 | 2132 |
+| v2 | 166 |
 | v3 | 33 |
 | v4 | 1 |
 
@@ -83,19 +83,10 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (86)
+## P1 - Structural upgrade required (enriched tier) (77)
 
 - [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
 - [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
-- [skills/09-agentic-patterns/constitutional-ai.md](skills/09-agentic-patterns/constitutional-ai.md)
-- [skills/09-agentic-patterns/critic-agent.md](skills/09-agentic-patterns/critic-agent.md)
-- [skills/09-agentic-patterns/debate-pattern.md](skills/09-agentic-patterns/debate-pattern.md)
-- [skills/09-agentic-patterns/lats.md](skills/09-agentic-patterns/lats.md)
-- [skills/09-agentic-patterns/mcts.md](skills/09-agentic-patterns/mcts.md)
-- [skills/09-agentic-patterns/mixture-of-agents.md](skills/09-agentic-patterns/mixture-of-agents.md)
-- [skills/09-agentic-patterns/rag-pipeline.md](skills/09-agentic-patterns/rag-pipeline.md)
-- [skills/09-agentic-patterns/reflection.md](skills/09-agentic-patterns/reflection.md)
-- [skills/09-agentic-patterns/self-play.md](skills/09-agentic-patterns/self-play.md)
 - [skills/10-computer-use/app-launch.md](skills/10-computer-use/app-launch.md)
 - [skills/10-computer-use/clipboard-read.md](skills/10-computer-use/clipboard-read.md)
 - [skills/10-computer-use/clipboard-write.md](skills/10-computer-use/clipboard-write.md)
@@ -172,7 +163,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2402)
+## P2 - Dependency evidence required (2411)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -1466,15 +1457,18 @@ _None._
 - [skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md](skills/09-agentic-patterns/browser-agent-fragility-hardening-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md](skills/09-agentic-patterns/cache-prefix-preserving-context-patterns.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md](skills/09-agentic-patterns/case-review-agent-recommendation-pattern.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/constitutional-ai.md](skills/09-agentic-patterns/constitutional-ai.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md](skills/09-agentic-patterns/consumer-computer-use-adoption-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/context-compaction-api-integration-pattern.md](skills/09-agentic-patterns/context-compaction-api-integration-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/context-engineering-production-audit-patterns.md](skills/09-agentic-patterns/context-engineering-production-audit-patterns.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/context-engineering.md](skills/09-agentic-patterns/context-engineering.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md](skills/09-agentic-patterns/copilot-harness-adoption-evaluation.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/cot.md](skills/09-agentic-patterns/cot.md) - badge color 22c55e (✔ verified)
+- [skills/09-agentic-patterns/critic-agent.md](skills/09-agentic-patterns/critic-agent.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/cross-cloud-agent-interoperability-patterns.md](skills/09-agentic-patterns/cross-cloud-agent-interoperability-patterns.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md](skills/09-agentic-patterns/cross-team-assistant-scope-partitioning.md) - badge color unreadable (badge file unreadable)
 - [skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md](skills/09-agentic-patterns/day-scale-single-task-agent-patterns.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/debate-pattern.md](skills/09-agentic-patterns/debate-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/definition-of-done-enforcement.md](skills/09-agentic-patterns/definition-of-done-enforcement.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/discovered-tool-owner-enablement-gating-pattern.md](skills/09-agentic-patterns/discovered-tool-owner-enablement-gating-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/enterprise-messaging-system-agent-binding.md](skills/09-agentic-patterns/enterprise-messaging-system-agent-binding.md) - badge color lightgrey (unscanned)
@@ -1499,14 +1493,17 @@ _None._
 - [skills/09-agentic-patterns/incident-derived-authorization-narrowing-pattern.md](skills/09-agentic-patterns/incident-derived-authorization-narrowing-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/inter-agent-protocol-compliance.md](skills/09-agentic-patterns/inter-agent-protocol-compliance.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/interruptible-agent-flows.md](skills/09-agentic-patterns/interruptible-agent-flows.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/09-agentic-patterns/lats.md](skills/09-agentic-patterns/lats.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/live-internet-training-isolation-decision.md](skills/09-agentic-patterns/live-internet-training-isolation-decision.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/llm-judge-calibration.md](skills/09-agentic-patterns/llm-judge-calibration.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/long-running-agent-dead-end-recovery-pattern.md](skills/09-agentic-patterns/long-running-agent-dead-end-recovery-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md](skills/09-agentic-patterns/maf-sequential-workflow-agent-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/mass-agent-delegation-feasibility-estimation.md](skills/09-agentic-patterns/mass-agent-delegation-feasibility-estimation.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/mcts.md](skills/09-agentic-patterns/mcts.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/memory-augmented.md](skills/09-agentic-patterns/memory-augmented.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/mid-response-steering-pattern.md](skills/09-agentic-patterns/mid-response-steering-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/milestone-commitment-tracking.md](skills/09-agentic-patterns/milestone-commitment-tracking.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/mixture-of-agents.md](skills/09-agentic-patterns/mixture-of-agents.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/mobile-checkpoint-supervision-pattern.md](skills/09-agentic-patterns/mobile-checkpoint-supervision-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/model-tool-pre-approval-tiering.md](skills/09-agentic-patterns/model-tool-pre-approval-tiering.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/multi-agent-debate-resolution.md](skills/09-agentic-patterns/multi-agent-debate-resolution.md) - badge color lightgrey (unscanned)
@@ -1534,9 +1531,11 @@ _None._
 - [skills/09-agentic-patterns/prompt-version-control.md](skills/09-agentic-patterns/prompt-version-control.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md](skills/09-agentic-patterns/protocol-migration-coexistence-patterns.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/purchase-intent-binding-patterns.md](skills/09-agentic-patterns/purchase-intent-binding-patterns.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/rag-pipeline.md](skills/09-agentic-patterns/rag-pipeline.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/rag-security-assessment-pattern.md](skills/09-agentic-patterns/rag-security-assessment-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/rag.md](skills/09-agentic-patterns/rag.md) - badge color yellow (machine-inferred · 2 pkgs)
 - [skills/09-agentic-patterns/react.md](skills/09-agentic-patterns/react.md) - badge color 22c55e (✔ verified)
+- [skills/09-agentic-patterns/reflection.md](skills/09-agentic-patterns/reflection.md) - badge color 22c55e (✔ verified)
 - [skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md](skills/09-agentic-patterns/refusal-aware-evaluation-harness-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md](skills/09-agentic-patterns/reverse-game-theory-agent-checking-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/reward-hacking-detection.md](skills/09-agentic-patterns/reward-hacking-detection.md) - badge color lightgrey (unscanned)
@@ -1545,6 +1544,7 @@ _None._
 - [skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md](skills/09-agentic-patterns/scheduled-agent-supervision-pattern.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/scoped-agent-identity-gateway.md](skills/09-agentic-patterns/scoped-agent-identity-gateway.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md](skills/09-agentic-patterns/self-healing-workflow-repair-patterns.md) - badge color lightgrey (unscanned)
+- [skills/09-agentic-patterns/self-play.md](skills/09-agentic-patterns/self-play.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/self-refine-critique-loop.md](skills/09-agentic-patterns/self-refine-critique-loop.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/simulated-user-evaluation.md](skills/09-agentic-patterns/simulated-user-evaluation.md) - badge color lightgrey (unscanned)
 - [skills/09-agentic-patterns/skill-composition-chaining.md](skills/09-agentic-patterns/skill-composition-chaining.md) - badge color lightgrey (unscanned)
