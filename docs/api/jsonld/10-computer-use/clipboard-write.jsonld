@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-write.md",
-  "name": "clipboard-write",
-  "headline": "clipboard-write",
+  "name": "Clipboard Write",
+  "headline": "Clipboard Write",
   "description": "Write explicitly supplied content to the clipboard for a subsequent authorized computer-use step.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-write.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:31:21Z",
+  "dateModified": "2026-11-27T00:17:33Z",
   "skillId": "clipboard-write",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../07-tool-use/tool-guardrails.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, clipboard, computer, skills tree, use, write",
   "about": {
     "@type": "Thing",
-    "name": "clipboard-write",
-    "description": "An AI agent skill for clipboard-write."
+    "name": "Clipboard Write",
+    "description": "An AI agent skill for clipboard write."
   }
 }

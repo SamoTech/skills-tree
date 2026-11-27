@@ -3,57 +3,75 @@ title: "Window Management"
 category: 10-computer-use
 level: advanced
 stability: stable
+version: v2
 description: "Move, resize, minimize, maximize, or focus a verified application window within explicit bounds."
 added: "2025-03"
-related: ["10-computer-use", "input-guardrails", "output-guardrails"]
+related: [multi-monitor, app-launch]
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-window-management.json)
+
+# Window Management
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Move, resize, minimize, maximize, or focus a verified application window within explicit bounds.
+### Description
 
-## When to Use
-Use when window state must be changed for a subsequent task.
+Move, resize, minimize, maximize, or focus a verified application window within explicit bounds. Window operations are contract-first: identify the exact window among same-titled candidates, apply the declared operation, and verify the resulting geometry rather than trusting the operation acknowledgement.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
-| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application/session and expected UI state.
-2. Verify target identity and bounds before interaction.
-3. Perform only the requested bounded action.
-4. Re-observe the resulting UI and verify the expected postcondition.
-5. Stop when the observed state differs materially from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | window | object | The verified window identity (process, title, window id) |
+| Input | operation | object | The declared move/resize/focus operation with target geometry |
+| Output | geometry | object | The observed resulting window geometry and state |
+| Output | check | object | Verification that the geometry matches the declared operation |
 
-## Runnable Example
+### Procedure
+1. Enumerate matching windows and disambiguate when several share a title.
+2. Apply the declared operation with target geometry validated against the display bounds.
+3. Wait for window animations to settle before observing.
+4. Verify the resulting geometry and state (position, size, focused, not minimized).
+5. Stop and report when the operation failed or the window state is ambiguous (minimized windows have no usable geometry).
+
+### Example
+
 ```python
-action = {"capability": "window-management", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+window = {"id": "editor-main", "candidates": 1}
+assert window["candidates"] == 1, "ambiguous window title requires disambiguation"
+op = {"kind": "resize", "target": {"x": 100, "y": 100, "w": 1280, "h": 800}}
+display = {"w": 2560, "h": 1440}
+fits = op["target"]["x"] + op["target"]["w"] <= display["w"] and op["target"]["y"] + op["target"]["h"] <= display["h"]
+assert fits, "target geometry exceeds display bounds"
+result = {"state": "normal", "geometry": op["target"]}
+assert result["state"] == "normal", "minimized windows have no usable geometry"
+print({"window": window["id"], "operation": op["kind"], "geometry_verified": True})
 ```
 
-## Failure Modes
-- Target or session identity cannot be verified.
-- UI or display geometry changed after observation.
-- Action may expose sensitive data or cause destructive effects.
-- Focus or permission is ambiguous.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Window handles and geometry can become stale; verify identity and resulting bounds after each change.
+- [Multi Monitor](multi-monitor.md) - displays bound the geometry
+- [App Launch](app-launch.md) - the launch that created the window
+- [Tool Guardrails](../07-tool-use/tool-guardrails.md) - keep window operations within bounds
+
+## Failure Modes
+
+- Multiple windows share a title and the operation lands on the wrong one.
+- Minimized windows have no usable geometry, so resize/focus silently no-ops.
+- Window animations are still running when the geometry is verified.
+- Maximize and full-screen are conflated, producing an unexpected state.
+- The declared geometry exceeds display bounds or ignores the dock/taskbar reserved area.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

@@ -17,24 +17,24 @@
 
 - **Total canonical skill files:** 2489
 - **Verified (current and verified):** 0
-- **Dependency evidence required:** 2422
-- **Structural upgrade required (enriched tier):** 66
+- **Dependency evidence required:** 2442
+- **Structural upgrade required (enriched tier):** 46
 - **Integrity remediation required:** 0
 - **Stub repair required:** 0
 - **Invalid repair required:** 0
 - **Test fixture (excluded from production metrics):** 1
 - **Coverage:** 2489/2489 canonical files classified (100%)
 
-Per-quality baseline: battle_tested=2422, enriched=66, test_fixture=1.
+Per-quality baseline: battle_tested=2442, enriched=46, test_fixture=1.
 
 Dependency-evidence buckets: unreadable=26, unverified=2463.
 
 | Declared version | Skills |
 |---|---:|
-| (none) | 146 |
+| (none) | 128 |
 | v1 | 2132 |
-| v2 | 177 |
-| v3 | 33 |
+| v2 | 193 |
+| v3 | 35 |
 | v4 | 1 |
 
 ## Prioritized modernization plan (owner directive, issue #699)
@@ -83,28 +83,8 @@ _None._
 
 _None._
 
-## P1 - Structural upgrade required (enriched tier) (66)
+## P1 - Structural upgrade required (enriched tier) (46)
 
-- [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - no inputs/outputs/failure-modes table
-- [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - no inputs/outputs/failure-modes table
-- [skills/10-computer-use/app-launch.md](skills/10-computer-use/app-launch.md)
-- [skills/10-computer-use/clipboard-read.md](skills/10-computer-use/clipboard-read.md)
-- [skills/10-computer-use/clipboard-write.md](skills/10-computer-use/clipboard-write.md)
-- [skills/10-computer-use/double-click.md](skills/10-computer-use/double-click.md)
-- [skills/10-computer-use/file-dialog.md](skills/10-computer-use/file-dialog.md)
-- [skills/10-computer-use/keyboard-shortcut.md](skills/10-computer-use/keyboard-shortcut.md)
-- [skills/10-computer-use/keyboard-type.md](skills/10-computer-use/keyboard-type.md)
-- [skills/10-computer-use/mouse-click.md](skills/10-computer-use/mouse-click.md)
-- [skills/10-computer-use/mouse-move.md](skills/10-computer-use/mouse-move.md)
-- [skills/10-computer-use/multi-monitor.md](skills/10-computer-use/multi-monitor.md)
-- [skills/10-computer-use/right-click.md](skills/10-computer-use/right-click.md)
-- [skills/10-computer-use/screen-ocr.md](skills/10-computer-use/screen-ocr.md)
-- [skills/10-computer-use/screenshot-capture.md](skills/10-computer-use/screenshot-capture.md)
-- [skills/10-computer-use/scroll.md](skills/10-computer-use/scroll.md)
-- [skills/10-computer-use/terminal-interaction.md](skills/10-computer-use/terminal-interaction.md)
-- [skills/10-computer-use/visual-element-detection.md](skills/10-computer-use/visual-element-detection.md)
-- [skills/10-computer-use/vm-interaction.md](skills/10-computer-use/vm-interaction.md)
-- [skills/10-computer-use/window-management.md](skills/10-computer-use/window-management.md)
 - [skills/12-data/csv-processing.md](skills/12-data/csv-processing.md)
 - [skills/12-data/data-aggregation.md](skills/12-data/data-aggregation.md)
 - [skills/12-data/data-cleaning.md](skills/12-data/data-cleaning.md)
@@ -152,7 +132,7 @@ _None._
 - [skills/16-domain-specific/stock-lookup.md](skills/16-domain-specific/stock-lookup.md)
 - [skills/16-domain-specific/symptom-analysis.md](skills/16-domain-specific/symptom-analysis.md)
 
-## P2 - Dependency evidence required (2422)
+## P2 - Dependency evidence required (2442)
 
 - [skills/01-perception/a2a-agent-card-capability-parsing.md](skills/01-perception/a2a-agent-card-capability-parsing.md) - badge color lightgrey (unscanned)
 - [skills/01-perception/accessibility-tree-screenshot-fusion.md](skills/01-perception/accessibility-tree-screenshot-fusion.md) - badge color lightgrey (unscanned)
@@ -402,6 +382,7 @@ _None._
 - [skills/02-reasoning/goal-setting.md](skills/02-reasoning/goal-setting.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/harness-versus-framework-selection-reasoning.md](skills/02-reasoning/harness-versus-framework-selection-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/harness-violation-denial-claim-reasoning.md](skills/02-reasoning/harness-violation-denial-claim-reasoning.md) - badge color lightgrey (unscanned)
+- [skills/02-reasoning/hypothesis-generation.md](skills/02-reasoning/hypothesis-generation.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/identity-case-decision-reasoning.md](skills/02-reasoning/identity-case-decision-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/incident-pattern-control-mapping-reasoning.md](skills/02-reasoning/incident-pattern-control-mapping-reasoning.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/independent-conclusion-audit-reasoning.md](skills/02-reasoning/independent-conclusion-audit-reasoning.md) - badge color lightgrey (unscanned)
@@ -445,6 +426,7 @@ _None._
 - [skills/02-reasoning/premortem-failure-analysis.md](skills/02-reasoning/premortem-failure-analysis.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/preview-boundary-model-access-governance.md](skills/02-reasoning/preview-boundary-model-access-governance.md) - badge color unreadable (badge file unreadable)
 - [skills/02-reasoning/prioritization.md](skills/02-reasoning/prioritization.md) - badge color lightgrey (unscanned)
+- [skills/02-reasoning/probabilistic-reasoning.md](skills/02-reasoning/probabilistic-reasoning.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/02-reasoning/problem-classification.md](skills/02-reasoning/problem-classification.md) - badge color lightgrey (unscanned)
 - [skills/02-reasoning/problem-decomposition.md](skills/02-reasoning/problem-decomposition.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/02-reasoning/prompt-engineering.md](skills/02-reasoning/prompt-engineering.md) - badge color lightgrey (unscanned)
@@ -1564,6 +1546,7 @@ _None._
 - [skills/10-computer-use/agent-ide-install-switching.md](skills/10-computer-use/agent-ide-install-switching.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/agent-profile-device-pairing-verification.md](skills/10-computer-use/agent-profile-device-pairing-verification.md) - badge color unreadable (badge file unreadable)
 - [skills/10-computer-use/app-foreground-action-requirements.md](skills/10-computer-use/app-foreground-action-requirements.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/app-launch.md](skills/10-computer-use/app-launch.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/app-readiness-probing.md](skills/10-computer-use/app-readiness-probing.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/app-update-automation.md](skills/10-computer-use/app-update-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/browser-agent-multi-tab-workflow-automation.md](skills/10-computer-use/browser-agent-multi-tab-workflow-automation.md) - badge color lightgrey (unscanned)
@@ -1572,6 +1555,8 @@ _None._
 - [skills/10-computer-use/business-application-agent-automation.md](skills/10-computer-use/business-application-agent-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/chrome-extension-browser-automation.md](skills/10-computer-use/chrome-extension-browser-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/clipboard-automation-hygiene.md](skills/10-computer-use/clipboard-automation-hygiene.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/clipboard-read.md](skills/10-computer-use/clipboard-read.md) - badge color yellow (machine-inferred · 2 pkgs)
+- [skills/10-computer-use/clipboard-write.md](skills/10-computer-use/clipboard-write.md) - badge color yellow (machine-inferred · 2 pkgs)
 - [skills/10-computer-use/cloud-session-state-visibility-verification.md](skills/10-computer-use/cloud-session-state-visibility-verification.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/codex-cli-voice-command-operations.md](skills/10-computer-use/codex-cli-voice-command-operations.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/computer-teammate-workspace-operations.md](skills/10-computer-use/computer-teammate-workspace-operations.md) - badge color lightgrey (unscanned)
@@ -1597,6 +1582,7 @@ _None._
 - [skills/10-computer-use/desktop-notification-triggers.md](skills/10-computer-use/desktop-notification-triggers.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/desktop-spreadsheet-automation.md](skills/10-computer-use/desktop-spreadsheet-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/disposable-branch-agent-trial.md](skills/10-computer-use/disposable-branch-agent-trial.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/double-click.md](skills/10-computer-use/double-click.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/drag-drop.md](skills/10-computer-use/drag-drop.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/drawing-canvas-automation.md](skills/10-computer-use/drawing-canvas-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/electronic-signature-automation.md](skills/10-computer-use/electronic-signature-automation.md) - badge color lightgrey (unscanned)
@@ -1605,6 +1591,7 @@ _None._
 - [skills/10-computer-use/enterprise-agent-desktop-image-provisioning.md](skills/10-computer-use/enterprise-agent-desktop-image-provisioning.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/enterprise-hr-suite-agent-desktop-automation.md](skills/10-computer-use/enterprise-hr-suite-agent-desktop-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/exploit-benchmark-computer-use-session-capping-automation.md](skills/10-computer-use/exploit-benchmark-computer-use-session-capping-automation.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/file-dialog.md](skills/10-computer-use/file-dialog.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/financial-app-credential-isolation-automation.md](skills/10-computer-use/financial-app-credential-isolation-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/fleet-management-console-automation.md](skills/10-computer-use/fleet-management-console-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/game-ui-automation.md](skills/10-computer-use/game-ui-automation.md) - badge color lightgrey (unscanned)
@@ -1620,6 +1607,8 @@ _None._
 - [skills/10-computer-use/intelligent-ui-decision-screen-automation.md](skills/10-computer-use/intelligent-ui-decision-screen-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/isp-router-app-agent-automation.md](skills/10-computer-use/isp-router-app-agent-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/k12-classroom-device-agent-provisioning-automation.md](skills/10-computer-use/k12-classroom-device-agent-provisioning-automation.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/keyboard-shortcut.md](skills/10-computer-use/keyboard-shortcut.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/10-computer-use/keyboard-type.md](skills/10-computer-use/keyboard-type.md) - badge color 22c55e (✔ verified)
 - [skills/10-computer-use/kiosk-mode-automation.md](skills/10-computer-use/kiosk-mode-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/local-desktop-agent-team-execution.md](skills/10-computer-use/local-desktop-agent-team-execution.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/macro-recording.md](skills/10-computer-use/macro-recording.md) - badge color lightgrey (unscanned)
@@ -1630,6 +1619,9 @@ _None._
 - [skills/10-computer-use/mobile-deep-link-automation.md](skills/10-computer-use/mobile-deep-link-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/mobile-deep-link-regression-verification.md](skills/10-computer-use/mobile-deep-link-regression-verification.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/mobile-notification-consent-triage.md](skills/10-computer-use/mobile-notification-consent-triage.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/mouse-click.md](skills/10-computer-use/mouse-click.md) - badge color 22c55e (✔ verified)
+- [skills/10-computer-use/mouse-move.md](skills/10-computer-use/mouse-move.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/10-computer-use/multi-monitor.md](skills/10-computer-use/multi-monitor.md) - badge color yellow (machine-inferred · 3 pkgs)
 - [skills/10-computer-use/native-permission-dialog-handling.md](skills/10-computer-use/native-permission-dialog-handling.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/notification-permission-dialog-automation.md](skills/10-computer-use/notification-permission-dialog-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/off-hours-desktop-agent-automation.md](skills/10-computer-use/off-hours-desktop-agent-automation.md) - badge color lightgrey (unscanned)
@@ -1650,12 +1642,16 @@ _None._
 - [skills/10-computer-use/remote-session-latency-adaptive-actions.md](skills/10-computer-use/remote-session-latency-adaptive-actions.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/remote-workspace-warm-pool-automation.md](skills/10-computer-use/remote-workspace-warm-pool-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/reusable-dev-environment-provisioning-automation.md](skills/10-computer-use/reusable-dev-environment-provisioning-automation.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/right-click.md](skills/10-computer-use/right-click.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/sandboxed-desktop-vm-execution.md](skills/10-computer-use/sandboxed-desktop-vm-execution.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/screen-casting-automation.md](skills/10-computer-use/screen-casting-automation.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/screen-ocr.md](skills/10-computer-use/screen-ocr.md) - badge color yellow (machine-inferred · 2 pkgs)
 - [skills/10-computer-use/screen-reader-output-interpretation.md](skills/10-computer-use/screen-reader-output-interpretation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/screen-recording.md](skills/10-computer-use/screen-recording.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/screen-region-mapping.md](skills/10-computer-use/screen-region-mapping.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/screenshot-capture.md](skills/10-computer-use/screenshot-capture.md) - badge color 22c55e (✔ verified)
 - [skills/10-computer-use/screenshot-diff-verification.md](skills/10-computer-use/screenshot-diff-verification.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/scroll.md](skills/10-computer-use/scroll.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/session-keepalive-automation.md](skills/10-computer-use/session-keepalive-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/smart-glasses-agent-task-operations.md](skills/10-computer-use/smart-glasses-agent-task-operations.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/smart-home-device-automation.md](skills/10-computer-use/smart-home-device-automation.md) - badge color lightgrey (unscanned)
@@ -1664,14 +1660,18 @@ _None._
 - [skills/10-computer-use/system-settings-configuration.md](skills/10-computer-use/system-settings-configuration.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/system-tray-interaction.md](skills/10-computer-use/system-tray-interaction.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/task-scheduler-automation.md](skills/10-computer-use/task-scheduler-automation.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/terminal-interaction.md](skills/10-computer-use/terminal-interaction.md) - badge color yellow (machine-inferred · 3 pkgs)
 - [skills/10-computer-use/terminal-multiplexer-automation.md](skills/10-computer-use/terminal-multiplexer-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/ui-element-waiting.md](skills/10-computer-use/ui-element-waiting.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/unattended-session-lock-screen-policy-automation.md](skills/10-computer-use/unattended-session-lock-screen-policy-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/vdi-session-automation.md](skills/10-computer-use/vdi-session-automation.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/visual-element-detection.md](skills/10-computer-use/visual-element-detection.md) - badge color yellow (machine-inferred · 1 pkg)
+- [skills/10-computer-use/vm-interaction.md](skills/10-computer-use/vm-interaction.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/vm-sandbox-action-audit-automation.md](skills/10-computer-use/vm-sandbox-action-audit-automation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/voice-driven-desktop-commanding.md](skills/10-computer-use/voice-driven-desktop-commanding.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/voice-hold-to-talk-agent-control.md](skills/10-computer-use/voice-hold-to-talk-agent-control.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/vpn-connection-automation.md](skills/10-computer-use/vpn-connection-automation.md) - badge color lightgrey (unscanned)
+- [skills/10-computer-use/window-management.md](skills/10-computer-use/window-management.md) - badge color yellow (machine-inferred · 1 pkg)
 - [skills/10-computer-use/world-action-model-evaluation.md](skills/10-computer-use/world-action-model-evaluation.md) - badge color lightgrey (unscanned)
 - [skills/10-computer-use/world-model-interface-latency-testing.md](skills/10-computer-use/world-model-interface-latency-testing.md) - badge color lightgrey (unscanned)
 - [skills/11-web/a2a-agent-card-endpoint-publishing.md](skills/11-web/a2a-agent-card-endpoint-publishing.md) - badge color lightgrey (unscanned)

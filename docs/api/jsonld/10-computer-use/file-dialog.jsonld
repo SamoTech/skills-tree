@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/file-dialog.md",
-  "name": "file-dialog",
-  "headline": "file-dialog",
+  "name": "File Dialog",
+  "headline": "File Dialog",
   "description": "Navigate and operate a file chooser with explicit path, selection, and confirmation boundaries.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/file-dialog.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:31:21Z",
+  "dateModified": "2026-11-27T00:17:33Z",
   "skillId": "file-dialog",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/approval-before-destructive-tools.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, computer, dialog, file, skills tree, use",
   "about": {
     "@type": "Thing",
-    "name": "file-dialog",
-    "description": "An AI agent skill for file-dialog."
+    "name": "File Dialog",
+    "description": "An AI agent skill for file dialog."
   }
 }

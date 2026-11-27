@@ -3,57 +3,75 @@ title: "Terminal Interaction"
 category: 10-computer-use
 level: advanced
 stability: stable
+version: v2
 description: "Interact with a verified terminal window using explicit commands, context, and output checks."
 added: "2025-03"
-related: ["10-computer-use", "input-guardrails", "output-guardrails"]
+related: [terminal-multiplexer-automation, shell-command]
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-terminal-interaction.json)
+
+# Terminal Interaction
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Interact with a verified terminal window using explicit commands, context, and output checks.
+### Description
 
-## When to Use
-Use when terminal interaction is authorized and the command scope is explicit.
+Interact with a verified terminal window using explicit commands, context, and output checks. The terminal is a stateful, high-authority surface: verify the session context (host, user, working directory) before sending input, and read actual output rather than assuming success.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
-| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application/session and expected UI state.
-2. Verify target identity and bounds before interaction.
-3. Perform only the requested bounded action.
-4. Re-observe the resulting UI and verify the expected postcondition.
-5. Stop when the observed state differs materially from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | command | object | The exact command line to run, with sensitive arguments flagged |
+| Input | context | object | The verified session state (host, user, cwd, environment) the command assumes |
+| Output | transcript | object | The observed output with its prompt boundaries recorded |
+| Output | check | object | Verified command outcome (exit signal, expected output) or explicit failure |
 
-## Runnable Example
+### Procedure
+1. Verify the session context (correct host, user, working directory, environment) before sending input.
+2. Send the exact declared command; prefer typed-then-verified over unbounded paste.
+3. Wait for the command to return to a prompt; do not read mid-stream as final output.
+4. Read the actual output and check it against the expected outcome.
+5. Stop and report mismatch (wrong host, permission denied, hang) instead of continuing on assumptions.
+
+### Example
+
 ```python
-action = {"capability": "terminal-interaction", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+session = {"host": "build-01", "user": "ci", "cwd": "/srv/app", "at_prompt": True}
+cmd = {"line": "git status --porcelain", "sensitive_args": []}
+assert session["at_prompt"], "send input only when the prompt is verified"
+assert session["cwd"] == "/srv/app", "command assumes the wrong working directory"
+transcript = {"prompt_seen_after": True, "output": "", "exit_hint": "clean"}
+expected = {"empty_output_means_clean": True}
+ok = (transcript["output"] == "") == expected["empty_output_means_clean"]
+assert ok and transcript["prompt_seen_after"], "command outcome not verified"
+print({"ran": cmd["line"], "verified": True, "host": session["host"]})
 ```
 
-## Failure Modes
-- Target or session identity cannot be verified.
-- UI or display geometry changed after observation.
-- Action may expose sensitive data or cause destructive effects.
-- Focus or permission is ambiguous.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Treat terminal commands as potentially destructive; verify working directory, command, target, and postcondition before execution.
+- [Terminal Multiplexer Automation](terminal-multiplexer-automation.md) - persistent sessions and panes
+- [Shell Command](../04-action-execution/shell-command.md) - the programmatic shell path
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate destructive commands
+
+## Failure Modes
+
+- The session context is wrong (other host, other user, other cwd) and the command runs where it should not.
+- A long-running command never returns to a prompt and partial output is read as the final result.
+- Terminal width wraps or truncates output so checks read the wrong text.
+- Sensitive arguments or output (tokens, file contents) are echoed into the transcript.
+- Shell state (environment, venv) differs from what the command assumes.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

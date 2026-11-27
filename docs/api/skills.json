@@ -1,5 +1,5 @@
 {
-  "generated": "2026-11-27T00:24:57Z",
+  "generated": "2026-11-27T01:12:59Z",
   "count": 2488,
   "skills": [
     {
@@ -6861,11 +6861,12 @@
       "category": "reasoning",
       "level": "advanced",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
         "Failure Modes",
+        "Changelog",
         "Evidence"
       ],
       "related": [],
@@ -8074,14 +8075,11 @@
       "category": "reasoning",
       "level": "intermediate",
       "stability": "stable",
-      "version": "v2",
+      "version": "v3",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "Example",
         "Failure Modes",
-        "Related",
         "Changelog",
         "Evidence"
       ],
@@ -38790,26 +38788,22 @@
     {
       "id": "app-launch",
       "path": "skills/10-computer-use/app-launch.md",
-      "name": "app-launch",
+      "name": "App Launch",
       "description": "Launch a specified desktop application using an explicit application identifier or verified path.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../07-tool-use/tool-guardrails.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -39047,51 +39041,43 @@
     {
       "id": "clipboard-read",
       "path": "skills/10-computer-use/clipboard-read.md",
-      "name": "clipboard-read",
+      "name": "Clipboard Read",
       "description": "Read clipboard contents from an authorized computer-use session and preserve their type and provenance.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-sanitization.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
       "id": "clipboard-write",
       "path": "skills/10-computer-use/clipboard-write.md",
-      "name": "clipboard-write",
+      "name": "Clipboard Write",
       "description": "Write explicitly supplied content to the clipboard for a subsequent authorized computer-use step.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../07-tool-use/tool-guardrails.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -39797,24 +39783,18 @@
     {
       "id": "double-click",
       "path": "skills/10-computer-use/double-click.md",
-      "name": "double-click",
+      "name": "Double Click",
       "description": "Perform a double-click on a verified UI target using semantic or coordinate-based targeting.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "10-computer-use"
@@ -40044,26 +40024,22 @@
     {
       "id": "file-dialog",
       "path": "skills/10-computer-use/file-dialog.md",
-      "name": "file-dialog",
+      "name": "File Dialog",
       "description": "Navigate and operate a file chooser with explicit path, selection, and confirmation boundaries.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -40491,24 +40467,18 @@
     {
       "id": "keyboard-shortcut",
       "path": "skills/10-computer-use/keyboard-shortcut.md",
-      "name": "keyboard-shortcut",
+      "name": "Keyboard Shortcut",
       "description": "Execute a specified keyboard shortcut against the verified active application and UI context.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "10-computer-use"
@@ -40516,26 +40486,22 @@
     {
       "id": "keyboard-type",
       "path": "skills/10-computer-use/keyboard-type.md",
-      "name": "keyboard-type",
+      "name": "Keyboard Type",
       "description": "Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-sanitization.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -40822,49 +40788,39 @@
     {
       "id": "mouse-click",
       "path": "skills/10-computer-use/mouse-click.md",
-      "name": "mouse-click",
+      "name": "Mouse Click",
       "description": "Click a verified UI target using semantic or coordinate-based targeting with postcondition verification.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
       "id": "mouse-move",
       "path": "skills/10-computer-use/mouse-move.md",
-      "name": "mouse-move",
+      "name": "Mouse Move",
       "description": "Move the pointer to a verified UI target using semantic or coordinate-based targeting.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "10-computer-use"
@@ -40872,24 +40828,18 @@
     {
       "id": "multi-monitor",
       "path": "skills/10-computer-use/multi-monitor.md",
-      "name": "multi-monitor",
+      "name": "Multi Monitor",
       "description": "Identify and target a specific display in a multi-monitor environment using verified display geometry and application state.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "10-computer-use"
@@ -41461,26 +41411,22 @@
     {
       "id": "right-click",
       "path": "skills/10-computer-use/right-click.md",
-      "name": "right-click",
+      "name": "Right Click",
       "description": "Perform a context click on a verified UI target and inspect the resulting context menu.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -41546,26 +41492,22 @@
     {
       "id": "screen-ocr",
       "path": "skills/10-computer-use/screen-ocr.md",
-      "name": "screen-ocr",
+      "name": "Screen Ocr",
       "description": "Extract visible text from a verified screen region using OCR while preserving location and uncertainty.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/input-sanitization.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -41650,24 +41592,18 @@
     {
       "id": "screenshot-capture",
       "path": "skills/10-computer-use/screenshot-capture.md",
-      "name": "screenshot-capture",
+      "name": "Screenshot Capture",
       "description": "Capture a screenshot of a verified screen or region for observation, evidence, or postcondition checking.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "10-computer-use"
@@ -41705,24 +41641,18 @@
     {
       "id": "scroll",
       "path": "skills/10-computer-use/scroll.md",
-      "name": "scroll",
+      "name": "Scroll",
       "description": "Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "10-computer-use"
@@ -41944,26 +41874,23 @@
     {
       "id": "terminal-interaction",
       "path": "skills/10-computer-use/terminal-interaction.md",
-      "name": "terminal-interaction",
+      "name": "Terminal Interaction",
       "description": "Interact with a verified terminal window using explicit commands, context, and output checks.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../04-action-execution/shell-command.md",
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -42076,24 +42003,18 @@
     {
       "id": "visual-element-detection",
       "path": "skills/10-computer-use/visual-element-detection.md",
-      "name": "visual-element-detection",
+      "name": "Visual Element Detection",
       "description": "Identify visible UI elements from a verified screenshot or screen region and return bounded candidate targets.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
       "related": [],
       "category_dir": "10-computer-use"
@@ -42101,26 +42022,22 @@
     {
       "id": "vm-interaction",
       "path": "skills/10-computer-use/vm-interaction.md",
-      "name": "vm-interaction",
+      "name": "Vm Interaction",
       "description": "Interact with a verified virtual-machine display using bounded input actions and explicit VM identity.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../14-security/approval-before-destructive-tools.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {
@@ -42238,26 +42155,22 @@
     {
       "id": "window-management",
       "path": "skills/10-computer-use/window-management.md",
-      "name": "window-management",
+      "name": "Window Management",
       "description": "Move, resize, minimize, maximize, or focus a verified application window within explicit bounds.",
-      "category": "Computer Use",
+      "category": "computer-use",
       "level": "advanced",
       "stability": "stable",
-      "version": null,
+      "version": "v2",
       "added": "2025-03",
       "last_updated": null,
       "sections": [
-        "Description",
-        "When to Use",
-        "Inputs / Outputs / Failure Modes",
-        "Procedure",
-        "Runnable Example",
         "Failure Modes",
-        "Safety Boundary",
-        "Evidence",
-        "Related"
+        "Changelog",
+        "Evidence"
       ],
-      "related": [],
+      "related": [
+        "../07-tool-use/tool-guardrails.md"
+      ],
       "category_dir": "10-computer-use"
     },
     {

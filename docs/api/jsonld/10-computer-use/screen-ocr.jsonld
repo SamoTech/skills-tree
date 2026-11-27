@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screen-ocr.md",
-  "name": "screen-ocr",
-  "headline": "screen-ocr",
+  "name": "Screen Ocr",
+  "headline": "Screen Ocr",
   "description": "Extract visible text from a verified screen region using OCR while preserving location and uncertainty.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screen-ocr.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:34:52Z",
+  "dateModified": "2026-11-27T00:18:09Z",
   "skillId": "screen-ocr",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/input-sanitization.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, computer, ocr, screen, skills tree, use",
   "about": {
     "@type": "Thing",
-    "name": "screen-ocr",
-    "description": "An AI agent skill for screen-ocr."
+    "name": "Screen Ocr",
+    "description": "An AI agent skill for screen ocr."
   }
 }

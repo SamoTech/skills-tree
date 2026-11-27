@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/app-launch.md",
-  "name": "app-launch",
-  "headline": "app-launch",
+  "name": "App Launch",
+  "headline": "App Launch",
   "description": "Launch a specified desktop application using an explicit application identifier or verified path.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/app-launch.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:31:21Z",
+  "dateModified": "2026-11-27T00:17:33Z",
   "skillId": "app-launch",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../07-tool-use/tool-guardrails.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, app, computer, launch, skills tree, use",
   "about": {
     "@type": "Thing",
-    "name": "app-launch",
-    "description": "An AI agent skill for app-launch."
+    "name": "App Launch",
+    "description": "An AI agent skill for app launch."
   }
 }

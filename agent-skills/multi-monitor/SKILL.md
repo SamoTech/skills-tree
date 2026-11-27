@@ -4,54 +4,74 @@ description: Identify and target a specific display in a multi-monitor environme
 metadata:
   source: skills/10-computer-use/multi-monitor.md
   category: 10-computer-use
+  version: "v2"
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-multi-monitor.json)
+
+# Multi Monitor
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Identify and target a specific display in a multi-monitor environment using verified display geometry and application state.
+### Description
 
-## When to Use
-Use when an action depends on a particular display or monitor arrangement.
+Identify and target a specific display in a multi-monitor environment using verified display geometry and application state. Every action is contract-first: resolve the actual display arrangement before acting, and verify which display a window or coordinate actually belongs to afterwards.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
-| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application/session and expected UI state.
-2. Verify target identity and bounds before interaction.
-3. Perform only the requested bounded action.
-4. Re-observe the resulting UI and verify the expected postcondition.
-5. Stop when the observed state differs materially from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | display | object | The target display identity (index, name, or geometry) |
+| Input | intent | object | The action on that display (move window, capture, place pointer) |
+| Output | layout | object | The verified display arrangement (order, resolutions, scale factors) |
+| Output | check | object | Verification that the action landed on the declared display |
 
-## Runnable Example
+### Procedure
+1. Enumerate the live display arrangement (order, bounds, scale factors) rather than assuming a saved layout.
+2. Resolve the target display from the declared identity against the live arrangement.
+3. Perform the action with coordinates converted into the target display's space and scale.
+4. Verify the result belongs to the declared display (window geometry, captured region).
+5. Stop and report mismatch when displays moved, scales differ, or a window straddles two displays.
+
+### Example
+
 ```python
-action = {"capability": "multi-monitor", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+layout = [
+    {"id": "DP-1", "bounds": {"x": 0, "y": 0, "w": 2560, "h": 1440}, "scale": 1.0},
+    {"id": "HDMI-0", "bounds": {"x": 2560, "y": 0, "w": 1920, "h": 1080}, "scale": 1.25},
+]
+target = "HDMI-0"
+disp = next(d for d in layout if d["id"] == target)
+point = {"x": 3000, "y": 200}  # global coordinates
+on_target = disp["bounds"]["x"] <= point["x"] < disp["bounds"]["x"] + disp["bounds"]["w"]
+assert on_target, "coordinate outside the declared target display"
+local = {"x": (point["x"] - disp["bounds"]["x"]) / disp["scale"], "y": point["y"] / disp["scale"]}
+print({"display": target, "local_point": local, "scale_applied": disp["scale"]})
 ```
 
-## Failure Modes
-- Target or session identity cannot be verified.
-- UI or display geometry changed after observation.
-- Action may expose sensitive data or cause destructive effects.
-- Focus or permission is ambiguous.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Display geometry can change dynamically; verify monitor identity and bounds before acting.
+- [Window Management](window-management.md) - move windows onto the target display
+- [Screenshot Capture](screenshot-capture.md) - capture a specific display
+- [Computer Use Error Recovery](computer-use-error-recovery.md) - recover from layout surprises
+
+## Failure Modes
+
+- The saved display order does not match the live arrangement after a re-dock or reboot.
+- Mixed DPI scales make unconverted global coordinates land on the wrong display.
+- A display hot-plug re-arranges screens between observation and action.
+- The target window straddles two displays and geometry checks are ambiguous.
+- Coordinates resolve to a display that is off or asleep.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

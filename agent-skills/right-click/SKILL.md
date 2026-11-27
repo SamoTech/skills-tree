@@ -4,54 +4,71 @@ description: Perform a context click on a verified UI target and inspect the res
 metadata:
   source: skills/10-computer-use/right-click.md
   category: 10-computer-use
+  version: "v2"
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-right-click.json)
+
+# Right Click
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Perform a context click on a verified UI target and inspect the resulting context menu.
+### Description
 
-## When to Use
-Use when the intended target and expected context-menu state are unambiguous.
+Perform a context click on a verified UI target and inspect the resulting context menu. The action is contract-first: verify the target and the menu it should produce, read the menu items before selecting, and treat menu-driven actions as separate gated steps.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
-| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application/session and expected UI state.
-2. Verify target identity and bounds before interaction.
-3. Perform only the requested bounded action.
-4. Re-observe the resulting UI and verify the expected postcondition.
-5. Stop when the observed state differs materially from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | target | object | Verified UI target that owns a context menu |
+| Input | intended_item | object | The menu item to select, with destructive items flagged |
+| Output | menu | object | The observed context menu items actually rendered |
+| Output | check | object | Verified menu outcome or explicit escalation for destructive items |
 
-## Runnable Example
+### Procedure
+1. Verify the target and its context-menu semantics before the click.
+2. Perform the context click and capture the menu that actually renders.
+3. Read the menu items and match the intended item against the observed text (localization-aware).
+4. Require explicit approval before selecting destructive menu items (delete, replace, send).
+5. Verify the postcondition of the selected action; close stray menus on failure.
+
+### Example
+
 ```python
-action = {"capability": "right-click", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+click = {"capability": "right-click", "target": {"strategy": "semantic", "identifier": "doc-row-7"}}
+menu = {"items": ["Open", "Rename", "Copy path", "Delete"]}
+intended = {"item": "Delete", "destructive": True}
+assert intended["item"] in menu["items"], "intended menu item not rendered"
+if intended["destructive"]:
+    selection = "escalate-for-approval"  # never auto-select destructive items
+assert selection == "escalate-for-approval"
+print({"menu_verified": True, "intended": intended["item"], "selection": selection})
 ```
 
-## Failure Modes
-- Target or session identity cannot be verified.
-- UI or display geometry changed after observation.
-- Action may expose sensitive data or cause destructive effects.
-- Focus or permission is ambiguous.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Context menus are application-specific and may expose destructive actions; verify menu contents before selection.
+- [Mouse Click](mouse-click.md) - primary-button click path
+- [Double Click](double-click.md) - the other multi-state click
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate destructive menu items
+
+## Failure Modes
+
+- The context menu renders off-screen or clipped and menu items cannot be read reliably.
+- A custom menu needs a hover delay first; an immediate click closes it or opens the wrong one.
+- The target suppresses or replaces the context menu (browser default menu appears instead).
+- Menu item text is localized or dynamic and no longer matches the intended label.
+- Focus loss or a stray click dismisses the menu between observation and selection.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

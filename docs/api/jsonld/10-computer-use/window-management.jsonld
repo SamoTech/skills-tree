@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/window-management.md",
-  "name": "window-management",
-  "headline": "window-management",
+  "name": "Window Management",
+  "headline": "Window Management",
   "description": "Move, resize, minimize, maximize, or focus a verified application window within explicit bounds.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/window-management.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:34:52Z",
+  "dateModified": "2026-11-27T00:18:48Z",
   "skillId": "window-management",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../07-tool-use/tool-guardrails.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, computer, management, skills tree, use, window",
   "about": {
     "@type": "Thing",
-    "name": "window-management",
-    "description": "An AI agent skill for window-management."
+    "name": "Window Management",
+    "description": "An AI agent skill for window management."
   }
 }

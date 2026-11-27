@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-type.md",
-  "name": "keyboard-type",
-  "headline": "keyboard-type",
+  "name": "Keyboard Type",
+  "headline": "Keyboard Type",
   "description": "Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-type.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:31:21Z",
+  "dateModified": "2026-11-27T00:17:50Z",
   "skillId": "keyboard-type",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/input-sanitization.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, computer, keyboard, skills tree, type, use",
   "about": {
     "@type": "Thing",
-    "name": "keyboard-type",
-    "description": "An AI agent skill for keyboard-type."
+    "name": "Keyboard Type",
+    "description": "An AI agent skill for keyboard type."
   }
 }

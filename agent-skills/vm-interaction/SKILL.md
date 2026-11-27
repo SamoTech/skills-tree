@@ -4,54 +4,71 @@ description: Interact with a verified virtual-machine display using bounded inpu
 metadata:
   source: skills/10-computer-use/vm-interaction.md
   category: 10-computer-use
+  version: "v2"
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-vm-interaction.json)
+
+# Vm Interaction
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Interact with a verified virtual-machine display using bounded input actions and explicit VM identity.
+### Description
 
-## When to Use
-Use when a specific VM session is authorized and its display state is known.
+Interact with a verified virtual-machine display using bounded input actions and explicit VM identity. The VM boundary is the isolation boundary: verify which VM is receiving input, act inside the declared bounds, and record actions for audit because the VM is the blast-radius container.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
-| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application/session and expected UI state.
-2. Verify target identity and bounds before interaction.
-3. Perform only the requested bounded action.
-4. Re-observe the resulting UI and verify the expected postcondition.
-5. Stop when the observed state differs materially from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | vm | object | The explicit VM identity (instance, snapshot state) receiving input |
+| Input | action | object | The bounded input action (click, type, key) in guest coordinates |
+| Output | state | object | The observed guest state after the action |
+| Output | check | object | Verified postcondition and audit record reference |
 
-## Runnable Example
+### Procedure
+1. Verify the VM identity and that the guest is at an interactable state (logged in, not paused).
+2. Resolve guest coordinate space and scaling (host pointer mapping, guest resolution).
+3. Perform the bounded input action and capture the resulting guest state.
+4. Verify the expected guest postcondition before the next action.
+5. Record the action for audit; on failure, restore the declared snapshot rather than improvising.
+
+### Example
+
 ```python
-action = {"capability": "vm-interaction", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+vm = {"id": "sandbox-vm-12", "state": "running", "guest_res": {"w": 1920, "h": 1080}}
+assert vm["state"] == "running", "interact only with a running, interactable guest"
+action = {"kind": "click", "guest_point": {"x": 960, "y": 540}}
+in_bounds = 0 <= action["guest_point"]["x"] < vm["guest_res"]["w"]
+assert in_bounds, "action outside guest bounds"
+audit = {"actions": 1, "recorded": True}
+assert audit["recorded"], "guest actions must be recorded for audit"
+print({"vm": vm["id"], "acted": action["kind"], "audit_recorded": True})
 ```
 
-## Failure Modes
-- Target or session identity cannot be verified.
-- UI or display geometry changed after observation.
-- Action may expose sensitive data or cause destructive effects.
-- Focus or permission is ambiguous.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-VM identity and session state can change; never assume the active VM is the intended target.
+- [Sandboxed Desktop Vm Execution](sandboxed-desktop-vm-execution.md) - the sandbox lifecycle
+- [Vm Sandbox Action Audit Automation](vm-sandbox-action-audit-automation.md) - audit the recorded actions
+- [Approval Before Destructive Tools](../14-security/approval-before-destructive-tools.md) - gate destructive guest actions
+
+## Failure Modes
+
+- The guest is paused, locked, or mid-boot and inputs go nowhere or into a lock screen.
+- Host-to-guest pointer scaling maps actions to the wrong guest coordinates.
+- Host keyboard shortcuts are captured by the guest (or vice versa) and trigger unintended actions.
+- A snapshot rollback silently discards state the workflow assumed persisted.
+- Shared folders or clipboard create unintended side channels out of the VM.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
