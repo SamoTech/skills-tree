@@ -219,7 +219,7 @@ def patch_architecture_text(text: str, counts: dict) -> str:
     return _patch_once(
         text,
         "repository structure count",
-        r"# \\d+ public canonical skills \\(\\d+ quality files including one sandbox fixture\\)",
+        r"# \d+ public canonical skills \(\d+ quality files including one sandbox fixture\)",
         f"# {total} public canonical skills ({total + 1} quality files including one sandbox fixture)",
         where="docs/architecture.md",
     )

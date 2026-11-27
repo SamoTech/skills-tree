@@ -178,7 +178,7 @@ def test_architecture_count_is_patched_from_live_counts():
     counts = gather_counts()
     source = ARCHITECTURE_MD.read_text(encoding="utf-8")
     source = re.sub(
-        r"# \\d+ public canonical skills \\(\\d+ quality files including one sandbox fixture\\)",
+        r"# \d+ public canonical skills \(\d+ quality files including one sandbox fixture\)",
         "# 999 public canonical skills (1000 quality files including one sandbox fixture)",
         source,
         count=1,
