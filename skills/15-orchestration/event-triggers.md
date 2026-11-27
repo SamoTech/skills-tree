@@ -3,57 +3,75 @@ title: "Event Triggers"
 category: 15-orchestration
 level: advanced
 stability: stable
+version: v2
 description: "Start workflow actions from explicit events, filters, deduplication rules, and authorization boundaries."
 added: "2025-03"
-related: ["15-orchestration", "input-guardrails", "output-guardrails"]
+related: [idempotency-keys, backpressure-handling]
 ---
 
-**Category:** Orchestration
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-event-triggers.json)
+
+# Event Triggers
+
+**Category:** `orchestration`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Start workflow actions from explicit events, filters, deduplication rules, and authorization boundaries.
+### Description
 
-## When to Use
-Use when external or internal events are the declared trigger for orchestration.
+Start workflow actions from explicit events, filters, deduplication rules, and authorization boundaries. The orchestration step is contract-first: validate state and inputs before acting, and verify the resulting state transition instead of trusting acknowledgements.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Workflow state, role/agent context, task constraints, trigger or decision criteria, and execution bounds. |
-| Outputs | Deterministic orchestration decision/action plus state and evidence needed for downstream work. |
-| Failure modes | Stale state, ambiguous ownership, race conditions, duplicate execution, or missing recovery path. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish workflow state, ownership, boundaries, and acceptance criteria.
-2. Validate the inputs or trigger before changing workflow state.
-3. Execute only the declared orchestration operation.
-4. Record resulting state, evidence, and unresolved conditions.
-5. Apply explicit recovery or escalation behavior when the workflow cannot continue safely.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | event | object | Event with a stable identity, source, and payload schema |
+| Input | rules | list of object | Declared filters, deduplication keys, and authorized actions |
+| Output | dispatch | object | The action started, its idempotency key, and the matching rule |
+| Output | suppressed | list of object | Duplicates or unauthorized events rejected, with reasons |
 
-## Runnable Example
+### Procedure
+1. Validate the event's schema and source before acting on its payload.
+2. Deduplicate on a declared idempotency key so redelivery cannot re-execute the action.
+3. Apply the declared filters; unmatched events are logged, not improvised on.
+4. Check the authorization boundary for the action the event would start.
+5. Dispatch at most once per idempotency key and record the dispatch identity.
+6. Treat delayed, duplicated, or spoofed events as expected failure modes with explicit handling.
+
+### Example
+
 ```python
-task = {"capability": "event-triggers", "validated": True}
-assert task["validated"]
-result = {"status": "orchestration_step", "capability": task["capability"]}
-print(result)
+event = {'id': 'evt-881', 'type': 'pr.merged', 'payload': {'pr': 42}}
+seen = {'evt-880'}
+key = event['id']
+if key in seen:
+    dispatch, reason = None, 'duplicate'
+else:
+    seen.add(key); dispatch, reason = {'key': key, 'action': 'deploy-staging'}, 'new'
+assert dispatch is not None and reason == 'new' and dispatch['key'] == 'evt-881'
+print({'dispatched': dispatch['action'], 'idempotency_key': dispatch['key']})
 ```
 
-## Failure Modes
-- Ambiguous agent ownership or workflow state.
-- Stale or conflicting state.
-- Duplicate, concurrent, or non-idempotent execution.
-- Missing authorization or recovery path.
-- Completion reported without verifiable postconditions.
+### Related Skills
 
-## Orchestration Boundary
-Duplicate, delayed, or spoofed events can cause repeated execution; validate event identity and idempotency.
+- [Idempotency Keys](idempotency-keys.md) - exactly-once dispatch
+- [Backpressure Handling](backpressure-handling.md) - bound event-driven load
+- [Dead Letter Queuing](dead-letter-queuing.md) - park unprocessable events
+
+## Failure Modes
+
+- Duplicate or redelivered events causing repeated execution.
+- Acting on events that fail schema or source validation.
+- Missing authorization check on the triggered action.
+- Filters so broad that unrelated events start workflows.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Orchestration decisions must preserve state, ownership, and material evidence.
 
-## Related
-- 15-orchestration
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; runtime behavior must be checked against the executing framework's documentation; no benchmark claim is made without reproducible evidence.
