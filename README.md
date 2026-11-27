@@ -111,6 +111,7 @@ For a local checkout:
 pip install -e .
 skills-tree goals
 skills-tree skills
+skills-tree search "memory injection"
 skills-tree recommend --goal "Coding Agent"
 skills-tree blueprint --goal "Coding Agent"
 skills-tree validate

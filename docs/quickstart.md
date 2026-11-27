@@ -12,11 +12,12 @@ The historical `skills_tree.SkillsTree` Python API is not currently implemented 
 
 ## 2. Use the CLI
 
-The verified CLI currently exposes `recommend`, `blueprint`, `goals`, `skills`, and `validate`. See [CLI Reference](cli.md) for the current boundary.
+The verified CLI currently exposes `search`, `recommend`, `blueprint`, `goals`, `skills`, and `validate`. See [CLI Reference](cli.md) for the current boundary.
 
 ```bash
 skills-tree goals
 skills-tree skills
+skills-tree search "memory injection"
 skills-tree recommend --goal "Coding Agent"
 skills-tree blueprint --goal "Coding Agent"
 skills-tree validate
