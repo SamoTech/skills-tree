@@ -3,57 +3,72 @@ title: "Scroll"
 category: 10-computer-use
 level: advanced
 stability: stable
+version: v2
 description: "Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state."
 added: "2025-03"
-related: ["10-computer-use", "input-guardrails", "output-guardrails"]
+related: [ui-element-waiting, visual-element-detection]
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-scroll.json)
+
+# Scroll
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state.
+### Description
 
-## When to Use
-Use when the target is not currently visible and the scroll container is known.
+Scroll a verified UI container or viewport by a bounded amount and verify the resulting visible state. Scrolling is hover-dependent and easily misdirected: verify which container receives the scroll, bound the amount, and verify the target content actually became visible.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI/session state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Bounded computer-use action plus verified resulting state or an explicit failure. |
-| Failure modes | Stale UI, wrong target, geometry drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application/session and expected UI state.
-2. Verify target identity and bounds before interaction.
-3. Perform only the requested bounded action.
-4. Re-observe the resulting UI and verify the expected postcondition.
-5. Stop when the observed state differs materially from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | container | object | The verified scrollable container or viewport that must receive the scroll |
+| Input | amount | object | The bounded scroll (lines, pixels, pages) and direction |
+| Output | viewport | object | The observed scroll position after the action |
+| Output | check | object | Verification that the intended content is now visible |
 
-## Runnable Example
+### Procedure
+1. Verify the scrollable container and ensure the pointer hovers over it (not an inner pane).
+2. Apply the bounded scroll amount in the declared direction.
+3. Wait for scrolling (smooth-scroll or momentum) to settle before observing.
+4. Verify the intended content is visible in the resulting viewport.
+5. Stop and report when the wrong container scrolled or the target content never appears.
+
+### Example
+
 ```python
-action = {"capability": "scroll", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+scroll = {"container": "results-pane", "amount": {"direction": "down", "px": 600},
+          "pointer_over": "results-pane"}
+assert scroll["pointer_over"] == scroll["container"], "scroll would hit the wrong container"
+after = {"scroll_top": 1450, "visible_target": "result-row-42"}
+assert after["visible_target"] == "result-row-42", "target content not visible after scroll"
+print({"scrolled": True, "container": scroll["container"], "target_visible": True})
 ```
 
-## Failure Modes
-- Target or session identity cannot be verified.
-- UI or display geometry changed after observation.
-- Action may expose sensitive data or cause destructive effects.
-- Focus or permission is ambiguous.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Scrolling can change context or lose target state; use bounded increments and re-observe after each move.
+- [UI Element Waiting](ui-element-waiting.md) - wait for content to render after scrolling
+- [Visual Element Detection](visual-element-detection.md) - confirm the target became visible
+- [Infinite Scroll Handling](infinite-scroll-handling.md) - bound unbounded feeds
+
+## Failure Modes
+
+- The scroll lands on an inner or outer pane because the pointer hovered the wrong element.
+- Smooth scrolling or momentum is still in motion when the postcondition is checked.
+- An infinite feed has no end state and scrolling never terminates.
+- Content virtualization removes rows above the viewport, invalidating element positions.
+- The scroll amount overshoots and the target element leaves the viewport again.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require explicit target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
