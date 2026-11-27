@@ -6,7 +6,7 @@ stability: stable
 version: v2
 description: "Combine independent agent votes under an explicit voting rule, quorum, tie-break policy, and evidence boundary."
 added: "2025-03"
-related: [result-aggregation, debate-pattern]
+related: [result-aggregation, evidence-verification]
 ---
 
 ![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-15-orchestration-consensus-voting.json)
