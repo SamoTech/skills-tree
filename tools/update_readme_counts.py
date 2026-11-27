@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync skill counts in README.md, docs/index.md, and mkdocs.yml with the filesystem.
+"""Sync skill counts in README.md, docs/index.md, mkdocs.yml, and docs/architecture.md with the filesystem.
 
 Runs idempotently. Updates five README.md anchors, each patched loudly
 (a missing or duplicated anchor raises instead of silently leaving the
@@ -27,6 +27,12 @@ and openly evolving." line is the site-wide meta description. Leaving it
 out of the sync is how it drifted to a 360-skill claim over a 2488-skill
 corpus (fixed 2026-11-27, issue #719).
 
+docs/architecture.md (served on the site) is patched from the same live
+counts: its repository-structure tree line "# <N> public canonical skills
+(<N+1> quality files including one sandbox fixture)". Leaving it out of
+the sync is how it drifted to a 381-skill claim over a 2488-skill corpus
+(fixed 2026-11-27, issue #719).
+
 Battle-tested and stub totals are still gathered from
 tools/check_skill_quality.py and reported by main().
 
@@ -48,6 +54,7 @@ REPO_ROOT = Path(__file__).resolve().parent.parent
 README = REPO_ROOT / "README.md"
 INDEX_MD = REPO_ROOT / "docs" / "index.md"
 MKDOCS_YML = REPO_ROOT / "mkdocs.yml"
+ARCHITECTURE_MD = REPO_ROOT / "docs" / "architecture.md"
 SKILLS_DIR = REPO_ROOT / "skills"
 GRAPH = REPO_ROOT / "data" / "SKILLS_GRAPH.json"
 
@@ -204,6 +211,20 @@ def patch_mkdocs_text(text: str, counts: dict) -> str:
     )
 
 
+def patch_architecture_text(text: str, counts: dict) -> str:
+    """Patch the served architecture page skill count (docs/architecture.md)."""
+    total = counts["total"]
+
+    # 11. Repository-structure tree count line.
+    return _patch_once(
+        text,
+        "repository structure count",
+        r"# \d+ public canonical skills \(\d+ quality files including one sandbox fixture\)",
+        f"# {total} public canonical skills ({total + 1} quality files including one sandbox fixture)",
+        where="docs/architecture.md",
+    )
+
+
 _ROW_RE = re.compile(
     r"^(?P<head>\|\s*(?P<prefix>\d{2})\s*\|[^|]+\|)\s*(?P<count>\d+)\s*(?P<tail>\|.*)$"
 )
@@ -243,6 +264,7 @@ def main() -> int:
         ("README.md", README, patch_text),
         ("docs/index.md", INDEX_MD, patch_index_text),
         ("mkdocs.yml", MKDOCS_YML, patch_mkdocs_text),
+        ("docs/architecture.md", ARCHITECTURE_MD, patch_architecture_text),
     ):
         src = path.read_text(encoding="utf-8")
         out = patcher(src, counts)
