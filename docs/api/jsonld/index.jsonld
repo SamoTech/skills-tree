@@ -6,7 +6,7 @@
   "description": "A comprehensive, versioned index of AI agent skills covering reasoning, memory, perception, code generation, tool use, and more.",
   "url": "https://samotech.github.io/skills-tree",
   "numberOfItems": 2488,
-  "dateModified": "2026-11-27T00:24:57Z",
+  "dateModified": "2026-11-27T01:12:59Z",
   "publisher": {
     "@type": "Organization",
     "name": "SamoTech",
@@ -8489,7 +8489,7 @@
       "@type": "ListItem",
       "position": 1413,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/app-launch.md",
-      "name": "app-launch"
+      "name": "App Launch"
     },
     {
       "@type": "ListItem",
@@ -8543,13 +8543,13 @@
       "@type": "ListItem",
       "position": 1422,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-read.md",
-      "name": "clipboard-read"
+      "name": "Clipboard Read"
     },
     {
       "@type": "ListItem",
       "position": 1423,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-write.md",
-      "name": "clipboard-write"
+      "name": "Clipboard Write"
     },
     {
       "@type": "ListItem",
@@ -8705,7 +8705,7 @@
       "@type": "ListItem",
       "position": 1449,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/double-click.md",
-      "name": "double-click"
+      "name": "Double Click"
     },
     {
       "@type": "ListItem",
@@ -8759,7 +8759,7 @@
       "@type": "ListItem",
       "position": 1458,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/file-dialog.md",
-      "name": "file-dialog"
+      "name": "File Dialog"
     },
     {
       "@type": "ListItem",
@@ -8855,13 +8855,13 @@
       "@type": "ListItem",
       "position": 1474,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-shortcut.md",
-      "name": "keyboard-shortcut"
+      "name": "Keyboard Shortcut"
     },
     {
       "@type": "ListItem",
       "position": 1475,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/keyboard-type.md",
-      "name": "keyboard-type"
+      "name": "Keyboard Type"
     },
     {
       "@type": "ListItem",
@@ -8927,19 +8927,19 @@
       "@type": "ListItem",
       "position": 1486,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/mouse-click.md",
-      "name": "mouse-click"
+      "name": "Mouse Click"
     },
     {
       "@type": "ListItem",
       "position": 1487,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/mouse-move.md",
-      "name": "mouse-move"
+      "name": "Mouse Move"
     },
     {
       "@type": "ListItem",
       "position": 1488,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/multi-monitor.md",
-      "name": "multi-monitor"
+      "name": "Multi Monitor"
     },
     {
       "@type": "ListItem",
@@ -9065,7 +9065,7 @@
       "@type": "ListItem",
       "position": 1509,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/right-click.md",
-      "name": "right-click"
+      "name": "Right Click"
     },
     {
       "@type": "ListItem",
@@ -9083,7 +9083,7 @@
       "@type": "ListItem",
       "position": 1512,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screen-ocr.md",
-      "name": "screen-ocr"
+      "name": "Screen Ocr"
     },
     {
       "@type": "ListItem",
@@ -9107,7 +9107,7 @@
       "@type": "ListItem",
       "position": 1516,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/screenshot-capture.md",
-      "name": "screenshot-capture"
+      "name": "Screenshot Capture"
     },
     {
       "@type": "ListItem",
@@ -9119,7 +9119,7 @@
       "@type": "ListItem",
       "position": 1518,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/scroll.md",
-      "name": "scroll"
+      "name": "Scroll"
     },
     {
       "@type": "ListItem",
@@ -9173,7 +9173,7 @@
       "@type": "ListItem",
       "position": 1527,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/terminal-interaction.md",
-      "name": "terminal-interaction"
+      "name": "Terminal Interaction"
     },
     {
       "@type": "ListItem",
@@ -9203,13 +9203,13 @@
       "@type": "ListItem",
       "position": 1532,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/visual-element-detection.md",
-      "name": "visual-element-detection"
+      "name": "Visual Element Detection"
     },
     {
       "@type": "ListItem",
       "position": 1533,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/vm-interaction.md",
-      "name": "vm-interaction"
+      "name": "Vm Interaction"
     },
     {
       "@type": "ListItem",
@@ -9239,7 +9239,7 @@
       "@type": "ListItem",
       "position": 1538,
       "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/window-management.md",
-      "name": "window-management"
+      "name": "Window Management"
     },
     {
       "@type": "ListItem",

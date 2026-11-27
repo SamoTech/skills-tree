@@ -5,8 +5,8 @@
 ## Summary
 
 - **Total skill files:** 2489
-- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2422
-- 🟡 **Enriched** (real description + runnable code): 66
+- 🟢 **Battle-tested** (rich content + tables + >=60 lines): 2442
+- 🟡 **Enriched** (real description + runnable code): 46
 - ⚪ **Stub** (placeholder description or no runnable code): 0
 - ❌ **Invalid** (schema/frontmatter problems): 0
 - 🔧 **Test fixture** (intentional non-production fixture): 1
@@ -17,7 +17,7 @@
 |---|---|---|---|---|---|---|
 | `00-sandbox` | 1 | 0 | 0 | 0 | 0 | 1 |
 | `01-perception` | 164 | 164 | 0 | 0 | 0 | 0 |
-| `02-reasoning` | 177 | 175 | 2 | 0 | 0 | 0 |
+| `02-reasoning` | 177 | 177 | 0 | 0 | 0 | 0 |
 | `03-memory` | 149 | 149 | 0 | 0 | 0 | 0 |
 | `04-action-execution` | 157 | 157 | 0 | 0 | 0 | 0 |
 | `05-code` | 160 | 160 | 0 | 0 | 0 | 0 |
@@ -25,7 +25,7 @@
 | `07-tool-use` | 165 | 165 | 0 | 0 | 0 | 0 |
 | `08-multimodal` | 135 | 135 | 0 | 0 | 0 | 0 |
 | `09-agentic-patterns` | 155 | 155 | 0 | 0 | 0 | 0 |
-| `10-computer-use` | 137 | 119 | 18 | 0 | 0 | 0 |
+| `10-computer-use` | 137 | 137 | 0 | 0 | 0 | 0 |
 | `11-web` | 141 | 141 | 0 | 0 | 0 | 0 |
 | `12-data` | 154 | 138 | 16 | 0 | 0 | 0 |
 | `13-creative` | 115 | 115 | 0 | 0 | 0 | 0 |
@@ -284,6 +284,7 @@
 - [`skills/02-reasoning/goal-setting.md`](skills/02-reasoning/goal-setting.md) — Goal Setting
 - [`skills/02-reasoning/harness-versus-framework-selection-reasoning.md`](skills/02-reasoning/harness-versus-framework-selection-reasoning.md) — Harness Versus Framework Selection Reasoning
 - [`skills/02-reasoning/harness-violation-denial-claim-reasoning.md`](skills/02-reasoning/harness-violation-denial-claim-reasoning.md) — Harness Violation Denial-Claim Reasoning
+- [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — Hypothesis Generation
 - [`skills/02-reasoning/identity-case-decision-reasoning.md`](skills/02-reasoning/identity-case-decision-reasoning.md) — Identity Case Decision Reasoning
 - [`skills/02-reasoning/incident-pattern-control-mapping-reasoning.md`](skills/02-reasoning/incident-pattern-control-mapping-reasoning.md) — Incident Pattern Control Mapping Reasoning
 - [`skills/02-reasoning/independent-conclusion-audit-reasoning.md`](skills/02-reasoning/independent-conclusion-audit-reasoning.md) — Independent Conclusion Audit Reasoning
@@ -327,6 +328,7 @@
 - [`skills/02-reasoning/premortem-failure-analysis.md`](skills/02-reasoning/premortem-failure-analysis.md) — Premortem Failure Analysis
 - [`skills/02-reasoning/preview-boundary-model-access-governance.md`](skills/02-reasoning/preview-boundary-model-access-governance.md) — Preview Boundary Model Access Governance
 - [`skills/02-reasoning/prioritization.md`](skills/02-reasoning/prioritization.md) — Prioritization
+- [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — Probabilistic Reasoning
 - [`skills/02-reasoning/problem-classification.md`](skills/02-reasoning/problem-classification.md) — Problem Classification
 - [`skills/02-reasoning/problem-decomposition.md`](skills/02-reasoning/problem-decomposition.md) — Problem Decomposition
 - [`skills/02-reasoning/prompt-engineering.md`](skills/02-reasoning/prompt-engineering.md) — Prompt Engineering
@@ -1446,6 +1448,7 @@
 - [`skills/10-computer-use/agent-ide-install-switching.md`](skills/10-computer-use/agent-ide-install-switching.md) — Agent Ide Install Switching
 - [`skills/10-computer-use/agent-profile-device-pairing-verification.md`](skills/10-computer-use/agent-profile-device-pairing-verification.md) — Agent Profile Device Pairing Verification
 - [`skills/10-computer-use/app-foreground-action-requirements.md`](skills/10-computer-use/app-foreground-action-requirements.md) — App Foreground Action Requirements
+- [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — App Launch
 - [`skills/10-computer-use/app-readiness-probing.md`](skills/10-computer-use/app-readiness-probing.md) — App Readiness Probing
 - [`skills/10-computer-use/app-update-automation.md`](skills/10-computer-use/app-update-automation.md) — App Update Automation
 - [`skills/10-computer-use/browser-agent-multi-tab-workflow-automation.md`](skills/10-computer-use/browser-agent-multi-tab-workflow-automation.md) — Browser Agent Multi Tab Workflow Automation
@@ -1454,6 +1457,8 @@
 - [`skills/10-computer-use/business-application-agent-automation.md`](skills/10-computer-use/business-application-agent-automation.md) — Business Application Agent Automation
 - [`skills/10-computer-use/chrome-extension-browser-automation.md`](skills/10-computer-use/chrome-extension-browser-automation.md) — Chrome Extension Browser Automation
 - [`skills/10-computer-use/clipboard-automation-hygiene.md`](skills/10-computer-use/clipboard-automation-hygiene.md) — Clipboard Automation Hygiene
+- [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — Clipboard Read
+- [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — Clipboard Write
 - [`skills/10-computer-use/cloud-session-state-visibility-verification.md`](skills/10-computer-use/cloud-session-state-visibility-verification.md) — Cloud Session State Visibility Verification
 - [`skills/10-computer-use/codex-cli-voice-command-operations.md`](skills/10-computer-use/codex-cli-voice-command-operations.md) — Codex CLI Voice Command Operations
 - [`skills/10-computer-use/computer-teammate-workspace-operations.md`](skills/10-computer-use/computer-teammate-workspace-operations.md) — Computer Teammate Workspace Operations
@@ -1479,6 +1484,7 @@
 - [`skills/10-computer-use/desktop-notification-triggers.md`](skills/10-computer-use/desktop-notification-triggers.md) — Desktop Notification Triggers
 - [`skills/10-computer-use/desktop-spreadsheet-automation.md`](skills/10-computer-use/desktop-spreadsheet-automation.md) — Desktop Spreadsheet Automation
 - [`skills/10-computer-use/disposable-branch-agent-trial.md`](skills/10-computer-use/disposable-branch-agent-trial.md) — Disposable Branch Agent Trial
+- [`skills/10-computer-use/double-click.md`](skills/10-computer-use/double-click.md) — Double Click
 - [`skills/10-computer-use/drag-drop.md`](skills/10-computer-use/drag-drop.md) — Drag Drop
 - [`skills/10-computer-use/drawing-canvas-automation.md`](skills/10-computer-use/drawing-canvas-automation.md) — Drawing Canvas Automation
 - [`skills/10-computer-use/electronic-signature-automation.md`](skills/10-computer-use/electronic-signature-automation.md) — Electronic Signature Automation
@@ -1487,6 +1493,7 @@
 - [`skills/10-computer-use/enterprise-agent-desktop-image-provisioning.md`](skills/10-computer-use/enterprise-agent-desktop-image-provisioning.md) — Enterprise Agent Desktop Image Provisioning
 - [`skills/10-computer-use/enterprise-hr-suite-agent-desktop-automation.md`](skills/10-computer-use/enterprise-hr-suite-agent-desktop-automation.md) — Enterprise Hr Suite Agent Desktop Automation
 - [`skills/10-computer-use/exploit-benchmark-computer-use-session-capping-automation.md`](skills/10-computer-use/exploit-benchmark-computer-use-session-capping-automation.md) — Exploit Benchmark Computer Use Session Capping Automation
+- [`skills/10-computer-use/file-dialog.md`](skills/10-computer-use/file-dialog.md) — File Dialog
 - [`skills/10-computer-use/financial-app-credential-isolation-automation.md`](skills/10-computer-use/financial-app-credential-isolation-automation.md) — Financial App Credential Isolation Automation
 - [`skills/10-computer-use/fleet-management-console-automation.md`](skills/10-computer-use/fleet-management-console-automation.md) — Fleet Management Console Automation
 - [`skills/10-computer-use/game-ui-automation.md`](skills/10-computer-use/game-ui-automation.md) — Game UI Automation
@@ -1502,6 +1509,8 @@
 - [`skills/10-computer-use/intelligent-ui-decision-screen-automation.md`](skills/10-computer-use/intelligent-ui-decision-screen-automation.md) — Intelligent UI Decision Screen Automation
 - [`skills/10-computer-use/isp-router-app-agent-automation.md`](skills/10-computer-use/isp-router-app-agent-automation.md) — Isp Router App Agent Automation
 - [`skills/10-computer-use/k12-classroom-device-agent-provisioning-automation.md`](skills/10-computer-use/k12-classroom-device-agent-provisioning-automation.md) — K-12 Classroom Device Agent Provisioning Automation
+- [`skills/10-computer-use/keyboard-shortcut.md`](skills/10-computer-use/keyboard-shortcut.md) — Keyboard Shortcut
+- [`skills/10-computer-use/keyboard-type.md`](skills/10-computer-use/keyboard-type.md) — Keyboard Type
 - [`skills/10-computer-use/kiosk-mode-automation.md`](skills/10-computer-use/kiosk-mode-automation.md) — Kiosk Mode Automation
 - [`skills/10-computer-use/local-desktop-agent-team-execution.md`](skills/10-computer-use/local-desktop-agent-team-execution.md) — Local Desktop Agent Team Execution
 - [`skills/10-computer-use/macro-recording.md`](skills/10-computer-use/macro-recording.md) — Macro Recording
@@ -1512,6 +1521,9 @@
 - [`skills/10-computer-use/mobile-deep-link-automation.md`](skills/10-computer-use/mobile-deep-link-automation.md) — Mobile Deep Link Automation
 - [`skills/10-computer-use/mobile-deep-link-regression-verification.md`](skills/10-computer-use/mobile-deep-link-regression-verification.md) — Mobile Deep Link Regression Verification
 - [`skills/10-computer-use/mobile-notification-consent-triage.md`](skills/10-computer-use/mobile-notification-consent-triage.md) — Mobile Notification Consent Triage
+- [`skills/10-computer-use/mouse-click.md`](skills/10-computer-use/mouse-click.md) — Mouse Click
+- [`skills/10-computer-use/mouse-move.md`](skills/10-computer-use/mouse-move.md) — Mouse Move
+- [`skills/10-computer-use/multi-monitor.md`](skills/10-computer-use/multi-monitor.md) — Multi Monitor
 - [`skills/10-computer-use/native-permission-dialog-handling.md`](skills/10-computer-use/native-permission-dialog-handling.md) — Native Permission Dialog Handling
 - [`skills/10-computer-use/notification-permission-dialog-automation.md`](skills/10-computer-use/notification-permission-dialog-automation.md) — Notification Permission Dialog Automation
 - [`skills/10-computer-use/off-hours-desktop-agent-automation.md`](skills/10-computer-use/off-hours-desktop-agent-automation.md) — Off Hours Desktop Agent Automation
@@ -1532,12 +1544,16 @@
 - [`skills/10-computer-use/remote-session-latency-adaptive-actions.md`](skills/10-computer-use/remote-session-latency-adaptive-actions.md) — Remote Session Latency-Adaptive Actions
 - [`skills/10-computer-use/remote-workspace-warm-pool-automation.md`](skills/10-computer-use/remote-workspace-warm-pool-automation.md) — Remote Workspace Warm Pool Automation
 - [`skills/10-computer-use/reusable-dev-environment-provisioning-automation.md`](skills/10-computer-use/reusable-dev-environment-provisioning-automation.md) — Reusable Dev Environment Provisioning Automation
+- [`skills/10-computer-use/right-click.md`](skills/10-computer-use/right-click.md) — Right Click
 - [`skills/10-computer-use/sandboxed-desktop-vm-execution.md`](skills/10-computer-use/sandboxed-desktop-vm-execution.md) — Sandboxed Desktop VM Execution
 - [`skills/10-computer-use/screen-casting-automation.md`](skills/10-computer-use/screen-casting-automation.md) — Screen Casting Automation
+- [`skills/10-computer-use/screen-ocr.md`](skills/10-computer-use/screen-ocr.md) — Screen Ocr
 - [`skills/10-computer-use/screen-reader-output-interpretation.md`](skills/10-computer-use/screen-reader-output-interpretation.md) — Screen Reader Output Interpretation
 - [`skills/10-computer-use/screen-recording.md`](skills/10-computer-use/screen-recording.md) — Screen Recording
 - [`skills/10-computer-use/screen-region-mapping.md`](skills/10-computer-use/screen-region-mapping.md) — Screen Region Mapping
+- [`skills/10-computer-use/screenshot-capture.md`](skills/10-computer-use/screenshot-capture.md) — Screenshot Capture
 - [`skills/10-computer-use/screenshot-diff-verification.md`](skills/10-computer-use/screenshot-diff-verification.md) — Screenshot Diff Verification
+- [`skills/10-computer-use/scroll.md`](skills/10-computer-use/scroll.md) — Scroll
 - [`skills/10-computer-use/session-keepalive-automation.md`](skills/10-computer-use/session-keepalive-automation.md) — Session Keepalive Automation
 - [`skills/10-computer-use/smart-glasses-agent-task-operations.md`](skills/10-computer-use/smart-glasses-agent-task-operations.md) — Smart Glasses Agent Task Operations
 - [`skills/10-computer-use/smart-home-device-automation.md`](skills/10-computer-use/smart-home-device-automation.md) — Smart Home Device Automation
@@ -1546,14 +1562,18 @@
 - [`skills/10-computer-use/system-settings-configuration.md`](skills/10-computer-use/system-settings-configuration.md) — System Settings Configuration
 - [`skills/10-computer-use/system-tray-interaction.md`](skills/10-computer-use/system-tray-interaction.md) — System Tray Interaction
 - [`skills/10-computer-use/task-scheduler-automation.md`](skills/10-computer-use/task-scheduler-automation.md) — Task Scheduler Automation
+- [`skills/10-computer-use/terminal-interaction.md`](skills/10-computer-use/terminal-interaction.md) — Terminal Interaction
 - [`skills/10-computer-use/terminal-multiplexer-automation.md`](skills/10-computer-use/terminal-multiplexer-automation.md) — Terminal Multiplexer Automation
 - [`skills/10-computer-use/ui-element-waiting.md`](skills/10-computer-use/ui-element-waiting.md) — UI Element Waiting
 - [`skills/10-computer-use/unattended-session-lock-screen-policy-automation.md`](skills/10-computer-use/unattended-session-lock-screen-policy-automation.md) — Unattended Session Lock Screen Policy Automation
 - [`skills/10-computer-use/vdi-session-automation.md`](skills/10-computer-use/vdi-session-automation.md) — Vdi Session Automation
+- [`skills/10-computer-use/visual-element-detection.md`](skills/10-computer-use/visual-element-detection.md) — Visual Element Detection
+- [`skills/10-computer-use/vm-interaction.md`](skills/10-computer-use/vm-interaction.md) — Vm Interaction
 - [`skills/10-computer-use/vm-sandbox-action-audit-automation.md`](skills/10-computer-use/vm-sandbox-action-audit-automation.md) — VM Sandbox Action Audit Automation
 - [`skills/10-computer-use/voice-driven-desktop-commanding.md`](skills/10-computer-use/voice-driven-desktop-commanding.md) — Voice-Driven Desktop Commanding
 - [`skills/10-computer-use/voice-hold-to-talk-agent-control.md`](skills/10-computer-use/voice-hold-to-talk-agent-control.md) — Voice Hold To Talk Agent Control
 - [`skills/10-computer-use/vpn-connection-automation.md`](skills/10-computer-use/vpn-connection-automation.md) — VPN Connection Automation
+- [`skills/10-computer-use/window-management.md`](skills/10-computer-use/window-management.md) — Window Management
 - [`skills/10-computer-use/world-action-model-evaluation.md`](skills/10-computer-use/world-action-model-evaluation.md) — World Action Model Evaluation
 - [`skills/10-computer-use/world-model-interface-latency-testing.md`](skills/10-computer-use/world-model-interface-latency-testing.md) — World Model Interface Latency Testing
 - [`skills/11-web/a2a-agent-card-endpoint-publishing.md`](skills/11-web/a2a-agent-card-endpoint-publishing.md) — A2a Agent Card Endpoint Publishing
@@ -2461,26 +2481,6 @@
 
 ## 🟡 Enriched skills
 
-- [`skills/02-reasoning/hypothesis-generation.md`](skills/02-reasoning/hypothesis-generation.md) — no inputs/outputs/failure-modes table
-- [`skills/02-reasoning/probabilistic-reasoning.md`](skills/02-reasoning/probabilistic-reasoning.md) — no inputs/outputs/failure-modes table
-- [`skills/10-computer-use/app-launch.md`](skills/10-computer-use/app-launch.md) — missing table or <60 lines
-- [`skills/10-computer-use/clipboard-read.md`](skills/10-computer-use/clipboard-read.md) — missing table or <60 lines
-- [`skills/10-computer-use/clipboard-write.md`](skills/10-computer-use/clipboard-write.md) — missing table or <60 lines
-- [`skills/10-computer-use/double-click.md`](skills/10-computer-use/double-click.md) — missing table or <60 lines
-- [`skills/10-computer-use/file-dialog.md`](skills/10-computer-use/file-dialog.md) — missing table or <60 lines
-- [`skills/10-computer-use/keyboard-shortcut.md`](skills/10-computer-use/keyboard-shortcut.md) — missing table or <60 lines
-- [`skills/10-computer-use/keyboard-type.md`](skills/10-computer-use/keyboard-type.md) — missing table or <60 lines
-- [`skills/10-computer-use/mouse-click.md`](skills/10-computer-use/mouse-click.md) — missing table or <60 lines
-- [`skills/10-computer-use/mouse-move.md`](skills/10-computer-use/mouse-move.md) — missing table or <60 lines
-- [`skills/10-computer-use/multi-monitor.md`](skills/10-computer-use/multi-monitor.md) — missing table or <60 lines
-- [`skills/10-computer-use/right-click.md`](skills/10-computer-use/right-click.md) — missing table or <60 lines
-- [`skills/10-computer-use/screen-ocr.md`](skills/10-computer-use/screen-ocr.md) — missing table or <60 lines
-- [`skills/10-computer-use/screenshot-capture.md`](skills/10-computer-use/screenshot-capture.md) — missing table or <60 lines
-- [`skills/10-computer-use/scroll.md`](skills/10-computer-use/scroll.md) — missing table or <60 lines
-- [`skills/10-computer-use/terminal-interaction.md`](skills/10-computer-use/terminal-interaction.md) — missing table or <60 lines
-- [`skills/10-computer-use/visual-element-detection.md`](skills/10-computer-use/visual-element-detection.md) — missing table or <60 lines
-- [`skills/10-computer-use/vm-interaction.md`](skills/10-computer-use/vm-interaction.md) — missing table or <60 lines
-- [`skills/10-computer-use/window-management.md`](skills/10-computer-use/window-management.md) — missing table or <60 lines
 - [`skills/12-data/csv-processing.md`](skills/12-data/csv-processing.md) — missing table or <60 lines
 - [`skills/12-data/data-aggregation.md`](skills/12-data/data-aggregation.md) — missing table or <60 lines
 - [`skills/12-data/data-cleaning.md`](skills/12-data/data-cleaning.md) — missing table or <60 lines

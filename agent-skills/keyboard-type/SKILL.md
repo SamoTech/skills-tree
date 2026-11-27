@@ -4,54 +4,70 @@ description: Enter supplied text into a verified focused UI field while preservi
 metadata:
   source: skills/10-computer-use/keyboard-type.md
   category: 10-computer-use
+  version: "v2"
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-keyboard-type.json)
+
+# Keyboard Type
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely.
+### Description
 
-## When to Use
-Use when the destination field and input text are explicit.
+Enter supplied text into a verified focused UI field while preserving intended content and handling sensitive data safely. The entry is contract-first: verify the focused field before typing, keep the keystroke rate within what the field accepts, and verify the field content afterwards rather than trusting the typing acknowledgement.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
-| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application, target, and expected UI state.
-2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
-3. Perform only the requested action within the declared bounds.
-4. Inspect the resulting UI state and verify the expected postcondition.
-5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | text | object | The exact text to enter, with sensitive segments flagged |
+| Input | field | object | The verified focused field identity and its input constraints |
+| Output | result | object | Typing acknowledgement with the field target used |
+| Output | check | object | Verified field content (read-back) or explicit failure |
 
-## Runnable Example
+### Procedure
+1. Verify the intended field has focus and is empty or in the declared state before typing.
+2. Type the text at a rate the field accepts; prefer clipboard paste for large or exact-match content.
+3. Route sensitive segments so they are not echoed to logs or command lines.
+4. Read back the field content and compare against the declared text.
+5. Stop and report mismatches (autocorrect, IME rewrite, truncation) rather than re-typing blind.
+
+### Example
+
 ```python
-action = {"capability": "keyboard-type", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+entry = {"text": "invoice-2026-0118", "sensitive_segments": [], "via": "clipboard-paste"}
+field = {"id": "invoice-number", "focused": True, "max_len": 32}
+assert field["focused"], "type only into a verified focused field"
+assert len(entry["text"]) <= field["max_len"], "text exceeds field capacity"
+read_back = "invoice-2026-0118"
+assert read_back == entry["text"], "field content differs from declared text (autocorrect/IME?)"
+print({"typed": True, "field": field["id"], "read_back_verified": True})
 ```
 
-## Failure Modes
-- Target or application identity cannot be verified.
-- UI changed between observation and action.
-- Focus is ambiguous or lost.
-- Action may have destructive or irreversible side effects.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Never type secrets into an unverified destination; confirm focus and avoid accidental submission.
+- [Keyboard Shortcut](keyboard-shortcut.md) - chords instead of text
+- [Clipboard Automation Hygiene](clipboard-automation-hygiene.md) - clear sensitive content after paste
+- [Input Sanitization](../14-security/input-sanitization.md) - treat typed content as untrusted downstream
+
+## Failure Modes
+
+- Focus moves mid-typing (dialog, notification) and the remainder lands in another field.
+- IME, autocorrect, or input masks rewrite the entered text silently.
+- The keystroke rate exceeds what the field or remote session accepts and characters drop.
+- Sensitive text is echoed into logs, command lines, or screen recordings.
+- The field's placeholder or pre-filled value is mistaken for the entered content.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

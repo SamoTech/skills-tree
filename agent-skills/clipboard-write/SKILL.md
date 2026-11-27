@@ -4,54 +4,69 @@ description: Write explicitly supplied content to the clipboard for a subsequent
 metadata:
   source: skills/10-computer-use/clipboard-write.md
   category: 10-computer-use
+  version: "v2"
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-clipboard-write.json)
+
+# Clipboard Write
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Write explicitly supplied content to the clipboard for a subsequent authorized computer-use step.
+### Description
 
-## When to Use
-Use when clipboard transfer is required between UI actions.
+Write explicitly supplied content to the clipboard for a subsequent authorized computer-use step. The write is contract-first: confirm the session, write the exact declared content and format, and verify the round-trip before the consuming step runs.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
-| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application, target, and expected UI state.
-2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
-3. Perform only the requested action within the declared bounds.
-4. Inspect the resulting UI state and verify the expected postcondition.
-5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | content | object | The exact payload to write, with its format and size declared |
+| Input | session | object | The authorized computer-use session to write to |
+| Output | ack | object | Write acknowledgement with the format actually written |
+| Output | check | object | Round-trip verification result (read-back equals written content) |
 
-## Runnable Example
+### Procedure
+1. Confirm the target session is the authorized one and the write is permitted.
+2. Write the exact declared content in the declared format; no silent transformations.
+3. Read back and compare against the declared payload to verify the round trip.
+4. Plan the cleanup: sensitive content must be cleared from the clipboard after the consuming step.
+5. Report the verified write, or an explicit failure (permission denied, format unsupported).
+
+### Example
+
 ```python
-action = {"capability": "clipboard-write", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
-print(result)
+payload = {"format": "text/plain", "data": "release-notes-v2 draft text", "bytes": 24}
+write_ack = {"session": "workstation-7", "format_written": payload["format"]}
+read_back = {"format": "text/plain", "data": "release-notes-v2 draft text", "bytes": 24}
+assert write_ack["session"] == "workstation-7", "write to unauthorized session"
+assert read_back == payload, "clipboard round-trip mismatch"
+print({"written": True, "round_trip_verified": True, "cleanup_planned": True})
 ```
 
-## Failure Modes
-- Target or application identity cannot be verified.
-- UI changed between observation and action.
-- Focus is ambiguous or lost.
-- Action may have destructive or irreversible side effects.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Do not overwrite user clipboard data without authorization; avoid placing secrets in the clipboard unless required.
+- [Clipboard Read](clipboard-read.md) - verify the round trip
+- [Clipboard Automation Hygiene](clipboard-automation-hygiene.md) - clear sensitive content afterwards
+- [Tool Guardrails](../07-tool-use/tool-guardrails.md) - keep the write within declared bounds
+
+## Failure Modes
+
+- The session or application denies clipboard write permission.
+- Content is truncated or re-encoded so the read-back differs from the declared payload.
+- The consuming step pastes before the write lands (race) and reads stale content.
+- Sensitive content is left on the clipboard after the step completes.
+- The write targets a remote session whose clipboard is disabled or redirected.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.

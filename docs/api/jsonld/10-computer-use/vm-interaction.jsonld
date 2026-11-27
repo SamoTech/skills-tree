@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/vm-interaction.md",
-  "name": "vm-interaction",
-  "headline": "vm-interaction",
+  "name": "Vm Interaction",
+  "headline": "Vm Interaction",
   "description": "Interact with a verified virtual-machine display using bounded input actions and explicit VM identity.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/vm-interaction.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:34:52Z",
+  "dateModified": "2026-11-27T00:18:48Z",
   "skillId": "vm-interaction",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/approval-before-destructive-tools.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, computer, interaction, skills tree, use, vm",
   "about": {
     "@type": "Thing",
-    "name": "vm-interaction",
-    "description": "An AI agent skill for vm-interaction."
+    "name": "Vm Interaction",
+    "description": "An AI agent skill for vm interaction."
   }
 }

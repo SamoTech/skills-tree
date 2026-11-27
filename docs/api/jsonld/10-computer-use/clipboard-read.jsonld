@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-read.md",
-  "name": "clipboard-read",
-  "headline": "clipboard-read",
+  "name": "Clipboard Read",
+  "headline": "Clipboard Read",
   "description": "Read clipboard contents from an authorized computer-use session and preserve their type and provenance.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/10-computer-use/clipboard-read.md",
   "isPartOf": {
@@ -52,24 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:31:21Z",
+  "dateModified": "2026-11-27T00:17:33Z",
   "skillId": "clipboard-read",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "10-computer-use",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Safety Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/input-sanitization.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +75,7 @@
   "keywords": "AI agent, LLM skill, clipboard, computer, read, skills tree, use",
   "about": {
     "@type": "Thing",
-    "name": "clipboard-read",
-    "description": "An AI agent skill for clipboard-read."
+    "name": "Clipboard Read",
+    "description": "An AI agent skill for clipboard read."
   }
 }

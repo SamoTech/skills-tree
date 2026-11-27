@@ -4,54 +4,74 @@ description: Perform a double-click on a verified UI target using semantic or co
 metadata:
   source: skills/10-computer-use/double-click.md
   category: 10-computer-use
+  version: "v2"
 ---
 
-**Category:** Computer Use
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-10-computer-use-double-click.json)
+
+# Double Click
+
+**Category:** `computer-use`
 **Skill Level:** `advanced`
-**Stability:** stable
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Description
-Perform a double-click on a verified UI target using semantic or coordinate-based targeting.
+### Description
 
-## When to Use
-Use when the target and intended double-click action are unambiguous.
+Perform a double-click on a verified UI target using semantic or coordinate-based targeting. The action is contract-first: verify the target and its double-click semantics before acting, and verify the observable postcondition afterwards rather than trusting the acknowledgement.
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | Verified UI state, target identity, action parameters, authorization, and expected postcondition. |
-| Outputs | Performed action plus verified resulting UI state or an explicit failure. |
-| Failure modes | Stale UI, wrong focus/target, coordinate drift, permission failure, or unexpected side effects. |
+### Inputs / Outputs
 
-## Procedure
-1. Establish the active application, target, and expected UI state.
-2. Verify the target before interaction; prefer semantic accessibility identifiers when available.
-3. Perform only the requested action within the declared bounds.
-4. Inspect the resulting UI state and verify the expected postcondition.
-5. Stop and report ambiguity rather than guessing when the UI differs from the expected state.
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | target | object | Verified UI target identity (semantic id preferred, coordinates as fallback) |
+| Input | semantics | object | Declared double-click behavior of the target (opens, selects word, zooms) |
+| Output | result | object | Performed action acknowledgement with the target used |
+| Output | check | object | Verified postcondition (expected dialog/editor state) or explicit failure |
 
-## Runnable Example
+### Procedure
+1. Establish the active application and the expected UI state.
+2. Verify the target identity before interaction; prefer semantic accessibility identifiers.
+3. Confirm the target actually supports double-click semantics and what it triggers.
+4. Perform the double-click within the platform's interval threshold and bounds.
+5. Re-observe the UI and verify the expected postcondition before continuing.
+
+### Example
+
 ```python
-action = {"capability": "double-click", "target_verified": True}
-assert action["target_verified"]
-result = {"status": "postcondition_required", "capability": action["capability"]}
+action = {
+    "capability": "double-click",
+    "target": {"strategy": "semantic", "identifier": "invoice-row-3"},
+    "semantics": {"opens": "invoice-editor"},
+    "interval_ms": 180,
+}
+assert 40 <= action["interval_ms"] <= 500, "platform double-click interval threshold"
+verified = {"target_verified": True, "focus_application": "ledger"}
+result = {"performed": action["capability"], "target": action["target"]["identifier"],
+          "postcondition_verification_required": "invoice-editor-open"}
 print(result)
 ```
 
-## Failure Modes
-- Target or application identity cannot be verified.
-- UI changed between observation and action.
-- Focus is ambiguous or lost.
-- Action may have destructive or irreversible side effects.
-- Postcondition cannot be verified.
+### Related Skills
 
-## Safety Boundary
-Re-check target identity and postcondition; double-click can trigger destructive or irreversible UI actions.
+- [Mouse Click](mouse-click.md) - single-click targeting
+- [UI Element Waiting](ui-element-waiting.md) - wait for the target to be interactable
+- [Gui Element Anchoring Stability](gui-element-anchoring-stability.md) - stable target anchoring
+
+## Failure Modes
+
+- The click interval exceeds the platform threshold and is interpreted as two single clicks.
+- The target moves or re-renders between observation and action.
+- The target does not actually support double-click; the fallback single-click dialog opens instead.
+- Coordinate drift after a window resize or DPI change clicks the wrong element.
+- An intermediate selection state (word selection) is mistaken for the expected postcondition.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a deterministic example, an execution procedure, and corpus-verified related links (replaced the non-corpus input-guardrails/output-guardrails/self-category pointers).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Structural conformance is defined by the repository schema, validation workflows, Agent Skills contract, and security gates. Computer-use actions require target verification and postcondition checks.
 
-## Related
-- 10-computer-use
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; no benchmark claim is made without reproducible evidence.
