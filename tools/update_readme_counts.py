@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Sync skill counts in README.md and docs/index.md with the filesystem.
+"""Sync skill counts in README.md, docs/index.md, and mkdocs.yml with the filesystem.
 
 Runs idempotently. Updates five README.md anchors, each patched loudly
 (a missing or duplicated anchor raises instead of silently leaving the
@@ -21,6 +21,12 @@ per-category table (same loud-failure contract). Excluding the landing
 page from the sync is how it drifted to a 360-skill claim over an
 888-skill corpus (fixed 2026-10-14).
 
+The MkDocs site_description (mkdocs.yml) is patched from the same live
+counts: its "The AI Agent Skill OS — <N> skills, versioned, benchmarked,
+and openly evolving." line is the site-wide meta description. Leaving it
+out of the sync is how it drifted to a 360-skill claim over a 2488-skill
+corpus (fixed 2026-11-27, issue #719).
+
 Battle-tested and stub totals are still gathered from
 tools/check_skill_quality.py and reported by main().
 
@@ -41,6 +47,7 @@ from pathlib import Path
 REPO_ROOT = Path(__file__).resolve().parent.parent
 README = REPO_ROOT / "README.md"
 INDEX_MD = REPO_ROOT / "docs" / "index.md"
+MKDOCS_YML = REPO_ROOT / "mkdocs.yml"
 SKILLS_DIR = REPO_ROOT / "skills"
 GRAPH = REPO_ROOT / "data" / "SKILLS_GRAPH.json"
 
@@ -94,13 +101,13 @@ def gather_counts() -> dict:
 
 
 def _patch_once(
-    text: str, label: str, pattern: str, repl: str, flags: int = 0, where: str = "README.md"
+    text: str, label: str, pattern: str, repl, flags: int = 0, where: str = "README.md"
 ) -> str:
     new_text, n = re.subn(pattern, repl, text, count=1, flags=flags)
     if n != 1:
         raise RuntimeError(
             f"{where} {label} anchor ({pattern}) matched {n} times, "
-            "expected exactly 1. Update README.md or "
+            "expected exactly 1. Update the target file or "
             "tools/update_readme_counts.py so the anchor matches once."
         )
     return new_text
@@ -183,6 +190,20 @@ def patch_index_text(text: str, counts: dict) -> str:
     return text
 
 
+def patch_mkdocs_text(text: str, counts: dict) -> str:
+    """Patch the MkDocs site_description skill count (mkdocs.yml)."""
+    total = counts["total"]
+
+    # 10. Site-wide meta description.
+    return _patch_once(
+        text,
+        "site_description",
+        r"(site_description: The AI Agent Skill OS — )\d+\+? skills(, versioned, benchmarked, and openly evolving\.)",
+        lambda m: f"{m.group(1)}{total} skills{m.group(2)}",
+        where="mkdocs.yml",
+    )
+
+
 _ROW_RE = re.compile(
     r"^(?P<head>\|\s*(?P<prefix>\d{2})\s*\|[^|]+\|)\s*(?P<count>\d+)\s*(?P<tail>\|.*)$"
 )
@@ -221,6 +242,7 @@ def main() -> int:
     for label, path, patcher in (
         ("README.md", README, patch_text),
         ("docs/index.md", INDEX_MD, patch_index_text),
+        ("mkdocs.yml", MKDOCS_YML, patch_mkdocs_text),
     ):
         src = path.read_text(encoding="utf-8")
         out = patcher(src, counts)

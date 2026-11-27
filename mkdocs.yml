@@ -1,5 +1,5 @@
 site_name: Skills Tree
-site_description: The AI Agent Skill OS — 360+ skills, versioned, benchmarked, and openly evolving.
+site_description: The AI Agent Skill OS — 2488 skills, versioned, benchmarked, and openly evolving.
 site_url: https://samotech.github.io/skills-tree
 repo_url: https://github.com/SamoTech/skills-tree
 repo_name: SamoTech/skills-tree
@@ -107,9 +107,6 @@ extra:
       link: https://github.com/SamoTech/skills-tree
     - icon: fontawesome/brands/python
       link: https://pypi.org/project/skills-tree/
-  analytics:
-    provider: google
-    property: G-XXXXXXXXXX
 
 extra_css:
   - stylesheets/extra.css
