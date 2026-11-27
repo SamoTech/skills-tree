@@ -53,13 +53,13 @@ print({"scrolled": True, "container": scroll["container"], "target_visible": Tru
 
 - [UI Element Waiting](ui-element-waiting.md) - wait for content to render after scrolling
 - [Visual Element Detection](visual-element-detection.md) - confirm the target became visible
-- [Infinite Scroll Handling](infinite-scroll-handling.md) - bound unbounded feeds
+- [Computer Use Error Recovery](computer-use-error-recovery.md) - recover from scroll dead ends
 
 ## Failure Modes
 
 - The scroll lands on an inner or outer pane because the pointer hovered the wrong element.
 - Smooth scrolling or momentum is still in motion when the postcondition is checked.
-- An infinite feed has no end state and scrolling never terminates.
+- An unbounded feed has no end state and scrolling never terminates.
 - Content virtualization removes rows above the viewport, invalidating element positions.
 - The scroll amount overshoots and the target element leaves the viewport again.
 
