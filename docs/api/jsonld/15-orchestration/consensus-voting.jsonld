@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/consensus-voting.md",
-  "name": "consensus-voting",
-  "headline": "consensus-voting",
+  "name": "Consensus Voting",
+  "headline": "Consensus Voting",
   "description": "Combine independent agent votes under an explicit voting rule, quorum, tie-break policy, and evidence boundary.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/consensus-voting.md",
   "isPartOf": {
@@ -52,24 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:44:02Z",
+  "dateModified": "2026-11-27T00:24:57Z",
   "skillId": "consensus-voting",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Orchestration Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../09-agentic-patterns/debate-pattern.md",
+    "../09-agentic-patterns/llm-judge-calibration.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -79,7 +76,7 @@
   "keywords": "AI agent, LLM skill, consensus, orchestration, skills tree, voting",
   "about": {
     "@type": "Thing",
-    "name": "consensus-voting",
-    "description": "An AI agent skill for consensus-voting."
+    "name": "Consensus Voting",
+    "description": "An AI agent skill for consensus voting."
   }
 }

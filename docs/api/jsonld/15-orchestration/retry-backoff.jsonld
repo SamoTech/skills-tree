@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/retry-backoff.md",
-  "name": "retry-backoff",
-  "headline": "retry-backoff",
+  "name": "Retry Backoff",
+  "headline": "Retry Backoff",
   "description": "Retry transient workflow failures using explicit retryable conditions, attempt limits, and backoff policy.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/15-orchestration/retry-backoff.md",
   "isPartOf": {
@@ -52,22 +52,16 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T06:44:02Z",
+  "dateModified": "2026-11-27T00:24:43Z",
   "skillId": "retry-backoff",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "15-orchestration",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Orchestration Boundary",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
   "relatedSkills": [],
   "educationalLevel": {
@@ -79,7 +73,7 @@
   "keywords": "AI agent, LLM skill, backoff, orchestration, retry, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "retry-backoff",
-    "description": "An AI agent skill for retry-backoff."
+    "name": "Retry Backoff",
+    "description": "An AI agent skill for retry backoff."
   }
 }

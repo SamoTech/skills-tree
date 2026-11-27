@@ -4,53 +4,74 @@ description: Use multiple role-separated agents to present, challenge, and recon
 metadata:
   source: skills/09-agentic-patterns/debate-pattern.md
   category: 09-agentic-patterns
+  version: "v2"
 ---
 
-## Description
-Use multiple role-separated agents to present, challenge, and reconcile competing claims under an explicit evidence protocol.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-debate-pattern.json)
 
-## When to Use
-Use when adversarial examination can expose assumptions or missing evidence.
+# Debate Pattern
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | claim_or_question, roles, and task constraints or execution bounds. |
-| Outputs | synthesized_result with assumptions, evidence references, and unresolved uncertainty where material. |
-| Failure modes | Debate does not guarantee truth; agents may agree on the same error, and rhetorical strength must not substitute for evidence. |
+**Category:** `agentic-patterns`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Procedure
-1. Define the objective, state representation, evaluation criteria, and termination condition.
-2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
-3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
-4. Preserve candidate provenance and the observations or evidence supporting selection.
-5. Verify the selected result against the declared criteria before acceptance.
-6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
+### Description
 
-## Runnable Example
+Use multiple role-separated agents to present, challenge, and reconcile competing claims under an explicit evidence protocol. Debate is an exposure mechanism, not a truth guarantee: agreement between agents counts as weak evidence and must be checked against sources.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | claim_or_question | text | The proposition or task the debate resolves |
+| Input | roles | list of object | Assigned positions with an explicit evidence protocol |
+| Output | positions | list of object | Each role's claim with its cited evidence |
+| Output | synthesized_result | object | The reconciled claim, surviving objections, and open disagreements |
+
+### Procedure
+1. Assign roles and the evidence protocol (what counts as a citation) before any argument.
+2. Have each role present its claim with cited evidence, not rhetoric.
+3. Cross-examine: each role challenges the others' evidence, not their style.
+4. Reconcile only claims that survive challenge; record disagreements that remain.
+5. Verify the reconciled result against an independent source where stakes require it.
+6. Report open disagreements and the evidence boundary instead of forcing consensus.
+
+### Example
+
 ```python
-pattern = {
-    "capability": "debate-pattern",
-    "validated": True,
-    "budget": 4,
-}
-assert pattern["validated"] and pattern["budget"] > 0
-result = {"status": "bounded_execution", "capability": pattern["capability"]}
+positions = [
+    {'role': 'pro', 'claim': 'cache hit', 'evidence': ['timing 12ms']},
+    {'role': 'con', 'claim': 'cache miss', 'evidence': []},
+]
+protocol = {'min_evidence': 1}
+surviving = [p['claim'] for p in positions if len(p['evidence']) >= protocol['min_evidence']]
+result = {'resolved': surviving[0] if len(surviving) == 1 else None,
+          'open': [p['role'] for p in positions if len(p['evidence']) < protocol['min_evidence']]}
+assert result['resolved'] == 'cache hit' and result['open'] == ['con']
 print(result)
 ```
 
+### Related Skills
+
+- [Critic Agent](critic-agent.md) - single-role critique against a rubric
+- [Multi-Agent Debate Resolution](multi-agent-debate-resolution.md) - resolve competing agent claims
+- [LLM Judge Calibration](llm-judge-calibration.md) - calibrate the adjudicator
+- [Output Guardrails](../14-security/output-guardrails.md) - validate the synthesized result
+
 ## Failure Modes
-- Ambiguous objective or evaluation criterion.
-- Search or agent budget exhaustion without a verified result.
-- Correlated model errors presented as independent evidence.
-- Stale, conflicting, or missing source evidence.
-- Optimization against a proxy metric that diverges from the actual task objective.
-- Completion reported without a reproducible postcondition.
+
+- Treating agent agreement as proof; correlated models agree on shared errors.
+- Letting rhetorical strength substitute for cited evidence.
+- Forcing consensus and burying open disagreements.
+- Running debates without a declared evidence protocol.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-## Related
-- 09-agentic-patterns
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; pattern behavior must be checked against current framework documentation; no benchmark claim is made without reproducible evidence.

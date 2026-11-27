@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/reflection.md",
-  "name": "reflection",
-  "headline": "reflection",
+  "name": "Reflection",
+  "headline": "Reflection",
   "description": "Add a structured critique-and-revision pass that evaluates an agent output against explicit criteria before acceptance.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/reflection.md",
   "isPartOf": {
@@ -52,23 +52,20 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T09:17:33Z",
+  "dateModified": "2026-11-27T00:23:11Z",
   "skillId": "reflection",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/human-in-loop.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -78,7 +75,7 @@
   "keywords": "AI agent, LLM skill, agentic, patterns, reflection, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "reflection",
+    "name": "Reflection",
     "description": "An AI agent skill for reflection."
   }
 }

@@ -4,53 +4,73 @@ description: Train or improve an agent through controlled adversarial interactio
 metadata:
   source: skills/09-agentic-patterns/self-play.md
   category: 09-agentic-patterns
+  version: "v2"
 ---
 
-## Description
-Train or improve an agent through controlled adversarial interaction between role-separated policies or prompts.
+![Dependency Status](https://img.shields.io/endpoint?url=https://samotech.github.io/skills-tree/badges/skills-09-agentic-patterns-self-play.json)
 
-## When to Use
-Use when the task has a measurable objective and adversarial interaction can generate informative counterexamples.
+# Self-Play
 
-## Inputs / Outputs / Failure Modes
-| Area | Contract |
-|---|---|
-| Inputs | policy_or_prompt, opponent_policy, and task constraints or execution bounds. |
-| Outputs | evaluation_metric with assumptions, evidence references, and unresolved uncertainty where material. |
-| Failure modes | Self-play can optimize the wrong proxy, collapse to repetitive strategies, or exploit evaluator weaknesses; maintain held-out evaluation. |
+**Category:** `agentic-patterns`
+**Skill Level:** `advanced`
+**Stability:** `stable`
+**Added:** 2025-03
 
-## Procedure
-1. Define the objective, state representation, evaluation criteria, and termination condition.
-2. Validate the inputs and establish the evidence boundary before generating candidates or branches.
-3. Execute the pattern within an explicit compute, tool, depth, or agent budget.
-4. Preserve candidate provenance and the observations or evidence supporting selection.
-5. Verify the selected result against the declared criteria before acceptance.
-6. Report uncertainty, conflicts, failed branches, or incomplete evidence instead of silently resolving them.
+### Description
 
-## Runnable Example
+Train or improve an agent through controlled adversarial interaction between role-separated policies or prompts. Improvement is measured on a held-out evaluation against the real task objective, never on the self-play reward alone, which can be gamed.
+
+### Inputs / Outputs
+
+| Direction | Field | Type | Contract |
+|---|---|---|---|
+| Input | policy_or_prompt | object | The improving policy with its version |
+| Input | opponent_policy | object | The role-separated adversary with its version |
+| Output | evaluation_metric | object | Held-out metric against the real task objective |
+| Output | caveats | list of string | Proxy risks, collapse signs, and evaluator weaknesses observed |
+
+### Procedure
+1. Separate the improving and opponent roles with distinct versions and prompts.
+2. Run controlled interactions and record the outcomes per episode.
+3. Measure improvement on a held-out evaluation tied to the real task objective.
+4. Watch for proxy optimization, strategy collapse, and evaluator exploits; record them as caveats.
+5. Gate acceptance on the held-out metric, never on the self-play reward.
+6. Report both metric versions (policy and opponent) so the comparison is reproducible.
+
+### Example
+
 ```python
-pattern = {
-    "capability": "self-play",
-    "validated": True,
-    "budget": 4,
-}
-assert pattern["validated"] and pattern["budget"] > 0
-result = {"status": "bounded_execution", "capability": pattern["capability"]}
-print(result)
+policy, opponent = 'p-v3', 'o-v3'
+episodes = [{'winner': policy}, {'winner': opponent}, {'winner': policy}]
+heldout = {'p-v3': 0.62, 'p-v2': 0.55}   # real-task metric, held-out set
+gate = 0.60
+accepted = heldout[policy] >= gate
+wins = sum(1 for e in episodes if e['winner'] == policy) / len(episodes)
+assert accepted and wins == 2 / 3
+caveats = ['proxy: self-play reward up but held-out gain is 0.07']
+print({'heldout': heldout[policy], 'gate': gate, 'accepted': accepted, 'caveats': caveats})
 ```
 
+### Related Skills
+
+- [Debate Pattern](debate-pattern.md) - adversarial structure for claims rather than policies
+- [Exploration-Exploitation Balancing](exploration-exploitation-balancing.md) - pacing the adversarial search
+- [Reward Hacking Detection](reward-hacking-detection.md) - catch proxy gaming
+- [Agent Eval Harness Design](agent-eval-harness-design.md) - the held-out evaluation contract
+
 ## Failure Modes
-- Ambiguous objective or evaluation criterion.
-- Search or agent budget exhaustion without a verified result.
-- Correlated model errors presented as independent evidence.
-- Stale, conflicting, or missing source evidence.
-- Optimization against a proxy metric that diverges from the actual task objective.
-- Completion reported without a reproducible postcondition.
+
+- Optimizing the self-play reward while the held-out task metric stagnates.
+- Strategy collapse into repetitive interactions without new signal.
+- Exploiting a weakness in the evaluator instead of improving the task behavior.
+- Accepting improvements measured only on the self-play reward.
+
+## Changelog
+- v2 (2026-11): Structural modernization; added the input/output contract table, a skill-specific execution procedure, a deterministic example, and corpus-verified related links (replaced the unresolvable cross-category related references).
+- v1 (2025-03): Initial entry.
 
 ## Evidence
-Canonical repository skill: this file. Conformance is governed by the repository skill schema, validation workflows, Agent Skills contract, and security gates. Pattern-specific claims must be backed by reproducible implementation or cited primary evidence; generated reasoning is not itself evidence.
 
-## Related
-- 09-agentic-patterns
-- input-guardrails
-- output-guardrails
+- https://agentskills.io/specification
+
+Evidence status: implementation guidance only; pattern behavior must be checked against current framework documentation; no benchmark claim is made without reproducible evidence.

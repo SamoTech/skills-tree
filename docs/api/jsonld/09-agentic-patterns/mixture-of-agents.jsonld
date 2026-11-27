@@ -36,8 +36,8 @@
   ],
   "@type": "TechArticle",
   "@id": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mixture-of-agents.md",
-  "name": "mixture-of-agents",
-  "headline": "mixture-of-agents",
+  "name": "Mixture of Agents",
+  "headline": "Mixture of Agents",
   "description": "Route a task through multiple specialized agents and aggregate their outputs using an explicit synthesis policy.",
   "url": "https://github.com/SamoTech/skills-tree/blob/main/skills/09-agentic-patterns/mixture-of-agents.md",
   "isPartOf": {
@@ -52,23 +52,21 @@
     "url": "https://github.com/SamoTech"
   },
   "inLanguage": "en",
-  "dateModified": "2026-10-01T09:17:33Z",
+  "dateModified": "2026-11-27T00:23:11Z",
   "skillId": "mixture-of-agents",
-  "skillVersion": null,
+  "skillVersion": "v2",
   "skillLevel": "advanced",
   "skillStability": "stable",
   "categoryDir": "09-agentic-patterns",
   "sections": [
-    "Description",
-    "When to Use",
-    "Inputs / Outputs / Failure Modes",
-    "Procedure",
-    "Runnable Example",
     "Failure Modes",
-    "Evidence",
-    "Related"
+    "Changelog",
+    "Evidence"
   ],
-  "relatedSkills": [],
+  "relatedSkills": [
+    "../14-security/input-guardrails.md",
+    "../14-security/output-guardrails.md"
+  ],
   "educationalLevel": {
     "@type": "DefinedTerm",
     "name": "Advanced",
@@ -78,7 +76,7 @@
   "keywords": "AI agent, LLM skill, agentic, agents, mixture, of, patterns, skills tree",
   "about": {
     "@type": "Thing",
-    "name": "mixture-of-agents",
-    "description": "An AI agent skill for mixture-of-agents."
+    "name": "Mixture of Agents",
+    "description": "An AI agent skill for mixture of agents."
   }
 }
