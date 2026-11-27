@@ -1,4 +1,6 @@
 ---
+title: Skills Tree
+description: A public, trusted, machine-discoverable registry of AI agent skills across 17 categories. Versioned, evidence-backed, dependency-mapped, MIT-licensed, with head-to-head benchmarks and an Agent Skills package distribution.
 hide:
   - navigation
   - toc

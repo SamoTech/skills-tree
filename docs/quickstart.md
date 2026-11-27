@@ -1,3 +1,7 @@
+---
+description: Install the skills-tree CLI from PyPI and run your first search, recommendation, blueprint, and goals commands in under five minutes. No Python API required.
+---
+
 # Quick Start
 
 Get up and running with Skills Tree in under 5 minutes.
