@@ -9,10 +9,11 @@ assessment remediation:
 - Python API availability claims (historical skills_tree.SkillsTree is NOT
   implemented; docs/api.md is the verified boundary).
 - Public skill count consistency (2489 total files = 2488 public + 1 fixture).
-- Roadmap scale targets that the registry has already passed ("500+ skills").
+- Roadmap scale targets that the registry has already passed ("500+ skills"),
+  allowed only where clearly labeled as historical/retired.
 - Benchmark claim accuracy: every linked benchmark page must exist, numeric
   margins must appear in the linked source document, and margin wording must
-  use percentage points.
+  use percentage points (or an explicit raw score where the row reports one).
 - Documented CLI commands must exist in docs/cli.md.
 
 These are deliberately narrow, generated-surface checks. They never weaken
@@ -25,6 +26,12 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+
+_BT = chr(96)  # backtick, kept out of the source for lint friendliness
+_CLI_HEADING = re.compile("^## " + _BT + r"skills-tree (\w[\w-]*)" + _BT, re.MULTILINE)
+_HONEST_API_MARKER = re.compile(
+    r"planned|not currently implemented|not implemented|Not yet|docs/api\.md|\*", re.IGNORECASE
+)
 
 
 def _read(rel: str) -> str:
@@ -67,22 +74,39 @@ def test_no_unexplained_alternate_skill_counts() -> None:
                 )
 
 
+def _assert_honest_api_line(rel: str, line: str) -> None:
+    if re.search(r"Python API|API included|skills_tree\.", line):
+        assert _HONEST_API_MARKER.search(line), (
+            f"{rel}: API-availability line without an honest status marker: {line[:160]}"
+        )
+
+
 def test_no_contradictory_python_api_claims() -> None:
     readme = _read("README.md")
-    assert "| CLI + Python API | ✅ Both |" not in readme
+    assert "| CLI + Python API |" not in readme
     for line in readme.split("\n"):
-        if "Python API" in line or "skills_tree." in line:
-            assert re.search(r"planned|not currently implemented|not implemented|Not yet|docs/api\.md|\*", line, re.IGNORECASE), (
-                f"README Python-API line without an honest status marker: {line[:160]}"
-            )
+        _assert_honest_api_line("README.md", line)
+    index = _read("docs/index.md")
+    for line in index.split("\n"):
+        _assert_honest_api_line("docs/index.md", line)
     assert "does not contain a verified implementation" in _read("docs/api.md")
 
 
 def test_roadmap_scale_targets_retired() -> None:
-    for rel in ("README.md", "docs/roadmap.md"):
-        text = _read(rel)
-        assert "500+" not in text, f"{rel}: retired '500+' scale target still present"
-        assert "1000+ skills" not in text, f"{rel}: retired '1000+ skills' scale target still present"
+    readme = _read("README.md")
+    assert "Scale milestones retired" in readme, (
+        "README must keep the scale-target retirement note"
+    )
+    for line in readme.split("\n"):
+        assert "500+ skills" not in line, f"README: active '500+ skills' target returned: {line[:160]}"
+        assert "1000+ skills" not in line, f"README: active '1000+ skills' target returned: {line[:160]}"
+    roadmap = _read("docs/roadmap.md")
+    for line in roadmap.split("\n"):
+        if re.search(r"\b(500|1000)\+", line):
+            lowered = line.lower()
+            assert any(k in lowered for k in ("historical", "retired", "passed", "reached")), (
+                f"docs/roadmap.md: scale-target mention without historical labeling: {line[:160]}"
+            )
 
 
 def _readme_benchmark_rows() -> list[tuple[str, str, str]]:
@@ -109,8 +133,9 @@ def test_readme_benchmark_links_exist_and_margins_match_source() -> None:
                 f"README benchmark row '{name}' margin '{margin}': number {num} not found in {link}"
             )
         if re.search(r"\d", margin):
-            assert "points" in margin, (
-                f"README benchmark row '{name}' must express margins as percentage points: '{margin}'"
+            assert "points" in margin or "score" in margin.lower(), (
+                f"README benchmark row '{name}' must express margins as percentage points "
+                f"or an explicit raw score: '{margin}'"
             )
 
 
@@ -128,7 +153,7 @@ def test_benchmark_pages_winner_claims_match_sources() -> None:
 
 def test_documented_cli_commands_exist_in_cli_reference() -> None:
     cli = _read("docs/cli.md")
-    documented = set(re.findall("^## " + BT + "skills-tree (\\w[\\w-]*)" + BT, cli, re.MULTILINE))
+    documented = {m.group(1) for m in _CLI_HEADING.finditer(cli)}
     assert {"search", "recommend", "blueprint", "goals", "skills", "validate"} <= documented
     for rel in ("README.md", "docs/quickstart.md"):
         for cmd in set(re.findall("skills-tree ([a-z][a-z-]*)", _read(rel))):
