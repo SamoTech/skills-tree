@@ -22,10 +22,9 @@ A Benchmark must:
 
 | Benchmark | Category | Winner | Link |
 |---|---|---|---|
-| ReAct vs LATS | Reasoning / Agentic | LATS (+8.3%) | [→](reasoning/react-vs-lats.md) |
-| RAG Retrieval Strategies | Memory | HyDE (+12% recall) | [→](memory/rag-retrieval-strategies.md) |
+| ReAct vs LATS | Reasoning / Agentic | LATS (+8.3 points) | [→](reasoning/react-vs-lats.md) |
+| RAG Retrieval Strategies | Memory | HyDE (+12.9 points recall) | [→](memory/rag-retrieval-strategies.md) |
 | Memory Injection Methods | Memory | Top-K Semantic | [→](memory/injection-strategies.md) |
-| Code Gen: Claude vs GPT-4o | Code | Claude 3.7 (+6%) | [→](code/model-comparison.md) |
 
 ---
 

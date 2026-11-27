@@ -8,20 +8,20 @@ Benchmark pages describe methodology, datasets, and reproduction material where 
 
 | Benchmark | Dataset | Winner | Margin | Link |
 |---|---|---|---|---|
-| ReAct vs LATS | HotpotQA | LATS | +8.3% accuracy | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/reasoning/react-vs-lats.md) |
+| ReAct vs LATS | HotpotQA | LATS | +8.3 points accuracy | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/reasoning/react-vs-lats.md) |
 
 ### Memory & Retrieval
 
 | Benchmark | Dataset | Winner | Margin | Link |
 |---|---|---|---|---|
-| RAG retrieval strategies | Custom | HyDE | +12% recall | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/memory/rag-retrieval-strategies.md) |
+| RAG retrieval strategies | HotpotQA + NaturalQuestions | HyDE | +12.9 points recall | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/memory/rag-retrieval-strategies.md) |
 | Memory injection methods | Custom | Top-K semantic | Best cost/quality | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/memory/injection-strategies.md) |
 
 ### Tool Use
 
 | Benchmark | Dataset | Winner | Margin | Link |
 |---|---|---|---|---|
-| Function calling | ToolBench | Claude 3.7 | +6% accuracy | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/tool-use/function-calling-comparison.md) |
+| Function calling | 200 hand-crafted tasks (5 tool categories) | Claude Opus 4.5 | Top single-call score 95.0/100 | [View](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/tool-use/function-calling-comparison.md) |
 
 ## Reproducing a Benchmark
 
@@ -31,8 +31,9 @@ The example below demonstrates the repository's reproduction convention; it does
 git clone https://github.com/SamoTech/skills-tree.git
 cd skills-tree
 pip install -r requirements.txt
-python benchmarks/reasoning/react-vs-lats.py
 ```
+
+The historical scorecard pages document their datasets, methodology, and result tables; there is currently **no committed per-benchmark runner script** for them. The CAP capability contracts are the committed, CI-executed evaluation assets — see [EVALUATION-PROTOCOL.md](https://github.com/SamoTech/skills-tree/blob/main/benchmarks/EVALUATION-PROTOCOL.md).
 
 ## Contributing Benchmarks
 
