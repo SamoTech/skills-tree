@@ -19,7 +19,7 @@ Done. 2488 document(s) written to 'docs/search-index.json' and 'data/search-inde
 [export] Done.
 Wrote meta/QUALITY-REPORT.md
 Summary: {'battle_tested': 2442, 'enriched': 46, 'stub': 0, 'invalid': 0}
-Updated README.md.
+README.md already in sync.
 docs/index.md already in sync.
 mkdocs.yml already in sync.
 docs/architecture.md already in sync.
